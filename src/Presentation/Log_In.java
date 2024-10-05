@@ -91,7 +91,7 @@ public class Log_In extends javax.swing.JFrame {
         });
         Pnl_Principal.add(txtContrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 230, 350, 40));
 
-        lblImagenExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/exit.png"))); // NOI18N
+        lblImagenExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/btnSalir__1_-removebg-preview.png"))); // NOI18N
         lblImagenExit.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 lblImagenExitMouseClicked(evt);
@@ -158,6 +158,9 @@ public class Log_In extends javax.swing.JFrame {
         window.dispose();
     }//GEN-LAST:event_lblImagenExitMouseClicked
 
+    
+    
+    
     /**
      * @param args the command line arguments
      */

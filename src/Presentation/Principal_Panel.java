@@ -15,6 +15,7 @@ public class Principal_Panel extends javax.swing.JFrame {
      */
     public Principal_Panel() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -28,15 +29,14 @@ public class Principal_Panel extends javax.swing.JFrame {
 
         Pnl_Menu = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        Btn_Productos = new javax.swing.JButton();
-        Btn_Reportes = new javax.swing.JButton();
-        Btn_Comprar = new javax.swing.JButton();
-        Btn_Ventas = new javax.swing.JButton();
-        Btn_Empleados = new javax.swing.JButton();
-        Btn_Cuentas_Pagar = new javax.swing.JButton();
+        Btn_Gestion_Equipos = new javax.swing.JButton();
+        Btn_Gestion_de_Torneos = new javax.swing.JButton();
+        Btn_Registro_Partidos = new javax.swing.JButton();
+        Btn_Estadisticas = new javax.swing.JButton();
         Pnl_SubM = new javax.swing.JPanel();
-        Btn_RepCompras = new javax.swing.JButton();
-        Btn_RepVenta = new javax.swing.JButton();
+        Btn_Estadisticas1 = new javax.swing.JButton();
+        Btn_Estadisticas2 = new javax.swing.JButton();
+        Btn_Estadisticas3 = new javax.swing.JButton();
         Pnl_Titulo = new javax.swing.JPanel();
         Lbl_Titulo = new javax.swing.JLabel();
         Lbl_Cerrar = new javax.swing.JLabel();
@@ -51,102 +51,87 @@ public class Principal_Panel extends javax.swing.JFrame {
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/download__2_-removebg-preview.png"))); // NOI18N
         Pnl_Menu.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 200, 130));
 
-        Btn_Productos.setBackground(new java.awt.Color(51, 102, 255));
-        Btn_Productos.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        Btn_Productos.setForeground(new java.awt.Color(255, 255, 255));
-        Btn_Productos.setText("Productos");
-        Btn_Productos.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        Btn_Productos.addActionListener(new java.awt.event.ActionListener() {
+        Btn_Gestion_Equipos.setBackground(new java.awt.Color(51, 102, 255));
+        Btn_Gestion_Equipos.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        Btn_Gestion_Equipos.setForeground(new java.awt.Color(255, 255, 255));
+        Btn_Gestion_Equipos.setText("Gestión de Equipos");
+        Btn_Gestion_Equipos.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        Btn_Gestion_Equipos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Btn_ProductosActionPerformed(evt);
+                Btn_Gestion_EquiposActionPerformed(evt);
             }
         });
-        Pnl_Menu.add(Btn_Productos, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, 150, -1));
+        Pnl_Menu.add(Btn_Gestion_Equipos, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 150, 50));
 
-        Btn_Reportes.setBackground(new java.awt.Color(52, 102, 255));
-        Btn_Reportes.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        Btn_Reportes.setForeground(new java.awt.Color(255, 255, 255));
-        Btn_Reportes.setText("Reportes");
-        Btn_Reportes.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        Btn_Reportes.addActionListener(new java.awt.event.ActionListener() {
+        Btn_Gestion_de_Torneos.setBackground(new java.awt.Color(52, 102, 255));
+        Btn_Gestion_de_Torneos.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        Btn_Gestion_de_Torneos.setForeground(new java.awt.Color(255, 255, 255));
+        Btn_Gestion_de_Torneos.setText("Gestión de Torneos");
+        Btn_Gestion_de_Torneos.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        Btn_Gestion_de_Torneos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Btn_ReportesActionPerformed(evt);
+                Btn_Gestion_de_TorneosActionPerformed(evt);
             }
         });
-        Pnl_Menu.add(Btn_Reportes, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 380, 150, -1));
+        Pnl_Menu.add(Btn_Gestion_de_Torneos, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 150, 50));
 
-        Btn_Comprar.setBackground(new java.awt.Color(52, 102, 255));
-        Btn_Comprar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        Btn_Comprar.setForeground(new java.awt.Color(255, 255, 255));
-        Btn_Comprar.setText("Compras");
-        Btn_Comprar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        Btn_Comprar.addActionListener(new java.awt.event.ActionListener() {
+        Btn_Registro_Partidos.setBackground(new java.awt.Color(52, 102, 255));
+        Btn_Registro_Partidos.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        Btn_Registro_Partidos.setForeground(new java.awt.Color(255, 255, 255));
+        Btn_Registro_Partidos.setText("Registro de Partidos");
+        Btn_Registro_Partidos.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        Btn_Registro_Partidos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Btn_ComprarActionPerformed(evt);
+                Btn_Registro_PartidosActionPerformed(evt);
             }
         });
-        Pnl_Menu.add(Btn_Comprar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 150, -1));
+        Pnl_Menu.add(Btn_Registro_Partidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, 150, 50));
 
-        Btn_Ventas.setBackground(new java.awt.Color(52, 102, 255));
-        Btn_Ventas.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        Btn_Ventas.setForeground(new java.awt.Color(255, 255, 255));
-        Btn_Ventas.setText("Ventas");
-        Btn_Ventas.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        Btn_Ventas.addActionListener(new java.awt.event.ActionListener() {
+        Btn_Estadisticas.setBackground(new java.awt.Color(52, 102, 255));
+        Btn_Estadisticas.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        Btn_Estadisticas.setForeground(new java.awt.Color(255, 255, 255));
+        Btn_Estadisticas.setText("Estadísticas");
+        Btn_Estadisticas.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        Btn_Estadisticas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Btn_VentasActionPerformed(evt);
+                Btn_EstadisticasActionPerformed(evt);
             }
         });
-        Pnl_Menu.add(Btn_Ventas, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 150, -1));
-
-        Btn_Empleados.setBackground(new java.awt.Color(52, 102, 255));
-        Btn_Empleados.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        Btn_Empleados.setForeground(new java.awt.Color(255, 255, 255));
-        Btn_Empleados.setText("Empleados");
-        Btn_Empleados.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        Btn_Empleados.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Btn_EmpleadosActionPerformed(evt);
-            }
-        });
-        Pnl_Menu.add(Btn_Empleados, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, 150, -1));
-
-        Btn_Cuentas_Pagar.setBackground(new java.awt.Color(52, 102, 255));
-        Btn_Cuentas_Pagar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        Btn_Cuentas_Pagar.setForeground(new java.awt.Color(255, 255, 255));
-        Btn_Cuentas_Pagar.setText("Cuentas x Pagar");
-        Btn_Cuentas_Pagar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        Btn_Cuentas_Pagar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Btn_Cuentas_PagarActionPerformed(evt);
-            }
-        });
-        Pnl_Menu.add(Btn_Cuentas_Pagar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, 150, -1));
+        Pnl_Menu.add(Btn_Estadisticas, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, 150, 50));
 
         Pnl_SubM.setBackground(new java.awt.Color(52, 102, 255));
         Pnl_SubM.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        Btn_RepCompras.setBackground(new java.awt.Color(51, 102, 255));
-        Btn_RepCompras.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        Btn_RepCompras.setForeground(new java.awt.Color(255, 255, 255));
-        Btn_RepCompras.setText("Compras");
-        Btn_RepCompras.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        Btn_RepCompras.setPreferredSize(new java.awt.Dimension(49, 30));
-        Btn_RepCompras.addActionListener(new java.awt.event.ActionListener() {
+        Btn_Estadisticas1.setBackground(new java.awt.Color(52, 102, 255));
+        Btn_Estadisticas1.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        Btn_Estadisticas1.setForeground(new java.awt.Color(255, 255, 255));
+        Btn_Estadisticas1.setText(" Registro de goleadores  ");
+        Btn_Estadisticas1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        Btn_Estadisticas1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Btn_RepComprasActionPerformed(evt);
+                Btn_Estadisticas1ActionPerformed(evt);
             }
         });
 
-        Btn_RepVenta.setBackground(new java.awt.Color(51, 102, 255));
-        Btn_RepVenta.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        Btn_RepVenta.setForeground(new java.awt.Color(255, 255, 255));
-        Btn_RepVenta.setText("Ventas");
-        Btn_RepVenta.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        Btn_RepVenta.setPreferredSize(new java.awt.Dimension(49, 30));
-        Btn_RepVenta.addActionListener(new java.awt.event.ActionListener() {
+        Btn_Estadisticas2.setBackground(new java.awt.Color(52, 102, 255));
+        Btn_Estadisticas2.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        Btn_Estadisticas2.setForeground(new java.awt.Color(255, 255, 255));
+        Btn_Estadisticas2.setText("Tabla de posiciones de los equipos  ");
+        Btn_Estadisticas2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        Btn_Estadisticas2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Btn_RepVentaActionPerformed(evt);
+                Btn_Estadisticas2ActionPerformed(evt);
+            }
+        });
+
+        Btn_Estadisticas3.setBackground(new java.awt.Color(52, 102, 255));
+        Btn_Estadisticas3.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        Btn_Estadisticas3.setForeground(new java.awt.Color(255, 255, 255));
+        Btn_Estadisticas3.setText("Tabla de sanciones");
+        Btn_Estadisticas3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        Btn_Estadisticas3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_Estadisticas3ActionPerformed(evt);
             }
         });
 
@@ -155,25 +140,26 @@ public class Principal_Panel extends javax.swing.JFrame {
         Pnl_SubMLayout.setHorizontalGroup(
             Pnl_SubMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Pnl_SubMLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(Btn_RepVenta, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(Pnl_SubMLayout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(Btn_RepCompras, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addContainerGap()
+                .addGroup(Pnl_SubMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Btn_Estadisticas3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Btn_Estadisticas2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Btn_Estadisticas1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         Pnl_SubMLayout.setVerticalGroup(
             Pnl_SubMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Pnl_SubMLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(Btn_RepCompras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(Btn_RepVenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(Btn_Estadisticas1, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(Btn_Estadisticas2, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(Btn_Estadisticas3, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        Pnl_Menu.add(Pnl_SubM, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 420, 150, 130));
+        Pnl_Menu.add(Pnl_SubM, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 440, 200, 180));
 
         getContentPane().add(Pnl_Menu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 200, 650));
 
@@ -184,7 +170,7 @@ public class Principal_Panel extends javax.swing.JFrame {
         Lbl_Titulo.setForeground(new java.awt.Color(0, 0, 0));
         Lbl_Titulo.setText("Menú Principal");
 
-        Lbl_Cerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/exit.png"))); // NOI18N
+        Lbl_Cerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/btnSalir__1_-removebg-preview.png"))); // NOI18N
         Lbl_Cerrar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 Lbl_CerrarMouseClicked(evt);
@@ -198,9 +184,9 @@ public class Principal_Panel extends javax.swing.JFrame {
             .addGroup(Pnl_TituloLayout.createSequentialGroup()
                 .addGap(35, 35, 35)
                 .addComponent(Lbl_Titulo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 358, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 355, Short.MAX_VALUE)
                 .addComponent(Lbl_Cerrar)
-                .addGap(169, 169, 169))
+                .addContainerGap())
         );
         Pnl_TituloLayout.setVerticalGroup(
             Pnl_TituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -212,7 +198,7 @@ public class Principal_Panel extends javax.swing.JFrame {
                 .addContainerGap(15, Short.MAX_VALUE))
         );
 
-        getContentPane().add(Pnl_Titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 0, -1, -1));
+        getContentPane().add(Pnl_Titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 0, 600, -1));
 
         javax.swing.GroupLayout Pnl_ContenedorLayout = new javax.swing.GroupLayout(Pnl_Contenedor);
         Pnl_Contenedor.setLayout(Pnl_ContenedorLayout);
@@ -230,7 +216,7 @@ public class Principal_Panel extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void Btn_ProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_ProductosActionPerformed
+    private void Btn_Gestion_EquiposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_Gestion_EquiposActionPerformed
         // Instancia del panel de los productos
 //        Productos Prod = new Productos();
 //        Prod.setSize(610, 600);
@@ -240,13 +226,9 @@ public class Principal_Panel extends javax.swing.JFrame {
 //        Pnl_Contenedor.add(Prod);
 //        Pnl_Contenedor.revalidate();
 //        Pnl_Contenedor.repaint();
-    }//GEN-LAST:event_Btn_ProductosActionPerformed
+    }//GEN-LAST:event_Btn_Gestion_EquiposActionPerformed
 
-    private void Btn_ReportesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_ReportesActionPerformed
-        Pnl_SubM.setVisible(true);
-    }//GEN-LAST:event_Btn_ReportesActionPerformed
-
-    private void Btn_ComprarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_ComprarActionPerformed
+    private void Btn_Gestion_de_TorneosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_Gestion_de_TorneosActionPerformed
 //        Compras Comp = new Compras();
 //        Comp.setSize(610, 600);
 //        Comp.setLocation(0, 0);
@@ -255,9 +237,9 @@ public class Principal_Panel extends javax.swing.JFrame {
 //        Pnl_Contenedor.add(Comp);
 //        Pnl_Contenedor.revalidate();
 //        Pnl_Contenedor.repaint();
-    }//GEN-LAST:event_Btn_ComprarActionPerformed
+    }//GEN-LAST:event_Btn_Gestion_de_TorneosActionPerformed
 
-    private void Btn_VentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_VentasActionPerformed
+    private void Btn_Registro_PartidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_Registro_PartidosActionPerformed
 //        Ventas Vent = new Ventas();
 //        Vent.setSize(610, 600);
 //        Vent.setLocation(0, 0);
@@ -266,9 +248,9 @@ public class Principal_Panel extends javax.swing.JFrame {
 //        Pnl_Contenedor.add(Vent);
 //        Pnl_Contenedor.revalidate();
 //        Pnl_Contenedor.repaint();
-    }//GEN-LAST:event_Btn_VentasActionPerformed
+    }//GEN-LAST:event_Btn_Registro_PartidosActionPerformed
 
-    private void Btn_EmpleadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_EmpleadosActionPerformed
+    private void Btn_EstadisticasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_EstadisticasActionPerformed
 //        Empleados Emple = new Empleados();
 //        Emple.setSize(610, 600);
 //        Emple.setLocation(0, 0);
@@ -277,46 +259,23 @@ public class Principal_Panel extends javax.swing.JFrame {
 //        Pnl_Contenedor.add(Emple);
 //        Pnl_Contenedor.revalidate();
 //        Pnl_Contenedor.repaint();
-    }//GEN-LAST:event_Btn_EmpleadosActionPerformed
-
-    private void Btn_Cuentas_PagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_Cuentas_PagarActionPerformed
-//        CuentasXPagar CXP = new CuentasXPagar();
-//        CXP.setSize(610, 600);
-//        CXP.setLocation(0, 0);
-//
-//        Pnl_Contenedor.removeAll();
-//        Pnl_Contenedor.add(CXP);
-//        Pnl_Contenedor.revalidate();
-//        Pnl_Contenedor.repaint();
-    }//GEN-LAST:event_Btn_Cuentas_PagarActionPerformed
-
-    private void Btn_RepComprasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_RepComprasActionPerformed
-//        Pnl_SubM.setVisible(false);
-//        ReporteCompras Comp = new ReporteCompras();
-//        Comp.setSize(610, 600);
-//        Comp.setLocation(0, 0);
-//
-//        Pnl_Contenedor.removeAll();
-//        Pnl_Contenedor.add(Comp);
-//        Pnl_Contenedor.revalidate();
-//        Pnl_Contenedor.repaint();
-    }//GEN-LAST:event_Btn_RepComprasActionPerformed
-
-    private void Btn_RepVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_RepVentaActionPerformed
-//        Pnl_SubM.setVisible(false);
-//        ReporteVentas Vent = new ReporteVentas();
-//        Vent.setSize(610, 600);
-//        Vent.setLocation(0, 0);
-//
-//        Pnl_Contenedor.removeAll();
-//        Pnl_Contenedor.add(Vent);
-//        Pnl_Contenedor.revalidate();
-//        Pnl_Contenedor.repaint();
-    }//GEN-LAST:event_Btn_RepVentaActionPerformed
+    }//GEN-LAST:event_Btn_EstadisticasActionPerformed
 
     private void Lbl_CerrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Lbl_CerrarMouseClicked
         System.exit(0);
     }//GEN-LAST:event_Lbl_CerrarMouseClicked
+
+    private void Btn_Estadisticas1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_Estadisticas1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Btn_Estadisticas1ActionPerformed
+
+    private void Btn_Estadisticas2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_Estadisticas2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Btn_Estadisticas2ActionPerformed
+
+    private void Btn_Estadisticas3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_Estadisticas3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Btn_Estadisticas3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -354,14 +313,13 @@ public class Principal_Panel extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Btn_Comprar;
-    private javax.swing.JButton Btn_Cuentas_Pagar;
-    private javax.swing.JButton Btn_Empleados;
-    private javax.swing.JButton Btn_Productos;
-    private javax.swing.JButton Btn_RepCompras;
-    private javax.swing.JButton Btn_RepVenta;
-    private javax.swing.JButton Btn_Reportes;
-    private javax.swing.JButton Btn_Ventas;
+    private javax.swing.JButton Btn_Estadisticas;
+    private javax.swing.JButton Btn_Estadisticas1;
+    private javax.swing.JButton Btn_Estadisticas2;
+    private javax.swing.JButton Btn_Estadisticas3;
+    private javax.swing.JButton Btn_Gestion_Equipos;
+    private javax.swing.JButton Btn_Gestion_de_Torneos;
+    private javax.swing.JButton Btn_Registro_Partidos;
     private javax.swing.JLabel Lbl_Cerrar;
     private javax.swing.JLabel Lbl_Titulo;
     private javax.swing.JPanel Pnl_Contenedor;

@@ -10,8 +10,6 @@ package Presentation;
  */
 public class Principal_Panel extends javax.swing.JFrame {
 
-    
-    
     public Principal_Panel() {
         initComponents();
         setLocationRelativeTo(null);
@@ -29,9 +27,9 @@ public class Principal_Panel extends javax.swing.JFrame {
         Btn_Registro_Partidos = new javax.swing.JButton();
         Btn_Estadisticas = new javax.swing.JButton();
         Pnl_SubM = new javax.swing.JPanel();
-        Btn_Estadisticas1 = new javax.swing.JButton();
-        Btn_Estadisticas2 = new javax.swing.JButton();
-        Btn_Estadisticas3 = new javax.swing.JButton();
+        Btn_Registro_Goleadores = new javax.swing.JButton();
+        Btn_Tabla_Posicion_Equipos = new javax.swing.JButton();
+        Btn_Tabla_Sanciones = new javax.swing.JButton();
         Pnl_Titulo = new javax.swing.JPanel();
         Lbl_Titulo = new javax.swing.JLabel();
         Lbl_Cerrar = new javax.swing.JLabel();
@@ -98,36 +96,36 @@ public class Principal_Panel extends javax.swing.JFrame {
         Pnl_SubM.setBackground(new java.awt.Color(52, 102, 255));
         Pnl_SubM.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        Btn_Estadisticas1.setBackground(new java.awt.Color(52, 102, 255));
-        Btn_Estadisticas1.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
-        Btn_Estadisticas1.setForeground(new java.awt.Color(255, 255, 255));
-        Btn_Estadisticas1.setText(" Registro de goleadores  ");
-        Btn_Estadisticas1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        Btn_Estadisticas1.addActionListener(new java.awt.event.ActionListener() {
+        Btn_Registro_Goleadores.setBackground(new java.awt.Color(52, 102, 255));
+        Btn_Registro_Goleadores.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        Btn_Registro_Goleadores.setForeground(new java.awt.Color(255, 255, 255));
+        Btn_Registro_Goleadores.setText(" Registro de goleadores  ");
+        Btn_Registro_Goleadores.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        Btn_Registro_Goleadores.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Btn_Estadisticas1ActionPerformed(evt);
+                Btn_Registro_GoleadoresActionPerformed(evt);
             }
         });
 
-        Btn_Estadisticas2.setBackground(new java.awt.Color(52, 102, 255));
-        Btn_Estadisticas2.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
-        Btn_Estadisticas2.setForeground(new java.awt.Color(255, 255, 255));
-        Btn_Estadisticas2.setText("Tabla de posiciones de los equipos  ");
-        Btn_Estadisticas2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        Btn_Estadisticas2.addActionListener(new java.awt.event.ActionListener() {
+        Btn_Tabla_Posicion_Equipos.setBackground(new java.awt.Color(52, 102, 255));
+        Btn_Tabla_Posicion_Equipos.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        Btn_Tabla_Posicion_Equipos.setForeground(new java.awt.Color(255, 255, 255));
+        Btn_Tabla_Posicion_Equipos.setText("Tabla de posiciones de los equipos  ");
+        Btn_Tabla_Posicion_Equipos.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        Btn_Tabla_Posicion_Equipos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Btn_Estadisticas2ActionPerformed(evt);
+                Btn_Tabla_Posicion_EquiposActionPerformed(evt);
             }
         });
 
-        Btn_Estadisticas3.setBackground(new java.awt.Color(52, 102, 255));
-        Btn_Estadisticas3.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
-        Btn_Estadisticas3.setForeground(new java.awt.Color(255, 255, 255));
-        Btn_Estadisticas3.setText("Tabla de sanciones");
-        Btn_Estadisticas3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        Btn_Estadisticas3.addActionListener(new java.awt.event.ActionListener() {
+        Btn_Tabla_Sanciones.setBackground(new java.awt.Color(52, 102, 255));
+        Btn_Tabla_Sanciones.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        Btn_Tabla_Sanciones.setForeground(new java.awt.Color(255, 255, 255));
+        Btn_Tabla_Sanciones.setText("Tabla de sanciones");
+        Btn_Tabla_Sanciones.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        Btn_Tabla_Sanciones.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Btn_Estadisticas3ActionPerformed(evt);
+                Btn_Tabla_SancionesActionPerformed(evt);
             }
         });
 
@@ -138,20 +136,20 @@ public class Principal_Panel extends javax.swing.JFrame {
             .addGroup(Pnl_SubMLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(Pnl_SubMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Btn_Estadisticas3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Btn_Estadisticas2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Btn_Estadisticas1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(Btn_Tabla_Sanciones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(Btn_Tabla_Posicion_Equipos, javax.swing.GroupLayout.DEFAULT_SIZE, 184, Short.MAX_VALUE)
+                    .addComponent(Btn_Registro_Goleadores, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         Pnl_SubMLayout.setVerticalGroup(
             Pnl_SubMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Pnl_SubMLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(Btn_Estadisticas1, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Btn_Registro_Goleadores, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Btn_Estadisticas2, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Btn_Tabla_Posicion_Equipos, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Btn_Estadisticas3, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Btn_Tabla_Sanciones, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -180,7 +178,7 @@ public class Principal_Panel extends javax.swing.JFrame {
             .addGroup(Pnl_TituloLayout.createSequentialGroup()
                 .addGap(35, 35, 35)
                 .addComponent(Lbl_Titulo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 355, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 365, Short.MAX_VALUE)
                 .addComponent(Lbl_Cerrar)
                 .addContainerGap())
         );
@@ -194,23 +192,26 @@ public class Principal_Panel extends javax.swing.JFrame {
                 .addContainerGap(15, Short.MAX_VALUE))
         );
 
-        getContentPane().add(Pnl_Titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 0, 600, -1));
+        getContentPane().add(Pnl_Titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 0, 610, -1));
+
+        Pnl_Contenedor.setPreferredSize(new java.awt.Dimension(610, 600));
 
         javax.swing.GroupLayout Pnl_ContenedorLayout = new javax.swing.GroupLayout(Pnl_Contenedor);
         Pnl_Contenedor.setLayout(Pnl_ContenedorLayout);
         Pnl_ContenedorLayout.setHorizontalGroup(
             Pnl_ContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 600, Short.MAX_VALUE)
+            .addGap(0, 610, Short.MAX_VALUE)
         );
         Pnl_ContenedorLayout.setVerticalGroup(
             Pnl_ContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 590, Short.MAX_VALUE)
+            .addGap(0, 600, Short.MAX_VALUE)
         );
 
-        getContentPane().add(Pnl_Contenedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 50, 600, 590));
+        getContentPane().add(Pnl_Contenedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 50, 610, 600));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
 
     private void Btn_Gestion_EquiposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_Gestion_EquiposActionPerformed
         // Instancia del panel de los productos
@@ -220,31 +221,36 @@ public class Principal_Panel extends javax.swing.JFrame {
 
         Pnl_Contenedor.removeAll();
         Pnl_Contenedor.add(Team);
-        
+
         Pnl_Contenedor.revalidate();
         Pnl_Contenedor.repaint();
     }//GEN-LAST:event_Btn_Gestion_EquiposActionPerformed
 
     private void Btn_Gestion_de_TorneosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_Gestion_de_TorneosActionPerformed
-//        Compras Comp = new Compras();
-//        Comp.setSize(610, 600);
-//        Comp.setLocation(0, 0);
-//
-//        Pnl_Contenedor.removeAll();
-//        Pnl_Contenedor.add(Comp);
-//        Pnl_Contenedor.revalidate();
-//        Pnl_Contenedor.repaint();
+        Tournament_Management Tournament_Window = new Tournament_Management();
+
+        Tournament_Window.setSize(610, 600);
+        Tournament_Window.setLocation(0, 0);
+
+        Pnl_Contenedor.removeAll();
+        Pnl_Contenedor.add(Tournament_Window);
+
+        Pnl_Contenedor.revalidate();
+        Pnl_Contenedor.repaint();
+
     }//GEN-LAST:event_Btn_Gestion_de_TorneosActionPerformed
 
     private void Btn_Registro_PartidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_Registro_PartidosActionPerformed
-//        Ventas Vent = new Ventas();
-//        Vent.setSize(610, 600);
-//        Vent.setLocation(0, 0);
-//
-//        Pnl_Contenedor.removeAll();
-//        Pnl_Contenedor.add(Vent);
-//        Pnl_Contenedor.revalidate();
-//        Pnl_Contenedor.repaint();
+        Match_Registration Match_Window = new Match_Registration();
+
+        Match_Window.setSize(610, 600);
+        Match_Window.setLocation(0, 0);
+
+        Pnl_Contenedor.removeAll();
+        Pnl_Contenedor.add(Match_Window);
+
+        Pnl_Contenedor.revalidate();
+        Pnl_Contenedor.repaint();
     }//GEN-LAST:event_Btn_Registro_PartidosActionPerformed
 
     private void Btn_EstadisticasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_EstadisticasActionPerformed
@@ -255,17 +261,53 @@ public class Principal_Panel extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_Lbl_CerrarMouseClicked
 
-    private void Btn_Estadisticas1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_Estadisticas1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Btn_Estadisticas1ActionPerformed
+    private void Btn_Registro_GoleadoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_Registro_GoleadoresActionPerformed
+        Pnl_SubM.setVisible(false);
 
-    private void Btn_Estadisticas2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_Estadisticas2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Btn_Estadisticas2ActionPerformed
+        Scorer_Record Scorer_Window = new Scorer_Record();
 
-    private void Btn_Estadisticas3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_Estadisticas3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Btn_Estadisticas3ActionPerformed
+        Scorer_Window.setSize(610, 600);
+        Scorer_Window.setLocation(0, 0);
+
+        Pnl_Contenedor.removeAll();
+        Pnl_Contenedor.add(Scorer_Window);
+
+        Pnl_Contenedor.revalidate();
+        Pnl_Contenedor.repaint();
+
+    }//GEN-LAST:event_Btn_Registro_GoleadoresActionPerformed
+
+    private void Btn_Tabla_Posicion_EquiposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_Tabla_Posicion_EquiposActionPerformed
+        Pnl_SubM.setVisible(false);
+
+        Team_Position_Table Team_Position_Window = new Team_Position_Table();
+
+        Team_Position_Window.setSize(610, 600);
+        Team_Position_Window.setLocation(0, 0);
+
+        Pnl_Contenedor.removeAll();
+        Pnl_Contenedor.add(Team_Position_Window);
+
+        Pnl_Contenedor.revalidate();
+        Pnl_Contenedor.repaint();
+
+    }//GEN-LAST:event_Btn_Tabla_Posicion_EquiposActionPerformed
+
+    private void Btn_Tabla_SancionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_Tabla_SancionesActionPerformed
+        Pnl_SubM.setVisible(false);
+
+        Sanctions_Table Sanctions_Window = new Sanctions_Table();
+
+        Sanctions_Window.setSize(610, 600);
+        Sanctions_Window.setLocation(0, 0);
+
+        Pnl_Contenedor.removeAll();
+        Pnl_Contenedor.add(Sanctions_Window);
+
+        Pnl_Contenedor.revalidate();
+        Pnl_Contenedor.repaint();
+
+    }//GEN-LAST:event_Btn_Tabla_SancionesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -304,12 +346,12 @@ public class Principal_Panel extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Btn_Estadisticas;
-    private javax.swing.JButton Btn_Estadisticas1;
-    private javax.swing.JButton Btn_Estadisticas2;
-    private javax.swing.JButton Btn_Estadisticas3;
     private javax.swing.JButton Btn_Gestion_Equipos;
     private javax.swing.JButton Btn_Gestion_de_Torneos;
+    private javax.swing.JButton Btn_Registro_Goleadores;
     private javax.swing.JButton Btn_Registro_Partidos;
+    private javax.swing.JButton Btn_Tabla_Posicion_Equipos;
+    private javax.swing.JButton Btn_Tabla_Sanciones;
     private javax.swing.JLabel Lbl_Cerrar;
     private javax.swing.JLabel Lbl_Titulo;
     private javax.swing.JPanel Pnl_Contenedor;

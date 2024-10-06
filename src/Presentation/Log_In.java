@@ -15,7 +15,7 @@ public class Log_In extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -162,7 +162,6 @@ public class Log_In extends javax.swing.JFrame {
         Log_In_Logic login = new Log_In_Logic();
         login.Default_Text_User_Field(txtUsuario, txtContrasena);
     }//GEN-LAST:event_txtUsuarioMousePressed
-
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

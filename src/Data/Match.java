@@ -20,7 +20,7 @@ public class Match {
     private int Visitor_Goals;
     private Map<Player, Integer> Yellow_Cards;
     private Map<Player, Integer> Red_Cards;
-    private String Other_Sanctions;
+    private Map<Player, String> Other_Sanctions;
 
     public Match(String Match_Id, Team Local_Team, Team Visitant_Team, int Local_Goals, int Visitor_Goals, Map<Player, Integer> Yellow_Cards, Map<Player, Integer> Red_Cards, String Other_Sanctions) {
         this.Match_Id = Match_Id;
@@ -30,7 +30,7 @@ public class Match {
         this.Visitor_Goals = Visitor_Goals;
         this.Yellow_Cards = new HashMap<>();
         this.Red_Cards = new HashMap<>();
-        this.Other_Sanctions = Other_Sanctions;
+        this.Other_Sanctions = new HashMap<>();
     }
 
     public String getMatch_Id() {
@@ -89,11 +89,11 @@ public class Match {
         this.Red_Cards = Red_Cards;
     }
 
-    public String getOther_Sanctions() {
+    public Map<Player, String> getOther_Sanctions() {
         return Other_Sanctions;
     }
 
-    public void setOther_Sanctions(String Other_Sanctions) {
+    public void setOther_Sanctions(Map<Player, String>Other_Sanctions) {
         this.Other_Sanctions = Other_Sanctions;
     }
 

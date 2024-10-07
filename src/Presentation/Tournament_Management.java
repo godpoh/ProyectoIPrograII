@@ -15,6 +15,12 @@ public class Tournament_Management extends javax.swing.JPanel {
      */
     public Tournament_Management() {
         initComponents();
+        Pnl_Informacion_Torneo.setVisible(false);
+        Pnl_Tarjetas.setVisible(false);
+        Pnl_Torneo.setVisible(false);
+        Pnl_Registro_Equipos.setVisible(false);
+        
+        Action_Listeners_Method();
     }
 
     /**
@@ -29,22 +35,25 @@ public class Tournament_Management extends javax.swing.JPanel {
         RdG = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        Rd_Equipo = new javax.swing.JRadioButton();
+        Rd_Creacion_Torneo = new javax.swing.JRadioButton();
         jLabel2 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
-        Rd_Jugador = new javax.swing.JRadioButton();
+        Rd_Equipos = new javax.swing.JRadioButton();
         jLabel3 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
-        Rd_Equipo1 = new javax.swing.JRadioButton();
+        Rd_Informacion_Tarjetas = new javax.swing.JRadioButton();
         jLabel13 = new javax.swing.JLabel();
+        jPanel6 = new javax.swing.JPanel();
+        Rd_Informacion_Torneo = new javax.swing.JRadioButton();
+        jLabel20 = new javax.swing.JLabel();
         Pnl_Principal = new javax.swing.JPanel();
-        Pnl_Registro_Equipo = new javax.swing.JPanel();
+        Pnl_Torneo = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         txt_Equipo = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        Pnl_Registro_Jugadores = new javax.swing.JPanel();
+        Pnl_Registro_Equipos = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jComboBox3 = new javax.swing.JComboBox<>();
@@ -75,7 +84,8 @@ public class Tournament_Management extends javax.swing.JPanel {
         jLabel56 = new javax.swing.JLabel();
         jLabel57 = new javax.swing.JLabel();
         jLabel58 = new javax.swing.JLabel();
-        jPanel5 = new javax.swing.JPanel();
+        jLabel60 = new javax.swing.JLabel();
+        Pnl_Informacion_Torneo = new javax.swing.JPanel();
         jLabel18 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
         jLabel29 = new javax.swing.JLabel();
@@ -104,15 +114,14 @@ public class Tournament_Management extends javax.swing.JPanel {
         jLabel52 = new javax.swing.JLabel();
         jLabel53 = new javax.swing.JLabel();
         jLabel54 = new javax.swing.JLabel();
-        jPanel6 = new javax.swing.JPanel();
-        Rd_Equipo2 = new javax.swing.JRadioButton();
-        jLabel20 = new javax.swing.JLabel();
+        jLabel59 = new javax.swing.JLabel();
+        jComboBox6 = new javax.swing.JComboBox<>();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        RdG.add(Rd_Equipo);
+        RdG.add(Rd_Creacion_Torneo);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel2.setText("Creacion de Torneo");
@@ -127,7 +136,7 @@ public class Tournament_Management extends javax.swing.JPanel {
                 .addContainerGap())
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(50, 50, 50)
-                .addComponent(Rd_Equipo)
+                .addComponent(Rd_Creacion_Torneo)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -136,13 +145,13 @@ public class Tournament_Management extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(jLabel2)
                 .addGap(4, 4, 4)
-                .addComponent(Rd_Equipo)
+                .addComponent(Rd_Creacion_Torneo)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 120, 50));
 
-        RdG.add(Rd_Jugador);
+        RdG.add(Rd_Equipos);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel3.setText("Registro de equipos en torneo");
@@ -158,7 +167,7 @@ public class Tournament_Management extends javax.swing.JPanel {
                         .addComponent(jLabel3))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(86, 86, 86)
-                        .addComponent(Rd_Jugador)))
+                        .addComponent(Rd_Equipos)))
                 .addContainerGap(14, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -167,13 +176,13 @@ public class Tournament_Management extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(jLabel3)
                 .addGap(4, 4, 4)
-                .addComponent(Rd_Jugador)
+                .addComponent(Rd_Equipos)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, 190, 50));
 
-        RdG.add(Rd_Equipo1);
+        RdG.add(Rd_Informacion_Tarjetas);
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel13.setText("Información Tarjetas");
@@ -186,7 +195,7 @@ public class Tournament_Management extends javax.swing.JPanel {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(50, 50, 50)
-                        .addComponent(Rd_Equipo1))
+                        .addComponent(Rd_Informacion_Tarjetas))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel13)))
@@ -198,231 +207,13 @@ public class Tournament_Management extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(jLabel13)
                 .addGap(4, 4, 4)
-                .addComponent(Rd_Equipo1)
+                .addComponent(Rd_Informacion_Tarjetas)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 10, 140, -1));
 
-        Pnl_Principal.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        Pnl_Registro_Equipo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel1.setText("Ingrese el nombre del torneo");
-        Pnl_Registro_Equipo.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 0, 270, -1));
-
-        txt_Equipo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txt_EquipoActionPerformed(evt);
-            }
-        });
-        Pnl_Registro_Equipo.add(txt_Equipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 30, 210, -1));
-
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel4.setText("IMPORTANTE:");
-        Pnl_Registro_Equipo.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 60, -1, -1));
-
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel5.setText("Al crear un torneo, tendrá un ID unicó. Se le definira el ID cuando cree el torneo.");
-        Pnl_Registro_Equipo.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, -1, -1));
-
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton1.setText("CREAR");
-        Pnl_Registro_Equipo.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 110, -1, -1));
-
-        Pnl_Principal.add(Pnl_Registro_Equipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 570, 140));
-
-        Pnl_Registro_Jugadores.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel6.setText("Ingrese los equipos que participarán");
-        Pnl_Registro_Jugadores.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 70, -1, -1));
-
-        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel7.setText("Nombre del Torneo");
-        Pnl_Registro_Jugadores.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 20, -1, -1));
-        Pnl_Registro_Jugadores.add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 40, 210, -1));
-        Pnl_Registro_Jugadores.add(jComboBox4, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 90, 210, -1));
-
-        jButton2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton2.setText("INGRESAR");
-        Pnl_Registro_Jugadores.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 170, -1, -1));
-
-        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel8.setText("IMPORTANTE:");
-        Pnl_Registro_Jugadores.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 120, -1, -1));
-
-        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel9.setText("Al ingresar un equipo al torneo no se podrá eliminar");
-        Pnl_Registro_Jugadores.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 140, -1, -1));
-
-        Pnl_Principal.add(Pnl_Registro_Jugadores, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 570, 240));
-
-        Pnl_Tarjetas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel10.setText("Nombre del Torneo:");
-        Pnl_Tarjetas.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 10, -1, -1));
-
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        Pnl_Tarjetas.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 30, 210, -1));
-
-        jLabel11.setText("Sanciones del equipo");
-        Pnl_Tarjetas.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 60, -1, -1));
-
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        Pnl_Tarjetas.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 80, -1, -1));
-
-        jLabel12.setText("Tarjetas amarillas");
-        Pnl_Tarjetas.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 160, -1, -1));
-
-        jLabel14.setText("Tarjetas rojas");
-        Pnl_Tarjetas.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 160, -1, -1));
-
-        jLabel16.setText("Monto economico");
-        Pnl_Tarjetas.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 210, 100, 20));
-
-        jLabel15.setText("jLabel15");
-        Pnl_Tarjetas.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 180, -1, -1));
-
-        jLabel17.setText("jLabel17");
-        Pnl_Tarjetas.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 180, -1, -1));
-
-        jLabel19.setText("Tarjetas de jugador");
-        Pnl_Tarjetas.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 110, -1, -1));
-
-        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        Pnl_Tarjetas.add(jComboBox5, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 130, 210, -1));
-
-        jLabel21.setText("jLabel21");
-        Pnl_Tarjetas.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 230, -1, -1));
-
-        jLabel22.setText("Tarjetas amarillas totales del equipo");
-        Pnl_Tarjetas.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, -1, -1));
-
-        jLabel23.setText("Tarjetas rojas totales del equipo");
-        Pnl_Tarjetas.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 260, -1, -1));
-
-        jLabel24.setText("jLabel24");
-        Pnl_Tarjetas.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 280, -1, -1));
-
-        jLabel25.setText("jLabel25");
-        Pnl_Tarjetas.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 280, -1, -1));
-
-        jLabel26.setText("Monto ecomico total del equipo");
-        Pnl_Tarjetas.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 320, -1, -1));
-
-        jLabel27.setText("jLabel27");
-        Pnl_Tarjetas.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 340, -1, -1));
-
-        jLabel55.setText("Otras Sanciones");
-        Pnl_Tarjetas.add(jLabel55, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 160, -1, -1));
-
-        jLabel56.setText("jLabel56");
-        Pnl_Tarjetas.add(jLabel56, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 180, -1, -1));
-
-        jLabel57.setText("Otras sanciones");
-        Pnl_Tarjetas.add(jLabel57, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 260, -1, -1));
-
-        jLabel58.setText("jLabel58");
-        Pnl_Tarjetas.add(jLabel58, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 280, -1, -1));
-
-        Pnl_Principal.add(Pnl_Tarjetas, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 570, 510));
-
-        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel18.setText("Bracket Torneo");
-        jPanel5.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(273, 5, -1, -1));
-
-        jLabel28.setText("Local");
-        jPanel5.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 60, -1, -1));
-
-        jLabel29.setText("Visitante");
-        jPanel5.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 60, -1, -1));
-
-        jLabel30.setText("jLabel30");
-        jPanel5.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 80, -1, -1));
-
-        jLabel31.setText("jLabel31");
-        jPanel5.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 80, -1, -1));
-
-        jLabel33.setText("Marcador");
-        jPanel5.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 100, -1, -1));
-
-        jLabel32.setText("0");
-        jPanel5.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 120, -1, -1));
-
-        jLabel34.setText("0");
-        jPanel5.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 120, 10, -1));
-
-        jLabel35.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel35.setText(":");
-        jPanel5.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 110, 10, 30));
-
-        jLabel36.setText("Regular");
-        jPanel5.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 40, -1, -1));
-
-        jLabel37.setText("Semifinales");
-        jPanel5.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 160, -1, -1));
-
-        jLabel38.setText("0");
-        jPanel5.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 250, 10, -1));
-
-        jLabel39.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel39.setText(":");
-        jPanel5.add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 240, 10, 30));
-
-        jLabel40.setText("0");
-        jPanel5.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 250, -1, -1));
-
-        jLabel41.setText("Marcador");
-        jPanel5.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 230, -1, -1));
-
-        jLabel42.setText("jLabel31");
-        jPanel5.add(jLabel42, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 210, -1, -1));
-
-        jLabel43.setText("Local");
-        jPanel5.add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 190, -1, -1));
-
-        jLabel44.setText("Visitante");
-        jPanel5.add(jLabel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 190, -1, -1));
-
-        jLabel45.setText("jLabel30");
-        jPanel5.add(jLabel45, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 210, -1, -1));
-
-        jLabel46.setText("0");
-        jPanel5.add(jLabel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 390, 10, -1));
-
-        jLabel47.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel47.setText(":");
-        jPanel5.add(jLabel47, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 380, 10, 30));
-
-        jLabel48.setText("0");
-        jPanel5.add(jLabel48, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 390, -1, -1));
-
-        jLabel49.setText("Marcador");
-        jPanel5.add(jLabel49, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 370, -1, -1));
-
-        jLabel50.setText("jLabel31");
-        jPanel5.add(jLabel50, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 350, -1, -1));
-
-        jLabel51.setText("Local");
-        jPanel5.add(jLabel51, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 330, -1, -1));
-
-        jLabel52.setText("Visitante");
-        jPanel5.add(jLabel52, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 330, -1, -1));
-
-        jLabel53.setText("jLabel30");
-        jPanel5.add(jLabel53, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 350, -1, -1));
-
-        jLabel54.setText("Final");
-        jPanel5.add(jLabel54, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 310, -1, -1));
-
-        Pnl_Principal.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 590, 520));
-
-        jPanel1.add(Pnl_Principal, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 590, 530));
-
-        RdG.add(Rd_Equipo2);
+        RdG.add(Rd_Informacion_Torneo);
 
         jLabel20.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel20.setText("Información Torneo");
@@ -435,7 +226,7 @@ public class Tournament_Management extends javax.swing.JPanel {
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGap(50, 50, 50)
-                        .addComponent(Rd_Equipo2))
+                        .addComponent(Rd_Informacion_Torneo))
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel20)))
@@ -447,11 +238,287 @@ public class Tournament_Management extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(jLabel20)
                 .addGap(4, 4, 4)
-                .addComponent(Rd_Equipo2)
+                .addComponent(Rd_Informacion_Torneo)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 10, 130, -1));
+
+        Pnl_Principal.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Pnl_Torneo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel1.setText("Ingrese el nombre del torneo");
+        Pnl_Torneo.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 0, 270, -1));
+
+        txt_Equipo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txt_EquipoActionPerformed(evt);
+            }
+        });
+        Pnl_Torneo.add(txt_Equipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 30, 210, -1));
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel4.setText("IMPORTANTE:");
+        Pnl_Torneo.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 60, -1, -1));
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel5.setText("Al crear un torneo, tendrá un ID unicó. Se le definira el ID cuando cree el torneo.");
+        Pnl_Torneo.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, -1, -1));
+
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButton1.setText("CREAR");
+        Pnl_Torneo.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 110, -1, -1));
+
+        Pnl_Principal.add(Pnl_Torneo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, 570, 140));
+
+        Pnl_Registro_Equipos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel6.setText("Ingrese los equipos que participarán");
+        Pnl_Registro_Equipos.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 70, -1, -1));
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel7.setText("Nombre del Torneo");
+        Pnl_Registro_Equipos.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 20, -1, -1));
+        Pnl_Registro_Equipos.add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 40, 210, -1));
+        Pnl_Registro_Equipos.add(jComboBox4, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 90, 210, -1));
+
+        jButton2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButton2.setText("INGRESAR");
+        Pnl_Registro_Equipos.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 170, -1, -1));
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel8.setText("IMPORTANTE:");
+        Pnl_Registro_Equipos.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 120, -1, -1));
+
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel9.setText("Al ingresar un equipo al torneo no se podrá eliminar");
+        Pnl_Registro_Equipos.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 140, -1, -1));
+
+        Pnl_Principal.add(Pnl_Registro_Equipos, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 570, 240));
+
+        Pnl_Tarjetas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel10.setText("Nombre del Torneo:");
+        Pnl_Tarjetas.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 10, -1, -1));
+
+        jComboBox1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        Pnl_Tarjetas.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 30, 210, -1));
+
+        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel11.setText("Sanciones del equipo");
+        Pnl_Tarjetas.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 60, -1, -1));
+
+        jComboBox2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        Pnl_Tarjetas.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 80, 210, -1));
+
+        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel12.setText("Tarjetas amarillas");
+        Pnl_Tarjetas.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 160, -1, -1));
+
+        jLabel14.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel14.setText("Tarjetas rojas");
+        Pnl_Tarjetas.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 160, -1, -1));
+
+        jLabel16.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel16.setText("Monto economico");
+        Pnl_Tarjetas.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 210, 120, 20));
+
+        jLabel15.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel15.setText("jLabel15");
+        Pnl_Tarjetas.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 180, -1, -1));
+
+        jLabel17.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel17.setText("jLabel17");
+        Pnl_Tarjetas.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 180, -1, -1));
+
+        jLabel19.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel19.setText("Tarjetas de jugador");
+        Pnl_Tarjetas.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 110, -1, -1));
+
+        jComboBox5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        Pnl_Tarjetas.add(jComboBox5, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 130, 210, -1));
+
+        jLabel21.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel21.setText("jLabel21");
+        Pnl_Tarjetas.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 230, -1, -1));
+
+        jLabel22.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel22.setText("Tarjetas amarillas totales del equipo");
+        Pnl_Tarjetas.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, -1, -1));
+
+        jLabel23.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel23.setText("Tarjetas rojas totales del equipo");
+        Pnl_Tarjetas.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 310, -1, -1));
+
+        jLabel24.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel24.setText("jLabel24");
+        Pnl_Tarjetas.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 330, -1, -1));
+
+        jLabel25.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel25.setText("jLabel25");
+        Pnl_Tarjetas.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 330, -1, -1));
+
+        jLabel26.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel26.setText("Monto ecomico total del equipo");
+        Pnl_Tarjetas.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 370, -1, -1));
+
+        jLabel27.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel27.setText("jLabel27");
+        Pnl_Tarjetas.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 390, -1, -1));
+
+        jLabel55.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel55.setText("Otras Sanciones");
+        Pnl_Tarjetas.add(jLabel55, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 160, -1, -1));
+
+        jLabel56.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel56.setText("jLabel56");
+        Pnl_Tarjetas.add(jLabel56, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 180, -1, -1));
+
+        jLabel57.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel57.setText("Otras sanciones");
+        Pnl_Tarjetas.add(jLabel57, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 310, -1, -1));
+
+        jLabel58.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel58.setText("jLabel58");
+        Pnl_Tarjetas.add(jLabel58, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 330, -1, -1));
+
+        jLabel60.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel60.setText("Sanciones totales del equipo");
+        Pnl_Tarjetas.add(jLabel60, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 270, -1, -1));
+
+        Pnl_Principal.add(Pnl_Tarjetas, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 570, 510));
+
+        Pnl_Informacion_Torneo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel18.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel18.setText("Bracket Torneo");
+        Pnl_Informacion_Torneo.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 70, -1, -1));
+
+        jLabel28.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel28.setText("Local");
+        Pnl_Informacion_Torneo.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 130, -1, -1));
+
+        jLabel29.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel29.setText("Visitante");
+        Pnl_Informacion_Torneo.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 130, -1, -1));
+
+        jLabel30.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel30.setText("jLabel30");
+        Pnl_Informacion_Torneo.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 150, -1, -1));
+
+        jLabel31.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel31.setText("jLabel31");
+        Pnl_Informacion_Torneo.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 150, -1, -1));
+
+        jLabel33.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel33.setText("Marcador");
+        Pnl_Informacion_Torneo.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 170, -1, -1));
+
+        jLabel32.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel32.setText("0");
+        Pnl_Informacion_Torneo.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 190, -1, -1));
+
+        jLabel34.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel34.setText("0");
+        Pnl_Informacion_Torneo.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 190, 10, -1));
+
+        jLabel35.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel35.setText(":");
+        Pnl_Informacion_Torneo.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 180, 10, 30));
+
+        jLabel36.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel36.setText("Regular");
+        Pnl_Informacion_Torneo.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 110, -1, -1));
+
+        jLabel37.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel37.setText("Semifinales");
+        Pnl_Informacion_Torneo.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 230, -1, -1));
+
+        jLabel38.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel38.setText("0");
+        Pnl_Informacion_Torneo.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 320, 10, -1));
+
+        jLabel39.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel39.setText(":");
+        Pnl_Informacion_Torneo.add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 310, 10, 30));
+
+        jLabel40.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel40.setText("0");
+        Pnl_Informacion_Torneo.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 320, -1, -1));
+
+        jLabel41.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel41.setText("Marcador");
+        Pnl_Informacion_Torneo.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 300, -1, -1));
+
+        jLabel42.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel42.setText("jLabel31");
+        Pnl_Informacion_Torneo.add(jLabel42, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 280, -1, -1));
+
+        jLabel43.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel43.setText("Local");
+        Pnl_Informacion_Torneo.add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 260, -1, -1));
+
+        jLabel44.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel44.setText("Visitante");
+        Pnl_Informacion_Torneo.add(jLabel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 260, -1, -1));
+
+        jLabel45.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel45.setText("jLabel30");
+        Pnl_Informacion_Torneo.add(jLabel45, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 280, -1, -1));
+
+        jLabel46.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel46.setText("0");
+        Pnl_Informacion_Torneo.add(jLabel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 460, 10, -1));
+
+        jLabel47.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel47.setText(":");
+        Pnl_Informacion_Torneo.add(jLabel47, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 450, 10, 30));
+
+        jLabel48.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel48.setText("0");
+        Pnl_Informacion_Torneo.add(jLabel48, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 460, -1, -1));
+
+        jLabel49.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel49.setText("Marcador");
+        Pnl_Informacion_Torneo.add(jLabel49, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 440, -1, -1));
+
+        jLabel50.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel50.setText("jLabel31");
+        Pnl_Informacion_Torneo.add(jLabel50, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 420, -1, -1));
+
+        jLabel51.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel51.setText("Local");
+        Pnl_Informacion_Torneo.add(jLabel51, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 400, -1, -1));
+
+        jLabel52.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel52.setText("Visitante");
+        Pnl_Informacion_Torneo.add(jLabel52, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 400, -1, -1));
+
+        jLabel53.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel53.setText("jLabel30");
+        Pnl_Informacion_Torneo.add(jLabel53, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 420, -1, -1));
+
+        jLabel54.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel54.setText("Final");
+        Pnl_Informacion_Torneo.add(jLabel54, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 380, -1, -1));
+
+        jLabel59.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel59.setText("Seleccione el torneo");
+        Pnl_Informacion_Torneo.add(jLabel59, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 10, -1, -1));
+
+        jComboBox6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        Pnl_Informacion_Torneo.add(jComboBox6, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 30, 180, -1));
+
+        Pnl_Principal.add(Pnl_Informacion_Torneo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 590, 520));
+
+        jPanel1.add(Pnl_Principal, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 590, 530));
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
@@ -460,17 +527,77 @@ public class Tournament_Management extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txt_EquipoActionPerformed
 
+    private void Selected_Rd() {
+
+        if (Rd_Creacion_Torneo.isSelected()) {
+            Pnl_Informacion_Torneo.setVisible(false);
+            Pnl_Tarjetas.setVisible(false);
+            Pnl_Registro_Equipos.setVisible(false);
+            Pnl_Torneo.setVisible(true);
+
+        } else if (Rd_Equipos.isSelected()) {
+
+            Pnl_Informacion_Torneo.setVisible(false);
+            Pnl_Tarjetas.setVisible(false);
+            Pnl_Registro_Equipos.setVisible(true);
+            Pnl_Torneo.setVisible(false);
+
+        } else if (Rd_Informacion_Tarjetas.isSelected()) {
+
+            Pnl_Informacion_Torneo.setVisible(false);
+            Pnl_Tarjetas.setVisible(true);
+            Pnl_Registro_Equipos.setVisible(false);
+            Pnl_Torneo.setVisible(false);
+
+        } else if (Rd_Informacion_Torneo.isSelected()) {
+
+            Pnl_Informacion_Torneo.setVisible(true);
+            Pnl_Tarjetas.setVisible(false);
+            Pnl_Registro_Equipos.setVisible(false);
+            Pnl_Torneo.setVisible(false);
+
+        }
+    }
+
+    private void Action_Listeners_Method() {
+        Rd_Creacion_Torneo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Selected_Rd();
+            }
+        });
+
+        Rd_Equipos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Selected_Rd();
+            }
+        });
+
+        Rd_Informacion_Tarjetas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Selected_Rd();
+            }
+        });
+
+        Rd_Informacion_Torneo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Selected_Rd();
+            }
+        });
+
+    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel Pnl_Informacion_Torneo;
     private javax.swing.JPanel Pnl_Principal;
-    private javax.swing.JPanel Pnl_Registro_Equipo;
-    private javax.swing.JPanel Pnl_Registro_Jugadores;
+    private javax.swing.JPanel Pnl_Registro_Equipos;
     private javax.swing.JPanel Pnl_Tarjetas;
+    private javax.swing.JPanel Pnl_Torneo;
     private javax.swing.ButtonGroup RdG;
-    private javax.swing.JRadioButton Rd_Equipo;
-    private javax.swing.JRadioButton Rd_Equipo1;
-    private javax.swing.JRadioButton Rd_Equipo2;
-    private javax.swing.JRadioButton Rd_Jugador;
+    private javax.swing.JRadioButton Rd_Creacion_Torneo;
+    private javax.swing.JRadioButton Rd_Equipos;
+    private javax.swing.JRadioButton Rd_Informacion_Tarjetas;
+    private javax.swing.JRadioButton Rd_Informacion_Torneo;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JComboBox<String> jComboBox1;
@@ -478,6 +605,7 @@ public class Tournament_Management extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JComboBox<String> jComboBox4;
     private javax.swing.JComboBox<String> jComboBox5;
+    private javax.swing.JComboBox<String> jComboBox6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -532,7 +660,9 @@ public class Tournament_Management extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel56;
     private javax.swing.JLabel jLabel57;
     private javax.swing.JLabel jLabel58;
+    private javax.swing.JLabel jLabel59;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel60;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
@@ -540,7 +670,6 @@ public class Tournament_Management extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JTextField txt_Equipo;
     // End of variables declaration//GEN-END:variables

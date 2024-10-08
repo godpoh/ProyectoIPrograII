@@ -61,6 +61,9 @@ public class Tournament_Management extends javax.swing.JPanel {
         jButton2 = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
+        jLabel68 = new javax.swing.JLabel();
+        jComboBox7 = new javax.swing.JComboBox<>();
+        jButton3 = new javax.swing.JButton();
         Pnl_Tarjetas = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
@@ -334,7 +337,7 @@ public class Tournament_Management extends javax.swing.JPanel {
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton2.setForeground(new java.awt.Color(0, 0, 0));
         jButton2.setText("INGRESAR");
-        Pnl_Registro_Equipos.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 170, -1, -1));
+        Pnl_Registro_Equipos.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 170, -1, -1));
 
         jLabel8.setBackground(new java.awt.Color(255, 255, 255));
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -345,8 +348,25 @@ public class Tournament_Management extends javax.swing.JPanel {
         jLabel9.setBackground(new java.awt.Color(255, 255, 255));
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel9.setText("Al ingresar un equipo al torneo no se podrá eliminar");
-        Pnl_Registro_Equipos.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 140, -1, -1));
+        jLabel9.setText("Al ingresar un equipo al torneo y  este, ya haya jugado no se podra eliminar");
+        Pnl_Registro_Equipos.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 140, -1, -1));
+
+        jLabel68.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel68.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel68.setText("Eliminar equipo");
+        Pnl_Registro_Equipos.add(jLabel68, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 210, -1, -1));
+
+        jComboBox7.setBackground(new java.awt.Color(102, 102, 102));
+        jComboBox7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jComboBox7.setForeground(new java.awt.Color(204, 204, 204));
+        jComboBox7.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        Pnl_Registro_Equipos.add(jComboBox7, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 230, 210, -1));
+
+        jButton3.setBackground(new java.awt.Color(102, 102, 102));
+        jButton3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jButton3.setForeground(new java.awt.Color(0, 0, 0));
+        jButton3.setText("Eliminar");
+        Pnl_Registro_Equipos.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 260, 110, -1));
 
         Pnl_Principal.add(Pnl_Registro_Equipos, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 570, 240));
 
@@ -798,12 +818,14 @@ public class Tournament_Management extends javax.swing.JPanel {
     private javax.swing.JRadioButton Rd_Informacion_Torneo;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JComboBox<String> jComboBox4;
     private javax.swing.JComboBox<String> jComboBox5;
     private javax.swing.JComboBox<String> jComboBox6;
+    private javax.swing.JComboBox<String> jComboBox7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -868,6 +890,7 @@ public class Tournament_Management extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel65;
     private javax.swing.JLabel jLabel66;
     private javax.swing.JLabel jLabel67;
+    private javax.swing.JLabel jLabel68;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;

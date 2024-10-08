@@ -35,17 +35,17 @@ public class Log_In extends javax.swing.JFrame {
 
         Pnl_Principal.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblIniciarSesion.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        lblIniciarSesion.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lblIniciarSesion.setForeground(new java.awt.Color(0, 0, 0));
         lblIniciarSesion.setText("INICIAR SESION");
-        Pnl_Principal.add(lblIniciarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 60, 140, 40));
+        Pnl_Principal.add(lblIniciarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 60, 170, 40));
 
-        lblUsuario.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblUsuario.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblUsuario.setForeground(new java.awt.Color(0, 0, 0));
         lblUsuario.setText("USUARIO");
         Pnl_Principal.add(lblUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 120, -1, -1));
 
-        txtUsuario.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        txtUsuario.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         txtUsuario.setForeground(new java.awt.Color(153, 153, 153));
         txtUsuario.setText("Ingrese su usuario");
         txtUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -60,12 +60,12 @@ public class Log_In extends javax.swing.JFrame {
         });
         Pnl_Principal.add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 150, 350, 40));
 
-        lblContrasena.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblContrasena.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblContrasena.setForeground(new java.awt.Color(0, 0, 0));
         lblContrasena.setText("CONTRASEÑA");
         Pnl_Principal.add(lblContrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 200, -1, -1));
 
-        btnIngresar.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        btnIngresar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnIngresar.setForeground(new java.awt.Color(0, 0, 0));
         btnIngresar.setText("INGRESAR");
         btnIngresar.addActionListener(new java.awt.event.ActionListener() {
@@ -75,7 +75,7 @@ public class Log_In extends javax.swing.JFrame {
         });
         Pnl_Principal.add(btnIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 300, -1, -1));
 
-        txtContrasena.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        txtContrasena.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         txtContrasena.setForeground(new java.awt.Color(153, 153, 153));
         txtContrasena.setText("********");
         txtContrasena.addMouseListener(new java.awt.event.MouseAdapter() {

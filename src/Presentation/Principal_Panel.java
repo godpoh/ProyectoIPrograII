@@ -34,6 +34,7 @@ public class Principal_Panel extends javax.swing.JFrame {
         Lbl_Titulo = new javax.swing.JLabel();
         Lbl_Cerrar = new javax.swing.JLabel();
         Pnl_Contenedor = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -157,7 +158,7 @@ public class Principal_Panel extends javax.swing.JFrame {
 
         getContentPane().add(Pnl_Menu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 200, 650));
 
-        Pnl_Titulo.setBackground(new java.awt.Color(204, 204, 204));
+        Pnl_Titulo.setBackground(new java.awt.Color(102, 102, 102));
         Pnl_Titulo.setPreferredSize(new java.awt.Dimension(760, 50));
 
         Lbl_Titulo.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
@@ -196,15 +197,17 @@ public class Principal_Panel extends javax.swing.JFrame {
 
         Pnl_Contenedor.setPreferredSize(new java.awt.Dimension(610, 600));
 
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/plain-grey-background-h9vimscs4l3cl53t.jpg"))); // NOI18N
+
         javax.swing.GroupLayout Pnl_ContenedorLayout = new javax.swing.GroupLayout(Pnl_Contenedor);
         Pnl_Contenedor.setLayout(Pnl_ContenedorLayout);
         Pnl_ContenedorLayout.setHorizontalGroup(
             Pnl_ContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 610, Short.MAX_VALUE)
+            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 610, Short.MAX_VALUE)
         );
         Pnl_ContenedorLayout.setVerticalGroup(
             Pnl_ContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 600, Short.MAX_VALUE)
+            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 600, Short.MAX_VALUE)
         );
 
         getContentPane().add(Pnl_Contenedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 50, 610, 600));
@@ -358,6 +361,7 @@ public class Principal_Panel extends javax.swing.JFrame {
     private javax.swing.JPanel Pnl_Menu;
     private javax.swing.JPanel Pnl_SubM;
     private javax.swing.JPanel Pnl_Titulo;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 }

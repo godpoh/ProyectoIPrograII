@@ -21,8 +21,9 @@ public class Match {
     private Map<Player, Integer> Yellow_Cards;
     private Map<Player, Integer> Red_Cards;
     private Map<Player, String> Other_Sanctions;
+    private Map<Player, Integer> Annotador;
 
-    public Match(String Match_Id, Team Local_Team, Team Visitant_Team, int Local_Goals, int Visitor_Goals, Map<Player, Integer> Yellow_Cards, Map<Player, Integer> Red_Cards, String Other_Sanctions) {
+    public Match(String Match_Id, Team Local_Team, Team Visitant_Team, int Local_Goals, int Visitor_Goals, Map<Player, Integer> Yellow_Cards, Map<Player, Integer> Red_Cards, String Other_Sanctions, Map<Player, Integer> Annotador) {
         this.Match_Id = Match_Id;
         this.Local_Team = Local_Team;
         this.Visitant_Team = Visitant_Team;
@@ -35,6 +36,14 @@ public class Match {
 
     public String getMatch_Id() {
         return Match_Id;
+    }
+
+    public Map<Player, Integer> getAnnotador() {
+        return Annotador;
+    }
+
+    public void setAnnotador(Map<Player, Integer> Annotador) {
+        this.Annotador = Annotador;
     }
 
     public void setMatch_Id(String Match_Id) {

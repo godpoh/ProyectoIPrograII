@@ -40,7 +40,7 @@ public class Principal_Panel extends javax.swing.JFrame {
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Pnl_Menu.setBackground(new java.awt.Color(52, 102, 255));
+        Pnl_Menu.setBackground(new java.awt.Color(10, 102, 255));
         Pnl_Menu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/download__2_-removebg-preview.png"))); // NOI18N
@@ -94,8 +94,7 @@ public class Principal_Panel extends javax.swing.JFrame {
         });
         Pnl_Menu.add(Btn_Estadisticas, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 380, 150, 50));
 
-        Pnl_SubM.setBackground(new java.awt.Color(52, 102, 255));
-        Pnl_SubM.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        Pnl_SubM.setBackground(new java.awt.Color(10, 102, 255));
 
         Btn_Registro_Goleadores.setBackground(new java.awt.Color(52, 102, 255));
         Btn_Registro_Goleadores.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
@@ -138,7 +137,7 @@ public class Principal_Panel extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(Pnl_SubMLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(Btn_Tabla_Sanciones, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Btn_Tabla_Posicion_Equipos, javax.swing.GroupLayout.DEFAULT_SIZE, 184, Short.MAX_VALUE)
+                    .addComponent(Btn_Tabla_Posicion_Equipos, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)
                     .addComponent(Btn_Registro_Goleadores, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -158,7 +157,7 @@ public class Principal_Panel extends javax.swing.JFrame {
 
         getContentPane().add(Pnl_Menu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 200, 650));
 
-        Pnl_Titulo.setBackground(new java.awt.Color(102, 102, 102));
+        Pnl_Titulo.setBackground(new java.awt.Color(106, 141, 157));
         Pnl_Titulo.setPreferredSize(new java.awt.Dimension(760, 50));
 
         Lbl_Titulo.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
@@ -177,9 +176,9 @@ public class Principal_Panel extends javax.swing.JFrame {
         Pnl_TituloLayout.setHorizontalGroup(
             Pnl_TituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Pnl_TituloLayout.createSequentialGroup()
-                .addGap(35, 35, 35)
+                .addContainerGap(229, Short.MAX_VALUE)
                 .addComponent(Lbl_Titulo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 365, Short.MAX_VALUE)
+                .addGap(171, 171, 171)
                 .addComponent(Lbl_Cerrar)
                 .addContainerGap())
         );
@@ -197,7 +196,7 @@ public class Principal_Panel extends javax.swing.JFrame {
 
         Pnl_Contenedor.setPreferredSize(new java.awt.Dimension(610, 600));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/plain-grey-background-h9vimscs4l3cl53t.jpg"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/abstract-textured-backgound.jpg"))); // NOI18N
 
         javax.swing.GroupLayout Pnl_ContenedorLayout = new javax.swing.GroupLayout(Pnl_Contenedor);
         Pnl_Contenedor.setLayout(Pnl_ContenedorLayout);

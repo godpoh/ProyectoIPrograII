@@ -75,9 +75,9 @@ public class Match_Registration extends javax.swing.JPanel {
         jLabel10.setText("Nombre del Torneo:");
         Pnl_Tarjetas.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 10, -1, -1));
 
-        jComboBox1.setBackground(new java.awt.Color(102, 102, 102));
+        jComboBox1.setBackground(new java.awt.Color(204, 204, 204));
         jComboBox1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jComboBox1.setForeground(new java.awt.Color(204, 204, 204));
+        jComboBox1.setForeground(new java.awt.Color(51, 51, 51));
         Pnl_Tarjetas.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 30, 210, -1));
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -85,9 +85,9 @@ public class Match_Registration extends javax.swing.JPanel {
         jLabel11.setText("Clasificación de partido");
         Pnl_Tarjetas.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 60, -1, -1));
 
-        jComboBox2.setBackground(new java.awt.Color(102, 102, 102));
+        jComboBox2.setBackground(new java.awt.Color(204, 204, 204));
         jComboBox2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jComboBox2.setForeground(new java.awt.Color(204, 204, 204));
+        jComboBox2.setForeground(new java.awt.Color(51, 51, 51));
         Pnl_Tarjetas.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 80, 210, -1));
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -115,9 +115,9 @@ public class Match_Registration extends javax.swing.JPanel {
         jLabel19.setText("Empajeramiento existente");
         Pnl_Tarjetas.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 110, -1, -1));
 
-        jComboBox5.setBackground(new java.awt.Color(102, 102, 102));
+        jComboBox5.setBackground(new java.awt.Color(204, 204, 204));
         jComboBox5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jComboBox5.setForeground(new java.awt.Color(204, 204, 204));
+        jComboBox5.setForeground(new java.awt.Color(51, 51, 51));
         Pnl_Tarjetas.add(jComboBox5, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 130, 210, -1));
 
         jLabel55.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -195,16 +195,16 @@ public class Match_Registration extends javax.swing.JPanel {
         jLabel62.setText("Equipo");
         Pnl_Tarjetas.add(jLabel62, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 340, -1, -1));
 
-        jComboBox7.setBackground(new java.awt.Color(102, 102, 102));
+        jComboBox7.setBackground(new java.awt.Color(204, 204, 204));
         jComboBox7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jComboBox7.setForeground(new java.awt.Color(204, 204, 204));
+        jComboBox7.setForeground(new java.awt.Color(51, 51, 51));
         Pnl_Tarjetas.add(jComboBox7, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 360, 210, -1));
 
         Pnl_Principal.add(Pnl_Tarjetas, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 570, 560));
 
         jPanel2.add(Pnl_Principal, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 590, 580));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/plain-grey-background-h9vimscs4l3cl53t.jpg"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/abstract-textured-backgound.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 610, 600));
 

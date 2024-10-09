@@ -29,7 +29,7 @@
     <Container class="javax.swing.JPanel" name="Pnl_Menu">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="ff" green="66" red="34" type="rgb"/>
+          <Color blue="ff" green="66" red="a" type="rgb"/>
         </Property>
       </Properties>
       <Constraints>
@@ -165,12 +165,7 @@
         <Container class="javax.swing.JPanel" name="Pnl_SubM">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="66" red="34" type="rgb"/>
-            </Property>
-            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-              <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
-                <BevelBorder/>
-              </Border>
+              <Color blue="ff" green="66" red="a" type="rgb"/>
             </Property>
           </Properties>
           <Constraints>
@@ -186,7 +181,7 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="Btn_Tabla_Sanciones" alignment="0" max="32767" attributes="0"/>
-                          <Component id="Btn_Tabla_Posicion_Equipos" alignment="0" pref="184" max="32767" attributes="0"/>
+                          <Component id="Btn_Tabla_Posicion_Equipos" alignment="0" pref="188" max="32767" attributes="0"/>
                           <Component id="Btn_Registro_Goleadores" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -281,7 +276,7 @@
     <Container class="javax.swing.JPanel" name="Pnl_Titulo">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="66" green="66" red="66" type="rgb"/>
+          <Color blue="9d" green="8d" red="6a" type="rgb"/>
         </Property>
         <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[760, 50]"/>
@@ -297,9 +292,9 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+                  <EmptySpace pref="229" max="32767" attributes="0"/>
                   <Component id="Lbl_Titulo" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="365" max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="171" max="-2" attributes="0"/>
                   <Component id="Lbl_Cerrar" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -370,7 +365,7 @@
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/Images/plain-grey-background-h9vimscs4l3cl53t.jpg"/>
+              <Image iconType="3" name="/Images/abstract-textured-backgound.jpg"/>
             </Property>
           </Properties>
         </Component>

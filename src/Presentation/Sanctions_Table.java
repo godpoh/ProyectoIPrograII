@@ -43,8 +43,9 @@ public class Sanctions_Table extends javax.swing.JPanel {
         jLabel1.setText("Nombre del torneo");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(231, 20, -1, -1));
 
-        jComboBox1.setBackground(new java.awt.Color(102, 102, 102));
+        jComboBox1.setBackground(new java.awt.Color(204, 204, 204));
         jComboBox1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jComboBox1.setForeground(new java.awt.Color(51, 51, 51));
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(207, 43, 188, -1));
 
@@ -53,9 +54,9 @@ public class Sanctions_Table extends javax.swing.JPanel {
         jLabel2.setText("Jugadores mas sancionados");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(202, 84, -1, -1));
 
-        jTable1.setBackground(new java.awt.Color(102, 102, 102));
+        jTable1.setBackground(new java.awt.Color(204, 204, 204));
         jTable1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jTable1.setForeground(new java.awt.Color(204, 204, 204));
+        jTable1.setForeground(new java.awt.Color(51, 51, 51));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
@@ -72,7 +73,7 @@ public class Sanctions_Table extends javax.swing.JPanel {
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 119, 598, -1));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/plain-grey-background-h9vimscs4l3cl53t.jpg"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/abstract-textured-backgound.jpg"))); // NOI18N
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 610, 600));
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));

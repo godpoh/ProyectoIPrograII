@@ -13,7 +13,8 @@ import java.util.Map;
  */
 public class Match {
 
-    private String Match_Id;
+
+    private Map<Tournament, Integer> Match_Id;      
     private Team Local_Team;
     private Team Visitant_Team;
     private int Local_Goals;
@@ -23,8 +24,8 @@ public class Match {
     private Map<Player, String> Other_Sanctions;
     private Map<Player, Integer> Annotador;
 
-    public Match(String Match_Id, Team Local_Team, Team Visitant_Team, int Local_Goals, int Visitor_Goals, Map<Player, Integer> Yellow_Cards, Map<Player, Integer> Red_Cards, String Other_Sanctions, Map<Player, Integer> Annotador) {
-        this.Match_Id = Match_Id;
+    public Match(Map<Tournament, Integer> Match_Id, Team Local_Team, Team Visitant_Team, int Local_Goals, int Visitor_Goals, Map<Player, Integer> Yellow_Cards, Map<Player, Integer> Red_Cards, String Other_Sanctions, Map<Player, Integer> Annotador) {
+        this.Match_Id = new HashMap<>();
         this.Local_Team = Local_Team;
         this.Visitant_Team = Visitant_Team;
         this.Local_Goals = Local_Goals;
@@ -34,7 +35,7 @@ public class Match {
         this.Other_Sanctions = new HashMap<>();
     }
 
-    public String getMatch_Id() {
+    public Map<Tournament, Integer> getMatch_Id() {
         return Match_Id;
     }
 
@@ -46,7 +47,7 @@ public class Match {
         this.Annotador = Annotador;
     }
 
-    public void setMatch_Id(String Match_Id) {
+    public void setMatch_Id(Map<Tournament, Integer> Match_Id) {
         this.Match_Id = Match_Id;
     }
 

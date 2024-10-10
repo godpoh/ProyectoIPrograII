@@ -52,10 +52,12 @@ public class Match_Registration extends javax.swing.JPanel {
         jLabel27 = new javax.swing.JLabel();
         jLabel57 = new javax.swing.JLabel();
         jLabel58 = new javax.swing.JLabel();
-        jLabel60 = new javax.swing.JLabel();
-        jLabel61 = new javax.swing.JLabel();
         jLabel62 = new javax.swing.JLabel();
         jComboBox7 = new javax.swing.JComboBox<>();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
 
         jPanel1.setOpaque(false);
@@ -73,141 +75,166 @@ public class Match_Registration extends javax.swing.JPanel {
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(0, 0, 0));
         jLabel10.setText("Nombre del Torneo:");
-        Pnl_Tarjetas.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 10, -1, -1));
+        Pnl_Tarjetas.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 90, -1, -1));
 
         jComboBox1.setBackground(new java.awt.Color(204, 204, 204));
         jComboBox1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jComboBox1.setForeground(new java.awt.Color(51, 51, 51));
-        Pnl_Tarjetas.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 30, 210, -1));
+        Pnl_Tarjetas.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 110, 210, -1));
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(0, 0, 0));
         jLabel11.setText("Clasificación de partido");
-        Pnl_Tarjetas.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 60, -1, -1));
+        Pnl_Tarjetas.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 140, -1, -1));
 
         jComboBox2.setBackground(new java.awt.Color(204, 204, 204));
         jComboBox2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jComboBox2.setForeground(new java.awt.Color(51, 51, 51));
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Regular", "Semi-Finales", "Final", " " }));
-        Pnl_Tarjetas.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 80, 210, -1));
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Regular", "Semi-Finales", "Final" }));
+        Pnl_Tarjetas.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 160, 210, -1));
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(0, 0, 0));
         jLabel12.setText("Tarjetas amarillas");
-        Pnl_Tarjetas.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 400, -1, -1));
+        Pnl_Tarjetas.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 590, -1, -1));
 
         jLabel14.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(0, 0, 0));
         jLabel14.setText("Tarjetas rojas");
-        Pnl_Tarjetas.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 400, -1, -1));
+        Pnl_Tarjetas.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 590, -1, -1));
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(0, 0, 0));
         jLabel15.setText("jLabel15");
-        Pnl_Tarjetas.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 420, -1, -1));
+        Pnl_Tarjetas.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 610, -1, -1));
 
         jLabel17.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(0, 0, 0));
         jLabel17.setText("jLabel17");
-        Pnl_Tarjetas.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 420, -1, -1));
+        Pnl_Tarjetas.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 610, -1, -1));
 
         jLabel19.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel19.setForeground(new java.awt.Color(0, 0, 0));
         jLabel19.setText("Empajeramiento existente");
-        Pnl_Tarjetas.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 110, -1, -1));
+        Pnl_Tarjetas.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 190, -1, -1));
 
         jComboBox5.setBackground(new java.awt.Color(204, 204, 204));
         jComboBox5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jComboBox5.setForeground(new java.awt.Color(51, 51, 51));
-        Pnl_Tarjetas.add(jComboBox5, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 130, 210, -1));
+        Pnl_Tarjetas.add(jComboBox5, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 210, 210, -1));
 
         jLabel55.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel55.setForeground(new java.awt.Color(0, 0, 0));
         jLabel55.setText("Otras Sanciones");
-        Pnl_Tarjetas.add(jLabel55, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 400, -1, -1));
+        Pnl_Tarjetas.add(jLabel55, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 590, -1, -1));
 
         jLabel56.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel56.setForeground(new java.awt.Color(0, 0, 0));
         jLabel56.setText("jLabel56");
-        Pnl_Tarjetas.add(jLabel56, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 420, -1, -1));
+        Pnl_Tarjetas.add(jLabel56, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 610, -1, -1));
 
         jLabel16.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(0, 0, 0));
         jLabel16.setText("Marcador final");
-        Pnl_Tarjetas.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 180, -1, -1));
+        Pnl_Tarjetas.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 260, -1, -1));
 
         jLabel21.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel21.setForeground(new java.awt.Color(0, 0, 0));
         jLabel21.setText("0");
-        Pnl_Tarjetas.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 200, -1, -1));
+        Pnl_Tarjetas.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 280, -1, -1));
 
         jLabel22.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel22.setForeground(new java.awt.Color(0, 0, 0));
         jLabel22.setText(":");
-        Pnl_Tarjetas.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 190, 10, 30));
+        Pnl_Tarjetas.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 270, 10, 30));
 
         jLabel23.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel23.setForeground(new java.awt.Color(0, 0, 0));
         jLabel23.setText("0");
-        Pnl_Tarjetas.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 200, -1, -1));
+        Pnl_Tarjetas.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 280, -1, -1));
 
         jLabel24.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel24.setForeground(new java.awt.Color(0, 0, 0));
         jLabel24.setText("Equipo visitante");
-        Pnl_Tarjetas.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 170, -1, -1));
+        Pnl_Tarjetas.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 250, -1, -1));
 
         jLabel25.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel25.setForeground(new java.awt.Color(0, 0, 0));
         jLabel25.setText("Equipo local");
-        Pnl_Tarjetas.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 170, -1, -1));
+        Pnl_Tarjetas.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 250, -1, -1));
 
         jLabel26.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel26.setForeground(new java.awt.Color(0, 0, 0));
         jLabel26.setText("jLabel26");
-        Pnl_Tarjetas.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 200, -1, -1));
+        Pnl_Tarjetas.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 280, -1, -1));
 
         jLabel27.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel27.setForeground(new java.awt.Color(0, 0, 0));
         jLabel27.setText("jLabel27");
-        Pnl_Tarjetas.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 190, -1, -1));
+        Pnl_Tarjetas.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 270, -1, -1));
 
         jLabel57.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel57.setForeground(new java.awt.Color(0, 0, 0));
         jLabel57.setText("Anotaciones y anotador");
-        Pnl_Tarjetas.add(jLabel57, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 260, -1, -1));
+        Pnl_Tarjetas.add(jLabel57, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 340, -1, -1));
 
         jLabel58.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel58.setForeground(new java.awt.Color(0, 0, 0));
         jLabel58.setText("Anotaciones y anotador");
-        Pnl_Tarjetas.add(jLabel58, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 260, -1, -1));
-
-        jLabel60.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel60.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel60.setText("aun no se como implementarlo");
-        Pnl_Tarjetas.add(jLabel60, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 290, -1, -1));
-
-        jLabel61.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel61.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel61.setText("aun no se como implementarlo");
-        Pnl_Tarjetas.add(jLabel61, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 290, -1, -1));
+        Pnl_Tarjetas.add(jLabel58, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 340, -1, -1));
 
         jLabel62.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel62.setForeground(new java.awt.Color(0, 0, 0));
         jLabel62.setText("Equipo");
-        Pnl_Tarjetas.add(jLabel62, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 340, -1, -1));
+        Pnl_Tarjetas.add(jLabel62, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 530, -1, -1));
 
         jComboBox7.setBackground(new java.awt.Color(204, 204, 204));
         jComboBox7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jComboBox7.setForeground(new java.awt.Color(51, 51, 51));
-        Pnl_Tarjetas.add(jComboBox7, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 360, 210, -1));
+        jComboBox7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox7ActionPerformed(evt);
+            }
+        });
+        Pnl_Tarjetas.add(jComboBox7, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 550, 210, -1));
 
-        Pnl_Principal.add(Pnl_Tarjetas, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 570, 560));
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
+            },
+            new String [] {
+                "Jugador", "Anotacion"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
 
-        jPanel2.add(Pnl_Principal, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 590, 580));
+        Pnl_Tarjetas.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 360, 290, 160));
+
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
+            },
+            new String [] {
+                "Jugador", "Anotacion"
+            }
+        ));
+        jScrollPane2.setViewportView(jTable2);
+
+        Pnl_Tarjetas.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 360, 290, 160));
+
+        Pnl_Principal.add(Pnl_Tarjetas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 820, 800));
+
+        jPanel2.add(Pnl_Principal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 820, 800));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/abstract-textured-backgound.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 610, 600));
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 820, 800));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -215,23 +242,21 @@ public class Match_Registration extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 610, Short.MAX_VALUE)
+            .addGap(0, 820, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 600, Short.MAX_VALUE)
+            .addGap(0, 800, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jComboBox7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox7ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -261,10 +286,12 @@ public class Match_Registration extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel56;
     private javax.swing.JLabel jLabel57;
     private javax.swing.JLabel jLabel58;
-    private javax.swing.JLabel jLabel60;
-    private javax.swing.JLabel jLabel61;
     private javax.swing.JLabel jLabel62;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTable2;
     // End of variables declaration//GEN-END:variables
 }

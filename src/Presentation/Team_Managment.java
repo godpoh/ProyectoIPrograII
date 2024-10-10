@@ -113,7 +113,7 @@ public class Team_Managment extends javax.swing.JPanel {
                 .addComponent(Rd_Eliminar_Actualizar))
         );
 
-        add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 10, -1, -1));
+        add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 20, -1, -1));
 
         jPanel1.setOpaque(false);
 
@@ -146,7 +146,7 @@ public class Team_Managment extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 10, 120, 50));
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 20, 120, 50));
 
         jPanel2.setOpaque(false);
 
@@ -179,7 +179,7 @@ public class Team_Managment extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 10, 130, 50));
+        add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 20, 130, 50));
 
         Pnl_Principal.setOpaque(false);
         Pnl_Principal.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -409,10 +409,10 @@ public class Team_Managment extends javax.swing.JPanel {
 
         Pnl_Principal.add(Pnl_Eliminar_Jugador, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 570, 520));
 
-        add(Pnl_Principal, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 590, 530));
+        add(Pnl_Principal, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 110, 590, 530));
 
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/abstract-textured-backgound.jpg"))); // NOI18N
-        add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 610, 600));
+        add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 820, 800));
     }// </editor-fold>//GEN-END:initComponents
 
     private void Selected_Rd() {
@@ -425,7 +425,7 @@ public class Team_Managment extends javax.swing.JPanel {
             Pnl_Registro_Jugadores.setVisible(true);
             Pnl_Eliminar_Jugador.setVisible(false);
         } else if (Rd_Eliminar_Actualizar.isSelected()) {
-                        Pnl_Registro_Equipo.setVisible(false);
+            Pnl_Registro_Equipo.setVisible(false);
             Pnl_Registro_Jugadores.setVisible(false);
             Pnl_Eliminar_Jugador.setVisible(true);
         }
@@ -443,7 +443,7 @@ public class Team_Managment extends javax.swing.JPanel {
                 Selected_Rd();
             }
         });
-                Rd_Eliminar_Actualizar.addActionListener(new java.awt.event.ActionListener() {
+        Rd_Eliminar_Actualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Selected_Rd();
             }

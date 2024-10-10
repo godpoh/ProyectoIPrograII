@@ -56,7 +56,7 @@ public class Principal_Panel extends javax.swing.JFrame {
                 Btn_Gestion_EquiposActionPerformed(evt);
             }
         });
-        Pnl_Menu.add(Btn_Gestion_Equipos, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 150, 50));
+        Pnl_Menu.add(Btn_Gestion_Equipos, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 150, 50));
 
         Btn_Gestion_de_Torneos.setBackground(new java.awt.Color(52, 102, 255));
         Btn_Gestion_de_Torneos.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -68,7 +68,7 @@ public class Principal_Panel extends javax.swing.JFrame {
                 Btn_Gestion_de_TorneosActionPerformed(evt);
             }
         });
-        Pnl_Menu.add(Btn_Gestion_de_Torneos, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 150, 50));
+        Pnl_Menu.add(Btn_Gestion_de_Torneos, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, 150, 50));
 
         Btn_Registro_Partidos.setBackground(new java.awt.Color(52, 102, 255));
         Btn_Registro_Partidos.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -80,7 +80,7 @@ public class Principal_Panel extends javax.swing.JFrame {
                 Btn_Registro_PartidosActionPerformed(evt);
             }
         });
-        Pnl_Menu.add(Btn_Registro_Partidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, 150, 50));
+        Pnl_Menu.add(Btn_Registro_Partidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 380, 150, 50));
 
         Btn_Estadisticas.setBackground(new java.awt.Color(52, 102, 255));
         Btn_Estadisticas.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -92,7 +92,7 @@ public class Principal_Panel extends javax.swing.JFrame {
                 Btn_EstadisticasActionPerformed(evt);
             }
         });
-        Pnl_Menu.add(Btn_Estadisticas, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 380, 150, 50));
+        Pnl_Menu.add(Btn_Estadisticas, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 440, 150, 50));
 
         Pnl_SubM.setBackground(new java.awt.Color(10, 102, 255));
 
@@ -150,12 +150,12 @@ public class Principal_Panel extends javax.swing.JFrame {
                 .addComponent(Btn_Tabla_Posicion_Equipos, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Btn_Tabla_Sanciones, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(9, Short.MAX_VALUE))
         );
 
-        Pnl_Menu.add(Pnl_SubM, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 440, 200, 180));
+        Pnl_Menu.add(Pnl_SubM, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 500, 200, 180));
 
-        getContentPane().add(Pnl_Menu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 200, 650));
+        getContentPane().add(Pnl_Menu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 200, 850));
 
         Pnl_Titulo.setBackground(new java.awt.Color(106, 141, 157));
         Pnl_Titulo.setPreferredSize(new java.awt.Dimension(760, 50));
@@ -176,9 +176,9 @@ public class Principal_Panel extends javax.swing.JFrame {
         Pnl_TituloLayout.setHorizontalGroup(
             Pnl_TituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Pnl_TituloLayout.createSequentialGroup()
-                .addContainerGap(229, Short.MAX_VALUE)
+                .addContainerGap(367, Short.MAX_VALUE)
                 .addComponent(Lbl_Titulo)
-                .addGap(171, 171, 171)
+                .addGap(243, 243, 243)
                 .addComponent(Lbl_Cerrar)
                 .addContainerGap())
         );
@@ -192,9 +192,10 @@ public class Principal_Panel extends javax.swing.JFrame {
                 .addContainerGap(15, Short.MAX_VALUE))
         );
 
-        getContentPane().add(Pnl_Titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 0, 610, -1));
+        getContentPane().add(Pnl_Titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 0, 820, -1));
 
-        Pnl_Contenedor.setPreferredSize(new java.awt.Dimension(610, 600));
+        Pnl_Contenedor.setMinimumSize(new java.awt.Dimension(820, 800));
+        Pnl_Contenedor.setPreferredSize(new java.awt.Dimension(820, 800));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/abstract-textured-backgound.jpg"))); // NOI18N
 
@@ -202,23 +203,24 @@ public class Principal_Panel extends javax.swing.JFrame {
         Pnl_Contenedor.setLayout(Pnl_ContenedorLayout);
         Pnl_ContenedorLayout.setHorizontalGroup(
             Pnl_ContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 610, Short.MAX_VALUE)
+            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 820, Short.MAX_VALUE)
         );
         Pnl_ContenedorLayout.setVerticalGroup(
             Pnl_ContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 600, Short.MAX_VALUE)
+            .addGroup(Pnl_ContenedorLayout.createSequentialGroup()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 800, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
-        getContentPane().add(Pnl_Contenedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 50, 610, 600));
+        getContentPane().add(Pnl_Contenedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 50, 820, 800));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
 
     private void Btn_Gestion_EquiposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_Gestion_EquiposActionPerformed
-        // Instancia del panel de los productos
         Team_Managment Team = new Team_Managment();
-        Team.setSize(610, 600);
+        Team.setSize(820, 800);
         Team.setLocation(0, 0);
 
         Pnl_Contenedor.removeAll();
@@ -231,7 +233,7 @@ public class Principal_Panel extends javax.swing.JFrame {
     private void Btn_Gestion_de_TorneosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_Gestion_de_TorneosActionPerformed
         Tournament_Management Tournament_Window = new Tournament_Management();
 
-        Tournament_Window.setSize(610, 600);
+        Tournament_Window.setSize(820, 800);
         Tournament_Window.setLocation(0, 0);
 
         Pnl_Contenedor.removeAll();
@@ -245,7 +247,7 @@ public class Principal_Panel extends javax.swing.JFrame {
     private void Btn_Registro_PartidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_Registro_PartidosActionPerformed
         Match_Registration Match_Window = new Match_Registration();
 
-        Match_Window.setSize(610, 600);
+        Match_Window.setSize(820, 800);
         Match_Window.setLocation(0, 0);
 
         Pnl_Contenedor.removeAll();
@@ -268,7 +270,7 @@ public class Principal_Panel extends javax.swing.JFrame {
 
         Scorer_Record Scorer_Window = new Scorer_Record();
 
-        Scorer_Window.setSize(610, 600);
+        Scorer_Window.setSize(820,800);
         Scorer_Window.setLocation(0, 0);
 
         Pnl_Contenedor.removeAll();
@@ -284,7 +286,7 @@ public class Principal_Panel extends javax.swing.JFrame {
 
         Team_Position_Table Team_Position_Window = new Team_Position_Table();
 
-        Team_Position_Window.setSize(610, 600);
+        Team_Position_Window.setSize(820, 800);
         Team_Position_Window.setLocation(0, 0);
 
         Pnl_Contenedor.removeAll();
@@ -300,7 +302,7 @@ public class Principal_Panel extends javax.swing.JFrame {
 
         Sanctions_Table Sanctions_Window = new Sanctions_Table();
 
-        Sanctions_Window.setSize(610, 600);
+        Sanctions_Window.setSize(820, 800);
         Sanctions_Window.setLocation(0, 0);
 
         Pnl_Contenedor.removeAll();

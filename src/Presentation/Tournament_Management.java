@@ -388,7 +388,7 @@ public class Tournament_Management extends javax.swing.JPanel {
         jComboBox8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jComboBox8.setForeground(new java.awt.Color(51, 51, 51));
         jComboBox8.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        Pnl_Torneo.add(jComboBox8, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 320, 210, -1));
+        Pnl_Torneo.add(jComboBox8, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 320, 210, -1));
 
         jLabel70.setBackground(new java.awt.Color(255, 255, 255));
         jLabel70.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -400,25 +400,25 @@ public class Tournament_Management extends javax.swing.JPanel {
         jLabel71.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel71.setForeground(new java.awt.Color(0, 0, 0));
         jLabel71.setText("IMPORTANTE:");
-        Pnl_Torneo.add(jLabel71, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 350, -1, -1));
+        Pnl_Torneo.add(jLabel71, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 350, -1, -1));
 
         jLabel72.setBackground(new java.awt.Color(255, 255, 255));
         jLabel72.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel72.setForeground(new java.awt.Color(0, 0, 0));
         jLabel72.setText("La uníca forma de borrar un torneo, es que no haya ningún tipo de datos ingresados");
-        Pnl_Torneo.add(jLabel72, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 370, 600, -1));
+        Pnl_Torneo.add(jLabel72, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 370, 600, -1));
 
         jButton5.setBackground(new java.awt.Color(204, 204, 204));
         jButton5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton5.setForeground(new java.awt.Color(0, 0, 0));
         jButton5.setText("ELIMINAR");
-        Pnl_Torneo.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 390, -1, -1));
+        Pnl_Torneo.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 390, -1, -1));
 
         jLabel73.setBackground(new java.awt.Color(255, 255, 255));
         jLabel73.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel73.setForeground(new java.awt.Color(0, 0, 0));
         jLabel73.setText("Ingrese el nombre del torneo");
-        Pnl_Torneo.add(jLabel73, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 290, 270, -1));
+        Pnl_Torneo.add(jLabel73, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 290, 270, -1));
 
         jComboBox9.setBackground(new java.awt.Color(204, 204, 204));
         jComboBox9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -426,7 +426,7 @@ public class Tournament_Management extends javax.swing.JPanel {
         jComboBox9.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         Pnl_Torneo.add(jComboBox9, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 170, 210, -1));
 
-        Pnl_Principal.add(Pnl_Torneo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 570, 490));
+        Pnl_Principal.add(Pnl_Torneo, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 50, 630, 490));
 
         Pnl_Ingresar_Datos.setOpaque(false);
         Pnl_Ingresar_Datos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -549,7 +549,7 @@ public class Tournament_Management extends javax.swing.JPanel {
         jButton7.setText("GUARDAR");
         Pnl_Ingresar_Datos.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 240, -1, -1));
 
-        Pnl_Principal.add(Pnl_Ingresar_Datos, new org.netbeans.lib.awtextra.AbsoluteConstraints(-30, 10, 630, 510));
+        Pnl_Principal.add(Pnl_Ingresar_Datos, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 50, 630, 510));
 
         Pnl_Registro_Equipos.setOpaque(false);
         Pnl_Registro_Equipos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -611,7 +611,7 @@ public class Tournament_Management extends javax.swing.JPanel {
         jButton3.setText("Eliminar");
         Pnl_Registro_Equipos.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 260, 110, -1));
 
-        Pnl_Principal.add(Pnl_Registro_Equipos, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 570, 430));
+        Pnl_Principal.add(Pnl_Registro_Equipos, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 80, 570, 430));
 
         Pnl_Tarjetas.setOpaque(false);
         Pnl_Tarjetas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -754,7 +754,7 @@ public class Tournament_Management extends javax.swing.JPanel {
         jLabel60.setText("Sanciones totales del equipo");
         Pnl_Tarjetas.add(jLabel60, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 270, -1, -1));
 
-        Pnl_Principal.add(Pnl_Tarjetas, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 570, 510));
+        Pnl_Principal.add(Pnl_Tarjetas, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 50, 570, 510));
 
         Pnl_Informacion_Torneo.setOpaque(false);
         Pnl_Informacion_Torneo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -902,9 +902,9 @@ public class Tournament_Management extends javax.swing.JPanel {
 
         Pnl_Informacion_Torneo.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 550, 140, 100));
 
-        Pnl_Principal.add(Pnl_Informacion_Torneo, new org.netbeans.lib.awtextra.AbsoluteConstraints(-100, -120, 780, 810));
+        Pnl_Principal.add(Pnl_Informacion_Torneo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 780, 690));
 
-        jPanel1.add(Pnl_Principal, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 120, 590, 530));
+        jPanel1.add(Pnl_Principal, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 800, 710));
 
         jLabel61.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/abstract-textured-backgound.jpg"))); // NOI18N
         jPanel1.add(jLabel61, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 820, 800));

@@ -8,13 +8,13 @@ package Data;
  *
  * @author Admin
  */
-public class Person {
+public class Person_Obj {
     private int Id;
     private String Name;
     private String Adress;
     private String Contact_Number;
 
-    public Person(int Id, String Name, String Adress, String Contact_Number) {
+    public Person_Obj(int Id, String Name, String Adress, String Contact_Number) {
         this.Id = Id;
         this.Name = Name;
         this.Adress = Adress;

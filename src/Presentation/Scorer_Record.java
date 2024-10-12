@@ -67,10 +67,10 @@ public class Scorer_Record extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 180, 598, -1));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 140, 598, -1));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/abstract-textured-backgound.jpg"))); // NOI18N
-        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 820, 800));
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 820, 688));
     }// </editor-fold>//GEN-END:initComponents
 
 

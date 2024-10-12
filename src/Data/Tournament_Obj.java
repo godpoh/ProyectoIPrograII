@@ -10,12 +10,12 @@ import java.util.List;
  *
  * @author Admin
  */
-public class Tournament {
+public class Tournament_Obj {
     private int idTournament;
     private String Tournament_Name;
-    private List<Match> Matches;
+    private List<Match_Obj> Matches;
 
-    public Tournament(int idTournament, String Tournament_Name, List<Match> Matches) {
+    public Tournament_Obj(int idTournament, String Tournament_Name, List<Match_Obj> Matches) {
         this.idTournament = idTournament;
         this.Tournament_Name = Tournament_Name;
         this.Matches = Matches;
@@ -37,11 +37,11 @@ public class Tournament {
         this.Tournament_Name = Tournament_Name;
     }
 
-    public List<Match> getMatches() {
+    public List<Match_Obj> getMatches() {
         return Matches;
     }
 
-    public void setMatches(List<Match> Matches) {
+    public void setMatches(List<Match_Obj> Matches) {
         this.Matches = Matches;
     }
 

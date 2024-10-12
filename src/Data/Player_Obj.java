@@ -8,13 +8,13 @@ package Data;
  *
  * @author Admin
  */
-public class Player extends Person {
+public class Player_Obj extends Person_Obj {
 
     private int Team_Id;
     private String Position;
     private int Dorsal;
 
-    public Player(int Team_Id, String Position, int Dorsal, int Id, String Name, String Adress, String Contact_Number) {
+    public Player_Obj(int Team_Id, String Position, int Dorsal, int Id, String Name, String Adress, String Contact_Number) {
         super(Id, Name, Adress, Contact_Number);
         this.Team_Id = Team_Id;
         this.Position = Position;

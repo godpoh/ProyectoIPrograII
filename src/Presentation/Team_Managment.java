@@ -500,7 +500,7 @@ public class Team_Managment extends javax.swing.JPanel {
         add(Pnl_Principal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 820, -1));
 
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/abstract-textured-backgound.jpg"))); // NOI18N
-        add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 820, 800));
+        add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 820, 688));
     }// </editor-fold>//GEN-END:initComponents
 
     private void Selected_Rd() {

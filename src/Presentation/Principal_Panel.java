@@ -155,7 +155,7 @@ public class Principal_Panel extends javax.swing.JFrame {
 
         Pnl_Menu.add(Pnl_SubM, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 500, 200, 180));
 
-        getContentPane().add(Pnl_Menu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 200, 850));
+        getContentPane().add(Pnl_Menu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 200, 720));
 
         Pnl_Titulo.setBackground(new java.awt.Color(106, 141, 157));
         Pnl_Titulo.setPreferredSize(new java.awt.Dimension(760, 50));
@@ -176,23 +176,23 @@ public class Principal_Panel extends javax.swing.JFrame {
         Pnl_TituloLayout.setHorizontalGroup(
             Pnl_TituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Pnl_TituloLayout.createSequentialGroup()
-                .addContainerGap(367, Short.MAX_VALUE)
+                .addContainerGap()
                 .addComponent(Lbl_Titulo)
-                .addGap(243, 243, 243)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 604, Short.MAX_VALUE)
                 .addComponent(Lbl_Cerrar)
                 .addContainerGap())
         );
         Pnl_TituloLayout.setVerticalGroup(
             Pnl_TituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Pnl_TituloLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(Pnl_TituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(Lbl_Cerrar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Lbl_Titulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addComponent(Lbl_Cerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 1, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Pnl_TituloLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(Lbl_Titulo))
         );
 
-        getContentPane().add(Pnl_Titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 0, 820, -1));
+        getContentPane().add(Pnl_Titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 0, 820, 30));
 
         Pnl_Contenedor.setMinimumSize(new java.awt.Dimension(820, 800));
         Pnl_Contenedor.setPreferredSize(new java.awt.Dimension(820, 800));
@@ -208,11 +208,11 @@ public class Principal_Panel extends javax.swing.JFrame {
         Pnl_ContenedorLayout.setVerticalGroup(
             Pnl_ContenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Pnl_ContenedorLayout.createSequentialGroup()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 800, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 688, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 132, Short.MAX_VALUE))
         );
 
-        getContentPane().add(Pnl_Contenedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 50, 820, 800));
+        getContentPane().add(Pnl_Contenedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 30, 820, 820));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

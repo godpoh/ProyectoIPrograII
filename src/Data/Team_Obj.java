@@ -10,13 +10,13 @@ import java.util.List;
  *
  * @author Admin
  */
-public class Team {
+public class Team_Obj {
     
     private int Team_Id;
     private String Team_Name;
-    private List<Player> Players;
+    private List<Player_Obj> Players;
 
-    public Team(int Team_Id, String Team_Name, List<Player> Players) {
+    public Team_Obj(int Team_Id, String Team_Name, List<Player_Obj> Players) {
         this.Team_Id = Team_Id;
         this.Team_Name = Team_Name;
         this.Players = Players;
@@ -38,11 +38,11 @@ public class Team {
         this.Team_Name = Team_Name;
     }
 
-    public List<Player> getPlayers() {
+    public List<Player_Obj> getPlayers() {
         return Players;
     }
 
-    public void setPlayers(List<Player> Players) {
+    public void setPlayers(List<Player_Obj> Players) {
         this.Players = Players;
     }
     

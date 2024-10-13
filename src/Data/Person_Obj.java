@@ -11,14 +11,14 @@ package Data;
 public class Person_Obj {
     private int Id;
     private String Name;
-    private String Adress;
-    private String Contact_Number;
+    private String Last_Name1;
+    private String Last_Name2;
 
-    public Person_Obj(int Id, String Name, String Adress, String Contact_Number) {
+    public Person_Obj(int Id, String Name, String Last_Name1, String Last_Name2) {
         this.Id = Id;
         this.Name = Name;
-        this.Adress = Adress;
-        this.Contact_Number = Contact_Number;
+        this.Last_Name1 = Last_Name1;
+        this.Last_Name2 = Last_Name2;
     }
 
     public int getId() {
@@ -37,20 +37,20 @@ public class Person_Obj {
         this.Name = Name;
     }
 
-    public String getAdress() {
-        return Adress;
+    public String getLast_Name1() {
+        return Last_Name1;
     }
 
-    public void setAdress(String Adress) {
-        this.Adress = Adress;
+    public void setLast_Name1(String Last_Name1) {
+        this.Last_Name1 = Last_Name1;
     }
 
-    public String getContact_Number() {
-        return Contact_Number;
+    public String getLast_Name2() {
+        return Last_Name2;
     }
 
-    public void setContact_Number(String Contact_Number) {
-        this.Contact_Number = Contact_Number;
+    public void setLast_Name2(String Last_Name2) {
+        this.Last_Name2 = Last_Name2;
     }
     
 }

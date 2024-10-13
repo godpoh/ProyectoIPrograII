@@ -10,15 +10,35 @@ package Data;
  */
 public class Player_Obj extends Person_Obj {
 
+    private String Contact_Number;
+    private String Adress;
     private int Team_Id;
     private String Position;
     private int Dorsal;
 
-    public Player_Obj(int Team_Id, String Position, int Dorsal, int Id, String Name, String Adress, String Contact_Number) {
-        super(Id, Name, Adress, Contact_Number);
+    public Player_Obj(String Contact_Number, String Adress, int Team_Id, String Position, int Dorsal, int Id, String Name, String Last_Name1, String Last_Name2) {
+        super(Id, Name, Last_Name1, Last_Name2);
+        this.Contact_Number = Contact_Number;
+        this.Adress = Adress;
         this.Team_Id = Team_Id;
         this.Position = Position;
         this.Dorsal = Dorsal;
+    }
+
+    public String getContact_Number() {
+        return Contact_Number;
+    }
+
+    public void setContact_Number(String Contact_Number) {
+        this.Contact_Number = Contact_Number;
+    }
+
+    public String getAdress() {
+        return Adress;
+    }
+
+    public void setAdress(String Adress) {
+        this.Adress = Adress;
     }
 
     public int getTeam_Id() {
@@ -45,4 +65,5 @@ public class Player_Obj extends Person_Obj {
         this.Dorsal = Dorsal;
     }
 
+    
 }

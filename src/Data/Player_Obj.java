@@ -10,8 +10,7 @@ package Data;
  */
 public class Player_Obj {
 
-    
-     private int Id;
+    private int Id;
     private String Name;
     private String Last_Name1;
     private String Last_Name2;
@@ -105,5 +104,4 @@ public class Player_Obj {
         this.Dorsal = Dorsal;
     }
 
-    
 }

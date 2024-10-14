@@ -64,22 +64,69 @@ public class Connection_SQL {
                 + "VALUES ('" + Team.getTeam_Id() + "', '"
                 + Team.getTeam_Name() + "');";
 
-        // Ejecutamos la consulta de inserción
+        // Ejecutamos la consulta 
         rowsAffected = sql.executeUpdate(qry);
 
         return rowsAffected;
     }
 
-    public static void Consult_Team(JComboBox<String> combobox) throws SQLException {
+    public static void Qry_Team(JComboBox<String> JCB) throws SQLException {
+
+        try {
+            Statement sql = (Statement) Connection_SQL.getConnection().createStatement();
+            String qry = "Select * From Equipo";
+
+            ResultSet resultado = sql.executeQuery(qry);
+
+            JCB.removeAllItems();
+
+            JCB.addItem("Seleccione un equipo");
+
+            while (resultado.next()) {
+                JCB.addItem(resultado.getString(2));
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e.toString());
+
+        }
+    }
+
+    public static void Delete_Selected_Team(JComboBox<String> JCB) throws SQLException {
+        String selectedTeam = (String) JCB.getSelectedItem(); // Obtiene el equipo seleccionado
+
+        if (selectedTeam != null && !selectedTeam.equals("Seleccione un equipo")) {
+            try {
+
+                Statement sql = Connection_SQL.getConnection().createStatement();
+                String Delete_Query = "DELETE FROM Equipo WHERE nombre_equipo = '" + selectedTeam + "'";
+
+                int confirm = JOptionPane.showConfirmDialog(null, "¿Seguro que deseas eliminar el equipo " + selectedTeam + "?", "Confirmar eliminación", JOptionPane.YES_NO_OPTION);
+
+                if (confirm == JOptionPane.YES_OPTION) {
+                    sql.executeUpdate(Delete_Query);
+                    JOptionPane.showMessageDialog(null, "Equipo eliminado exitosamente.");
+
+                    // Vuelve a cargar el JComboBox despues de eliminar
+                    Qry_Team(JCB);
+                }
+            } catch (SQLException e) {
+                JOptionPane.showMessageDialog(null, e.toString());
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Por favor selecciona un equipo válido.");
+        }
+    }
+
+    public static void Update_Selected_Team(JComboBox<String> combobox) throws SQLException {
 
         try {
             Statement sql = (Statement) Connection_SQL.getConnection().createStatement();
             String Consulta = "Select * From Equipo";
 
             ResultSet resultado = sql.executeQuery(Consulta);
-            
+
             combobox.removeAllItems();
-            
+
             combobox.addItem("Seleccione un equipo");
 
             while (resultado.next()) {

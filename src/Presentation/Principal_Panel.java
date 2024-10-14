@@ -236,7 +236,13 @@ public class Principal_Panel extends javax.swing.JFrame {
 
 
     private void Btn_Gestion_EquiposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_Gestion_EquiposActionPerformed
-        Team_Managment Team = new Team_Managment();
+        Team_Managment Team = null;
+        try {
+            Team = new Team_Managment();
+        } catch (SQLException ex) {
+            Logger.getLogger(Principal_Panel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
         Team.setSize(820, 688);
         Team.setLocation(0, 0);
 

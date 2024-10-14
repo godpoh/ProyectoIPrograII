@@ -14,40 +14,40 @@ import java.util.Map;
 public class Match_Obj {
 
 
-    private Map<Tournament_Obj, Integer> Match_Id;      
+    private int Match_Id;      
     private Team_Obj Local_Team;
     private Team_Obj Visitant_Team;
     private int Local_Goals;
     private int Visitor_Goals;
-    private Map<Player_Obj, Integer> Yellow_Cards;
-    private Map<Player_Obj, Integer> Red_Cards;
-    private Map<Player_Obj, String> Other_Sanctions;
-    private Map<Player_Obj, Integer> Annotador;
+    private int Yellow_Cards;
+    private int Red_Cards;
+    private String Other_Sanctions;
+    private String Annotador;
 
-    public Match_Obj(Map<Tournament_Obj, Integer> Match_Id, Team_Obj Local_Team, Team_Obj Visitant_Team, int Local_Goals, int Visitor_Goals, Map<Player_Obj, Integer> Yellow_Cards, Map<Player_Obj, Integer> Red_Cards, String Other_Sanctions, Map<Player_Obj, Integer> Annotador) {
-        this.Match_Id = new HashMap<>();
+    public Match_Obj(int Match_Id, Team_Obj Local_Team, Team_Obj Visitant_Team, int Local_Goals, int Visitor_Goals, int Yellow_Cards, int Red_Cards, String Other_Sanctions, String Annotador) {
+        this.Match_Id = Match_Id;
         this.Local_Team = Local_Team;
         this.Visitant_Team = Visitant_Team;
         this.Local_Goals = Local_Goals;
         this.Visitor_Goals = Visitor_Goals;
-        this.Yellow_Cards = new HashMap<>();
-        this.Red_Cards = new HashMap<>();
-        this.Other_Sanctions = new HashMap<>();
+        this.Yellow_Cards = Yellow_Cards;
+        this.Red_Cards = Red_Cards;
+        this.Other_Sanctions = Other_Sanctions;
     }
 
-    public Map<Tournament_Obj, Integer> getMatch_Id() {
+    public int getMatch_Id() {
         return Match_Id;
     }
 
-    public Map<Player_Obj, Integer> getAnnotador() {
+    public String getAnnotador() {
         return Annotador;
     }
 
-    public void setAnnotador(Map<Player_Obj, Integer> Annotador) {
+    public void setAnnotador(String Annotador) {
         this.Annotador = Annotador;
     }
 
-    public void setMatch_Id(Map<Tournament_Obj, Integer> Match_Id) {
+    public void setMatch_Id(int Match_Id) {
         this.Match_Id = Match_Id;
     }
 
@@ -83,27 +83,27 @@ public class Match_Obj {
         this.Visitor_Goals = Visitor_Goals;
     }
 
-    public Map<Player_Obj, Integer> getYellow_Cards() {
+    public int getYellow_Cards() {
         return Yellow_Cards;
     }
 
-    public void setYellow_Cards(Map<Player_Obj, Integer> Yellow_Cards) {
+    public void setYellow_Cards(int Yellow_Cards) {
         this.Yellow_Cards = Yellow_Cards;
     }
 
-    public Map<Player_Obj, Integer> getRed_Cards() {
+    public int getRed_Cards() {
         return Red_Cards;
     }
 
-    public void setRed_Cards(Map<Player_Obj, Integer> Red_Cards) {
+    public void setRed_Cards(int Red_Cards) {
         this.Red_Cards = Red_Cards;
     }
 
-    public Map<Player_Obj, String> getOther_Sanctions() {
+    public String getOther_Sanctions() {
         return Other_Sanctions;
     }
 
-    public void setOther_Sanctions(Map<Player_Obj, String>Other_Sanctions) {
+    public void setOther_Sanctions(String Other_Sanctions) {
         this.Other_Sanctions = Other_Sanctions;
     }
 

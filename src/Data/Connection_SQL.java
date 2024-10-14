@@ -24,7 +24,7 @@ public class Connection_SQL {
 
         try {
             Connection con = DriverManager.getConnection(Connection_String);
-             JOptionPane.showMessageDialog(null, "Conexion exitosa", "Aviso Importante", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Conexion exitosa", "Aviso Importante", JOptionPane.INFORMATION_MESSAGE);
             return con;
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e.toString());

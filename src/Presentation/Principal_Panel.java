@@ -44,7 +44,9 @@ public class Principal_Panel extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(1020, 716));
         setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(1020, 716));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Pnl_Menu.setBackground(new java.awt.Color(10, 102, 255));
@@ -168,7 +170,7 @@ public class Principal_Panel extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        Pnl_Menu.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, -1, -1));
+        Pnl_Menu.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 200, -1, -1));
 
         getContentPane().add(Pnl_Menu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 200, 720));
 
@@ -235,7 +237,7 @@ public class Principal_Panel extends javax.swing.JFrame {
 
     private void Btn_Gestion_EquiposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_Gestion_EquiposActionPerformed
         Team_Managment Team = new Team_Managment();
-        Team.setSize(820, 800);
+        Team.setSize(820, 688);
         Team.setLocation(0, 0);
 
         Pnl_Contenedor.removeAll();
@@ -248,7 +250,7 @@ public class Principal_Panel extends javax.swing.JFrame {
     private void Btn_Gestion_de_TorneosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_Gestion_de_TorneosActionPerformed
         Tournament_Management Tournament_Window = new Tournament_Management();
 
-        Tournament_Window.setSize(820, 800);
+        Tournament_Window.setSize(820, 688);
         Tournament_Window.setLocation(0, 0);
 
         Pnl_Contenedor.removeAll();
@@ -262,7 +264,7 @@ public class Principal_Panel extends javax.swing.JFrame {
     private void Btn_Registro_PartidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_Registro_PartidosActionPerformed
         Match_Registration Match_Window = new Match_Registration();
 
-        Match_Window.setSize(820, 800);
+        Match_Window.setSize(820, 688);
         Match_Window.setLocation(0, 0);
 
         Pnl_Contenedor.removeAll();
@@ -285,7 +287,7 @@ public class Principal_Panel extends javax.swing.JFrame {
 
         Scorer_Record Scorer_Window = new Scorer_Record();
 
-        Scorer_Window.setSize(820,800);
+        Scorer_Window.setSize(820,688);
         Scorer_Window.setLocation(0, 0);
 
         Pnl_Contenedor.removeAll();
@@ -301,7 +303,7 @@ public class Principal_Panel extends javax.swing.JFrame {
 
         Team_Position_Table Team_Position_Window = new Team_Position_Table();
 
-        Team_Position_Window.setSize(820, 800);
+        Team_Position_Window.setSize(820, 688);
         Team_Position_Window.setLocation(0, 0);
 
         Pnl_Contenedor.removeAll();
@@ -317,7 +319,7 @@ public class Principal_Panel extends javax.swing.JFrame {
 
         Sanctions_Table Sanctions_Window = new Sanctions_Table();
 
-        Sanctions_Window.setSize(820, 800);
+        Sanctions_Window.setSize(820, 688);
         Sanctions_Window.setLocation(0, 0);
 
         Pnl_Contenedor.removeAll();

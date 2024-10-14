@@ -567,9 +567,9 @@ public class Team_Managment extends javax.swing.JPanel {
         jTextField7.setForeground(new java.awt.Color(51, 51, 51));
         Pnl_Eliminar_Jugador.add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 300, 210, -1));
 
-        Pnl_Principal.add(Pnl_Eliminar_Jugador, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, 570, 520));
+        Pnl_Principal.add(Pnl_Eliminar_Jugador, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 820, 520));
 
-        add(Pnl_Principal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 820, -1));
+        add(Pnl_Principal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 820, 580));
 
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/abstract-textured-backgound.jpg"))); // NOI18N
         add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 820, 688));

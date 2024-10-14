@@ -11,6 +11,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 /**
  *
@@ -117,25 +118,30 @@ public class Connection_SQL {
         }
     }
 
-    public static void Update_Selected_Team(JComboBox<String> combobox) throws SQLException {
+    public static void Update_Selected_Team(JComboBox<String> JCB, JTextField newNameField) throws SQLException {
+        String selectedTeam = (String) JCB.getSelectedItem(); 
+        String newTeamName = newNameField.getText(); 
 
-        try {
-            Statement sql = (Statement) Connection_SQL.getConnection().createStatement();
-            String Consulta = "Select * From Equipo";
+        if (selectedTeam != null && !selectedTeam.equals("Seleccione un equipo") && !newTeamName.isEmpty()) {
+            try {
+                Statement sql = Connection_SQL.getConnection().createStatement();
+                String Update_Query = "UPDATE Equipo SET nombre_equipo = '" + newTeamName + "' WHERE nombre_equipo = '" + selectedTeam + "'";
 
-            ResultSet resultado = sql.executeQuery(Consulta);
+                int confirm = JOptionPane.showConfirmDialog(null, "¿Seguro que deseas actualizar el equipo " + selectedTeam + " a " + newTeamName + "?", "Confirmar actualización", JOptionPane.YES_NO_OPTION);
 
-            combobox.removeAllItems();
+                if (confirm == JOptionPane.YES_OPTION) {
+                    sql.executeUpdate(Update_Query);
+                    JOptionPane.showMessageDialog(null, "Equipo actualizado exitosamente.");
 
-            combobox.addItem("Seleccione un equipo");
-
-            while (resultado.next()) {
-                combobox.addItem(resultado.getString(2));
+                    // Vuelve a cargar el JComboBox despues de actualizar
+                    Qry_Team(JCB);
+                }
+            } catch (SQLException e) {
+                JOptionPane.showMessageDialog(null, e.toString());
             }
-        } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, e.toString());
-
+        } else {
+            JOptionPane.showMessageDialog(null, "Por favor selecciona un equipo válido y escribe un nuevo nombre.");
         }
-    }
 
+    }
 }

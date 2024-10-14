@@ -36,7 +36,6 @@ public class Principal_Panel extends javax.swing.JFrame {
         Btn_Registro_Goleadores = new javax.swing.JButton();
         Btn_Tabla_Posicion_Equipos = new javax.swing.JButton();
         Btn_Tabla_Sanciones = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
         Pnl_Titulo = new javax.swing.JPanel();
         Lbl_Titulo = new javax.swing.JLabel();
         Lbl_Cerrar = new javax.swing.JLabel();
@@ -163,14 +162,6 @@ public class Principal_Panel extends javax.swing.JFrame {
         );
 
         Pnl_Menu.add(Pnl_SubM, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 500, 200, 180));
-
-        jButton1.setText("jButton1");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        Pnl_Menu.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 200, -1, -1));
 
         getContentPane().add(Pnl_Menu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 200, 720));
 
@@ -336,14 +327,6 @@ public class Principal_Panel extends javax.swing.JFrame {
 
     }//GEN-LAST:event_Btn_Tabla_SancionesActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-                try {
-            Connection_SQL.getConnection();
-        } catch (SQLException ex) {
-            Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -393,7 +376,6 @@ public class Principal_Panel extends javax.swing.JFrame {
     private javax.swing.JPanel Pnl_Menu;
     private javax.swing.JPanel Pnl_SubM;
     private javax.swing.JPanel Pnl_Titulo;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables

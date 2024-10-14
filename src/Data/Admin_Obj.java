@@ -9,7 +9,7 @@ package Data;
  * @author user
  */
 public class Admin_Obj {
-
+// Atributos
     private int Id;
     private String Name;
     private String Last_Name1;

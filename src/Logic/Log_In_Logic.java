@@ -45,10 +45,12 @@ public class Log_In_Logic {
         String getPassword = String.valueOf(txtContrasena.getPassword());
 
         try {
-            Connection_SQL connectionSQL = new Connection_SQL(); // Instanciar la clase
+            Connection_SQL connectionSQL = new Connection_SQL(); 
             if (connectionSQL.Verify_User(getUser, getPassword)) {
+                
                 Principal_Panel principal_panel = new Principal_Panel();
                 principal_panel.setVisible(true);
+                
             } else {
                 JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrecta. Intentelo de nuevo", "Mensaje Importante!", JOptionPane.WARNING_MESSAGE);
             }

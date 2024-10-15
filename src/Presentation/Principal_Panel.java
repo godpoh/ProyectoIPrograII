@@ -340,7 +340,23 @@ public class Principal_Panel extends javax.swing.JFrame {
     }//GEN-LAST:event_Btn_Tabla_SancionesActionPerformed
 
     private void Btn_Gestion_Equipos1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_Gestion_Equipos1ActionPerformed
-        // TODO add your handling code here:
+        Team_Managment Team = null;
+        try {
+            Team = new Team_Managment();
+       
+        } catch (SQLException ex) {
+            Logger.getLogger(Principal_Panel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        Team.setSize(820, 688);
+        Team.setLocation(0, 0);
+        
+        Pnl_Contenedor.removeAll();
+        Pnl_Contenedor.add(Team);
+
+        Pnl_Contenedor.revalidate();
+        Pnl_Contenedor.repaint();
+
     }//GEN-LAST:event_Btn_Gestion_Equipos1ActionPerformed
 
     /**

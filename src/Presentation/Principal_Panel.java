@@ -245,7 +245,12 @@ public class Principal_Panel extends javax.swing.JFrame {
     }//GEN-LAST:event_Btn_Gestion_EquiposActionPerformed
 
     private void Btn_Gestion_de_TorneosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_Gestion_de_TorneosActionPerformed
-        Tournament_Management Tournament_Window = new Tournament_Management();
+        Tournament_Management Tournament_Window = null;
+        try {
+            Tournament_Window = new Tournament_Management();
+        } catch (SQLException ex) {
+            Logger.getLogger(Principal_Panel.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
         Tournament_Window.setSize(820, 688);
         Tournament_Window.setLocation(0, 0);

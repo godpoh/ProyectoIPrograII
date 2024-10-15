@@ -669,11 +669,11 @@ public class Team_Managment extends javax.swing.JPanel {
 //        Creacion y llenado del objeto
         Team_Obj Team = new Team_Obj(Id, Nom);
 
-        int Res;
+        int Rows_Affected;
 
         try {
-            Res = Connection_SQL.InsertTeam(Team);
-            if (Res != 0) {
+            Rows_Affected = Connection_SQL.Insert_Team(Team);
+            if (Rows_Affected != 0) {
                 JOptionPane.showMessageDialog(null, "Datos guardados satisfactoriamente", "Aviso importante", JOptionPane.INFORMATION_MESSAGE);
                 Qry_Team(Jcb_Eliminar_Equipo);
                 Qry_Team(Jcb_Equipo_Actualizar);
@@ -714,15 +714,28 @@ public class Team_Managment extends javax.swing.JPanel {
         String Contact_Number = Txt_Contacto.getText();
         String Position = (String) Jcb_Posicion.getSelectedItem();
         int Dorsal = Integer.parseInt(Txt_Dorsal.getText());
-        int Team_Id = 43;
 
-        Player_Obj Player = new Player_Obj(Id, Name, Name, Name, Contact_Number, Adress, Team_Id, Position, Dorsal);
-
-        int Res;
+        String Team_Name = (String) Jcb_Equipo_Jugador.getSelectedItem();
+        int Team_Id = -1;
 
         try {
-            Res = Connection_SQL.InsertPlayer(Player);
-            if (Res != 0) {
+            Team_Id = Connection_SQL.get_Team_Id_By_Name(Team_Name);
+            if (Team_Id == -1) {
+                JOptionPane.showMessageDialog(null, "No se encontro el equipo seleccionado.", "Error", JOptionPane.ERROR_MESSAGE);
+                return; // Si no se encontro nada, para
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+            return; // Si hay un error, se detiene
+        }
+
+        Player_Obj Player = new Player_Obj(Id, Name, LN1, LN2, Contact_Number, Adress, Team_Id, Team_Name, Position, Dorsal);
+
+        int Rows_Affected;
+
+        try {
+            Rows_Affected = Connection_SQL.Insert_Player(Player);
+            if (Rows_Affected != 0) {
                 JOptionPane.showMessageDialog(null, "Datos guardados satisfactoriamente", "Aviso importante", JOptionPane.INFORMATION_MESSAGE);
                 Txt_Id_Jugador.setText("");
                 Txt_Nombre_Jugador1.setText("");

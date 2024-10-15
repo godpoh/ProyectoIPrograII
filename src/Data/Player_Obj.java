@@ -17,10 +17,11 @@ public class Player_Obj {
     private String Contact_Number;
     private String Adress;
     private int Team_Id;
+    private String Team_Name;
     private String Position;
     private int Dorsal;
 
-    public Player_Obj(int Id, String Name, String Last_Name1, String Last_Name2, String Contact_Number, String Adress, int Team_Id, String Position, int Dorsal) {
+    public Player_Obj(int Id, String Name, String Last_Name1, String Last_Name2, String Contact_Number, String Adress, int Team_Id, String Team_Name, String Position, int Dorsal) {
         this.Id = Id;
         this.Name = Name;
         this.Last_Name1 = Last_Name1;
@@ -28,6 +29,7 @@ public class Player_Obj {
         this.Contact_Number = Contact_Number;
         this.Adress = Adress;
         this.Team_Id = Team_Id;
+        this.Team_Name = Team_Name;
         this.Position = Position;
         this.Dorsal = Dorsal;
     }
@@ -88,6 +90,14 @@ public class Player_Obj {
         this.Team_Id = Team_Id;
     }
 
+    public String getTeam_Name() {
+        return Team_Name;
+    }
+
+    public void setTeam_Name(String Team_Name) {
+        this.Team_Name = Team_Name;
+    }
+
     public String getPosition() {
         return Position;
     }
@@ -103,5 +113,5 @@ public class Player_Obj {
     public void setDorsal(int Dorsal) {
         this.Dorsal = Dorsal;
     }
-
+    
 }

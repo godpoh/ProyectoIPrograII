@@ -4,9 +4,15 @@
  */
 package Presentation;
 
+import Data.Admin_Obj;
+import static Data.Connection_SQL.Insert_User;
 import Logic.Log_In_Logic;
 import java.awt.Window;
 import java.awt.event.KeyEvent;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 
 /**
@@ -34,11 +40,18 @@ public class Create_User extends javax.swing.JPanel {
         Pnl_Principal = new javax.swing.JPanel();
         lblIniciarSesion = new javax.swing.JLabel();
         lblUsuario = new javax.swing.JLabel();
-        txtUsuario = new javax.swing.JTextField();
+        Txt_Usuario = new javax.swing.JTextField();
         lblContrasena = new javax.swing.JLabel();
-        btnIngresar = new javax.swing.JButton();
-        txtContrasena = new javax.swing.JPasswordField();
-        lblImagenExit = new javax.swing.JLabel();
+        Btn_Registrar = new javax.swing.JButton();
+        Txt_Apellido2 = new javax.swing.JTextField();
+        Txt_Contrasena = new javax.swing.JPasswordField();
+        lblContrasena2 = new javax.swing.JLabel();
+        lblContrasena1 = new javax.swing.JLabel();
+        lblUsuario1 = new javax.swing.JLabel();
+        Jcb_Rol = new javax.swing.JComboBox<>();
+        lblUsuario2 = new javax.swing.JLabel();
+        Txt_Nombre = new javax.swing.JTextField();
+        Txt_Apellido3 = new javax.swing.JTextField();
         lblImagen = new javax.swing.JLabel();
 
         Pnl_Principal.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -46,75 +59,138 @@ public class Create_User extends javax.swing.JPanel {
         lblIniciarSesion.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         lblIniciarSesion.setForeground(new java.awt.Color(0, 0, 0));
         lblIniciarSesion.setText("Registro de Usuario");
-        Pnl_Principal.add(lblIniciarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 60, 180, 40));
+        Pnl_Principal.add(lblIniciarSesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 50, 180, 40));
 
         lblUsuario.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblUsuario.setForeground(new java.awt.Color(0, 0, 0));
-        lblUsuario.setText("USUARIO");
-        Pnl_Principal.add(lblUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 120, -1, -1));
+        lblUsuario.setText("USUARIO(Cédula)");
+        Pnl_Principal.add(lblUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 90, -1, -1));
 
-        txtUsuario.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        txtUsuario.setForeground(new java.awt.Color(153, 153, 153));
-        txtUsuario.setText("Ingrese su usuario");
-        txtUsuario.addMouseListener(new java.awt.event.MouseAdapter() {
+        Txt_Usuario.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        Txt_Usuario.setForeground(new java.awt.Color(153, 153, 153));
+        Txt_Usuario.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                txtUsuarioMousePressed(evt);
+                Txt_UsuarioMousePressed(evt);
             }
         });
-        txtUsuario.addKeyListener(new java.awt.event.KeyAdapter() {
+        Txt_Usuario.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                txtUsuarioKeyPressed(evt);
+                Txt_UsuarioKeyPressed(evt);
             }
         });
-        Pnl_Principal.add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 150, 350, 40));
+        Pnl_Principal.add(Txt_Usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 120, 350, 40));
 
         lblContrasena.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         lblContrasena.setForeground(new java.awt.Color(0, 0, 0));
-        lblContrasena.setText("CONTRASEÑA");
-        Pnl_Principal.add(lblContrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 200, -1, -1));
+        lblContrasena.setText("Segundo Apellido");
+        Pnl_Principal.add(lblContrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 330, -1, -1));
 
-        btnIngresar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btnIngresar.setForeground(new java.awt.Color(0, 0, 0));
-        btnIngresar.setText("Registrar");
-        btnIngresar.addActionListener(new java.awt.event.ActionListener() {
+        Btn_Registrar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        Btn_Registrar.setForeground(new java.awt.Color(0, 0, 0));
+        Btn_Registrar.setText("Registrar");
+        Btn_Registrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnIngresarActionPerformed(evt);
+                Btn_RegistrarActionPerformed(evt);
             }
         });
-        Pnl_Principal.add(btnIngresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 300, -1, -1));
+        Pnl_Principal.add(Btn_Registrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 570, -1, -1));
 
-        txtContrasena.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        txtContrasena.setForeground(new java.awt.Color(153, 153, 153));
-        txtContrasena.setText("********");
-        txtContrasena.addMouseListener(new java.awt.event.MouseAdapter() {
+        Txt_Apellido2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        Txt_Apellido2.setForeground(new java.awt.Color(153, 153, 153));
+        Txt_Apellido2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                txtContrasenaMousePressed(evt);
+                Txt_Apellido2MousePressed(evt);
             }
         });
-        txtContrasena.addKeyListener(new java.awt.event.KeyAdapter() {
+        Txt_Apellido2.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                txtContrasenaKeyPressed(evt);
+                Txt_Apellido2KeyPressed(evt);
             }
         });
-        Pnl_Principal.add(txtContrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 230, 350, 40));
+        Pnl_Principal.add(Txt_Apellido2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 360, 350, 40));
 
-        lblImagenExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/btnExit__1_-removebg-preview.png"))); // NOI18N
-        lblImagenExit.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblImagenExitMouseClicked(evt);
+        Txt_Contrasena.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        Txt_Contrasena.setForeground(new java.awt.Color(153, 153, 153));
+        Txt_Contrasena.setText("********");
+        Txt_Contrasena.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                Txt_ContrasenaMousePressed(evt);
             }
         });
-        Pnl_Principal.add(lblImagenExit, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 30, 30));
+        Txt_Contrasena.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                Txt_ContrasenaKeyPressed(evt);
+            }
+        });
+        Pnl_Principal.add(Txt_Contrasena, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 520, 350, 40));
+
+        lblContrasena2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblContrasena2.setForeground(new java.awt.Color(0, 0, 0));
+        lblContrasena2.setText("Rol");
+        Pnl_Principal.add(lblContrasena2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 410, 40, -1));
+
+        lblContrasena1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblContrasena1.setForeground(new java.awt.Color(0, 0, 0));
+        lblContrasena1.setText("CONTRASEÑA");
+        Pnl_Principal.add(lblContrasena1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 490, -1, -1));
+
+        lblUsuario1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblUsuario1.setForeground(new java.awt.Color(0, 0, 0));
+        lblUsuario1.setText("Primer Apellido");
+        Pnl_Principal.add(lblUsuario1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 250, -1, -1));
+
+        Jcb_Rol.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        Jcb_Rol.setForeground(new java.awt.Color(153, 153, 153));
+        Jcb_Rol.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione un rol", "Admin", "Quiropractico", "Entrenador" }));
+        Pnl_Principal.add(Jcb_Rol, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 440, 350, 40));
+
+        lblUsuario2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        lblUsuario2.setForeground(new java.awt.Color(0, 0, 0));
+        lblUsuario2.setText("Nombre");
+        Pnl_Principal.add(lblUsuario2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 170, -1, -1));
+
+        Txt_Nombre.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        Txt_Nombre.setForeground(new java.awt.Color(153, 153, 153));
+        Txt_Nombre.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                Txt_NombreMousePressed(evt);
+            }
+        });
+        Txt_Nombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                Txt_NombreKeyPressed(evt);
+            }
+        });
+        Pnl_Principal.add(Txt_Nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 200, 350, 40));
+
+        Txt_Apellido3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        Txt_Apellido3.setForeground(new java.awt.Color(153, 153, 153));
+        Txt_Apellido3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                Txt_Apellido3MousePressed(evt);
+            }
+        });
+        Txt_Apellido3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Txt_Apellido3ActionPerformed(evt);
+            }
+        });
+        Txt_Apellido3.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                Txt_Apellido3KeyPressed(evt);
+            }
+        });
+        Pnl_Principal.add(Txt_Apellido3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 280, 350, 40));
 
         lblImagen.setForeground(new java.awt.Color(204, 204, 204));
         lblImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/pxfuel.jpg"))); // NOI18N
-        Pnl_Principal.add(lblImagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 579, 419));
+        Pnl_Principal.add(lblImagen, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 820, 688));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 579, Short.MAX_VALUE)
+            .addGap(0, 820, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -123,7 +199,7 @@ public class Create_User extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 419, Short.MAX_VALUE)
+            .addGap(0, 688, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -132,50 +208,96 @@ public class Create_User extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtUsuarioMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtUsuarioMousePressed
-        Log_In_Logic login = new Log_In_Logic();
-        login.Default_Text_User_Field(txtUsuario, txtContrasena);
-    }//GEN-LAST:event_txtUsuarioMousePressed
+    private void Txt_UsuarioMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Txt_UsuarioMousePressed
 
-    private void txtUsuarioKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUsuarioKeyPressed
-        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            txtContrasena.requestFocus();
+    }//GEN-LAST:event_Txt_UsuarioMousePressed
 
-            Log_In_Logic login = new Log_In_Logic();
-            login.Default_Text_PSW(txtContrasena, txtUsuario);
+    private void Txt_UsuarioKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Txt_UsuarioKeyPressed
+        
+    }//GEN-LAST:event_Txt_UsuarioKeyPressed
+
+    private void Btn_RegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_RegistrarActionPerformed
+        int User_Id = Integer.parseInt(Txt_Usuario.getText());
+        String Name = Txt_Nombre.getText();
+        String Last_Name1 = Txt_Apellido2.getText();
+        String Last_Name2 = Txt_Apellido2.getText();
+        String Role = (String) Jcb_Rol.getSelectedItem();
+        String Password = String.valueOf(Txt_Contrasena.getText());
+
+        Admin_Obj Admin = new Admin_Obj(User_Id, Name, Last_Name1, Last_Name2, Password, Role);
+
+        int Rows_Affected;
+
+        try {
+            Rows_Affected = Insert_User(Admin);
+            if (Rows_Affected != 0) {
+                JOptionPane.showMessageDialog(null, "Datos guardados satisfactoriamente", "Aviso importante", JOptionPane.INFORMATION_MESSAGE);
+                Txt_Usuario.setText("");
+                Txt_Nombre.setText("");
+                Txt_Apellido2.setText("");
+                Txt_Apellido2.setText("");
+                Jcb_Rol.setSelectedItem("Seleccione un rol");
+                Txt_Contrasena.setText("");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Create_User.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_txtUsuarioKeyPressed
 
-    private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
+    }//GEN-LAST:event_Btn_RegistrarActionPerformed
 
-    }//GEN-LAST:event_btnIngresarActionPerformed
+    private void Txt_Apellido2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Txt_Apellido2MousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Txt_Apellido2MousePressed
 
-    private void txtContrasenaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtContrasenaMousePressed
-        Log_In_Logic login = new Log_In_Logic();
-        login.Default_Text_PSW(txtContrasena, txtUsuario);
-    }//GEN-LAST:event_txtContrasenaMousePressed
+    private void Txt_Apellido2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Txt_Apellido2KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Txt_Apellido2KeyPressed
 
-    private void txtContrasenaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtContrasenaKeyPressed
-        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            Log_In_Logic login = new Log_In_Logic();
-        }
-    }//GEN-LAST:event_txtContrasenaKeyPressed
+    private void Txt_ContrasenaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Txt_ContrasenaMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Txt_ContrasenaMousePressed
 
-    private void lblImagenExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblImagenExitMouseClicked
-        Window window = SwingUtilities.getWindowAncestor(lblImagenExit);
-        window.dispose();
-    }//GEN-LAST:event_lblImagenExitMouseClicked
+    private void Txt_ContrasenaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Txt_ContrasenaKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Txt_ContrasenaKeyPressed
+
+    private void Txt_NombreMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Txt_NombreMousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Txt_NombreMousePressed
+
+    private void Txt_NombreKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Txt_NombreKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Txt_NombreKeyPressed
+
+    private void Txt_Apellido3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Txt_Apellido3MousePressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Txt_Apellido3MousePressed
+
+    private void Txt_Apellido3KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Txt_Apellido3KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Txt_Apellido3KeyPressed
+
+    private void Txt_Apellido3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Txt_Apellido3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Txt_Apellido3ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Btn_Registrar;
+    private javax.swing.JComboBox<String> Jcb_Rol;
     private javax.swing.JPanel Pnl_Principal;
-    private javax.swing.JButton btnIngresar;
+    private javax.swing.JTextField Txt_Apellido2;
+    private javax.swing.JTextField Txt_Apellido3;
+    private javax.swing.JPasswordField Txt_Contrasena;
+    private javax.swing.JTextField Txt_Nombre;
+    private javax.swing.JTextField Txt_Usuario;
     private javax.swing.JLabel lblContrasena;
+    private javax.swing.JLabel lblContrasena1;
+    private javax.swing.JLabel lblContrasena2;
     private javax.swing.JLabel lblImagen;
-    private javax.swing.JLabel lblImagenExit;
     private javax.swing.JLabel lblIniciarSesion;
     private javax.swing.JLabel lblUsuario;
-    private javax.swing.JPasswordField txtContrasena;
-    private javax.swing.JTextField txtUsuario;
+    private javax.swing.JLabel lblUsuario1;
+    private javax.swing.JLabel lblUsuario2;
     // End of variables declaration//GEN-END:variables
 }

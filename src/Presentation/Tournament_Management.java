@@ -412,6 +412,11 @@ public class Tournament_Management extends javax.swing.JPanel {
         Jcb_Nombre_Torneo_Eliminar.setBackground(new java.awt.Color(204, 204, 204));
         Jcb_Nombre_Torneo_Eliminar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         Jcb_Nombre_Torneo_Eliminar.setForeground(new java.awt.Color(51, 51, 51));
+        Jcb_Nombre_Torneo_Eliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Jcb_Nombre_Torneo_EliminarActionPerformed(evt);
+            }
+        });
         Pnl_Torneo.add(Jcb_Nombre_Torneo_Eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 370, 210, -1));
 
         jLabel70.setBackground(new java.awt.Color(255, 255, 255));
@@ -998,6 +1003,10 @@ public class Tournament_Management extends javax.swing.JPanel {
             Logger.getLogger(Tournament_Management.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_Btn_Eliminar_Nombre_TorneoActionPerformed
+
+    private void Jcb_Nombre_Torneo_EliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jcb_Nombre_Torneo_EliminarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Jcb_Nombre_Torneo_EliminarActionPerformed
     
     private void Selected_Rd() {
         

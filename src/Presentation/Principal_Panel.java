@@ -28,7 +28,7 @@ public class Principal_Panel extends javax.swing.JFrame {
 
         Pnl_Menu = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        Btn_Gestion_Equipos = new javax.swing.JButton();
+        Btn_Creacion_Usuario = new javax.swing.JButton();
         Btn_Gestion_de_Torneos = new javax.swing.JButton();
         Btn_Registro_Partidos = new javax.swing.JButton();
         Btn_Estadisticas = new javax.swing.JButton();
@@ -36,6 +36,7 @@ public class Principal_Panel extends javax.swing.JFrame {
         Btn_Registro_Goleadores = new javax.swing.JButton();
         Btn_Tabla_Posicion_Equipos = new javax.swing.JButton();
         Btn_Tabla_Sanciones = new javax.swing.JButton();
+        Btn_Gestion_Equipos1 = new javax.swing.JButton();
         Pnl_Titulo = new javax.swing.JPanel();
         Lbl_Titulo = new javax.swing.JLabel();
         Lbl_Cerrar = new javax.swing.JLabel();
@@ -45,7 +46,6 @@ public class Principal_Panel extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1020, 716));
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(1020, 716));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Pnl_Menu.setBackground(new java.awt.Color(10, 102, 255));
@@ -54,17 +54,17 @@ public class Principal_Panel extends javax.swing.JFrame {
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/download__2_-removebg-preview.png"))); // NOI18N
         Pnl_Menu.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 200, 130));
 
-        Btn_Gestion_Equipos.setBackground(new java.awt.Color(51, 102, 255));
-        Btn_Gestion_Equipos.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        Btn_Gestion_Equipos.setForeground(new java.awt.Color(255, 255, 255));
-        Btn_Gestion_Equipos.setText("Gestión de Equipos");
-        Btn_Gestion_Equipos.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        Btn_Gestion_Equipos.addActionListener(new java.awt.event.ActionListener() {
+        Btn_Creacion_Usuario.setBackground(new java.awt.Color(51, 102, 255));
+        Btn_Creacion_Usuario.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        Btn_Creacion_Usuario.setForeground(new java.awt.Color(255, 255, 255));
+        Btn_Creacion_Usuario.setText("Creacion Usuario");
+        Btn_Creacion_Usuario.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        Btn_Creacion_Usuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Btn_Gestion_EquiposActionPerformed(evt);
+                Btn_Creacion_UsuarioActionPerformed(evt);
             }
         });
-        Pnl_Menu.add(Btn_Gestion_Equipos, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 150, 50));
+        Pnl_Menu.add(Btn_Creacion_Usuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, 120, 20));
 
         Btn_Gestion_de_Torneos.setBackground(new java.awt.Color(52, 102, 255));
         Btn_Gestion_de_Torneos.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -163,6 +163,18 @@ public class Principal_Panel extends javax.swing.JFrame {
 
         Pnl_Menu.add(Pnl_SubM, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 500, 200, 180));
 
+        Btn_Gestion_Equipos1.setBackground(new java.awt.Color(51, 102, 255));
+        Btn_Gestion_Equipos1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        Btn_Gestion_Equipos1.setForeground(new java.awt.Color(255, 255, 255));
+        Btn_Gestion_Equipos1.setText("Gestión de Equipos");
+        Btn_Gestion_Equipos1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        Btn_Gestion_Equipos1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_Gestion_Equipos1ActionPerformed(evt);
+            }
+        });
+        Pnl_Menu.add(Btn_Gestion_Equipos1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 150, 50));
+
         getContentPane().add(Pnl_Menu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 200, 720));
 
         Pnl_Titulo.setBackground(new java.awt.Color(106, 141, 157));
@@ -226,23 +238,18 @@ public class Principal_Panel extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
 
-    private void Btn_Gestion_EquiposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_Gestion_EquiposActionPerformed
-        Team_Managment Team = null;
-        try {
-            Team = new Team_Managment();
-        } catch (SQLException ex) {
-            Logger.getLogger(Principal_Panel.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        Team.setSize(820, 688);
-        Team.setLocation(0, 0);
+    private void Btn_Creacion_UsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_Creacion_UsuarioActionPerformed
+        Create_User User = new Create_User();
+
+        User.setSize(820, 688);
+        User.setLocation(0, 0);
 
         Pnl_Contenedor.removeAll();
-        Pnl_Contenedor.add(Team);
+        Pnl_Contenedor.add(User);
 
         Pnl_Contenedor.revalidate();
         Pnl_Contenedor.repaint();
-    }//GEN-LAST:event_Btn_Gestion_EquiposActionPerformed
+    }//GEN-LAST:event_Btn_Creacion_UsuarioActionPerformed
 
     private void Btn_Gestion_de_TorneosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_Gestion_de_TorneosActionPerformed
         Tournament_Management Tournament_Window = null;
@@ -289,7 +296,7 @@ public class Principal_Panel extends javax.swing.JFrame {
 
         Scorer_Record Scorer_Window = new Scorer_Record();
 
-        Scorer_Window.setSize(820,688);
+        Scorer_Window.setSize(820, 688);
         Scorer_Window.setLocation(0, 0);
 
         Pnl_Contenedor.removeAll();
@@ -332,6 +339,10 @@ public class Principal_Panel extends javax.swing.JFrame {
 
     }//GEN-LAST:event_Btn_Tabla_SancionesActionPerformed
 
+    private void Btn_Gestion_Equipos1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_Gestion_Equipos1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Btn_Gestion_Equipos1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -368,8 +379,9 @@ public class Principal_Panel extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Btn_Creacion_Usuario;
     private javax.swing.JButton Btn_Estadisticas;
-    private javax.swing.JButton Btn_Gestion_Equipos;
+    private javax.swing.JButton Btn_Gestion_Equipos1;
     private javax.swing.JButton Btn_Gestion_de_Torneos;
     private javax.swing.JButton Btn_Registro_Goleadores;
     private javax.swing.JButton Btn_Registro_Partidos;

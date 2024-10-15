@@ -34,9 +34,39 @@ public class Connection_SQL {
             return null;
         }
     }
-    
-    public static void Log_In() {
-        
+
+    public static int Insert_User(Admin_Obj User) throws SQLException {
+        int Rows_Affected = 0;
+
+        Statement sql = (Statement) Connection_SQL.getConnection().createStatement();
+
+        String qry = "INSERT INTO RegisteredPerson (ID_RegisteredPerson, Name, Last_Name1, Last_Name2, Password, Role) "
+                + "VALUES (" + User.getId() + ","
+                + " '" + User.getName() + "',"
+                + " '" + User.getLast_Name1() + "',"
+                + " '" + User.getLast_Name2() + "',"
+                + " '" + User.getPassword() + "',"
+                + " '" + User.getCategory() + "')";
+
+        Rows_Affected = sql.executeUpdate(qry);
+
+        return Rows_Affected;
+    }
+
+    public static boolean Verify_User(String username, String password) throws SQLException {
+        boolean isValidUser = false;
+
+        String qry = "SELECT * FROM RegisteredPerson WHERE Name = '" + username + "' AND Password = '" + password + "'";
+
+        Statement sql = Connection_SQL.getConnection().createStatement();
+        ResultSet rs = sql.executeQuery(qry);
+
+        // Si el ResultSet devuelve un valor, el usuario es valido
+        if (rs.next()) {
+            isValidUser = true;
+        }
+
+        return isValidUser;
     }
 
     public static int Insert_Team(Team_Obj Team) throws SQLException {
@@ -150,10 +180,10 @@ public class Connection_SQL {
     }
 
     public static int get_Team_Id_By_Name(String Team_Name) throws SQLException {
-        int Team_Id = -1; 
+        int Team_Id = -1;
 
         String qry = "SELECT Team_Id FROM Team WHERE Team_Name = '" + Team_Name + "'";
-        
+
         Statement sql = Connection_SQL.getConnection().createStatement();
         ResultSet rs = sql.executeQuery(qry);
 //        ResultSet permite iterar linea x linea como  si fuese un .next, permite utilizar getInt, getString y getDouble
@@ -170,7 +200,7 @@ public class Connection_SQL {
         Statement sql = Connection_SQL.getConnection().createStatement();
 
         String qry = "INSERT INTO Tournament (Tournament_Id, Tournament_Name) "
-                + "VALUES ('" + Tournament.getIdTournament()+ "', '"
+                + "VALUES ('" + Tournament.getIdTournament() + "', '"
                 + Tournament.getTournament_Name() + "');";
 
         rowsAffected = sql.executeUpdate(qry);
@@ -251,5 +281,4 @@ public class Connection_SQL {
         }
     }
 
-    
 }

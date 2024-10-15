@@ -4,8 +4,10 @@
  */
 package Logic;
 
+import Data.Connection_SQL;
 import Presentation.Principal_Panel;
 import java.awt.Color;
+import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
@@ -15,8 +17,7 @@ import javax.swing.JTextField;
  * @author Admin
  */
 public class Log_In_Logic {
-    
-    
+
     public void Default_Text_PSW(JPasswordField txtContrasena, JTextField txtUsuario) {
         if (String.valueOf(txtContrasena.getPassword()).equals("********")) {
             txtContrasena.setText("");
@@ -27,9 +28,9 @@ public class Log_In_Logic {
             txtUsuario.setForeground(Color.gray);
         }
     }
-    
+
     public void Default_Text_User_Field(JTextField txtUsuario, JPasswordField txtContrasena) {
-         if (txtUsuario.getText().equals("Ingrese su usuario")) {
+        if (txtUsuario.getText().equals("Ingrese su usuario")) {
             txtUsuario.setText("");
             txtUsuario.setForeground(Color.black);
         }
@@ -38,16 +39,22 @@ public class Log_In_Logic {
             txtContrasena.setForeground(Color.gray);
         }
     }
-    
-        public void Open_Principal_Panel_Logic(JTextField txtUsuario, JPasswordField txtContrasena) {
+
+    public void Open_Principal_Panel_Logic(JTextField txtUsuario, JPasswordField txtContrasena) throws SQLException {
         String getUser = txtUsuario.getText();
         String getPassword = String.valueOf(txtContrasena.getPassword());
 
-        if (getUser.equals("popo") && getPassword.equals("123")) {
-            Principal_Panel principal_panel = new Principal_Panel();
-            principal_panel.setVisible(true);
-        } else {
-            JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrecta. Intentelo de nuevo", "Mensaje Importante!", JOptionPane.WARNING_MESSAGE);
+        try {
+            Connection_SQL connectionSQL = new Connection_SQL(); // Instanciar la clase
+            if (connectionSQL.Verify_User(getUser, getPassword)) {
+                Principal_Panel principal_panel = new Principal_Panel();
+                principal_panel.setVisible(true);
+            } else {
+                JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrecta. Intentelo de nuevo", "Mensaje Importante!", JOptionPane.WARNING_MESSAGE);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+            JOptionPane.showMessageDialog(null, "Error al conectarse con la base de datos", "Error", JOptionPane.ERROR_MESSAGE);
         }
     }
 }

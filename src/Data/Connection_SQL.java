@@ -33,7 +33,10 @@ public class Connection_SQL {
             JOptionPane.showMessageDialog(null, e.toString());
             return null;
         }
-
+    }
+    
+    public static void Log_In() {
+        
     }
 
     public static int Insert_Team(Team_Obj Team) throws SQLException {
@@ -72,15 +75,15 @@ public class Connection_SQL {
     }
 
     public static void Delete_Selected_Team(JComboBox<String> JCB) throws SQLException {
-        String selectedTeam = (String) JCB.getSelectedItem(); // Obtiene el equipo seleccionado
+        String Selected_Team = (String) JCB.getSelectedItem(); // Obtiene el equipo seleccionado
 
-        if (selectedTeam != null && !selectedTeam.equals("Seleccione un equipo")) {
+        if (Selected_Team != null && !Selected_Team.equals("Seleccione un equipo")) {
             try {
 
                 Statement sql = Connection_SQL.getConnection().createStatement();
-                String Delete_Query = "DELETE FROM Team WHERE Team_Name = '" + selectedTeam + "'";
+                String Delete_Query = "DELETE FROM Team WHERE Team_Name = '" + Selected_Team + "'";
 
-                int confirm = JOptionPane.showConfirmDialog(null, "¿Seguro que deseas eliminar el equipo " + selectedTeam + "?", "Confirmar eliminación", JOptionPane.YES_NO_OPTION);
+                int confirm = JOptionPane.showConfirmDialog(null, "¿Seguro que deseas eliminar el equipo " + Selected_Team + "?", "Confirmar eliminación", JOptionPane.YES_NO_OPTION);
 
                 if (confirm == JOptionPane.YES_OPTION) {
                     sql.executeUpdate(Delete_Query);
@@ -97,16 +100,16 @@ public class Connection_SQL {
         }
     }
 
-    public static void Update_Selected_Team(JComboBox<String> JCB, JTextField newNameField) throws SQLException {
-        String selectedTeam = (String) JCB.getSelectedItem();
-        String newTeamName = newNameField.getText();
+    public static void Update_Selected_Team(JComboBox<String> JCB, JTextField New_Name_Field) throws SQLException {
+        String Selected_Team = (String) JCB.getSelectedItem();
+        String New_Team_Name = New_Name_Field.getText();
 
-        if (selectedTeam != null && !selectedTeam.equals("Seleccione un equipo") && !newTeamName.isEmpty()) {
+        if (Selected_Team != null && !Selected_Team.equals("Seleccione un equipo") && !New_Team_Name.isEmpty()) {
             try {
                 Statement sql = Connection_SQL.getConnection().createStatement();
-                String Update_Query = "UPDATE Team SET Team_Name = '" + newTeamName + "' WHERE Team_Name = '" + selectedTeam + "'";
+                String Update_Query = "UPDATE Team SET Team_Name = '" + New_Team_Name + "' WHERE Team_Name = '" + Selected_Team + "'";
 
-                int confirm = JOptionPane.showConfirmDialog(null, "¿Seguro que deseas actualizar el equipo " + selectedTeam + " a " + newTeamName + "?", "Confirmar actualización", JOptionPane.YES_NO_OPTION);
+                int confirm = JOptionPane.showConfirmDialog(null, "¿Seguro que deseas actualizar el equipo " + Selected_Team + " a " + New_Team_Name + "?", "Confirmar actualización", JOptionPane.YES_NO_OPTION);
 
                 if (confirm == JOptionPane.YES_OPTION) {
                     sql.executeUpdate(Update_Query);
@@ -146,10 +149,10 @@ public class Connection_SQL {
         return Rows_Affected;
     }
 
-    public static int get_Team_Id_By_Name(String teamName) throws SQLException {
+    public static int get_Team_Id_By_Name(String Team_Name) throws SQLException {
         int Team_Id = -1; 
 
-        String qry = "SELECT Team_Id FROM Team WHERE Team_Name = '" + teamName + "'";
+        String qry = "SELECT Team_Id FROM Team WHERE Team_Name = '" + Team_Name + "'";
         
         Statement sql = Connection_SQL.getConnection().createStatement();
         ResultSet rs = sql.executeQuery(qry);
@@ -197,56 +200,55 @@ public class Connection_SQL {
     }
 
     public static void Delete_Selected_Tournament(JComboBox<String> JCB) throws SQLException {
-        String selectedTeam = (String) JCB.getSelectedItem(); // Obtiene el equipo seleccionado
+        String Selected_Tournament = (String) JCB.getSelectedItem(); // Obtiene el equipo seleccionado
 
-        if (selectedTeam != null && !selectedTeam.equals("Seleccione un equipo")) {
+        if (Selected_Tournament != null && !Selected_Tournament.equals("Seleccione un torneo")) {
             try {
 
                 Statement sql = Connection_SQL.getConnection().createStatement();
-                String Delete_Query = "DELETE FROM Equipo WHERE nombre_equipo = '" + selectedTeam + "'";
+                String Delete_Query = "DELETE FROM Tournament WHERE Tournament_Name = '" + Selected_Tournament + "'";
 
-                int confirm = JOptionPane.showConfirmDialog(null, "¿Seguro que deseas eliminar el equipo " + selectedTeam + "?", "Confirmar eliminación", JOptionPane.YES_NO_OPTION);
+                int confirm = JOptionPane.showConfirmDialog(null, "¿Seguro que deseas eliminar el torneo " + Selected_Tournament + "?", "Confirmar eliminación", JOptionPane.YES_NO_OPTION);
 
                 if (confirm == JOptionPane.YES_OPTION) {
                     sql.executeUpdate(Delete_Query);
-                    JOptionPane.showMessageDialog(null, "Equipo eliminado exitosamente.");
+                    JOptionPane.showMessageDialog(null, "Torneo eliminado exitosamente.");
 
                     // Vuelve a cargar el combobox despues de eliminar
-                    Qry_Team(JCB);
+                    Qry_Tournament(JCB);
                 }
             } catch (SQLException e) {
                 JOptionPane.showMessageDialog(null, e.toString());
             }
         } else {
-            JOptionPane.showMessageDialog(null, "Por favor selecciona un equipo válido.");
+            JOptionPane.showMessageDialog(null, "Por favor selecciona un torneo válido.");
         }
     }
 
-    public static void Update_Selected_Tournament(JComboBox<String> JCB, JTextField newNameField) throws SQLException {
-        String selectedTeam = (String) JCB.getSelectedItem();
-        String newTeamName = newNameField.getText();
+    public static void Update_Selected_Tournament(JComboBox<String> JCB, JTextField New_Name_Field) throws SQLException {
+        String Selected_Tournament = (String) JCB.getSelectedItem();
+        String New_Tournament_Name = New_Name_Field.getText();
 
-        if (selectedTeam != null && !selectedTeam.equals("Seleccione un torneo") && !newTeamName.isEmpty()) {
+        if (Selected_Tournament != null && !Selected_Tournament.equals("Seleccione un torneo") && !New_Tournament_Name.isEmpty()) {
             try {
                 Statement sql = Connection_SQL.getConnection().createStatement();
-                String Update_Query = "UPDATE Equipo SET nombre_equipo = '" + newTeamName + "' WHERE nombre_equipo = '" + selectedTeam + "'";
+                String Update_Query = "UPDATE Tournament SET Tournament_Name = '" + New_Tournament_Name + "' WHERE Tournament_Name = '" + Selected_Tournament + "'";
 
-                int confirm = JOptionPane.showConfirmDialog(null, "¿Seguro que deseas actualizar el equipo " + selectedTeam + " a " + newTeamName + "?", "Confirmar actualización", JOptionPane.YES_NO_OPTION);
+                int confirm = JOptionPane.showConfirmDialog(null, "¿Seguro que deseas actualizar el torneo " + Selected_Tournament + " a " + New_Tournament_Name + "?", "Confirmar actualización", JOptionPane.YES_NO_OPTION);
 
                 if (confirm == JOptionPane.YES_OPTION) {
                     sql.executeUpdate(Update_Query);
-                    JOptionPane.showMessageDialog(null, "Equipo actualizado exitosamente.");
+                    JOptionPane.showMessageDialog(null, "Torneo actualizado exitosamente.");
 
                     // Vuelve a cargar el combobox despues de actualizar
-                    Qry_Team(JCB);
+                    Qry_Tournament(JCB);
                 }
             } catch (SQLException e) {
                 JOptionPane.showMessageDialog(null, e.toString());
             }
         } else {
-            JOptionPane.showMessageDialog(null, "Por favor selecciona un equipo válido y escribe un nuevo nombre.");
+            JOptionPane.showMessageDialog(null, "Por favor selecciona un torneo válido y escribe un nuevo nombre.");
         }
-
     }
 
     

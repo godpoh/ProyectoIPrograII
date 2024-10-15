@@ -5,7 +5,9 @@
 package Presentation;
 
 import Data.Connection_SQL;
+import static Data.Connection_SQL.Delete_Selected_Tournament;
 import static Data.Connection_SQL.Qry_Tournament;
+import static Data.Connection_SQL.Update_Selected_Tournament;
 import Data.Tournament_Obj;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -30,7 +32,7 @@ public class Tournament_Management extends javax.swing.JPanel {
         Pnl_Ingresar_Datos.setVisible(false);
         Qry_Tournament(Jcb_Actualizar_Torneo);
         Qry_Tournament(Jcb_Nombre_Torneo_Eliminar);
-
+        
         Action_Listeners_Method();
     }
 
@@ -958,11 +960,11 @@ public class Tournament_Management extends javax.swing.JPanel {
     private void Btn_Crear_TorneoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_Crear_TorneoActionPerformed
         int Id = Integer.parseInt(Txt_Id_Torneo.getText());
         String Name = Txt_Nombre_Torneo.getText();
-
+        
         Tournament_Obj tournament = new Tournament_Obj(Id, Name);
-
+        
         int Rows_Affected;
-
+        
         try {
             Rows_Affected = Connection_SQL.Insert_Tournament(tournament);
             if (Rows_Affected != 0) {
@@ -979,46 +981,57 @@ public class Tournament_Management extends javax.swing.JPanel {
     }//GEN-LAST:event_Btn_Crear_TorneoActionPerformed
 
     private void Btn_Actualizar_Nombre_TorneoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_Actualizar_Nombre_TorneoActionPerformed
-        // TODO add your handling code here:
+        try {
+            Update_Selected_Tournament(Jcb_Actualizar_Torneo, Txt_Nuevo_Nombre);
+            Qry_Tournament(Jcb_Nombre_Torneo_Eliminar);
+            Txt_Nuevo_Nombre.setText("");
+        } catch (SQLException ex) {
+            Logger.getLogger(Tournament_Management.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_Btn_Actualizar_Nombre_TorneoActionPerformed
 
     private void Btn_Eliminar_Nombre_TorneoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_Eliminar_Nombre_TorneoActionPerformed
-        // TODO add your handling code here:
+        try {
+            Delete_Selected_Tournament(Jcb_Nombre_Torneo_Eliminar);
+            Qry_Tournament(Jcb_Actualizar_Torneo);
+        } catch (SQLException ex) {
+            Logger.getLogger(Tournament_Management.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_Btn_Eliminar_Nombre_TorneoActionPerformed
-
+    
     private void Selected_Rd() {
-
+        
         if (Rd_Creacion_Torneo.isSelected()) {
             Pnl_Informacion_Torneo.setVisible(false);
             Pnl_Tarjetas.setVisible(false);
             Pnl_Registro_Equipos.setVisible(false);
             Pnl_Torneo.setVisible(true);
             Pnl_Ingresar_Datos.setVisible(false);
-
+            
         } else if (Rd_Equipos.isSelected()) {
-
+            
             Pnl_Informacion_Torneo.setVisible(false);
             Pnl_Tarjetas.setVisible(false);
             Pnl_Registro_Equipos.setVisible(true);
             Pnl_Torneo.setVisible(false);
             Pnl_Ingresar_Datos.setVisible(false);
-
+            
         } else if (Rd_Informacion_Tarjetas.isSelected()) {
-
+            
             Pnl_Informacion_Torneo.setVisible(false);
             Pnl_Tarjetas.setVisible(true);
             Pnl_Registro_Equipos.setVisible(false);
             Pnl_Torneo.setVisible(false);
             Pnl_Ingresar_Datos.setVisible(false);
-
+            
         } else if (Rd_Informacion_Torneo.isSelected()) {
-
+            
             Pnl_Informacion_Torneo.setVisible(true);
             Pnl_Tarjetas.setVisible(false);
             Pnl_Registro_Equipos.setVisible(false);
             Pnl_Torneo.setVisible(false);
             Pnl_Ingresar_Datos.setVisible(false);
-
+            
         } else if (Rd_Ingresar_Datos.isSelected()) {
             Pnl_Informacion_Torneo.setVisible(false);
             Pnl_Tarjetas.setVisible(false);
@@ -1027,38 +1040,38 @@ public class Tournament_Management extends javax.swing.JPanel {
             Pnl_Ingresar_Datos.setVisible(true);
         }
     }
-
+    
     private void Action_Listeners_Method() {
         Rd_Ingresar_Datos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Selected_Rd();
             }
         });
-
+        
         Rd_Creacion_Torneo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Selected_Rd();
             }
         });
-
+        
         Rd_Equipos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Selected_Rd();
             }
         });
-
+        
         Rd_Informacion_Tarjetas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Selected_Rd();
             }
         });
-
+        
         Rd_Informacion_Torneo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Selected_Rd();
             }
         });
-
+        
     }
 
 

@@ -8,6 +8,7 @@ import Data.Connection_SQL;
 import static Data.Connection_SQL.Delete_Selected_Team;
 import static Data.Connection_SQL.Qry_Team;
 import static Data.Connection_SQL.Update_Selected_Team;
+import Data.Player_Obj;
 import Data.Team_Obj;
 import java.security.Principal;
 import java.sql.SQLException;
@@ -29,6 +30,7 @@ public class Team_Managment extends javax.swing.JPanel {
         Action_Listeners_Method();
         Qry_Team(Jcb_Equipo_Actualizar);
         Qry_Team(Jcb_Eliminar_Equipo);
+        Qry_Team(Jcb_Equipo_Jugador);
     }
 
     /**
@@ -73,20 +75,24 @@ public class Team_Managment extends javax.swing.JPanel {
         Txt_Equipo_Crear1 = new javax.swing.JTextField();
         Pnl_Registro_Jugadores = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        Txt_Ap2 = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        Txt_Id_Jugador = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        Txt_Direccion = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        Txt_Contacto = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        Jcb_Posicion = new javax.swing.JComboBox<>();
         jLabel11 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
+        Txt_Dorsal = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
-        jButton2 = new javax.swing.JButton();
+        Jcb_Equipo_Jugador = new javax.swing.JComboBox<>();
+        Btn_Registrar_Jugador = new javax.swing.JButton();
+        jLabel17 = new javax.swing.JLabel();
+        Txt_Nombre_Jugador1 = new javax.swing.JTextField();
+        jLabel34 = new javax.swing.JLabel();
+        Txt_Ap1 = new javax.swing.JTextField();
         Pnl_Eliminar_Jugador = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
         jComboBox3 = new javax.swing.JComboBox<>();
@@ -296,11 +302,6 @@ public class Team_Managment extends javax.swing.JPanel {
         Jcb_Eliminar_Equipo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         Jcb_Eliminar_Equipo.setForeground(new java.awt.Color(51, 51, 51));
         Jcb_Eliminar_Equipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        Jcb_Eliminar_Equipo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Jcb_Eliminar_EquipoActionPerformed(evt);
-            }
-        });
         Pnl_Registro_Equipo.add(Jcb_Eliminar_Equipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 430, 210, -1));
 
         jLabel74.setBackground(new java.awt.Color(255, 255, 255));
@@ -360,80 +361,105 @@ public class Team_Managment extends javax.swing.JPanel {
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel6.setText("Ingrese el nombre del jugador");
-        Pnl_Registro_Jugadores.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 10, -1, -1));
+        jLabel6.setText("Ingrese el segundo apellido");
+        Pnl_Registro_Jugadores.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 160, -1, -1));
 
-        jTextField1.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(51, 51, 51));
-        Pnl_Registro_Jugadores.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 30, 210, -1));
+        Txt_Ap2.setBackground(new java.awt.Color(204, 204, 204));
+        Txt_Ap2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        Txt_Ap2.setForeground(new java.awt.Color(51, 51, 51));
+        Pnl_Registro_Jugadores.add(Txt_Ap2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 180, 210, -1));
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("Identificación(Cedúla)");
-        Pnl_Registro_Jugadores.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 60, -1, -1));
+        Pnl_Registro_Jugadores.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 10, -1, -1));
 
-        jTextField2.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jTextField2.setForeground(new java.awt.Color(51, 51, 51));
-        Pnl_Registro_Jugadores.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 80, 210, -1));
+        Txt_Id_Jugador.setBackground(new java.awt.Color(204, 204, 204));
+        Txt_Id_Jugador.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        Txt_Id_Jugador.setForeground(new java.awt.Color(51, 51, 51));
+        Pnl_Registro_Jugadores.add(Txt_Id_Jugador, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 30, 210, -1));
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("Dirección");
-        Pnl_Registro_Jugadores.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 110, -1, -1));
+        Pnl_Registro_Jugadores.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 210, -1, -1));
 
-        jTextField3.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jTextField3.setForeground(new java.awt.Color(51, 51, 51));
-        Pnl_Registro_Jugadores.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 130, 210, -1));
+        Txt_Direccion.setBackground(new java.awt.Color(204, 204, 204));
+        Txt_Direccion.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        Txt_Direccion.setForeground(new java.awt.Color(51, 51, 51));
+        Pnl_Registro_Jugadores.add(Txt_Direccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 230, 210, -1));
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("Número de contacto");
-        Pnl_Registro_Jugadores.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 160, -1, -1));
+        Pnl_Registro_Jugadores.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 260, -1, -1));
 
-        jTextField4.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jTextField4.setForeground(new java.awt.Color(51, 51, 51));
-        Pnl_Registro_Jugadores.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(201, 180, 210, -1));
+        Txt_Contacto.setBackground(new java.awt.Color(204, 204, 204));
+        Txt_Contacto.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        Txt_Contacto.setForeground(new java.awt.Color(51, 51, 51));
+        Pnl_Registro_Jugadores.add(Txt_Contacto, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 280, 210, -1));
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(0, 0, 0));
         jLabel10.setText("Posición en juego");
-        Pnl_Registro_Jugadores.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 210, -1, -1));
+        Pnl_Registro_Jugadores.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 310, -1, -1));
 
-        jComboBox1.setBackground(new java.awt.Color(204, 204, 204));
-        jComboBox1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jComboBox1.setForeground(new java.awt.Color(51, 51, 51));
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Portero", "Lateral Derecho", "Lateral Izquierdo", "Defensa Central", "Líbero", "Pivote", "Mediocentro", "Mediocentro Defensivo", "Mediocentro Ofensivo", "Interior Derecho", "Interior Izquierdo", "Extremo Derecho", "Extremo Izquierdo", "Delantero Centro", "Segundo Delantero", "Mediapunta", "Carrilero Derecho", "Carrilero Izquierdo" }));
-        Pnl_Registro_Jugadores.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 230, 210, -1));
+        Jcb_Posicion.setBackground(new java.awt.Color(204, 204, 204));
+        Jcb_Posicion.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        Jcb_Posicion.setForeground(new java.awt.Color(51, 51, 51));
+        Jcb_Posicion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione una posicion", "Portero", "Lateral Derecho", "Lateral Izquierdo", "Defensa Central", "Líbero", "Pivote", "Mediocentro", "Mediocentro Defensivo", "Mediocentro Ofensivo", "Interior Derecho", "Interior Izquierdo", "Extremo Derecho", "Extremo Izquierdo", "Delantero Centro", "Segundo Delantero", "Mediapunta", "Carrilero Derecho", "Carrilero Izquierdo" }));
+        Pnl_Registro_Jugadores.add(Jcb_Posicion, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 330, 210, -1));
 
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(0, 0, 0));
         jLabel11.setText("Dorsal");
-        Pnl_Registro_Jugadores.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 260, -1, -1));
+        Pnl_Registro_Jugadores.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 360, -1, -1));
 
-        jTextField5.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jTextField5.setForeground(new java.awt.Color(51, 51, 51));
-        Pnl_Registro_Jugadores.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 280, 210, -1));
+        Txt_Dorsal.setBackground(new java.awt.Color(204, 204, 204));
+        Txt_Dorsal.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        Txt_Dorsal.setForeground(new java.awt.Color(51, 51, 51));
+        Pnl_Registro_Jugadores.add(Txt_Dorsal, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 380, 210, -1));
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(0, 0, 0));
         jLabel12.setText("Equipo");
-        Pnl_Registro_Jugadores.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 310, -1, -1));
+        Pnl_Registro_Jugadores.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 410, -1, -1));
 
-        jComboBox2.setBackground(new java.awt.Color(204, 204, 204));
-        jComboBox2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jComboBox2.setForeground(new java.awt.Color(51, 51, 51));
-        Pnl_Registro_Jugadores.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 330, 210, -1));
+        Jcb_Equipo_Jugador.setBackground(new java.awt.Color(204, 204, 204));
+        Jcb_Equipo_Jugador.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        Jcb_Equipo_Jugador.setForeground(new java.awt.Color(51, 51, 51));
+        Pnl_Registro_Jugadores.add(Jcb_Equipo_Jugador, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 430, 210, -1));
 
-        jButton2.setBackground(new java.awt.Color(204, 204, 204));
-        jButton2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(0, 0, 0));
-        jButton2.setText("REGISTRAR");
-        Pnl_Registro_Jugadores.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 380, -1, -1));
+        Btn_Registrar_Jugador.setBackground(new java.awt.Color(204, 204, 204));
+        Btn_Registrar_Jugador.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        Btn_Registrar_Jugador.setForeground(new java.awt.Color(0, 0, 0));
+        Btn_Registrar_Jugador.setText("REGISTRAR");
+        Btn_Registrar_Jugador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_Registrar_JugadorActionPerformed(evt);
+            }
+        });
+        Pnl_Registro_Jugadores.add(Btn_Registrar_Jugador, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 480, -1, -1));
+
+        jLabel17.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel17.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel17.setText("Ingrese el nombre del jugador");
+        Pnl_Registro_Jugadores.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 60, -1, -1));
+
+        Txt_Nombre_Jugador1.setBackground(new java.awt.Color(204, 204, 204));
+        Txt_Nombre_Jugador1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        Txt_Nombre_Jugador1.setForeground(new java.awt.Color(51, 51, 51));
+        Pnl_Registro_Jugadores.add(Txt_Nombre_Jugador1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 80, 210, -1));
+
+        jLabel34.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel34.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel34.setText("Ingrese el primer apellido");
+        Pnl_Registro_Jugadores.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 110, -1, -1));
+
+        Txt_Ap1.setBackground(new java.awt.Color(204, 204, 204));
+        Txt_Ap1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        Txt_Ap1.setForeground(new java.awt.Color(51, 51, 51));
+        Pnl_Registro_Jugadores.add(Txt_Ap1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 130, 210, -1));
 
         Pnl_Principal.add(Pnl_Registro_Jugadores, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, 570, 510));
 
@@ -669,10 +695,6 @@ public class Team_Managment extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_Btn_EliminarActionPerformed
 
-    private void Jcb_Eliminar_EquipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jcb_Eliminar_EquipoActionPerformed
-
-    }//GEN-LAST:event_Jcb_Eliminar_EquipoActionPerformed
-
     private void Btn_Actualizar_EquipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_Actualizar_EquipoActionPerformed
         try {
             Update_Selected_Team(Jcb_Equipo_Actualizar, Txt_Nuevo_Equipo_Nombre);
@@ -683,14 +705,54 @@ public class Team_Managment extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_Btn_Actualizar_EquipoActionPerformed
 
+    private void Btn_Registrar_JugadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_Registrar_JugadorActionPerformed
+        int Id = Integer.parseInt(Txt_Id_Jugador.getText());
+        String Name = Txt_Nombre_Jugador1.getText();
+        String LN1 = Txt_Ap1.getText();
+        String LN2 = Txt_Ap2.getText();
+        String Adress = Txt_Direccion.getText();
+        String Contact_Number = Txt_Contacto.getText();
+        String Position = (String) Jcb_Posicion.getSelectedItem();
+        int Dorsal = Integer.parseInt(Txt_Dorsal.getText());
+        int Team_Id = 43;
+
+        Player_Obj Player = new Player_Obj(Id, Name, Name, Name, Contact_Number, Adress, Team_Id, Position, Dorsal);
+
+        int Res;
+
+        try {
+            Res = Connection_SQL.InsertPlayer(Player);
+            if (Res != 0) {
+                JOptionPane.showMessageDialog(null, "Datos guardados satisfactoriamente", "Aviso importante", JOptionPane.INFORMATION_MESSAGE);
+                Txt_Id_Jugador.setText("");
+                Txt_Nombre_Jugador1.setText("");
+                Txt_Ap1.setText("");
+                Txt_Ap2.setText("");
+                Txt_Direccion.setText("");
+                Txt_Contacto.setText("");
+                Jcb_Posicion.setSelectedItem("Seleccione una posicion");
+                Txt_Dorsal.setText("");
+                Txt_ID.setText("");
+                Jcb_Equipo_Jugador.setSelectedItem("Seleccione un equipo");
+
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }//GEN-LAST:event_Btn_Registrar_JugadorActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup BtnG_Equipo_Jugador;
     private javax.swing.JButton Btn_Actualizar_Equipo;
     private javax.swing.JButton Btn_Crear;
     private javax.swing.JButton Btn_Eliminar;
+    private javax.swing.JButton Btn_Registrar_Jugador;
     private javax.swing.JComboBox<String> Jcb_Eliminar_Equipo;
     private javax.swing.JComboBox<String> Jcb_Equipo_Actualizar;
+    private javax.swing.JComboBox<String> Jcb_Equipo_Jugador;
+    private javax.swing.JComboBox<String> Jcb_Posicion;
     private javax.swing.JPanel Pnl_Eliminar_Jugador;
     private javax.swing.JPanel Pnl_Principal;
     private javax.swing.JPanel Pnl_Registro_Equipo;
@@ -698,18 +760,22 @@ public class Team_Managment extends javax.swing.JPanel {
     private javax.swing.JRadioButton Rd_Eliminar_Actualizar;
     private javax.swing.JRadioButton Rd_Equipo;
     private javax.swing.JRadioButton Rd_Jugador;
+    private javax.swing.JTextField Txt_Ap1;
+    private javax.swing.JTextField Txt_Ap2;
+    private javax.swing.JTextField Txt_Contacto;
+    private javax.swing.JTextField Txt_Direccion;
+    private javax.swing.JTextField Txt_Dorsal;
     private javax.swing.JTextField Txt_Equipo_Crear1;
     private javax.swing.JTextField Txt_ID;
+    private javax.swing.JTextField Txt_Id_Jugador;
+    private javax.swing.JTextField Txt_Nombre_Jugador1;
     private javax.swing.JTextField Txt_Nuevo_Equipo_Nombre;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox13;
     private javax.swing.JComboBox<String> jComboBox14;
     private javax.swing.JComboBox<String> jComboBox15;
     private javax.swing.JComboBox<String> jComboBox16;
-    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JComboBox<String> jComboBox4;
     private javax.swing.JComboBox<String> jComboBox7;
@@ -723,6 +789,7 @@ public class Team_Managment extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
@@ -741,6 +808,7 @@ public class Team_Managment extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -757,11 +825,6 @@ public class Team_Managment extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
     // End of variables declaration//GEN-END:variables

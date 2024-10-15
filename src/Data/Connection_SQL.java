@@ -36,26 +36,6 @@ public class Connection_SQL {
 
     }
 
-    public static int InsertPlayer(Player_Obj Player) throws SQLException {
-        int Rows_Affected = 0;
-        // Creacion de sentencia para manejo en SQL
-        Statement sql = (Statement) Connection_SQL.getConnection().createStatement();
-        // String que contiene el script de la operacion sql
-        String qry = "Insert Into Cliente ()"
-                + "Values(" + Player.getId() + ","
-                + " '" + Player.getName() + "',"
-                + " '" + Player.getLast_Name1() + "',"
-                + " '" + Player.getLast_Name2() + "',"
-                + " '" + Player.getContact_Number() + "',"
-                + " '" + Player.getAdress() + "',"
-                + Player.getTeam_Id() + ","
-                + " '" + Player.getPosition() + "',"
-                + Player.getDorsal() + ")";
-        Rows_Affected = sql.executeUpdate(qry);
-
-        return Rows_Affected;
-    }
-
     public static int InsertTeam(Team_Obj Team) throws SQLException {
         int rowsAffected = 0;
         Statement sql = Connection_SQL.getConnection().createStatement();
@@ -119,8 +99,8 @@ public class Connection_SQL {
     }
 
     public static void Update_Selected_Team(JComboBox<String> JCB, JTextField newNameField) throws SQLException {
-        String selectedTeam = (String) JCB.getSelectedItem(); 
-        String newTeamName = newNameField.getText(); 
+        String selectedTeam = (String) JCB.getSelectedItem();
+        String newTeamName = newNameField.getText();
 
         if (selectedTeam != null && !selectedTeam.equals("Seleccione un equipo") && !newTeamName.isEmpty()) {
             try {
@@ -144,4 +124,27 @@ public class Connection_SQL {
         }
 
     }
+
+    public static int InsertPlayer(Player_Obj Player) throws SQLException {
+        int Rows_Affected = 0;
+        // Creacion de sentencia para manejo en SQL
+        Statement sql = (Statement) Connection_SQL.getConnection().createStatement();
+        // String que contiene el script de la operacion sql
+        String qry = "Insert Into Jugador (Cedula, Nombre, Apellido1, Apellido2, Numero_Contacto, "
+                + "Direccion, Equipo_Id, Posicion, Dorsal)"
+                + "Values(" + Player.getId() + ","
+                + " '" + Player.getName() + "',"
+                + " '" + Player.getLast_Name1() + "',"
+                + " '" + Player.getLast_Name2() + "',"
+                + " '" + Player.getContact_Number() + "',"
+                + " '" + Player.getAdress() + "',"
+                + Player.getTeam_Id() + ","
+                + " '" + Player.getPosition() + "',"
+                + Player.getDorsal() + ")";
+        
+        Rows_Affected = sql.executeUpdate(qry);
+
+        return Rows_Affected;
+    }
+
 }

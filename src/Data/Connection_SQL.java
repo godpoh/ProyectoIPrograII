@@ -20,7 +20,7 @@ import javax.swing.JTextField;
 public class Connection_SQL {
 
     public static Connection getConnection() throws SQLException {
-        String Connection_String = "jdbc:sqlserver://192.168.0.20:1433;"
+        String Connection_String = "jdbc:sqlserver://localhost:1433;"
                 + "database=SoccerTournament;"
                 + "user=sa;"
                 + "password=popo;"

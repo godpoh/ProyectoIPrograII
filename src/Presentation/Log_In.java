@@ -7,6 +7,9 @@ package Presentation;
 import Logic.Log_In_Logic;
 import java.awt.Window;
 import java.awt.event.KeyEvent;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.SwingUtilities;
 
 public class Log_In extends javax.swing.JFrame {
@@ -129,7 +132,11 @@ public class Log_In extends javax.swing.JFrame {
 
     private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
         Log_In_Logic login = new Log_In_Logic();
-        login.Open_Principal_Panel_Logic(txtUsuario, txtContrasena);
+        try {
+            login.Open_Principal_Panel_Logic(txtUsuario, txtContrasena);
+        } catch (SQLException ex) {
+            Logger.getLogger(Log_In.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnIngresarActionPerformed
 
     private void lblImagenExitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblImagenExitMouseClicked
@@ -140,7 +147,11 @@ public class Log_In extends javax.swing.JFrame {
     private void txtContrasenaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtContrasenaKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             Log_In_Logic login = new Log_In_Logic();
-            login.Open_Principal_Panel_Logic(txtUsuario, txtContrasena);
+            try {
+                login.Open_Principal_Panel_Logic(txtUsuario, txtContrasena);
+            } catch (SQLException ex) {
+                Logger.getLogger(Log_In.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }//GEN-LAST:event_txtContrasenaKeyPressed
 

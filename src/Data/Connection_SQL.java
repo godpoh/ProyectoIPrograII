@@ -35,6 +35,7 @@ public class Connection_SQL {
         }
     }
 
+    // Inicio de codigo registro de usuario
     public static int Insert_User(Admin_Obj User) throws SQLException {
         int Rows_Affected = 0;
 
@@ -69,6 +70,8 @@ public class Connection_SQL {
         return isValidUser;
     }
 
+    // Fin de codigo registro de usuario
+    // Inicio codigo de equipos
     public static int Insert_Team(Team_Obj Team) throws SQLException {
         int Rows_Affected = 0;
         Statement sql = Connection_SQL.getConnection().createStatement();
@@ -157,6 +160,8 @@ public class Connection_SQL {
 
     }
 
+    // Fin codigo de Equipos
+    // Inicio codigo de jugadores
     public static int Insert_Player(Player_Obj Player) throws SQLException {
         int Rows_Affected = 0;
 
@@ -186,7 +191,7 @@ public class Connection_SQL {
 
         Statement sql = Connection_SQL.getConnection().createStatement();
         ResultSet rs = sql.executeQuery(qry);
-//        ResultSet permite iterar linea x linea como  si fuese un .next, permite utilizar getInt, getString y getDouble
+//        ResultSet permite iterar linea x linea como  si fuese un while o for con .next, permite utilizar getInt, getString y getDouble
         if (rs.next()) {
             Team_Id = rs.getInt("Team_Id");
         }
@@ -195,6 +200,70 @@ public class Connection_SQL {
         return Team_Id;
     }
 
+    public static int Update_Player_Information() throws SQLException {
+        int RowsAffected = 0;
+
+        Statement sql = Connection_SQL.getConnection().createStatement();
+
+//        String 
+        return RowsAffected;
+    }
+
+    public static int get_Player_Id_By_Player_Name(String Player_Name) throws SQLException {
+        int Id = -1;
+
+        String qry = "SELECT ID FROM Player WHERE First_Name = '" + Player_Name + "'";
+
+        Statement sql = Connection_SQL.getConnection().createStatement();
+
+        ResultSet rs = sql.executeQuery(qry);
+
+        if (rs.next()) {
+            Id = rs.getInt("ID");
+        }
+
+        return Id;
+    }
+
+    public static void get_Player_Name_By_Team_Id(JComboBox JCB, int Team_Id) throws SQLException {
+        Statement sql = Connection_SQL.getConnection().createStatement();
+
+        String qry = "SELECT First_Name FROM Player WHERE Team_Id = " + Team_Id;
+
+        ResultSet rs = sql.executeQuery(qry);
+
+        JCB.removeAllItems();
+
+        JCB.addItem("Seleccione un jugador");
+
+        while (rs.next()) {
+            JCB.addItem(rs.getString("First_Name"));
+        }
+
+    }
+
+    public static int Delete_Player(int Id) throws SQLException {
+        int RowsAffected = 0;
+
+        try {
+            Statement sql = Connection_SQL.getConnection().createStatement();
+            String Delete_Player = "DELETE FROM Player WHERE ID = " + Id;
+
+            int confirm = JOptionPane.showConfirmDialog(null, "¿Seguro que deseas eliminar al jugador?", "Confirmar eliminación", JOptionPane.YES_NO_OPTION);
+
+            if (confirm == JOptionPane.YES_OPTION) {
+                sql.executeUpdate(Delete_Player);
+                JOptionPane.showMessageDialog(null, "Equipo eliminado exitosamente.");
+
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e.toString());
+        }
+        return RowsAffected;
+    }
+
+    // Fin codigo de jugadores
+    // Inicio de codigo de torneo
     public static int Insert_Tournament(Tournament_Obj Tournament) throws SQLException {
         int rowsAffected = 0;
         Statement sql = Connection_SQL.getConnection().createStatement();
@@ -281,4 +350,5 @@ public class Connection_SQL {
         }
     }
 
+    // Fin de codigo de torneo
 }

@@ -32,7 +32,8 @@ public class Team_Managment extends javax.swing.JPanel {
         Qry_Team(Jcb_Eliminar_Equipo);
         Qry_Team(Jcb_Equipo_Jugador);
         Qry_Team(Jcb_Nombre_Equipo_Eliminar);
-
+        Qry_Team(Jcb_Nombre_Equipo_Actual);
+        Qry_Team(Jcb_Nombre_Equipo_Nuevo);
     }
 
     /**
@@ -106,22 +107,22 @@ public class Team_Managment extends javax.swing.JPanel {
         Btn_Eliminar_Jugador = new javax.swing.JButton();
         jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
-        jButton4 = new javax.swing.JButton();
-        jComboBox7 = new javax.swing.JComboBox<>();
+        Btn_Actualizar_Jugador = new javax.swing.JButton();
+        Jcb_Nombre_Equipo_Actual = new javax.swing.JComboBox<>();
         jLabel26 = new javax.swing.JLabel();
-        jComboBox8 = new javax.swing.JComboBox<>();
+        Jcb_Nombre_Jugador_Actualizar = new javax.swing.JComboBox<>();
         jLabel27 = new javax.swing.JLabel();
-        jComboBox9 = new javax.swing.JComboBox<>();
+        Jcb_Nombre_Equipo_Nuevo = new javax.swing.JComboBox<>();
         jLabel24 = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
         jLabel29 = new javax.swing.JLabel();
         jLabel30 = new javax.swing.JLabel();
-        jComboBox14 = new javax.swing.JComboBox<>();
-        jTextField6 = new javax.swing.JTextField();
+        Txt_Posicion_Juego_Actualizar = new javax.swing.JComboBox<>();
+        Txt_Numero_Contacto_Actualizar = new javax.swing.JTextField();
         jLabel33 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
-        jTextField8 = new javax.swing.JTextField();
+        Txt_Dorsal_Actualizar = new javax.swing.JTextField();
+        Txt_Direccion_Actualizar = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -472,11 +473,6 @@ public class Team_Managment extends javax.swing.JPanel {
         Jcb_Nombre_Equipo_Eliminar.setBackground(new java.awt.Color(204, 204, 204));
         Jcb_Nombre_Equipo_Eliminar.setForeground(new java.awt.Color(51, 51, 51));
         Jcb_Nombre_Equipo_Eliminar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione un equipo" }));
-        Jcb_Nombre_Equipo_Eliminar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Jcb_Nombre_Equipo_EliminarActionPerformed(evt);
-            }
-        });
         Pnl_Eliminar_Jugador.add(Jcb_Nombre_Equipo_Eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 60, 210, -1));
 
         jLabel18.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -525,36 +521,41 @@ public class Team_Managment extends javax.swing.JPanel {
         jLabel23.setText("Ingrese el nombre del jugador");
         Pnl_Eliminar_Jugador.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 350, 280, -1));
 
-        jButton4.setBackground(new java.awt.Color(204, 204, 204));
-        jButton4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(0, 0, 0));
-        jButton4.setText("ACTUALIZAR");
-        Pnl_Eliminar_Jugador.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 470, -1, -1));
+        Btn_Actualizar_Jugador.setBackground(new java.awt.Color(204, 204, 204));
+        Btn_Actualizar_Jugador.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        Btn_Actualizar_Jugador.setForeground(new java.awt.Color(0, 0, 0));
+        Btn_Actualizar_Jugador.setText("ACTUALIZAR");
+        Btn_Actualizar_Jugador.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_Actualizar_JugadorActionPerformed(evt);
+            }
+        });
+        Pnl_Eliminar_Jugador.add(Btn_Actualizar_Jugador, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 470, -1, -1));
 
-        jComboBox7.setBackground(new java.awt.Color(204, 204, 204));
-        jComboBox7.setForeground(new java.awt.Color(51, 51, 51));
-        jComboBox7.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione un equipo" }));
-        Pnl_Eliminar_Jugador.add(jComboBox7, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 320, 210, -1));
+        Jcb_Nombre_Equipo_Actual.setBackground(new java.awt.Color(204, 204, 204));
+        Jcb_Nombre_Equipo_Actual.setForeground(new java.awt.Color(51, 51, 51));
+        Jcb_Nombre_Equipo_Actual.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione un equipo" }));
+        Pnl_Eliminar_Jugador.add(Jcb_Nombre_Equipo_Actual, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 320, 210, -1));
 
         jLabel26.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel26.setForeground(new java.awt.Color(0, 0, 0));
         jLabel26.setText("Ingrese el nombre del nuevo equipo");
         Pnl_Eliminar_Jugador.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 410, 330, -1));
 
-        jComboBox8.setBackground(new java.awt.Color(204, 204, 204));
-        jComboBox8.setForeground(new java.awt.Color(51, 51, 51));
-        jComboBox8.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione un jugador" }));
-        Pnl_Eliminar_Jugador.add(jComboBox8, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 380, 210, -1));
+        Jcb_Nombre_Jugador_Actualizar.setBackground(new java.awt.Color(204, 204, 204));
+        Jcb_Nombre_Jugador_Actualizar.setForeground(new java.awt.Color(51, 51, 51));
+        Jcb_Nombre_Jugador_Actualizar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione un jugador" }));
+        Pnl_Eliminar_Jugador.add(Jcb_Nombre_Jugador_Actualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 380, 210, -1));
 
         jLabel27.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel27.setForeground(new java.awt.Color(0, 0, 0));
         jLabel27.setText("Ingrese el nombre del equipo(actual)");
         Pnl_Eliminar_Jugador.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 290, 340, -1));
 
-        jComboBox9.setBackground(new java.awt.Color(204, 204, 204));
-        jComboBox9.setForeground(new java.awt.Color(51, 51, 51));
-        jComboBox9.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione un equipo" }));
-        Pnl_Eliminar_Jugador.add(jComboBox9, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 440, 210, -1));
+        Jcb_Nombre_Equipo_Nuevo.setBackground(new java.awt.Color(204, 204, 204));
+        Jcb_Nombre_Equipo_Nuevo.setForeground(new java.awt.Color(51, 51, 51));
+        Jcb_Nombre_Equipo_Nuevo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione un equipo" }));
+        Pnl_Eliminar_Jugador.add(Jcb_Nombre_Equipo_Nuevo, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 440, 210, -1));
 
         jLabel24.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel24.setForeground(new java.awt.Color(0, 0, 0));
@@ -581,29 +582,30 @@ public class Team_Managment extends javax.swing.JPanel {
         jLabel30.setText("Dirección");
         Pnl_Eliminar_Jugador.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 290, 90, -1));
 
-        jComboBox14.setBackground(new java.awt.Color(204, 204, 204));
-        jComboBox14.setForeground(new java.awt.Color(51, 51, 51));
-        Pnl_Eliminar_Jugador.add(jComboBox14, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 380, 210, -1));
+        Txt_Posicion_Juego_Actualizar.setBackground(new java.awt.Color(204, 204, 204));
+        Txt_Posicion_Juego_Actualizar.setForeground(new java.awt.Color(51, 51, 51));
+        Txt_Posicion_Juego_Actualizar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione una posicion", "Portero", "Lateral Derecho", "Lateral Izquierdo", "Defensa Central", "Líbero", "Pivote", "Mediocentro", "Mediocentro Defensivo", "Mediocentro Ofensivo", "Interior Derecho", "Interior Izquierdo", "Extremo Derecho", "Extremo Izquierdo", "Delantero Centro", "Segundo Delantero", "Mediapunta", "Carrilero Derecho", "Carrilero Izquierdo" }));
+        Pnl_Eliminar_Jugador.add(Txt_Posicion_Juego_Actualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 380, 210, -1));
 
-        jTextField6.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jTextField6.setForeground(new java.awt.Color(51, 51, 51));
-        Pnl_Eliminar_Jugador.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 380, 210, -1));
+        Txt_Numero_Contacto_Actualizar.setBackground(new java.awt.Color(204, 204, 204));
+        Txt_Numero_Contacto_Actualizar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        Txt_Numero_Contacto_Actualizar.setForeground(new java.awt.Color(51, 51, 51));
+        Pnl_Eliminar_Jugador.add(Txt_Numero_Contacto_Actualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 380, 210, -1));
 
         jLabel33.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel33.setForeground(new java.awt.Color(0, 0, 0));
         jLabel33.setText("Dorsal");
         Pnl_Eliminar_Jugador.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 290, 70, -1));
 
-        jTextField7.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jTextField7.setForeground(new java.awt.Color(51, 51, 51));
-        Pnl_Eliminar_Jugador.add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 320, 210, -1));
+        Txt_Dorsal_Actualizar.setBackground(new java.awt.Color(204, 204, 204));
+        Txt_Dorsal_Actualizar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        Txt_Dorsal_Actualizar.setForeground(new java.awt.Color(51, 51, 51));
+        Pnl_Eliminar_Jugador.add(Txt_Dorsal_Actualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 320, 210, -1));
 
-        jTextField8.setBackground(new java.awt.Color(204, 204, 204));
-        jTextField8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jTextField8.setForeground(new java.awt.Color(51, 51, 51));
-        Pnl_Eliminar_Jugador.add(jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 320, 210, -1));
+        Txt_Direccion_Actualizar.setBackground(new java.awt.Color(204, 204, 204));
+        Txt_Direccion_Actualizar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        Txt_Direccion_Actualizar.setForeground(new java.awt.Color(51, 51, 51));
+        Pnl_Eliminar_Jugador.add(Txt_Direccion_Actualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 320, 210, -1));
 
         Pnl_Principal.add(Pnl_Eliminar_Jugador, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 820, 520));
 
@@ -654,10 +656,28 @@ public class Team_Managment extends javax.swing.JPanel {
 
                 try {
                     // Obtener el ID del equipo
-                    int teamId = Connection_SQL.get_Team_Id_By_Name(selectedTeam);
+                    int teamId = Connection_SQL.get_Team_Id_By_Team_Name(selectedTeam);
 
                     // Cargar jugadores de ese equipo en el JComboBox de jugadores
                     Connection_SQL.get_Player_Name_By_Team_Id(Jcb_Nombre_Jugador_Eliminar, teamId);
+                } catch (SQLException ex) {
+                    Logger.getLogger(Team_Managment.class.getName()).log(Level.SEVERE, null, ex);
+                    JOptionPane.showMessageDialog(null, "Error al cargar jugadores para el equipo seleccionado.");
+                }
+            }
+        });
+
+        Jcb_Nombre_Equipo_Actual.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                // Cuando se selecciona un equipo, cargar los jugadores de ese equipo
+                String selectedTeam = (String) Jcb_Nombre_Equipo_Actual.getSelectedItem();
+
+                try {
+                    // Obtener el ID del equipo
+                    int teamId = Connection_SQL.get_Team_Id_By_Team_Name(selectedTeam);
+
+                    // Cargar jugadores de ese equipo en el JComboBox de jugadores
+                    Connection_SQL.get_Player_Name_By_Team_Id(Jcb_Nombre_Jugador_Actualizar, teamId);
                 } catch (SQLException ex) {
                     Logger.getLogger(Team_Managment.class.getName()).log(Level.SEVERE, null, ex);
                     JOptionPane.showMessageDialog(null, "Error al cargar jugadores para el equipo seleccionado.");
@@ -718,13 +738,13 @@ public class Team_Managment extends javax.swing.JPanel {
         String Adress = Txt_Direccion.getText();
         String Contact_Number = Txt_Contacto.getText();
         String Position = (String) Jcb_Posicion.getSelectedItem();
-        int Dorsal = Integer.parseInt(Txt_Dorsal.getText());
+        int Jersey_Number = Integer.parseInt(Txt_Dorsal.getText());
 
         String Team_Name = (String) Jcb_Equipo_Jugador.getSelectedItem();
         int Team_Id = -1;
 
         try {
-            Team_Id = Connection_SQL.get_Team_Id_By_Name(Team_Name);
+            Team_Id = Connection_SQL.get_Team_Id_By_Team_Name(Team_Name);
             if (Team_Id == -1) {
                 JOptionPane.showMessageDialog(null, "No se encontro el equipo seleccionado.", "Error", JOptionPane.ERROR_MESSAGE);
                 return; // Si no se encontro nada, para
@@ -734,7 +754,7 @@ public class Team_Managment extends javax.swing.JPanel {
             return; // Si hay un error, se detiene
         }
 
-        Player_Obj Player = new Player_Obj(Id, Name, LN1, LN2, Contact_Number, Adress, Team_Id, Team_Name, Position, Dorsal);
+        Player_Obj Player = new Player_Obj(Id, Name, LN1, LN2, Contact_Number, Adress, Team_Id, Team_Name, Position, Jersey_Number);
 
         int Rows_Affected;
 
@@ -770,7 +790,7 @@ public class Team_Managment extends javax.swing.JPanel {
         }
 
         try {
-            int Team_Id = Connection_SQL.get_Team_Id_By_Name(Team_Name);
+            int Team_Id = Connection_SQL.get_Team_Id_By_Team_Name(Team_Name);
             int Player_Id = Connection_SQL.get_Player_Id_By_Player_Name(Player_Name);
             Connection_SQL.Delete_Player(Player_Id);
             Connection_SQL.get_Player_Name_By_Team_Id(Jcb_Nombre_Jugador_Eliminar, Team_Id);
@@ -781,14 +801,37 @@ public class Team_Managment extends javax.swing.JPanel {
 
     }//GEN-LAST:event_Btn_Eliminar_JugadorActionPerformed
 
-    private void Jcb_Nombre_Equipo_EliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jcb_Nombre_Equipo_EliminarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Jcb_Nombre_Equipo_EliminarActionPerformed
+    private void Btn_Actualizar_JugadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_Actualizar_JugadorActionPerformed
+
+        try {
+            String Player_Name = (String) Jcb_Nombre_Jugador_Actualizar.getSelectedItem();
+            String New_Team_Name = (String) Jcb_Nombre_Equipo_Nuevo.getSelectedItem();
+            int Team_Id = Connection_SQL.get_Team_Id_By_Team_Name(New_Team_Name);
+            int Player_Id = Connection_SQL.get_Player_Id_By_Player_Name(Player_Name);
+            String Adress = Txt_Direccion_Actualizar.getText();
+            String Contact_Number = Txt_Numero_Contacto_Actualizar.getText();
+            int Jersey_Number = Integer.parseInt(Txt_Dorsal_Actualizar.getText());
+            String Position = (String) Txt_Posicion_Juego_Actualizar.getSelectedItem();
+
+            int Rows_Affected = Connection_SQL.Update_Player_Information(Player_Id, Adress, Contact_Number, Jersey_Number, Position, Team_Id);
+
+            if (Rows_Affected != 0) {
+                JOptionPane.showMessageDialog(null, "Datos actualizados satisfactoriamente", "Aviso importante", JOptionPane.INFORMATION_MESSAGE);
+
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(Team_Managment.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+
+    }//GEN-LAST:event_Btn_Actualizar_JugadorActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup BtnG_Equipo_Jugador;
     private javax.swing.JButton Btn_Actualizar_Equipo;
+    private javax.swing.JButton Btn_Actualizar_Jugador;
     private javax.swing.JButton Btn_Crear;
     private javax.swing.JButton Btn_Eliminar;
     private javax.swing.JButton Btn_Eliminar_Jugador;
@@ -796,7 +839,10 @@ public class Team_Managment extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> Jcb_Eliminar_Equipo;
     private javax.swing.JComboBox<String> Jcb_Equipo_Actualizar;
     private javax.swing.JComboBox<String> Jcb_Equipo_Jugador;
+    private javax.swing.JComboBox<String> Jcb_Nombre_Equipo_Actual;
     private javax.swing.JComboBox<String> Jcb_Nombre_Equipo_Eliminar;
+    private javax.swing.JComboBox<String> Jcb_Nombre_Equipo_Nuevo;
+    private javax.swing.JComboBox<String> Jcb_Nombre_Jugador_Actualizar;
     private javax.swing.JComboBox<String> Jcb_Nombre_Jugador_Eliminar;
     private javax.swing.JComboBox<String> Jcb_Posicion;
     private javax.swing.JPanel Pnl_Eliminar_Jugador;
@@ -810,17 +856,16 @@ public class Team_Managment extends javax.swing.JPanel {
     private javax.swing.JTextField Txt_Ap2;
     private javax.swing.JTextField Txt_Contacto;
     private javax.swing.JTextField Txt_Direccion;
+    private javax.swing.JTextField Txt_Direccion_Actualizar;
     private javax.swing.JTextField Txt_Dorsal;
+    private javax.swing.JTextField Txt_Dorsal_Actualizar;
     private javax.swing.JTextField Txt_Equipo_Crear1;
     private javax.swing.JTextField Txt_ID;
     private javax.swing.JTextField Txt_Id_Jugador;
     private javax.swing.JTextField Txt_Nombre_Jugador1;
     private javax.swing.JTextField Txt_Nuevo_Equipo_Nombre;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JComboBox<String> jComboBox14;
-    private javax.swing.JComboBox<String> jComboBox7;
-    private javax.swing.JComboBox<String> jComboBox8;
-    private javax.swing.JComboBox<String> jComboBox9;
+    private javax.swing.JTextField Txt_Numero_Contacto_Actualizar;
+    private javax.swing.JComboBox<String> Txt_Posicion_Juego_Actualizar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -863,8 +908,5 @@ public class Team_Managment extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
     // End of variables declaration//GEN-END:variables
 }

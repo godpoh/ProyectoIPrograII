@@ -871,6 +871,9 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="33" green="33" red="33" type="rgb"/>
                 </Property>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="0"/>
+                </Property>
               </Properties>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -1017,9 +1020,6 @@
                   </StringArray>
                 </Property>
               </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Jcb_Nombre_Equipo_EliminarActionPerformed"/>
-              </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
               </AuxValues>
@@ -1170,7 +1170,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton4">
+            <Component class="javax.swing.JButton" name="Btn_Actualizar_Jugador">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="cc" green="cc" red="cc" type="rgb"/>
@@ -1183,13 +1183,16 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="ACTUALIZAR"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Btn_Actualizar_JugadorActionPerformed"/>
+              </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="370" y="470" width="-1" height="-1"/>
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JComboBox" name="jComboBox7">
+            <Component class="javax.swing.JComboBox" name="Jcb_Nombre_Equipo_Actual">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="cc" green="cc" red="cc" type="rgb"/>
@@ -1228,7 +1231,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JComboBox" name="jComboBox8">
+            <Component class="javax.swing.JComboBox" name="Jcb_Nombre_Jugador_Actualizar">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="cc" green="cc" red="cc" type="rgb"/>
@@ -1267,7 +1270,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JComboBox" name="jComboBox9">
+            <Component class="javax.swing.JComboBox" name="Jcb_Nombre_Equipo_Nuevo">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="cc" green="cc" red="cc" type="rgb"/>
@@ -1370,13 +1373,36 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JComboBox" name="jComboBox14">
+            <Component class="javax.swing.JComboBox" name="Txt_Posicion_Juego_Actualizar">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="cc" green="cc" red="cc" type="rgb"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="33" green="33" red="33" type="rgb"/>
+                </Property>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="19">
+                    <StringItem index="0" value="Seleccione una posicion"/>
+                    <StringItem index="1" value="Portero"/>
+                    <StringItem index="2" value="Lateral Derecho"/>
+                    <StringItem index="3" value="Lateral Izquierdo"/>
+                    <StringItem index="4" value="Defensa Central"/>
+                    <StringItem index="5" value="L&#xed;bero"/>
+                    <StringItem index="6" value="Pivote"/>
+                    <StringItem index="7" value="Mediocentro"/>
+                    <StringItem index="8" value="Mediocentro Defensivo"/>
+                    <StringItem index="9" value="Mediocentro Ofensivo"/>
+                    <StringItem index="10" value="Interior Derecho"/>
+                    <StringItem index="11" value="Interior Izquierdo"/>
+                    <StringItem index="12" value="Extremo Derecho"/>
+                    <StringItem index="13" value="Extremo Izquierdo"/>
+                    <StringItem index="14" value="Delantero Centro"/>
+                    <StringItem index="15" value="Segundo Delantero"/>
+                    <StringItem index="16" value="Mediapunta"/>
+                    <StringItem index="17" value="Carrilero Derecho"/>
+                    <StringItem index="18" value="Carrilero Izquierdo"/>
+                  </StringArray>
                 </Property>
               </Properties>
               <AuxValues>
@@ -1388,7 +1414,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField6">
+            <Component class="javax.swing.JTextField" name="Txt_Numero_Contacto_Actualizar">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="cc" green="cc" red="cc" type="rgb"/>
@@ -1422,7 +1448,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField7">
+            <Component class="javax.swing.JTextField" name="Txt_Dorsal_Actualizar">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="cc" green="cc" red="cc" type="rgb"/>
@@ -1440,7 +1466,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField8">
+            <Component class="javax.swing.JTextField" name="Txt_Direccion_Actualizar">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="cc" green="cc" red="cc" type="rgb"/>

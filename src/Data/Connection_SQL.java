@@ -263,6 +263,22 @@ public class Connection_SQL {
         return Team_Id;
     }
 
+    public static String get_Team_Name_By_Team_Id(int Team_Id) throws SQLException {
+        String Team_Name = "";
+
+        String qry = "SELECT Team_Name FROM Team WHERE Team_Id = " + Team_Id;
+
+        Statement sql = Connection_SQL.getConnection().createStatement();
+        ResultSet rs = sql.executeQuery(qry);
+
+        if (rs.next()) {
+            Team_Name = rs.getString("Team_Name");
+        }
+
+        rs.close();
+        return Team_Name;
+    }
+
     public static void get_Player_Name_By_Team_Id(JComboBox JCB, int Team_Id) throws SQLException {
         Statement sql = Connection_SQL.getConnection().createStatement();
 
@@ -398,34 +414,67 @@ public class Connection_SQL {
             JOptionPane.showMessageDialog(null, "Por favor selecciona un torneo válido y escribe un nuevo nombre.");
         }
     }
-    
+
     public static int get_Tournament_Id_By_Tournament_Name(String Tournament_Name) throws SQLException {
         int Tournament_Id = -1;
-        
+
         Statement sql = Connection_SQL.getConnection().createStatement();
-        
+
         String qry = "SELECT Tournament_Id FROM Tournament WHERE Tournament_Name = '" + Tournament_Name + "'";
-        
+
         ResultSet rs = sql.executeQuery(qry);
-        
+
         if (rs.next()) {
-            rs.getInt("Tournament_Id");
+            Tournament_Id = rs.getInt("Tournament_Id");
         }
         return Tournament_Id;
     }
 
     public static int Insert_Team_To_Tournament(Tournament_Teams_Obj Tournament_Team) throws SQLException {
-        int Rows_Affected = 0;
-
+        int rowsAffected = 0;
         Statement sql = Connection_SQL.getConnection().createStatement();
 
-        String qry = "INSERT INTO Tournament_Teams (Tournament_ID, Team_ID) "
-                + "VALUES (" + Tournament_Team.getTournament_Id() + ", " + Tournament_Team.getTeam_Id() + ")";
+        String qry = "INSERT INTO Tournament_Teams (Tournament_ID, Tournament_Name, Team_ID, Team_Name) "
+                + "VALUES (" + Tournament_Team.getTournament_Id() + ", '"
+                + Tournament_Team.getTournament_Name() + "', "
+                + Tournament_Team.getTeam_Id() + ", '"
+                + Tournament_Team.getTeam_Name() + "');";
 
-        sql.executeUpdate(qry);
-        
-        return Rows_Affected;
+        rowsAffected = sql.executeUpdate(qry);
+
+        return rowsAffected;
     }
 
-    // Fin de codigo de torneo 
+    public static void Load_Teams_For_Tournament(int Tournament_Id, JComboBox Jcb_Nombre_Equipo_Eliminar) throws SQLException {
+
+        Jcb_Nombre_Equipo_Eliminar.removeAllItems();
+        Jcb_Nombre_Equipo_Eliminar.addItem("Seleccione un equipo");
+
+        String qry = "SELECT Team_Name FROM Tournament_Teams WHERE Tournament_ID = " + Tournament_Id;
+
+        try (Statement sql = Connection_SQL.getConnection().createStatement(); ResultSet rs = sql.executeQuery(qry)) {
+
+            while (rs.next()) {
+                String teamName = rs.getString("Team_Name");
+                Jcb_Nombre_Equipo_Eliminar.addItem(teamName);
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, e.toString());
+        }
+
+    }
+
+    public static boolean Delete_Team_From_Tournament(String Tournament_Name, String Team_Name) throws SQLException {
+
+        int Rows_Affected = 0;
+        Statement sql = Connection_SQL.getConnection().createStatement();
+        String qry = "DELETE FROM Tournament_Teams WHERE Tournament_Name = '" + Tournament_Name + "' AND Team_Name = '" + Team_Name + "'";
+        
+        Rows_Affected = sql.executeUpdate(qry);
+        
+
+        return Rows_Affected > 0;
+    }
+
+// Fin de codigo de torneo 
 }

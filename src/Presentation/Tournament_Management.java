@@ -28,10 +28,8 @@ public class Tournament_Management extends javax.swing.JPanel {
     public Tournament_Management() throws SQLException {
         initComponents();
         Pnl_Informacion_Torneo.setVisible(false);
-        Pnl_Tarjetas.setVisible(false);
         Pnl_Torneo.setVisible(false);
         Pnl_Registro_Equipos.setVisible(false);
-        Pnl_Ingresar_Datos.setVisible(false);
         Qry_Tournament(Jcb_Actualizar_Torneo);
         Qry_Tournament(Jcb_Nombre_Torneo_Eliminar);
         Qry_Tournament(Jcb_Nombre_Torneo);
@@ -63,12 +61,6 @@ public class Tournament_Management extends javax.swing.JPanel {
         jPanel6 = new javax.swing.JPanel();
         Rd_Informacion_Torneo = new javax.swing.JRadioButton();
         jLabel20 = new javax.swing.JLabel();
-        jPanel4 = new javax.swing.JPanel();
-        Rd_Informacion_Tarjetas = new javax.swing.JRadioButton();
-        jLabel13 = new javax.swing.JLabel();
-        jPanel5 = new javax.swing.JPanel();
-        Rd_Ingresar_Datos = new javax.swing.JRadioButton();
-        jLabel74 = new javax.swing.JLabel();
         Pnl_Principal = new javax.swing.JPanel();
         Pnl_Torneo = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -88,30 +80,6 @@ public class Tournament_Management extends javax.swing.JPanel {
         Jcb_Actualizar_Torneo = new javax.swing.JComboBox<>();
         jLabel79 = new javax.swing.JLabel();
         Txt_Nombre_Torneo = new javax.swing.JTextField();
-        Pnl_Ingresar_Datos = new javax.swing.JPanel();
-        jLabel75 = new javax.swing.JLabel();
-        jComboBox10 = new javax.swing.JComboBox<>();
-        jLabel76 = new javax.swing.JLabel();
-        jComboBox11 = new javax.swing.JComboBox<>();
-        jLabel77 = new javax.swing.JLabel();
-        jLabel78 = new javax.swing.JLabel();
-        jLabel82 = new javax.swing.JLabel();
-        jComboBox12 = new javax.swing.JComboBox<>();
-        jLabel90 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel95 = new javax.swing.JLabel();
-        jSpinner1 = new javax.swing.JSpinner();
-        jLabel96 = new javax.swing.JLabel();
-        jSpinner3 = new javax.swing.JSpinner();
-        jComboBox13 = new javax.swing.JComboBox<>();
-        jLabel97 = new javax.swing.JLabel();
-        jComboBox14 = new javax.swing.JComboBox<>();
-        jLabel98 = new javax.swing.JLabel();
-        jButton6 = new javax.swing.JButton();
-        jSpinner4 = new javax.swing.JSpinner();
-        jLabel99 = new javax.swing.JLabel();
-        jLabel100 = new javax.swing.JLabel();
-        jButton7 = new javax.swing.JButton();
         Pnl_Registro_Equipos = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -125,30 +93,6 @@ public class Tournament_Management extends javax.swing.JPanel {
         Btn_Eliminar_Equipo_Torneo = new javax.swing.JButton();
         Jcb_Nombre_Torneo_Eliminar_Equipo = new javax.swing.JComboBox<>();
         jLabel32 = new javax.swing.JLabel();
-        Pnl_Tarjetas = new javax.swing.JPanel();
-        jLabel10 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jLabel11 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
-        jComboBox5 = new javax.swing.JComboBox<>();
-        jLabel21 = new javax.swing.JLabel();
-        jLabel22 = new javax.swing.JLabel();
-        jLabel23 = new javax.swing.JLabel();
-        jLabel24 = new javax.swing.JLabel();
-        jLabel25 = new javax.swing.JLabel();
-        jLabel26 = new javax.swing.JLabel();
-        jLabel27 = new javax.swing.JLabel();
-        jLabel55 = new javax.swing.JLabel();
-        jLabel56 = new javax.swing.JLabel();
-        jLabel57 = new javax.swing.JLabel();
-        jLabel58 = new javax.swing.JLabel();
-        jLabel60 = new javax.swing.JLabel();
         Pnl_Informacion_Torneo = new javax.swing.JPanel();
         jLabel18 = new javax.swing.JLabel();
         jLabel59 = new javax.swing.JLabel();
@@ -220,6 +164,8 @@ public class Tournament_Management extends javax.swing.JPanel {
         jLabel87 = new javax.swing.JLabel();
         jLabel93 = new javax.swing.JLabel();
         jLabel94 = new javax.swing.JLabel();
+        Btn_Emparejamiento = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
         jLabel61 = new javax.swing.JLabel();
 
         jRadioButton1.setText("jRadioButton1");
@@ -271,7 +217,7 @@ public class Tournament_Management extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 90, 50));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 0, 90, 50));
 
         jPanel3.setOpaque(false);
 
@@ -305,7 +251,7 @@ public class Tournament_Management extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 0, 190, 50));
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 0, 190, 50));
 
         jPanel6.setOpaque(false);
 
@@ -337,71 +283,7 @@ public class Tournament_Management extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 0, 120, -1));
-
-        jPanel4.setOpaque(false);
-
-        RdG.add(Rd_Informacion_Tarjetas);
-
-        jLabel13.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel13.setText("Información Tarjetas");
-
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(50, 50, 50)
-                .addComponent(Rd_Informacion_Tarjetas)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addComponent(jLabel13)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel13)
-                .addGap(4, 4, 4)
-                .addComponent(Rd_Informacion_Tarjetas)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        jPanel1.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 0, -1, -1));
-
-        jPanel5.setOpaque(false);
-
-        RdG.add(Rd_Ingresar_Datos);
-
-        jLabel74.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel74.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel74.setText("Ingresar Datos");
-
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addComponent(jLabel74)
-                .addGap(0, 5, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(Rd_Ingresar_Datos)
-                .addGap(30, 30, 30))
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel5Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel74)
-                .addGap(4, 4, 4)
-                .addComponent(Rd_Ingresar_Datos)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-
-        jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 0, 90, -1));
+        jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 0, 120, -1));
 
         Pnl_Principal.setOpaque(false);
         Pnl_Principal.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -539,129 +421,6 @@ public class Tournament_Management extends javax.swing.JPanel {
 
         jPanel1.add(Pnl_Torneo, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 100, 630, 490));
 
-        Pnl_Ingresar_Datos.setOpaque(false);
-        Pnl_Ingresar_Datos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel75.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel75.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel75.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel75.setText("Nombre del Torneo:");
-        Pnl_Ingresar_Datos.add(jLabel75, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 10, -1, -1));
-
-        jComboBox10.setBackground(new java.awt.Color(204, 204, 204));
-        jComboBox10.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jComboBox10.setForeground(new java.awt.Color(51, 51, 51));
-        jComboBox10.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        Pnl_Ingresar_Datos.add(jComboBox10, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 30, 210, -1));
-
-        jLabel76.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel76.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel76.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel76.setText("Clasificacion");
-        Pnl_Ingresar_Datos.add(jLabel76, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 60, -1, -1));
-
-        jComboBox11.setBackground(new java.awt.Color(204, 204, 204));
-        jComboBox11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jComboBox11.setForeground(new java.awt.Color(51, 51, 51));
-        jComboBox11.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        Pnl_Ingresar_Datos.add(jComboBox11, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 80, 210, -1));
-
-        jLabel77.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel77.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel77.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel77.setText("Tarjetas amarillas");
-        Pnl_Ingresar_Datos.add(jLabel77, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 360, -1, -1));
-
-        jLabel78.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel78.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel78.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel78.setText("Tarjetas rojas");
-        Pnl_Ingresar_Datos.add(jLabel78, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 360, -1, -1));
-
-        jLabel82.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel82.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel82.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel82.setText("Jugador obtuvo sanción");
-        Pnl_Ingresar_Datos.add(jLabel82, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 310, -1, -1));
-
-        jComboBox12.setBackground(new java.awt.Color(204, 204, 204));
-        jComboBox12.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jComboBox12.setForeground(new java.awt.Color(51, 51, 51));
-        jComboBox12.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        Pnl_Ingresar_Datos.add(jComboBox12, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 330, 210, -1));
-
-        jLabel90.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel90.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel90.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel90.setText("Otras Sanciones");
-        Pnl_Ingresar_Datos.add(jLabel90, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 360, -1, -1));
-        Pnl_Ingresar_Datos.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 380, 190, -1));
-
-        jLabel95.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel95.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel95.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel95.setText("Nombre del equipo");
-        Pnl_Ingresar_Datos.add(jLabel95, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 110, -1, -1));
-        Pnl_Ingresar_Datos.add(jSpinner1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 380, -1, -1));
-
-        jLabel96.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel96.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel96.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel96.setText("0");
-        Pnl_Ingresar_Datos.add(jLabel96, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 290, -1, -1));
-        Pnl_Ingresar_Datos.add(jSpinner3, new org.netbeans.lib.awtextra.AbsoluteConstraints(314, 210, 70, -1));
-
-        jComboBox13.setBackground(new java.awt.Color(204, 204, 204));
-        jComboBox13.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jComboBox13.setForeground(new java.awt.Color(51, 51, 51));
-        jComboBox13.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        Pnl_Ingresar_Datos.add(jComboBox13, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 180, 210, -1));
-
-        jLabel97.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel97.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel97.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel97.setText("Goles anotados");
-        Pnl_Ingresar_Datos.add(jLabel97, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 270, -1, -1));
-
-        jComboBox14.setBackground(new java.awt.Color(204, 204, 204));
-        jComboBox14.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jComboBox14.setForeground(new java.awt.Color(51, 51, 51));
-        jComboBox14.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        Pnl_Ingresar_Datos.add(jComboBox14, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 130, 210, -1));
-
-        jLabel98.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel98.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel98.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel98.setText("Los datos se reescribiran cada vez guarde datos ");
-        Pnl_Ingresar_Datos.add(jLabel98, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 470, -1, -1));
-
-        jButton6.setBackground(new java.awt.Color(204, 204, 204));
-        jButton6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButton6.setForeground(new java.awt.Color(51, 51, 51));
-        jButton6.setText("GUARDAR");
-        Pnl_Ingresar_Datos.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 410, -1, -1));
-        Pnl_Ingresar_Datos.add(jSpinner4, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 380, -1, -1));
-
-        jLabel99.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel99.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel99.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel99.setText("Jugador que anotó gol");
-        Pnl_Ingresar_Datos.add(jLabel99, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 160, -1, -1));
-
-        jLabel100.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel100.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel100.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel100.setText("IMPORTANTE:");
-        Pnl_Ingresar_Datos.add(jLabel100, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 450, -1, -1));
-
-        jButton7.setBackground(new java.awt.Color(204, 204, 204));
-        jButton7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButton7.setForeground(new java.awt.Color(51, 51, 51));
-        jButton7.setText("GUARDAR");
-        Pnl_Ingresar_Datos.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 240, -1, -1));
-
-        jPanel1.add(Pnl_Ingresar_Datos, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 100, 630, 510));
-
         Pnl_Registro_Equipos.setOpaque(false);
         Pnl_Registro_Equipos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -744,149 +503,6 @@ public class Tournament_Management extends javax.swing.JPanel {
         Pnl_Registro_Equipos.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 220, -1, -1));
 
         jPanel1.add(Pnl_Registro_Equipos, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 130, 570, 430));
-
-        Pnl_Tarjetas.setOpaque(false);
-        Pnl_Tarjetas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel10.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel10.setText("Nombre del Torneo:");
-        Pnl_Tarjetas.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 10, -1, -1));
-
-        jComboBox1.setBackground(new java.awt.Color(204, 204, 204));
-        jComboBox1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jComboBox1.setForeground(new java.awt.Color(51, 51, 51));
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        Pnl_Tarjetas.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 30, 210, -1));
-
-        jLabel11.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel11.setText("Sanciones del equipo");
-        Pnl_Tarjetas.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 60, -1, -1));
-
-        jComboBox2.setBackground(new java.awt.Color(204, 204, 204));
-        jComboBox2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jComboBox2.setForeground(new java.awt.Color(51, 51, 51));
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        Pnl_Tarjetas.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 80, 210, -1));
-
-        jLabel12.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel12.setText("Tarjetas amarillas");
-        Pnl_Tarjetas.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 160, -1, -1));
-
-        jLabel14.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel14.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel14.setText("Tarjetas rojas");
-        Pnl_Tarjetas.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 160, -1, -1));
-
-        jLabel16.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel16.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel16.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel16.setText("Monto economico");
-        Pnl_Tarjetas.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 210, 120, 20));
-
-        jLabel15.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel15.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel15.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel15.setText("jLabel15");
-        Pnl_Tarjetas.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 180, -1, -1));
-
-        jLabel17.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel17.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel17.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel17.setText("jLabel17");
-        Pnl_Tarjetas.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 180, -1, -1));
-
-        jLabel19.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel19.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel19.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel19.setText("Tarjetas de jugador");
-        Pnl_Tarjetas.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 110, -1, -1));
-
-        jComboBox5.setBackground(new java.awt.Color(204, 204, 204));
-        jComboBox5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jComboBox5.setForeground(new java.awt.Color(51, 51, 51));
-        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        Pnl_Tarjetas.add(jComboBox5, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 130, 210, -1));
-
-        jLabel21.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel21.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel21.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel21.setText("jLabel21");
-        Pnl_Tarjetas.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 230, -1, -1));
-
-        jLabel22.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel22.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel22.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel22.setText("Tarjetas amarillas totales del equipo");
-        Pnl_Tarjetas.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, -1, -1));
-
-        jLabel23.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel23.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel23.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel23.setText("Tarjetas rojas totales del equipo");
-        Pnl_Tarjetas.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 310, -1, -1));
-
-        jLabel24.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel24.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel24.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel24.setText("jLabel24");
-        Pnl_Tarjetas.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 330, -1, -1));
-
-        jLabel25.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel25.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel25.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel25.setText("jLabel25");
-        Pnl_Tarjetas.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 330, -1, -1));
-
-        jLabel26.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel26.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel26.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel26.setText("Monto ecomico total del equipo");
-        Pnl_Tarjetas.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 370, -1, -1));
-
-        jLabel27.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel27.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel27.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel27.setText("jLabel27");
-        Pnl_Tarjetas.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 390, -1, -1));
-
-        jLabel55.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel55.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel55.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel55.setText("Otras Sanciones");
-        Pnl_Tarjetas.add(jLabel55, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 160, -1, -1));
-
-        jLabel56.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel56.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel56.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel56.setText("jLabel56");
-        Pnl_Tarjetas.add(jLabel56, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 180, -1, -1));
-
-        jLabel57.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel57.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel57.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel57.setText("Otras sanciones");
-        Pnl_Tarjetas.add(jLabel57, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 310, -1, -1));
-
-        jLabel58.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel58.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel58.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel58.setText("jLabel58");
-        Pnl_Tarjetas.add(jLabel58, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 330, -1, -1));
-
-        jLabel60.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel60.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel60.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel60.setText("Sanciones totales del equipo");
-        Pnl_Tarjetas.add(jLabel60, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 270, -1, -1));
-
-        jPanel1.add(Pnl_Tarjetas, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 100, 680, 510));
 
         Pnl_Informacion_Torneo.setOpaque(false);
         Pnl_Informacion_Torneo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -1687,6 +1303,20 @@ public class Tournament_Management extends javax.swing.JPanel {
 
         Pnl_Informacion_Torneo.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 780, 510));
 
+        Btn_Emparejamiento.setBackground(new java.awt.Color(204, 204, 204));
+        Btn_Emparejamiento.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        Btn_Emparejamiento.setForeground(new java.awt.Color(51, 51, 51));
+        Btn_Emparejamiento.setText("INICIAR EMPAREJAMIENTO");
+        Btn_Emparejamiento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_EmparejamientoActionPerformed(evt);
+            }
+        });
+        Pnl_Informacion_Torneo.add(Btn_Emparejamiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 600, -1, 40));
+
+        jLabel10.setText("ya deben de estar los 8 equipos");
+        Pnl_Informacion_Torneo.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 640, -1, -1));
+
         jPanel1.add(Pnl_Informacion_Torneo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 800, 688));
 
         jLabel61.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/abstract-textured-backgound.jpg"))); // NOI18N
@@ -1759,6 +1389,13 @@ public class Tournament_Management extends javax.swing.JPanel {
 
             Tournament_Teams_Obj tournament = new Tournament_Teams_Obj(Tournament_Id, Team_Id, Team_Name, Tournament_Name);
 
+            int Team_Count = Connection_SQL.Qry_Teams_In_Tournament(Tournament_Id);      
+            
+            if (Team_Count == 8) {
+                JOptionPane.showMessageDialog(null, "Ya ha llegado al limite de equipos que puede ingresar por torneo(8)", "Informacion importante", JOptionPane.INFORMATION_MESSAGE);
+                return;
+            }
+            
             Connection_SQL.Insert_Team_To_Tournament(tournament);
 
             JOptionPane.showMessageDialog(null, "Datos guardados satisfactoriamente", "Aviso importante", JOptionPane.INFORMATION_MESSAGE);
@@ -1797,54 +1434,46 @@ public class Tournament_Management extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_Btn_Eliminar_Equipo_TorneoActionPerformed
 
-    private void Selected_Rd() {
+    private void Btn_EmparejamientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_EmparejamientoActionPerformed
+        
+        try {
+            String Tournament_Name = (String)Jcb_Infomacion_Torneos.getSelectedItem();
+            int Tournament_Id = Connection_SQL.get_Tournament_Id_By_Tournament_Name(Tournament_Name);
+            
+            int Team_Count = Connection_SQL.Qry_Teams_In_Tournament(Tournament_Id);
+            
+            if (Team_Count != 8) {
+                JOptionPane.showMessageDialog(null, "Para iniciar el emparejamiento deben de haber almenos 8 equipos", "Informacion importante", JOptionPane.INFORMATION_MESSAGE);
+                return;
+            }
+            
+            // Logica para el emparejamiento
+                
+        } catch (SQLException ex) {
+            Logger.getLogger(Tournament_Management.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }//GEN-LAST:event_Btn_EmparejamientoActionPerformed
 
+    private void Selected_Rd() {
         if (Rd_Creacion_Torneo.isSelected()) {
             Pnl_Informacion_Torneo.setVisible(false);
-            Pnl_Tarjetas.setVisible(false);
             Pnl_Registro_Equipos.setVisible(false);
             Pnl_Torneo.setVisible(true);
-            Pnl_Ingresar_Datos.setVisible(false);
 
         } else if (Rd_Equipos.isSelected()) {
-
             Pnl_Informacion_Torneo.setVisible(false);
-            Pnl_Tarjetas.setVisible(false);
             Pnl_Registro_Equipos.setVisible(true);
             Pnl_Torneo.setVisible(false);
-            Pnl_Ingresar_Datos.setVisible(false);
-
-        } else if (Rd_Informacion_Tarjetas.isSelected()) {
-
-            Pnl_Informacion_Torneo.setVisible(false);
-            Pnl_Tarjetas.setVisible(true);
-            Pnl_Registro_Equipos.setVisible(false);
-            Pnl_Torneo.setVisible(false);
-            Pnl_Ingresar_Datos.setVisible(false);
 
         } else if (Rd_Informacion_Torneo.isSelected()) {
-
             Pnl_Informacion_Torneo.setVisible(true);
-            Pnl_Tarjetas.setVisible(false);
             Pnl_Registro_Equipos.setVisible(false);
             Pnl_Torneo.setVisible(false);
-            Pnl_Ingresar_Datos.setVisible(false);
-
-        } else if (Rd_Ingresar_Datos.isSelected()) {
-            Pnl_Informacion_Torneo.setVisible(false);
-            Pnl_Tarjetas.setVisible(false);
-            Pnl_Registro_Equipos.setVisible(false);
-            Pnl_Torneo.setVisible(false);
-            Pnl_Ingresar_Datos.setVisible(true);
         }
     }
 
     private void Action_Listeners_Method() {
-        Rd_Ingresar_Datos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Selected_Rd();
-            }
-        });
 
         Rd_Creacion_Torneo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1853,12 +1482,6 @@ public class Tournament_Management extends javax.swing.JPanel {
         });
 
         Rd_Equipos.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Selected_Rd();
-            }
-        });
-
-        Rd_Informacion_Tarjetas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Selected_Rd();
             }
@@ -1894,6 +1517,7 @@ public class Tournament_Management extends javax.swing.JPanel {
     private javax.swing.JButton Btn_Crear_Torneo;
     private javax.swing.JButton Btn_Eliminar_Equipo_Torneo;
     private javax.swing.JButton Btn_Eliminar_Nombre_Torneo;
+    private javax.swing.JButton Btn_Emparejamiento;
     private javax.swing.JButton Btn_Ingresar_Equipo;
     private javax.swing.JComboBox<String> Jcb_Actualizar_Torneo;
     private javax.swing.JComboBox<String> Jcb_Equipo_Torneo;
@@ -1903,52 +1527,22 @@ public class Tournament_Management extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> Jcb_Nombre_Torneo_Eliminar;
     private javax.swing.JComboBox<String> Jcb_Nombre_Torneo_Eliminar_Equipo;
     private javax.swing.JPanel Pnl_Informacion_Torneo;
-    private javax.swing.JPanel Pnl_Ingresar_Datos;
     private javax.swing.JPanel Pnl_Principal;
     private javax.swing.JPanel Pnl_Registro_Equipos;
-    private javax.swing.JPanel Pnl_Tarjetas;
     private javax.swing.JPanel Pnl_Torneo;
     private javax.swing.ButtonGroup RdG;
     private javax.swing.JRadioButton Rd_Creacion_Torneo;
     private javax.swing.JRadioButton Rd_Equipos;
-    private javax.swing.JRadioButton Rd_Informacion_Tarjetas;
     private javax.swing.JRadioButton Rd_Informacion_Torneo;
-    private javax.swing.JRadioButton Rd_Ingresar_Datos;
     private javax.swing.JTextField Txt_Id_Torneo;
     private javax.swing.JTextField Txt_Nombre_Torneo;
     private javax.swing.JTextField Txt_Nuevo_Nombre;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox10;
-    private javax.swing.JComboBox<String> jComboBox11;
-    private javax.swing.JComboBox<String> jComboBox12;
-    private javax.swing.JComboBox<String> jComboBox13;
-    private javax.swing.JComboBox<String> jComboBox14;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JComboBox<String> jComboBox5;
     private javax.swing.JInternalFrame jInternalFrame1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel100;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
@@ -1979,13 +1573,8 @@ public class Tournament_Management extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel52;
     private javax.swing.JLabel jLabel53;
     private javax.swing.JLabel jLabel54;
-    private javax.swing.JLabel jLabel55;
-    private javax.swing.JLabel jLabel56;
-    private javax.swing.JLabel jLabel57;
-    private javax.swing.JLabel jLabel58;
     private javax.swing.JLabel jLabel59;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel60;
     private javax.swing.JLabel jLabel61;
     private javax.swing.JLabel jLabel62;
     private javax.swing.JLabel jLabel63;
@@ -2000,16 +1589,10 @@ public class Tournament_Management extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel71;
     private javax.swing.JLabel jLabel72;
     private javax.swing.JLabel jLabel73;
-    private javax.swing.JLabel jLabel74;
-    private javax.swing.JLabel jLabel75;
-    private javax.swing.JLabel jLabel76;
-    private javax.swing.JLabel jLabel77;
-    private javax.swing.JLabel jLabel78;
     private javax.swing.JLabel jLabel79;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel80;
     private javax.swing.JLabel jLabel81;
-    private javax.swing.JLabel jLabel82;
     private javax.swing.JLabel jLabel83;
     private javax.swing.JLabel jLabel84;
     private javax.swing.JLabel jLabel85;
@@ -2018,16 +1601,10 @@ public class Tournament_Management extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel88;
     private javax.swing.JLabel jLabel89;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JLabel jLabel90;
     private javax.swing.JLabel jLabel91;
     private javax.swing.JLabel jLabel92;
     private javax.swing.JLabel jLabel93;
     private javax.swing.JLabel jLabel94;
-    private javax.swing.JLabel jLabel95;
-    private javax.swing.JLabel jLabel96;
-    private javax.swing.JLabel jLabel97;
-    private javax.swing.JLabel jLabel98;
-    private javax.swing.JLabel jLabel99;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
@@ -2049,17 +1626,11 @@ public class Tournament_Management extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel27;
     private javax.swing.JPanel jPanel28;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JSpinner jSpinner1;
-    private javax.swing.JSpinner jSpinner3;
-    private javax.swing.JSpinner jSpinner4;
-    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }

@@ -469,12 +469,31 @@ public class Connection_SQL {
         int Rows_Affected = 0;
         Statement sql = Connection_SQL.getConnection().createStatement();
         String qry = "DELETE FROM Tournament_Teams WHERE Tournament_Name = '" + Tournament_Name + "' AND Team_Name = '" + Team_Name + "'";
-        
+
         Rows_Affected = sql.executeUpdate(qry);
-        
 
         return Rows_Affected > 0;
     }
 
 // Fin de codigo de torneo 
+    // Inicio codigo registro de estadisticas partidos
+    public static int Qry_Teams_In_Tournament(int Tournament_Id) throws SQLException {
+
+        Statement sql = Connection_SQL.getConnection().createStatement();
+
+        String qry = "SELECT COUNT(*) AS Total_Teams FROM Tournament_Teams WHERE Tournament_ID = " + Tournament_Id;
+
+
+        ResultSet rs = sql.executeQuery(qry);
+
+        int Team_Count = 0;
+
+        if (rs.next()) {
+            Team_Count = rs.getInt("Total_Teams");
+        }
+
+        return Team_Count;
+    }
+
+    // Final codigo registro de estadisticas partidos
 }

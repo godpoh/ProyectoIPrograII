@@ -4,10 +4,9 @@
  */
 package Presentation;
 
+import Data.CUD_SQL;
 import Data.Connection_SQL;
-import static Data.Connection_SQL.Delete_Selected_Team;
 import static Data.Connection_SQL.Qry_Team;
-import static Data.Connection_SQL.Update_Selected_Team;
 import Data.Player_Obj;
 import Data.Team_Obj;
 import java.security.Principal;
@@ -28,8 +27,7 @@ public class Team_Managment extends javax.swing.JPanel {
         Pnl_Registro_Jugadores.setVisible(false);
         Pnl_Eliminar_Jugador.setVisible(false);
         Action_Listeners_Methods();
-        Qry_Team(Jcb_Equipo_Actualizar);
-        Qry_Team(Jcb_Eliminar_Equipo);
+        Qry_Team(Jcb_Equipo_Actualizar_Eliminar);
         Qry_Team(Jcb_Equipo_Jugador);
         Qry_Team(Jcb_Nombre_Equipo_Eliminar);
         Qry_Team(Jcb_Nombre_Equipo_Actual);
@@ -62,17 +60,11 @@ public class Team_Managment extends javax.swing.JPanel {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         Btn_Crear = new javax.swing.JButton();
-        Jcb_Equipo_Actualizar = new javax.swing.JComboBox<>();
+        Jcb_Equipo_Actualizar_Eliminar = new javax.swing.JComboBox<>();
         jLabel71 = new javax.swing.JLabel();
         jLabel72 = new javax.swing.JLabel();
         Btn_Actualizar_Equipo = new javax.swing.JButton();
-        jLabel73 = new javax.swing.JLabel();
-        Jcb_Eliminar_Equipo = new javax.swing.JComboBox<>();
-        jLabel74 = new javax.swing.JLabel();
-        jLabel75 = new javax.swing.JLabel();
         Btn_Eliminar = new javax.swing.JButton();
-        jLabel76 = new javax.swing.JLabel();
-        jLabel77 = new javax.swing.JLabel();
         Txt_ID = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
         Txt_Equipo_Crear1 = new javax.swing.JTextField();
@@ -239,17 +231,18 @@ public class Team_Managment extends javax.swing.JPanel {
         Txt_Nuevo_Equipo_Nombre.setBackground(new java.awt.Color(204, 204, 204));
         Txt_Nuevo_Equipo_Nombre.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         Txt_Nuevo_Equipo_Nombre.setForeground(new java.awt.Color(51, 51, 51));
-        Pnl_Registro_Equipo.add(Txt_Nuevo_Equipo_Nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 280, 210, -1));
+        Txt_Nuevo_Equipo_Nombre.setBorder(javax.swing.BorderFactory.createTitledBorder("Use unicamente para actualizar el nombre"));
+        Pnl_Registro_Equipo.add(Txt_Nuevo_Equipo_Nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 260, 270, -1));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("IMPORTANTE:");
-        Pnl_Registro_Equipo.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 110, -1, -1));
+        Pnl_Registro_Equipo.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 140, -1, -1));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Al crear un equipo, tendrá un ID unicó. Se le definira el ID cuando cree el equipo.");
-        Pnl_Registro_Equipo.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 130, -1, -1));
+        Pnl_Registro_Equipo.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 160, -1, -1));
 
         Btn_Crear.setBackground(new java.awt.Color(204, 204, 204));
         Btn_Crear.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -260,13 +253,14 @@ public class Team_Managment extends javax.swing.JPanel {
                 Btn_CrearActionPerformed(evt);
             }
         });
-        Pnl_Registro_Equipo.add(Btn_Crear, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 150, 120, -1));
+        Pnl_Registro_Equipo.add(Btn_Crear, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 110, 120, -1));
 
-        Jcb_Equipo_Actualizar.setBackground(new java.awt.Color(204, 204, 204));
-        Jcb_Equipo_Actualizar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        Jcb_Equipo_Actualizar.setForeground(new java.awt.Color(51, 51, 51));
-        Jcb_Equipo_Actualizar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        Pnl_Registro_Equipo.add(Jcb_Equipo_Actualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 220, 210, -1));
+        Jcb_Equipo_Actualizar_Eliminar.setBackground(new java.awt.Color(204, 204, 204));
+        Jcb_Equipo_Actualizar_Eliminar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        Jcb_Equipo_Actualizar_Eliminar.setForeground(new java.awt.Color(51, 51, 51));
+        Jcb_Equipo_Actualizar_Eliminar.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        Jcb_Equipo_Actualizar_Eliminar.setBorder(javax.swing.BorderFactory.createTitledBorder("Use unicamente si va a eliminar un equipo/actualizar nombre a un equipo"));
+        Pnl_Registro_Equipo.add(Jcb_Equipo_Actualizar_Eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 210, 430, -1));
 
         jLabel71.setBackground(new java.awt.Color(255, 255, 255));
         jLabel71.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -277,8 +271,8 @@ public class Team_Managment extends javax.swing.JPanel {
         jLabel72.setBackground(new java.awt.Color(255, 255, 255));
         jLabel72.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel72.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel72.setText("La uníca forma de actualizar el nombre de un equipo, es que no haya ningún tipo de dato ingresado");
-        Pnl_Registro_Equipo.add(jLabel72, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 330, 620, -1));
+        jLabel72.setText("La uníca forma de actualizar/eliminar el nombre de un equipo, es que no haya ningún tipo de dato ingresado");
+        Pnl_Registro_Equipo.add(jLabel72, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 330, 680, -1));
 
         Btn_Actualizar_Equipo.setBackground(new java.awt.Color(204, 204, 204));
         Btn_Actualizar_Equipo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -289,31 +283,7 @@ public class Team_Managment extends javax.swing.JPanel {
                 Btn_Actualizar_EquipoActionPerformed(evt);
             }
         });
-        Pnl_Registro_Equipo.add(Btn_Actualizar_Equipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 350, -1, -1));
-
-        jLabel73.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel73.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel73.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel73.setText("Ingrese el nuevo nombre del equipo");
-        Pnl_Registro_Equipo.add(jLabel73, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 250, 350, -1));
-
-        Jcb_Eliminar_Equipo.setBackground(new java.awt.Color(204, 204, 204));
-        Jcb_Eliminar_Equipo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        Jcb_Eliminar_Equipo.setForeground(new java.awt.Color(51, 51, 51));
-        Jcb_Eliminar_Equipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        Pnl_Registro_Equipo.add(Jcb_Eliminar_Equipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 430, 210, -1));
-
-        jLabel74.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel74.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel74.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel74.setText("IMPORTANTE:");
-        Pnl_Registro_Equipo.add(jLabel74, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 460, -1, -1));
-
-        jLabel75.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel75.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel75.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel75.setText("La uníca forma de borrar un equipo, es que no haya ningún tipo de dato ingresado");
-        Pnl_Registro_Equipo.add(jLabel75, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 480, 520, -1));
+        Pnl_Registro_Equipo.add(Btn_Actualizar_Equipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 360, -1, -1));
 
         Btn_Eliminar.setBackground(new java.awt.Color(204, 204, 204));
         Btn_Eliminar.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -324,19 +294,7 @@ public class Team_Managment extends javax.swing.JPanel {
                 Btn_EliminarActionPerformed(evt);
             }
         });
-        Pnl_Registro_Equipo.add(Btn_Eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 510, 120, -1));
-
-        jLabel76.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel76.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel76.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel76.setText("Ingrese el nombre del equipo");
-        Pnl_Registro_Equipo.add(jLabel76, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 400, 270, -1));
-
-        jLabel77.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel77.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel77.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel77.setText("Ingrese el nombre del equipo");
-        Pnl_Registro_Equipo.add(jLabel77, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 190, 270, -1));
+        Pnl_Registro_Equipo.add(Btn_Eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 360, 120, -1));
 
         Txt_ID.setBackground(new java.awt.Color(204, 204, 204));
         Txt_ID.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -697,13 +655,16 @@ public class Team_Managment extends javax.swing.JPanel {
         int Rows_Affected;
 
         try {
-            Rows_Affected = Connection_SQL.Insert_Team(Team);
+            Rows_Affected = CUD_SQL.Insert_Team(Team);
             if (Rows_Affected != 0) {
                 JOptionPane.showMessageDialog(null, "Datos guardados satisfactoriamente", "Aviso importante", JOptionPane.INFORMATION_MESSAGE);
-                Qry_Team(Jcb_Eliminar_Equipo);
-                Qry_Team(Jcb_Equipo_Actualizar);
+                Qry_Team(Jcb_Equipo_Actualizar_Eliminar);
                 Txt_Equipo_Crear1.setText("");
                 Txt_ID.setText("");
+                Qry_Team(Jcb_Equipo_Jugador);
+                Qry_Team(Jcb_Nombre_Equipo_Nuevo);
+                Qry_Team(Jcb_Nombre_Equipo_Actual);
+                Qry_Team(Jcb_Nombre_Equipo_Eliminar);
             }
         } catch (SQLException ex) {
             Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
@@ -712,9 +673,12 @@ public class Team_Managment extends javax.swing.JPanel {
 
     private void Btn_EliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_EliminarActionPerformed
         try {
-            Delete_Selected_Team(Jcb_Eliminar_Equipo);
-            Qry_Team(Jcb_Equipo_Actualizar);
-
+            CUD_SQL.Delete_Selected_Team(Jcb_Equipo_Actualizar_Eliminar);
+            Qry_Team(Jcb_Equipo_Actualizar_Eliminar);
+            Qry_Team(Jcb_Equipo_Jugador);
+            Qry_Team(Jcb_Nombre_Equipo_Nuevo);
+            Qry_Team(Jcb_Nombre_Equipo_Actual);
+            Qry_Team(Jcb_Nombre_Equipo_Eliminar);
         } catch (SQLException ex) {
             Logger.getLogger(Team_Managment.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -722,9 +686,12 @@ public class Team_Managment extends javax.swing.JPanel {
 
     private void Btn_Actualizar_EquipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_Actualizar_EquipoActionPerformed
         try {
-            Update_Selected_Team(Jcb_Equipo_Actualizar, Txt_Nuevo_Equipo_Nombre);
-            Qry_Team(Jcb_Eliminar_Equipo);
+            CUD_SQL.Update_Selected_Team(Jcb_Equipo_Actualizar_Eliminar, Txt_Nuevo_Equipo_Nombre);
             Txt_Nuevo_Equipo_Nombre.setText("");
+            Qry_Team(Jcb_Equipo_Jugador);
+            Qry_Team(Jcb_Nombre_Equipo_Nuevo);
+            Qry_Team(Jcb_Nombre_Equipo_Actual);
+            Qry_Team(Jcb_Nombre_Equipo_Eliminar);
         } catch (SQLException ex) {
             Logger.getLogger(Team_Managment.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -759,7 +726,7 @@ public class Team_Managment extends javax.swing.JPanel {
         int Rows_Affected;
 
         try {
-            Rows_Affected = Connection_SQL.Insert_Player(Player);
+            Rows_Affected = CUD_SQL.Insert_Player(Player);
             if (Rows_Affected != 0) {
                 JOptionPane.showMessageDialog(null, "Datos guardados satisfactoriamente", "Aviso importante", JOptionPane.INFORMATION_MESSAGE);
                 Txt_Id_Jugador.setText("");
@@ -792,12 +759,13 @@ public class Team_Managment extends javax.swing.JPanel {
         try {
             int Team_Id = Connection_SQL.get_Team_Id_By_Team_Name(Team_Name);
             int Player_Id = Connection_SQL.get_Player_Id_By_Player_Name(Player_Name);
-            Connection_SQL.Delete_Player(Player_Id);
+            CUD_SQL.Delete_Player(Player_Id);
             Connection_SQL.get_Player_Name_By_Team_Id(Jcb_Nombre_Jugador_Eliminar, Team_Id);
 
         } catch (SQLException ex) {
             Logger.getLogger(Team_Managment.class.getName()).log(Level.SEVERE, null, ex);
         }
+
 
     }//GEN-LAST:event_Btn_Eliminar_JugadorActionPerformed
 
@@ -813,7 +781,7 @@ public class Team_Managment extends javax.swing.JPanel {
             int Jersey_Number = Integer.parseInt(Txt_Dorsal_Actualizar.getText());
             String Position = (String) Txt_Posicion_Juego_Actualizar.getSelectedItem();
 
-            int Rows_Affected = Connection_SQL.Update_Player_Information(Player_Id, Adress, Contact_Number, Jersey_Number, Position, Team_Id);
+            int Rows_Affected = CUD_SQL.Update_Player_Information(Player_Id, Adress, Contact_Number, Jersey_Number, Position, Team_Id);
 
             if (Rows_Affected != 0) {
                 JOptionPane.showMessageDialog(null, "Datos actualizados satisfactoriamente", "Aviso importante", JOptionPane.INFORMATION_MESSAGE);
@@ -836,8 +804,7 @@ public class Team_Managment extends javax.swing.JPanel {
     private javax.swing.JButton Btn_Eliminar;
     private javax.swing.JButton Btn_Eliminar_Jugador;
     private javax.swing.JButton Btn_Registrar_Jugador;
-    private javax.swing.JComboBox<String> Jcb_Eliminar_Equipo;
-    private javax.swing.JComboBox<String> Jcb_Equipo_Actualizar;
+    private javax.swing.JComboBox<String> Jcb_Equipo_Actualizar_Eliminar;
     private javax.swing.JComboBox<String> Jcb_Equipo_Jugador;
     private javax.swing.JComboBox<String> Jcb_Nombre_Equipo_Actual;
     private javax.swing.JComboBox<String> Jcb_Nombre_Equipo_Eliminar;
@@ -898,11 +865,6 @@ public class Team_Managment extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel71;
     private javax.swing.JLabel jLabel72;
-    private javax.swing.JLabel jLabel73;
-    private javax.swing.JLabel jLabel74;
-    private javax.swing.JLabel jLabel75;
-    private javax.swing.JLabel jLabel76;
-    private javax.swing.JLabel jLabel77;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;

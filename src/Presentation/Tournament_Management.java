@@ -4,14 +4,14 @@
  */
 package Presentation;
 
+import Data.CUD_SQL;
 import Data.Connection_SQL;
-import static Data.Connection_SQL.Delete_Selected_Tournament;
 import static Data.Connection_SQL.Qry_Team;
 import static Data.Connection_SQL.Qry_Tournament;
-import static Data.Connection_SQL.Update_Selected_Tournament;
 import Data.Tournament_Obj;
 import Data.Tournament_Teams_Obj;
 import java.sql.SQLException;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -30,11 +30,9 @@ public class Tournament_Management extends javax.swing.JPanel {
         Pnl_Informacion_Torneo.setVisible(false);
         Pnl_Torneo.setVisible(false);
         Pnl_Registro_Equipos.setVisible(false);
-        Qry_Tournament(Jcb_Actualizar_Torneo);
-        Qry_Tournament(Jcb_Nombre_Torneo_Eliminar);
+        Qry_Tournament(Jcb_Nombre_Torneo_Eliminar_Actualizar);
         Qry_Tournament(Jcb_Nombre_Torneo);
         Qry_Team(Jcb_Equipo_Torneo);
-        Qry_Tournament(Jcb_Nombre_Torneo_Eliminar_Equipo);
         Qry_Tournament(Jcb_Infomacion_Torneos);
         Action_Listeners_Method();
     }
@@ -63,36 +61,30 @@ public class Tournament_Management extends javax.swing.JPanel {
         jLabel20 = new javax.swing.JLabel();
         Pnl_Principal = new javax.swing.JPanel();
         Pnl_Torneo = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         Txt_Nuevo_Nombre = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         Btn_Actualizar_Nombre_Torneo = new javax.swing.JButton();
-        jLabel69 = new javax.swing.JLabel();
         Txt_Id_Torneo = new javax.swing.JTextField();
         Btn_Crear_Torneo = new javax.swing.JButton();
-        Jcb_Nombre_Torneo_Eliminar = new javax.swing.JComboBox<>();
+        Jcb_Nombre_Torneo_Eliminar_Actualizar = new javax.swing.JComboBox<>();
         jLabel70 = new javax.swing.JLabel();
-        jLabel71 = new javax.swing.JLabel();
-        jLabel72 = new javax.swing.JLabel();
         Btn_Eliminar_Nombre_Torneo = new javax.swing.JButton();
-        jLabel73 = new javax.swing.JLabel();
-        Jcb_Actualizar_Torneo = new javax.swing.JComboBox<>();
         jLabel79 = new javax.swing.JLabel();
         Txt_Nombre_Torneo = new javax.swing.JTextField();
+        DCC_Inicio = new datechooser.beans.DateChooserCombo();
+        DCC_Final = new datechooser.beans.DateChooserCombo();
+        jLabel71 = new javax.swing.JLabel();
+        jLabel72 = new javax.swing.JLabel();
         Pnl_Registro_Equipos = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         Jcb_Nombre_Torneo = new javax.swing.JComboBox<>();
-        Jcb_Nombre_Equipo_Eliminar_Torneo = new javax.swing.JComboBox<>();
         Btn_Ingresar_Equipo = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jLabel68 = new javax.swing.JLabel();
         Jcb_Equipo_Torneo = new javax.swing.JComboBox<>();
         Btn_Eliminar_Equipo_Torneo = new javax.swing.JButton();
-        Jcb_Nombre_Torneo_Eliminar_Equipo = new javax.swing.JComboBox<>();
-        jLabel32 = new javax.swing.JLabel();
         Pnl_Informacion_Torneo = new javax.swing.JPanel();
         jLabel18 = new javax.swing.JLabel();
         jLabel59 = new javax.swing.JLabel();
@@ -273,33 +265,28 @@ public class Tournament_Management extends javax.swing.JPanel {
         Pnl_Torneo.setOpaque(false);
         Pnl_Torneo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setText("Actualizar el nombre del torneo");
-        Pnl_Torneo.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 190, 290, -1));
-
         Txt_Nuevo_Nombre.setBackground(new java.awt.Color(204, 204, 204));
         Txt_Nuevo_Nombre.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         Txt_Nuevo_Nombre.setForeground(new java.awt.Color(51, 51, 51));
+        Txt_Nuevo_Nombre.setBorder(javax.swing.BorderFactory.createTitledBorder("Use unicamente si va a actualizar el nombre"));
         Txt_Nuevo_Nombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Txt_Nuevo_NombreActionPerformed(evt);
             }
         });
-        Pnl_Torneo.add(Txt_Nuevo_Nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 260, 210, -1));
+        Pnl_Torneo.add(Txt_Nuevo_Nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 330, 280, -1));
 
         jLabel4.setBackground(new java.awt.Color(255, 255, 255));
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("IMPORTANTE:");
-        Pnl_Torneo.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 100, -1, -1));
+        Pnl_Torneo.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 240, -1, -1));
 
         jLabel5.setBackground(new java.awt.Color(255, 255, 255));
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Al crear un torneo, tendrá un ID unicó. Se le definira el ID cuando cree el torneo.");
-        Pnl_Torneo.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 120, -1, -1));
+        Pnl_Torneo.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 260, -1, -1));
 
         Btn_Actualizar_Nombre_Torneo.setBackground(new java.awt.Color(204, 204, 204));
         Btn_Actualizar_Nombre_Torneo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -310,13 +297,7 @@ public class Tournament_Management extends javax.swing.JPanel {
                 Btn_Actualizar_Nombre_TorneoActionPerformed(evt);
             }
         });
-        Pnl_Torneo.add(Btn_Actualizar_Nombre_Torneo, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 290, -1, -1));
-
-        jLabel69.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel69.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel69.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel69.setText("Nuevo Nombre");
-        Pnl_Torneo.add(jLabel69, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 240, 140, 20));
+        Pnl_Torneo.add(Btn_Actualizar_Nombre_Torneo, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 390, -1, -1));
 
         Txt_Id_Torneo.setBackground(new java.awt.Color(204, 204, 204));
         Txt_Id_Torneo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -326,7 +307,7 @@ public class Tournament_Management extends javax.swing.JPanel {
                 Txt_Id_TorneoActionPerformed(evt);
             }
         });
-        Pnl_Torneo.add(Txt_Id_Torneo, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 70, 210, -1));
+        Pnl_Torneo.add(Txt_Id_Torneo, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 140, 230, -1));
 
         Btn_Crear_Torneo.setBackground(new java.awt.Color(204, 204, 204));
         Btn_Crear_Torneo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -337,35 +318,24 @@ public class Tournament_Management extends javax.swing.JPanel {
                 Btn_Crear_TorneoActionPerformed(evt);
             }
         });
-        Pnl_Torneo.add(Btn_Crear_Torneo, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 140, 120, -1));
+        Pnl_Torneo.add(Btn_Crear_Torneo, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 210, 120, -1));
 
-        Jcb_Nombre_Torneo_Eliminar.setBackground(new java.awt.Color(204, 204, 204));
-        Jcb_Nombre_Torneo_Eliminar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        Jcb_Nombre_Torneo_Eliminar.setForeground(new java.awt.Color(51, 51, 51));
-        Jcb_Nombre_Torneo_Eliminar.addActionListener(new java.awt.event.ActionListener() {
+        Jcb_Nombre_Torneo_Eliminar_Actualizar.setBackground(new java.awt.Color(204, 204, 204));
+        Jcb_Nombre_Torneo_Eliminar_Actualizar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        Jcb_Nombre_Torneo_Eliminar_Actualizar.setForeground(new java.awt.Color(51, 51, 51));
+        Jcb_Nombre_Torneo_Eliminar_Actualizar.setBorder(javax.swing.BorderFactory.createTitledBorder("Use unicamente si va a eliminar un torneo/actualizar nombre a un torneo"));
+        Jcb_Nombre_Torneo_Eliminar_Actualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Jcb_Nombre_Torneo_EliminarActionPerformed(evt);
+                Jcb_Nombre_Torneo_Eliminar_ActualizarActionPerformed(evt);
             }
         });
-        Pnl_Torneo.add(Jcb_Nombre_Torneo_Eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 370, 210, -1));
+        Pnl_Torneo.add(Jcb_Nombre_Torneo_Eliminar_Actualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 280, 440, -1));
 
         jLabel70.setBackground(new java.awt.Color(255, 255, 255));
         jLabel70.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel70.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel70.setText("Ingrese el ID");
-        Pnl_Torneo.add(jLabel70, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 50, 130, -1));
-
-        jLabel71.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel71.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel71.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel71.setText("IMPORTANTE:");
-        Pnl_Torneo.add(jLabel71, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 400, -1, -1));
-
-        jLabel72.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel72.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel72.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel72.setText("La uníca forma de borrar un torneo, es que no haya ningún tipo de datos ingresados");
-        Pnl_Torneo.add(jLabel72, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 420, 530, -1));
+        jLabel70.setText("Fecha Fin");
+        Pnl_Torneo.add(jLabel70, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 170, 100, -1));
 
         Btn_Eliminar_Nombre_Torneo.setBackground(new java.awt.Color(204, 204, 204));
         Btn_Eliminar_Nombre_Torneo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -376,29 +346,32 @@ public class Tournament_Management extends javax.swing.JPanel {
                 Btn_Eliminar_Nombre_TorneoActionPerformed(evt);
             }
         });
-        Pnl_Torneo.add(Btn_Eliminar_Nombre_Torneo, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 440, 130, -1));
-
-        jLabel73.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel73.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel73.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel73.setText("Ingrese el nombre del torneo");
-        Pnl_Torneo.add(jLabel73, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 340, 270, -1));
-
-        Jcb_Actualizar_Torneo.setBackground(new java.awt.Color(204, 204, 204));
-        Jcb_Actualizar_Torneo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        Jcb_Actualizar_Torneo.setForeground(new java.awt.Color(51, 51, 51));
-        Pnl_Torneo.add(Jcb_Actualizar_Torneo, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 210, 210, -1));
+        Pnl_Torneo.add(Btn_Eliminar_Nombre_Torneo, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 390, 110, -1));
 
         jLabel79.setBackground(new java.awt.Color(255, 255, 255));
         jLabel79.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel79.setForeground(new java.awt.Color(0, 0, 0));
         jLabel79.setText("Ingrese el nombre del torneo");
-        Pnl_Torneo.add(jLabel79, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 10, 270, -1));
+        Pnl_Torneo.add(jLabel79, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 80, 270, -1));
 
         Txt_Nombre_Torneo.setBackground(new java.awt.Color(204, 204, 204));
         Txt_Nombre_Torneo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         Txt_Nombre_Torneo.setForeground(new java.awt.Color(51, 51, 51));
-        Pnl_Torneo.add(Txt_Nombre_Torneo, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 30, 210, -1));
+        Pnl_Torneo.add(Txt_Nombre_Torneo, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 100, 230, -1));
+        Pnl_Torneo.add(DCC_Inicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 190, -1, -1));
+        Pnl_Torneo.add(DCC_Final, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 190, -1, -1));
+
+        jLabel71.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel71.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel71.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel71.setText("Ingrese el ID");
+        Pnl_Torneo.add(jLabel71, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 120, 130, -1));
+
+        jLabel72.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel72.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel72.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel72.setText("Fecha Inicio");
+        Pnl_Torneo.add(jLabel72, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 170, 120, -1));
 
         jPanel1.add(Pnl_Torneo, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 100, 630, 490));
 
@@ -408,8 +381,8 @@ public class Tournament_Management extends javax.swing.JPanel {
         jLabel6.setBackground(new java.awt.Color(255, 255, 255));
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel6.setText("Ingrese los equipos que participarán");
-        Pnl_Registro_Equipos.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 70, -1, -1));
+        jLabel6.setText("Nombre del equipo");
+        Pnl_Registro_Equipos.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 70, -1, -1));
 
         jLabel7.setBackground(new java.awt.Color(255, 255, 255));
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -422,11 +395,6 @@ public class Tournament_Management extends javax.swing.JPanel {
         Jcb_Nombre_Torneo.setForeground(new java.awt.Color(51, 51, 51));
         Pnl_Registro_Equipos.add(Jcb_Nombre_Torneo, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 40, 210, -1));
 
-        Jcb_Nombre_Equipo_Eliminar_Torneo.setBackground(new java.awt.Color(204, 204, 204));
-        Jcb_Nombre_Equipo_Eliminar_Torneo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        Jcb_Nombre_Equipo_Eliminar_Torneo.setForeground(new java.awt.Color(51, 51, 51));
-        Pnl_Registro_Equipos.add(Jcb_Nombre_Equipo_Eliminar_Torneo, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 290, 210, -1));
-
         Btn_Ingresar_Equipo.setBackground(new java.awt.Color(204, 204, 204));
         Btn_Ingresar_Equipo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         Btn_Ingresar_Equipo.setForeground(new java.awt.Color(0, 0, 0));
@@ -436,7 +404,7 @@ public class Tournament_Management extends javax.swing.JPanel {
                 Btn_Ingresar_EquipoActionPerformed(evt);
             }
         });
-        Pnl_Registro_Equipos.add(Btn_Ingresar_Equipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 170, -1, -1));
+        Pnl_Registro_Equipos.add(Btn_Ingresar_Equipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 170, -1, -1));
 
         jLabel8.setBackground(new java.awt.Color(255, 255, 255));
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -450,11 +418,6 @@ public class Tournament_Management extends javax.swing.JPanel {
         jLabel9.setText("Al ingresar un equipo al torneo y  este, ya haya jugado no se podra eliminar");
         Pnl_Registro_Equipos.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, -1, -1));
 
-        jLabel68.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel68.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel68.setText("Eliminar equipo");
-        Pnl_Registro_Equipos.add(jLabel68, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 270, -1, -1));
-
         Jcb_Equipo_Torneo.setBackground(new java.awt.Color(204, 204, 204));
         Jcb_Equipo_Torneo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         Jcb_Equipo_Torneo.setForeground(new java.awt.Color(51, 51, 51));
@@ -464,24 +427,13 @@ public class Tournament_Management extends javax.swing.JPanel {
         Btn_Eliminar_Equipo_Torneo.setBackground(new java.awt.Color(204, 204, 204));
         Btn_Eliminar_Equipo_Torneo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         Btn_Eliminar_Equipo_Torneo.setForeground(new java.awt.Color(0, 0, 0));
-        Btn_Eliminar_Equipo_Torneo.setText("Eliminar");
+        Btn_Eliminar_Equipo_Torneo.setText("ELIMINAR");
         Btn_Eliminar_Equipo_Torneo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Btn_Eliminar_Equipo_TorneoActionPerformed(evt);
             }
         });
-        Pnl_Registro_Equipos.add(Btn_Eliminar_Equipo_Torneo, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 320, 110, -1));
-
-        Jcb_Nombre_Torneo_Eliminar_Equipo.setBackground(new java.awt.Color(204, 204, 204));
-        Jcb_Nombre_Torneo_Eliminar_Equipo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        Jcb_Nombre_Torneo_Eliminar_Equipo.setForeground(new java.awt.Color(51, 51, 51));
-        Pnl_Registro_Equipos.add(Jcb_Nombre_Torneo_Eliminar_Equipo, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 240, 210, -1));
-
-        jLabel32.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel32.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel32.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel32.setText("Nombre del Torneo");
-        Pnl_Registro_Equipos.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 220, -1, -1));
+        Pnl_Registro_Equipos.add(Btn_Eliminar_Equipo_Torneo, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 170, 110, -1));
 
         jPanel1.add(Pnl_Registro_Equipos, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 130, 570, 430));
 
@@ -1014,8 +966,7 @@ public class Tournament_Management extends javax.swing.JPanel {
                                 .addGap(43, 43, 43)
                                 .addComponent(jLabel62)
                                 .addGap(29, 29, 29)
-                                .addComponent(jLabel64)
-                                .addGap(36, 36, 36))
+                                .addComponent(jLabel64))
                             .addGroup(jPanel7Layout.createSequentialGroup()
                                 .addComponent(jLabel51)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1110,17 +1061,18 @@ public class Tournament_Management extends javax.swing.JPanel {
     private void Btn_Crear_TorneoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_Crear_TorneoActionPerformed
         int Id = Integer.parseInt(Txt_Id_Torneo.getText());
         String Name = Txt_Nombre_Torneo.getText();
+        Date Start_Date = DCC_Inicio.getSelectedDate().getTime();
+        Date End_Date = DCC_Final.getSelectedDate().getTime();
 
-        Tournament_Obj tournament = new Tournament_Obj(Id, Name);
+        Tournament_Obj tournament = new Tournament_Obj(Id, Name, Start_Date, End_Date);
 
         int Rows_Affected;
 
         try {
-            Rows_Affected = Connection_SQL.Insert_Tournament(tournament);
+            Rows_Affected = CUD_SQL.Insert_Tournament(tournament);
             if (Rows_Affected != 0) {
                 JOptionPane.showMessageDialog(null, "Datos guardados satisfactoriamente", "Aviso importante", JOptionPane.INFORMATION_MESSAGE);
-                Qry_Tournament(Jcb_Actualizar_Torneo);
-                Qry_Tournament(Jcb_Nombre_Torneo_Eliminar);
+                Qry_Tournament(Jcb_Nombre_Torneo_Eliminar_Actualizar);
                 Txt_Id_Torneo.setText("");
                 Txt_Nombre_Torneo.setText("");
             }
@@ -1132,8 +1084,8 @@ public class Tournament_Management extends javax.swing.JPanel {
 
     private void Btn_Actualizar_Nombre_TorneoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_Actualizar_Nombre_TorneoActionPerformed
         try {
-            Update_Selected_Tournament(Jcb_Actualizar_Torneo, Txt_Nuevo_Nombre);
-            Qry_Tournament(Jcb_Nombre_Torneo_Eliminar);
+            CUD_SQL.Update_Tournament(Jcb_Nombre_Torneo_Eliminar_Actualizar, Txt_Nuevo_Nombre);
+            Qry_Tournament(Jcb_Nombre_Torneo_Eliminar_Actualizar);
             Txt_Nuevo_Nombre.setText("");
         } catch (SQLException ex) {
             Logger.getLogger(Tournament_Management.class.getName()).log(Level.SEVERE, null, ex);
@@ -1142,16 +1094,13 @@ public class Tournament_Management extends javax.swing.JPanel {
 
     private void Btn_Eliminar_Nombre_TorneoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_Eliminar_Nombre_TorneoActionPerformed
         try {
-            Delete_Selected_Tournament(Jcb_Nombre_Torneo_Eliminar);
-            Qry_Tournament(Jcb_Actualizar_Torneo);
+            String Tournament_Name = (String) Jcb_Nombre_Torneo_Eliminar_Actualizar.getSelectedItem();
+            CUD_SQL.Delete_Tournament(Tournament_Name);
+            Qry_Tournament(Jcb_Nombre_Torneo_Eliminar_Actualizar);
         } catch (SQLException ex) {
             Logger.getLogger(Tournament_Management.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_Btn_Eliminar_Nombre_TorneoActionPerformed
-
-    private void Jcb_Nombre_Torneo_EliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jcb_Nombre_Torneo_EliminarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Jcb_Nombre_Torneo_EliminarActionPerformed
 
     private void Btn_Ingresar_EquipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_Ingresar_EquipoActionPerformed
 
@@ -1161,16 +1110,16 @@ public class Tournament_Management extends javax.swing.JPanel {
             int Tournament_Id = Connection_SQL.get_Tournament_Id_By_Tournament_Name(Tournament_Name);
             int Team_Id = Connection_SQL.get_Team_Id_By_Team_Name(Team_Name);
 
-            Tournament_Teams_Obj tournament = new Tournament_Teams_Obj(Tournament_Id, Team_Id, Team_Name, Tournament_Name);
+            Tournament_Teams_Obj tournament = new Tournament_Teams_Obj(Tournament_Id, Team_Id);
 
-            int Team_Count = Connection_SQL.Counter_Teams_In_Tournament(Tournament_Id);      
-            
+            int Team_Count = Connection_SQL.Counter_Teams_In_Tournament(Tournament_Id);
+
             if (Team_Count == 8) {
                 JOptionPane.showMessageDialog(null, "Ya ha llegado al limite de equipos que puede ingresar por torneo(8)", "Informacion importante", JOptionPane.INFORMATION_MESSAGE);
                 return;
             }
-            
-            Connection_SQL.Insert_Team_To_Tournament(tournament);
+
+            CUD_SQL.Insert_Team_To_Tournament(tournament);
 
             JOptionPane.showMessageDialog(null, "Datos guardados satisfactoriamente", "Aviso importante", JOptionPane.INFORMATION_MESSAGE);
             // hace falta un rowsaffected
@@ -1183,51 +1132,65 @@ public class Tournament_Management extends javax.swing.JPanel {
     }//GEN-LAST:event_Btn_Ingresar_EquipoActionPerformed
 
     private void Btn_Eliminar_Equipo_TorneoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_Eliminar_Equipo_TorneoActionPerformed
-        String tournamentName = (String) Jcb_Nombre_Torneo_Eliminar_Equipo.getSelectedItem();
-        String teamName = (String) Jcb_Nombre_Equipo_Eliminar_Torneo.getSelectedItem();
+        String Tournament_Name = (String) Jcb_Nombre_Torneo.getSelectedItem();
+        String Team_Name = (String) Jcb_Equipo_Torneo.getSelectedItem();
+        int Tournament_Id;
+        try {
+            Tournament_Id = Connection_SQL.get_Tournament_Id_By_Tournament_Name(Tournament_Name);
+            int Team_Id = Connection_SQL.get_Team_Id_By_Team_Name(Team_Name);
+            
+            int Success = 0;
 
-        int confirm = JOptionPane.showConfirmDialog(null,
-                "¿Está seguro de que desea eliminar el equipo '" + teamName + "' del torneo '" + tournamentName + "'?",
-                "Confirmar eliminación",
-                JOptionPane.YES_NO_OPTION);
+            int confirm = JOptionPane.showConfirmDialog(null,
+                    "¿Está seguro de que desea eliminar el equipo '" + Team_Name + "' del torneo '" + Tournament_Name + "'?",
+                    "Confirmar eliminación",
+                    JOptionPane.YES_NO_OPTION);
 
-        if (confirm == JOptionPane.YES_OPTION) {
-            try {
-                boolean Success = Connection_SQL.Delete_Team_From_Tournament(tournamentName, teamName);
+            if (confirm == JOptionPane.YES_OPTION) {
+                try {
+                    Success = CUD_SQL.Delete_Team_From_Tournament(Tournament_Id, Team_Id);
 
-                if (Success) {
-                    JOptionPane.showMessageDialog(null, "Equipo eliminado exitosamente.");
+                    if (Success != 0) {
+                        JOptionPane.showMessageDialog(null, "Equipo eliminado exitosamente.");
 
-                } else {
-                    JOptionPane.showMessageDialog(null, "Error al eliminar el equipo. Puede que no exista.");
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Error al eliminar el equipo. Puede que no exista.");
+                    }
+                } catch (SQLException ex) {
+                    Logger.getLogger(Tournament_Management.class.getName()).log(Level.SEVERE, null, ex);
+                    JOptionPane.showMessageDialog(null, "Error al eliminar el equipo del torneo: " + ex.getMessage());
                 }
-            } catch (SQLException ex) {
-                Logger.getLogger(Tournament_Management.class.getName()).log(Level.SEVERE, null, ex);
-                JOptionPane.showMessageDialog(null, "Error al eliminar el equipo del torneo: " + ex.getMessage());
             }
+        } catch (SQLException ex) {
+            Logger.getLogger(Tournament_Management.class.getName()).log(Level.SEVERE, null, ex);
         }
+
+
     }//GEN-LAST:event_Btn_Eliminar_Equipo_TorneoActionPerformed
 
     private void Btn_EmparejamientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_EmparejamientoActionPerformed
-        
+
         try {
-            String Tournament_Name = (String)Jcb_Infomacion_Torneos.getSelectedItem();
+            String Tournament_Name = (String) Jcb_Infomacion_Torneos.getSelectedItem();
             int Tournament_Id = Connection_SQL.get_Tournament_Id_By_Tournament_Name(Tournament_Name);
-            
+
             int Team_Count = Connection_SQL.Counter_Teams_In_Tournament(Tournament_Id);
-            
+
             if (Team_Count != 8) {
                 JOptionPane.showMessageDialog(null, "Para iniciar el emparejamiento deben de haber almenos 8 equipos", "Informacion importante", JOptionPane.INFORMATION_MESSAGE);
                 return;
             }
-            
+
             // Logica para el emparejamiento
-                
         } catch (SQLException ex) {
             Logger.getLogger(Tournament_Management.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }//GEN-LAST:event_Btn_EmparejamientoActionPerformed
+
+    private void Jcb_Nombre_Torneo_Eliminar_ActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jcb_Nombre_Torneo_Eliminar_ActualizarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Jcb_Nombre_Torneo_Eliminar_ActualizarActionPerformed
 
     private void Selected_Rd() {
         if (Rd_Creacion_Torneo.isSelected()) {
@@ -1267,22 +1230,6 @@ public class Tournament_Management extends javax.swing.JPanel {
             }
         });
 
-        Jcb_Nombre_Torneo_Eliminar_Equipo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-
-                String Selected_Tournament_Name = (String) Jcb_Nombre_Torneo_Eliminar_Equipo.getSelectedItem();
-                try {
-
-                    int Tournament_Id = Connection_SQL.get_Tournament_Id_By_Tournament_Name(Selected_Tournament_Name);
-
-                    Connection_SQL.Load_Teams_For_Tournament(Tournament_Id, Jcb_Nombre_Equipo_Eliminar_Torneo);
-                } catch (SQLException ex) {
-                    Logger.getLogger(Tournament_Management.class.getName()).log(Level.SEVERE, null, ex);
-                    JOptionPane.showMessageDialog(null, "Error al cargar los equipos para el torneo seleccionado.");
-                }
-            }
-        });
-
     }
 
 
@@ -1293,13 +1240,12 @@ public class Tournament_Management extends javax.swing.JPanel {
     private javax.swing.JButton Btn_Eliminar_Nombre_Torneo;
     private javax.swing.JButton Btn_Emparejamiento;
     private javax.swing.JButton Btn_Ingresar_Equipo;
-    private javax.swing.JComboBox<String> Jcb_Actualizar_Torneo;
+    private datechooser.beans.DateChooserCombo DCC_Final;
+    private datechooser.beans.DateChooserCombo DCC_Inicio;
     private javax.swing.JComboBox<String> Jcb_Equipo_Torneo;
     private javax.swing.JComboBox<String> Jcb_Infomacion_Torneos;
-    private javax.swing.JComboBox<String> Jcb_Nombre_Equipo_Eliminar_Torneo;
     private javax.swing.JComboBox<String> Jcb_Nombre_Torneo;
-    private javax.swing.JComboBox<String> Jcb_Nombre_Torneo_Eliminar;
-    private javax.swing.JComboBox<String> Jcb_Nombre_Torneo_Eliminar_Equipo;
+    private javax.swing.JComboBox<String> Jcb_Nombre_Torneo_Eliminar_Actualizar;
     private javax.swing.JPanel Pnl_Informacion_Torneo;
     private javax.swing.JPanel Pnl_Principal;
     private javax.swing.JPanel Pnl_Registro_Equipos;
@@ -1312,7 +1258,6 @@ public class Tournament_Management extends javax.swing.JPanel {
     private javax.swing.JTextField Txt_Nombre_Torneo;
     private javax.swing.JTextField Txt_Nuevo_Nombre;
     private javax.swing.JInternalFrame jInternalFrame1;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
@@ -1322,7 +1267,6 @@ public class Tournament_Management extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
-    private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
@@ -1347,13 +1291,10 @@ public class Tournament_Management extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel65;
     private javax.swing.JLabel jLabel66;
     private javax.swing.JLabel jLabel67;
-    private javax.swing.JLabel jLabel68;
-    private javax.swing.JLabel jLabel69;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel70;
     private javax.swing.JLabel jLabel71;
     private javax.swing.JLabel jLabel72;
-    private javax.swing.JLabel jLabel73;
     private javax.swing.JLabel jLabel79;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel80;

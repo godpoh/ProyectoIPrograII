@@ -5,15 +5,11 @@
 package Presentation;
 
 import Data.Admin_Obj;
-import static Data.Connection_SQL.Insert_User;
-import Logic.Log_In_Logic;
-import java.awt.Window;
-import java.awt.event.KeyEvent;
+import Data.CUD_SQL;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import javax.swing.SwingUtilities;
 
 /**
  *
@@ -51,7 +47,7 @@ public class Create_User extends javax.swing.JPanel {
         Jcb_Rol = new javax.swing.JComboBox<>();
         lblUsuario2 = new javax.swing.JLabel();
         Txt_Nombre = new javax.swing.JTextField();
-        Txt_Apellido3 = new javax.swing.JTextField();
+        Txt_Apellido1 = new javax.swing.JTextField();
         lblImagen = new javax.swing.JLabel();
 
         Pnl_Principal.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -163,24 +159,24 @@ public class Create_User extends javax.swing.JPanel {
         });
         Pnl_Principal.add(Txt_Nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 200, 350, 40));
 
-        Txt_Apellido3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        Txt_Apellido3.setForeground(new java.awt.Color(51, 51, 51));
-        Txt_Apellido3.addMouseListener(new java.awt.event.MouseAdapter() {
+        Txt_Apellido1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        Txt_Apellido1.setForeground(new java.awt.Color(51, 51, 51));
+        Txt_Apellido1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                Txt_Apellido3MousePressed(evt);
+                Txt_Apellido1MousePressed(evt);
             }
         });
-        Txt_Apellido3.addActionListener(new java.awt.event.ActionListener() {
+        Txt_Apellido1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Txt_Apellido3ActionPerformed(evt);
+                Txt_Apellido1ActionPerformed(evt);
             }
         });
-        Txt_Apellido3.addKeyListener(new java.awt.event.KeyAdapter() {
+        Txt_Apellido1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                Txt_Apellido3KeyPressed(evt);
+                Txt_Apellido1KeyPressed(evt);
             }
         });
-        Pnl_Principal.add(Txt_Apellido3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 280, 350, 40));
+        Pnl_Principal.add(Txt_Apellido1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 280, 350, 40));
 
         lblImagen.setForeground(new java.awt.Color(204, 204, 204));
         lblImagen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/abstract-textured-backgound.jpg"))); // NOI18N
@@ -219,7 +215,7 @@ public class Create_User extends javax.swing.JPanel {
     private void Btn_RegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_RegistrarActionPerformed
         int User_Id = Integer.parseInt(Txt_Usuario.getText());
         String Name = Txt_Nombre.getText();
-        String Last_Name1 = Txt_Apellido2.getText();
+        String Last_Name1 = Txt_Apellido1.getText();
         String Last_Name2 = Txt_Apellido2.getText();
         String Role = (String) Jcb_Rol.getSelectedItem();
         String Password = String.valueOf(Txt_Contrasena.getText());
@@ -229,12 +225,12 @@ public class Create_User extends javax.swing.JPanel {
         int Rows_Affected;
 
         try {
-            Rows_Affected = Insert_User(Admin);
+            Rows_Affected = CUD_SQL.Insert_User(Admin);
             if (Rows_Affected != 0) {
                 JOptionPane.showMessageDialog(null, "Datos guardados satisfactoriamente", "Aviso importante", JOptionPane.INFORMATION_MESSAGE);
                 Txt_Usuario.setText("");
                 Txt_Nombre.setText("");
-                Txt_Apellido2.setText("");
+                Txt_Apellido1.setText("");
                 Txt_Apellido2.setText("");
                 Jcb_Rol.setSelectedItem("Seleccione un rol");
                 Txt_Contrasena.setText("");
@@ -269,25 +265,25 @@ public class Create_User extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_Txt_NombreKeyPressed
 
-    private void Txt_Apellido3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Txt_Apellido3MousePressed
+    private void Txt_Apellido1MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Txt_Apellido1MousePressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Txt_Apellido3MousePressed
+    }//GEN-LAST:event_Txt_Apellido1MousePressed
 
-    private void Txt_Apellido3KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Txt_Apellido3KeyPressed
+    private void Txt_Apellido1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_Txt_Apellido1KeyPressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Txt_Apellido3KeyPressed
+    }//GEN-LAST:event_Txt_Apellido1KeyPressed
 
-    private void Txt_Apellido3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Txt_Apellido3ActionPerformed
+    private void Txt_Apellido1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Txt_Apellido1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Txt_Apellido3ActionPerformed
+    }//GEN-LAST:event_Txt_Apellido1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Btn_Registrar;
     private javax.swing.JComboBox<String> Jcb_Rol;
     private javax.swing.JPanel Pnl_Principal;
+    private javax.swing.JTextField Txt_Apellido1;
     private javax.swing.JTextField Txt_Apellido2;
-    private javax.swing.JTextField Txt_Apellido3;
     private javax.swing.JPasswordField Txt_Contrasena;
     private javax.swing.JTextField Txt_Nombre;
     private javax.swing.JTextField Txt_Usuario;

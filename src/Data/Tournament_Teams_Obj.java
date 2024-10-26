@@ -12,7 +12,7 @@ public class Tournament_Teams_Obj {
     int    Tournament_Id;
     int Team_Id;
 
-    public Tournament_Teams_Obj(int Tournament_Id, int Team_Id, String Team_Name, String Tournament_Name) {
+    public Tournament_Teams_Obj(int Tournament_Id, int Team_Id) {
         this.Tournament_Id = Tournament_Id;
         this.Team_Id = Team_Id;
     }

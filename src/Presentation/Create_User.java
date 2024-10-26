@@ -67,7 +67,7 @@ public class Create_User extends javax.swing.JPanel {
         Pnl_Principal.add(lblUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 90, -1, -1));
 
         Txt_Usuario.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        Txt_Usuario.setForeground(new java.awt.Color(153, 153, 153));
+        Txt_Usuario.setForeground(new java.awt.Color(51, 51, 51));
         Txt_Usuario.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 Txt_UsuarioMousePressed(evt);
@@ -96,7 +96,7 @@ public class Create_User extends javax.swing.JPanel {
         Pnl_Principal.add(Btn_Registrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 570, -1, -1));
 
         Txt_Apellido2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        Txt_Apellido2.setForeground(new java.awt.Color(153, 153, 153));
+        Txt_Apellido2.setForeground(new java.awt.Color(51, 51, 51));
         Txt_Apellido2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 Txt_Apellido2MousePressed(evt);
@@ -110,7 +110,7 @@ public class Create_User extends javax.swing.JPanel {
         Pnl_Principal.add(Txt_Apellido2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 360, 350, 40));
 
         Txt_Contrasena.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        Txt_Contrasena.setForeground(new java.awt.Color(153, 153, 153));
+        Txt_Contrasena.setForeground(new java.awt.Color(51, 51, 51));
         Txt_Contrasena.setText("********");
         Txt_Contrasena.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
@@ -140,7 +140,7 @@ public class Create_User extends javax.swing.JPanel {
         Pnl_Principal.add(lblUsuario1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 250, -1, -1));
 
         Jcb_Rol.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        Jcb_Rol.setForeground(new java.awt.Color(153, 153, 153));
+        Jcb_Rol.setForeground(new java.awt.Color(51, 51, 51));
         Jcb_Rol.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione un rol", "Admin", "Quiropractico", "Entrenador" }));
         Pnl_Principal.add(Jcb_Rol, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 440, 350, 40));
 
@@ -150,7 +150,7 @@ public class Create_User extends javax.swing.JPanel {
         Pnl_Principal.add(lblUsuario2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 170, -1, -1));
 
         Txt_Nombre.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        Txt_Nombre.setForeground(new java.awt.Color(153, 153, 153));
+        Txt_Nombre.setForeground(new java.awt.Color(51, 51, 51));
         Txt_Nombre.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 Txt_NombreMousePressed(evt);
@@ -164,7 +164,7 @@ public class Create_User extends javax.swing.JPanel {
         Pnl_Principal.add(Txt_Nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 200, 350, 40));
 
         Txt_Apellido3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        Txt_Apellido3.setForeground(new java.awt.Color(153, 153, 153));
+        Txt_Apellido3.setForeground(new java.awt.Color(51, 51, 51));
         Txt_Apellido3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 Txt_Apellido3MousePressed(evt);

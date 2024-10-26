@@ -20,7 +20,7 @@ import javax.swing.JTextField;
 public class Connection_SQL {
 
     public static Connection getConnection() throws SQLException {
-        String Connection_String = "jdbc:sqlserver://192.168.0.23:1433;"
+        String Connection_String = "jdbc:sqlserver://localhost:1433;"
                 + "database=SoccerTournament;"
                 + "user=sa;"
                 + "password=popo;"
@@ -434,11 +434,9 @@ public class Connection_SQL {
         int rowsAffected = 0;
         Statement sql = Connection_SQL.getConnection().createStatement();
 
-        String qry = "INSERT INTO Tournament_Teams (Tournament_ID, Tournament_Name, Team_ID, Team_Name) "
+        String qry = "INSERT INTO Tournament_Teams (Tournament_ID, Team_ID) "
                 + "VALUES (" + Tournament_Team.getTournament_Id() + ", '"
-                + Tournament_Team.getTournament_Name() + "', "
-                + Tournament_Team.getTeam_Id() + ", '"
-                + Tournament_Team.getTeam_Name() + "');";
+                + Tournament_Team.getTeam_Id() +  "');";
 
         rowsAffected = sql.executeUpdate(qry);
 
@@ -477,7 +475,7 @@ public class Connection_SQL {
 
 // Fin de codigo de torneo 
     // Inicio codigo registro de estadisticas partidos
-    public static int Qry_Teams_In_Tournament(int Tournament_Id) throws SQLException {
+    public static int Counter_Teams_In_Tournament(int Tournament_Id) throws SQLException {
 
         Statement sql = Connection_SQL.getConnection().createStatement();
 

@@ -14,56 +14,63 @@ import java.util.Map;
 public class Match_Obj {
 
 
-    private int Match_Id;      
-    private Team_Obj Local_Team;
-    private Team_Obj Visitant_Team;
+    private int Match_Id;  
+    private String Match_Name;
+    private String Tournament_Id;
+    private int Local_Team;
+    private int Visitant_Team;
     private int Local_Goals;
     private int Visitor_Goals;
-    private int Yellow_Cards;
-    private int Red_Cards;
-    private String Other_Sanctions;
-    private String Annotador;
+    private String Winner;
 
-    public Match_Obj(int Match_Id, Team_Obj Local_Team, Team_Obj Visitant_Team, int Local_Goals, int Visitor_Goals, int Yellow_Cards, int Red_Cards, String Other_Sanctions, String Annotador) {
+    public Match_Obj(int Match_Id, String Match_Name, String Tournament_Id, int Local_Team, int Visitant_Team, int Local_Goals, int Visitor_Goals, String Winner) {
         this.Match_Id = Match_Id;
+        this.Match_Name = Match_Name;
+        this.Tournament_Id = Tournament_Id;
         this.Local_Team = Local_Team;
         this.Visitant_Team = Visitant_Team;
         this.Local_Goals = Local_Goals;
         this.Visitor_Goals = Visitor_Goals;
-        this.Yellow_Cards = Yellow_Cards;
-        this.Red_Cards = Red_Cards;
-        this.Other_Sanctions = Other_Sanctions;
+        this.Winner = Winner;
     }
 
     public int getMatch_Id() {
         return Match_Id;
     }
 
-    public String getAnnotador() {
-        return Annotador;
-    }
-
-    public void setAnnotador(String Annotador) {
-        this.Annotador = Annotador;
-    }
-
     public void setMatch_Id(int Match_Id) {
         this.Match_Id = Match_Id;
     }
 
-    public Team_Obj getLocal_Team() {
+    public String getMatch_Name() {
+        return Match_Name;
+    }
+
+    public void setMatch_Name(String Match_Name) {
+        this.Match_Name = Match_Name;
+    }
+
+    public String getTournament_Id() {
+        return Tournament_Id;
+    }
+
+    public void setTournament_Id(String Tournament_Id) {
+        this.Tournament_Id = Tournament_Id;
+    }
+
+    public int getLocal_Team() {
         return Local_Team;
     }
 
-    public void setLocal_Team(Team_Obj Local_Team) {
+    public void setLocal_Team(int Local_Team) {
         this.Local_Team = Local_Team;
     }
 
-    public Team_Obj getVisitant_Team() {
+    public int getVisitant_Team() {
         return Visitant_Team;
     }
 
-    public void setVisitant_Team(Team_Obj Visitant_Team) {
+    public void setVisitant_Team(int Visitant_Team) {
         this.Visitant_Team = Visitant_Team;
     }
 
@@ -83,28 +90,14 @@ public class Match_Obj {
         this.Visitor_Goals = Visitor_Goals;
     }
 
-    public int getYellow_Cards() {
-        return Yellow_Cards;
+    public String getWinner() {
+        return Winner;
     }
 
-    public void setYellow_Cards(int Yellow_Cards) {
-        this.Yellow_Cards = Yellow_Cards;
+    public void setWinner(String Winner) {
+        this.Winner = Winner;
     }
 
-    public int getRed_Cards() {
-        return Red_Cards;
-    }
-
-    public void setRed_Cards(int Red_Cards) {
-        this.Red_Cards = Red_Cards;
-    }
-
-    public String getOther_Sanctions() {
-        return Other_Sanctions;
-    }
-
-    public void setOther_Sanctions(String Other_Sanctions) {
-        this.Other_Sanctions = Other_Sanctions;
-    }
+   
 
 }

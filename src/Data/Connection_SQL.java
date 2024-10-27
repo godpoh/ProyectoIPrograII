@@ -194,37 +194,37 @@ public class Connection_SQL {
 
     // Fin de codigo registro de estadisticas de partidos
     // Inicio de codigo consultas Tournament_Teams
-     public static List<Integer> getTeams_In_Tournament(int Tournament_Id) throws SQLException {
+    public static List<Integer> getTeams_In_Tournament(int Tournament_Id) throws SQLException {
         Statement sql = Connection_SQL.getConnection().createStatement();
         String qry = "SELECT Team_ID FROM Tournament_Teams WHERE Tournament_ID = " + Tournament_Id;
-        
+
         ResultSet rs = sql.executeQuery(qry);
-        
+
         List<Integer> Team_Ids = new ArrayList<>();
         while (rs.next()) {
             Team_Ids.add(rs.getInt("Team_ID"));
         }
-
         return Team_Ids;
     }
-     
-     public static List<Integer> get_Winners_In_Tournament(int Tournament_Id, List<int[]> Id_Teams) throws SQLException {
-         Statement sql = Connection_SQL.getConnection().createStatement();
-         
-        for (int i = 0; i < Id_Teams.size(); i++ ) {
-            int Pair[] = Id_Teams.get(i);
-            String Home_Team_Name = get_Team_Name_By_Team_Id(Pair[0]);
-            String Away_Team_Name = get_Team_Name_By_Team_Id(Pair[1]);
+
+    public static List<Integer> getWinners_In_Tournament(int Tournament_Id, List<Integer> Teams_Ids, String phase) throws SQLException {
+    Statement sql = Connection_SQL.getConnection().createStatement();
+    List<Integer> Winners_Ids = new ArrayList<>();
+
+    // Cambiamos la lógica para obtener los IDs de los ganadores directamente
+    String qry = "SELECT Winner FROM Match WHERE Tournament_ID = " + Tournament_Id + " AND Phase = '" + phase + "'";
+    ResultSet rs = sql.executeQuery(qry);
+
+    while (rs.next()) {
+        int winnerId = rs.getInt("Winner");
+        // Evitar duplicados
+        if (!Winners_Ids.contains(winnerId)) {
+            Winners_Ids.add(winnerId);
         }
-         
-         String qry = "SELECT Team_Id From Tournament_Teams WHERE WINNER = '" + "Home_Team_Name";
-         ResultSet rs = sql.executeQuery(qry);
-         
-         List<Integer> Team_Ids = new ArrayList<>();
-         while (rs.next()) {
-             Team_Ids.add(rs.getInt("Team_Id"));
-         }
-         return Team_Ids;
-     }
+    }
+
+    return Winners_Ids;
+}
+
     // Fin de codigo consultas Tournament_Teams
 }

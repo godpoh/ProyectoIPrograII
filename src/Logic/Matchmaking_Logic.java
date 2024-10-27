@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -35,6 +36,8 @@ public class Matchmaking_Logic {
             // Indice[0,1,2,3,4,5,6,7]
             int[] Match = {Teams_Ids.get(i), Teams_Ids.get(i + 1)};
             Pairs.add(Match);
+            // [1,2], [3,4], [5,6], [7,8]
+            //   0,     1,      2,    3
         }
 
         return Pairs;
@@ -48,7 +51,61 @@ public class Matchmaking_Logic {
         List<int[]> Pairs = Generate_Random_Pairs(Teams_Ids);
 
         // Inserto los ids ya emparejados y revueltos
-        CUD_SQL.Insert_Matches(Tournament_Id, Pairs);
+        CUD_SQL.Insert_Matches(Tournament_Id, Pairs, "Cuartos-Final");
+    }
+
+    public static void Create_Matches_For_Winners_Semi_Final(int Tournament_Id) throws SQLException {
+
+        // Obtengo todos los equipos que se encuentran en el torneo
+        List<Integer> Teams_Ids = Connection_SQL.getTeams_In_Tournament(Tournament_Id);
+
+        // Saco todos los ganadores del torneo(Semi-Final)
+        List<Integer> Winners = Connection_SQL.getWinners_In_Tournament(Tournament_Id, Teams_Ids, "Cuartos-Final");
+
+        // Saco los pares de los ganadores
+        if (Winners.size() == 4) {
+            List<int[]> Pairs = Generate_Random_Pairs(Winners);
+            CUD_SQL.Insert_Matches(Tournament_Id, Pairs, "Semi-Final");
+        } else {
+            JOptionPane.showMessageDialog(null, "No hay suficientes ganadores para emparejar las semifinales", "Mensaje Importante", JOptionPane.ERROR_MESSAGE);
+        }
+
+    }
+
+    public static void Create_Matches_For_Winners_Final(int Tournament_Id) throws SQLException {
+
+        // Obtengo todos los equipos que se encuentran en el torneo
+        List<Integer> Teams_Ids = Connection_SQL.getTeams_In_Tournament(Tournament_Id);
+
+        // Saco todos los ganadores del torneo(Final)
+        List<Integer> Winners = Connection_SQL.getWinners_In_Tournament(Tournament_Id, Teams_Ids, "Semi-Final");
+
+        // Saco los pares de los ganadores
+        if (Winners.size() == 2) {
+            List<int[]> Pairs = Generate_Random_Pairs(Winners);
+            CUD_SQL.Insert_Matches(Tournament_Id, Pairs, "Final");
+        } else {
+            JOptionPane.showMessageDialog(null, "No hay suficientes ganadores para emparejar las semifinales", "Mensaje Importante", JOptionPane.ERROR_MESSAGE);
+        }
+
+    }
+    
+        public static void Create_Matches_For_Winners_Champion(int Tournament_Id) throws SQLException {
+
+        // Obtengo todos los equipos que se encuentran en el torneo
+        List<Integer> Teams_Ids = Connection_SQL.getTeams_In_Tournament(Tournament_Id);
+
+        // Saco todos los ganadores del torneo(Final)
+        List<Integer> Winners = Connection_SQL.getWinners_In_Tournament(Tournament_Id, Teams_Ids, "Final");
+
+        // Saco los pares de los ganadores
+        if (Winners.size() == 1) {
+            List<int[]> Pairs = Generate_Random_Pairs(Winners);
+            CUD_SQL.Insert_Matches(Tournament_Id, Pairs, "Campeon");
+        } else {
+            JOptionPane.showMessageDialog(null, "No hay suficientes ganadores para emparejar las semifinales", "Mensaje Importante", JOptionPane.ERROR_MESSAGE);
+        }
+
     }
 
 }

@@ -21,9 +21,10 @@ public class Match_Obj {
     private int Visitant_Team;
     private int Local_Goals;
     private int Visitor_Goals;
-    private String Winner;
+    private int Winner;
+    private String Phase;
 
-    public Match_Obj(int Match_Id, String Match_Name, String Tournament_Id, int Local_Team, int Visitant_Team, int Local_Goals, int Visitor_Goals, String Winner) {
+    public Match_Obj(int Match_Id, String Match_Name, String Tournament_Id, int Local_Team, int Visitant_Team, int Local_Goals, int Visitor_Goals, int Winner, String Phase) {
         this.Match_Id = Match_Id;
         this.Match_Name = Match_Name;
         this.Tournament_Id = Tournament_Id;
@@ -32,6 +33,7 @@ public class Match_Obj {
         this.Local_Goals = Local_Goals;
         this.Visitor_Goals = Visitor_Goals;
         this.Winner = Winner;
+        this.Phase = Phase;
     }
 
     public int getMatch_Id() {
@@ -90,14 +92,20 @@ public class Match_Obj {
         this.Visitor_Goals = Visitor_Goals;
     }
 
-    public String getWinner() {
+    public int getWinner() {
         return Winner;
     }
 
-    public void setWinner(String Winner) {
+    public void setWinner(int Winner) {
         this.Winner = Winner;
     }
 
-   
+    public String getPhase() {
+        return Phase;
+    }
+
+    public void setPhase(String Phase) {
+        this.Phase = Phase;
+    }
 
 }

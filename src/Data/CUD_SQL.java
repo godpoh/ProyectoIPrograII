@@ -107,35 +107,35 @@ public class CUD_SQL {
 
         return Rows_Affected;
     }
-    
-public static int Insert_Matches(int Tournament_Id, List<int[]> Pairs) throws SQLException {
-    int Rows_Affected = 0;
-    Statement sql = Connection_SQL.getConnection().createStatement();
 
-    for (int i = 0; i < Pairs.size(); i++) {
-        int[] Pair = Pairs.get(i);
-        
-        String Home_Team_Name = Connection_SQL.get_Team_Name_By_Team_Id(Pair[0]);
-        String Away_Team_Name = Connection_SQL.get_Team_Name_By_Team_Id(Pair[1]);
-        
-        String Match_Name = Home_Team_Name + " "+ "VS" + " "+Away_Team_Name;
+    public static int Insert_Matches(int Tournament_Id, List<int[]> Pairs, String phase) throws SQLException {
+        int Rows_Affected = 0;
+        Statement sql = Connection_SQL.getConnection().createStatement();
 
-        String qry = "INSERT INTO Match (Match_Name, Tournament_ID, Home_Team_Id, Away_Team_Id, Home_Points, Away_Points, Winner) "
-                + "VALUES ('" + Match_Name + "', "
-                + Tournament_Id + ", "
-                + Pair[0] + ", "
-                + Pair[1] + ", "
-                + "0, 0, 'No Jugado')";
+        for (int i = 0; i < Pairs.size(); i++) {
+            int[] Pair = Pairs.get(i);
 
-        Rows_Affected += sql.executeUpdate(qry);
+            String Home_Team_Name = Connection_SQL.get_Team_Name_By_Team_Id(Pair[0]);
+            String Away_Team_Name = Connection_SQL.get_Team_Name_By_Team_Id(Pair[1]);
+
+            String Match_Name = Home_Team_Name + " VS " + Away_Team_Name;
+
+            // Inicialmente se puede poner un valor por defecto para el Winner
+            // O debes asegurarte de que el ganador se establezca en otro lugar
+            String qry = "INSERT INTO Match (Match_Name, Tournament_ID, Home_Team_Id, Away_Team_Id, Home_Points, Away_Points, Winner, Phase) "
+                    + "VALUES ('" + Match_Name + "', "
+                    + Tournament_Id + ", "
+                    + Pair[0] + ", "
+                    + Pair[1] + ", "
+                    + "0, 0, 0, '" + phase + "')"; 
+
+            Rows_Affected += sql.executeUpdate(qry);
+        }
+
+        return Rows_Affected;
     }
 
-    return Rows_Affected;
-}
-
-    
     // Final de INSERTS
-
     // Inicio de UPDATES
     public static void Update_Selected_Team(JComboBox<String> JCB, JTextField New_Name_Field) throws SQLException {
         String Selected_Team = (String) JCB.getSelectedItem();

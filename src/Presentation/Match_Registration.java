@@ -5,7 +5,9 @@
 package Presentation;
 
 import Data.Connection_SQL;
+import static Data.Connection_SQL.get_Team_Id_By_Team_Name;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -19,11 +21,13 @@ public class Match_Registration extends javax.swing.JPanel {
     /**
      * Creates new form NewJPanel
      */
-    public Match_Registration() {
+    public Match_Registration() throws SQLException {
         initComponents();
+        Connection_SQL.Qry_Tournament(Jcb_Nombre_Torneo);
         Pnl_Ingresar_Datos.setVisible(false);
         Pnl_Tarjetas.setVisible(false);
         Action_Listeners_Method();
+
     }
 
     private void Selected_Rd() {
@@ -35,6 +39,7 @@ public class Match_Registration extends javax.swing.JPanel {
             Pnl_Tarjetas.setVisible(false);
         }
     }
+
     private void Action_Listeners_Method() {
 
         Rd_Informacion_Tarjetas.addActionListener(new java.awt.event.ActionListener() {
@@ -49,9 +54,21 @@ public class Match_Registration extends javax.swing.JPanel {
             }
         });
 
-    }
+        Jcb_Partidos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                String Selected_Tournament = (String) Jcb_Nombre_Torneo.getSelectedItem();
+                try {
+                    int Tournament_Id = Connection_SQL.get_Tournament_Id_By_Tournament_Name(Selected_Tournament);
+                    String Phase = (String) Jcb_Fase.getSelectedItem();
+                    Connection_SQL.Load_Match_Names_Into_JCB(Tournament_Id, Phase, Jcb_Partidos);
+                } catch (SQLException ex) {
+                    Logger.getLogger(Tournament_Management.class.getName()).log(Level.SEVERE, null, ex);
+                
+                }
+            }
+        });
 
-    
+    }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -66,28 +83,22 @@ public class Match_Registration extends javax.swing.JPanel {
         jLabel13 = new javax.swing.JLabel();
         Pnl_Ingresar_Datos = new javax.swing.JPanel();
         jLabel75 = new javax.swing.JLabel();
-        jComboBox10 = new javax.swing.JComboBox<>();
+        Jcb_Nombre_Torneo = new javax.swing.JComboBox<>();
         jLabel76 = new javax.swing.JLabel();
-        jComboBox11 = new javax.swing.JComboBox<>();
-        jLabel77 = new javax.swing.JLabel();
-        jLabel78 = new javax.swing.JLabel();
-        jLabel82 = new javax.swing.JLabel();
-        jComboBox12 = new javax.swing.JComboBox<>();
-        jLabel90 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        Jcb_Fase = new javax.swing.JComboBox<>();
         jLabel95 = new javax.swing.JLabel();
-        jSpinner1 = new javax.swing.JSpinner();
-        jLabel96 = new javax.swing.JLabel();
-        jSpinner3 = new javax.swing.JSpinner();
-        jComboBox13 = new javax.swing.JComboBox<>();
-        jLabel97 = new javax.swing.JLabel();
-        jComboBox14 = new javax.swing.JComboBox<>();
-        jLabel98 = new javax.swing.JLabel();
-        jButton6 = new javax.swing.JButton();
-        jSpinner4 = new javax.swing.JSpinner();
-        jLabel99 = new javax.swing.JLabel();
-        jLabel100 = new javax.swing.JLabel();
-        jButton7 = new javax.swing.JButton();
+        Jcb_Equipo_Local = new javax.swing.JComboBox<>();
+        jLabel79 = new javax.swing.JLabel();
+        Jcb_Equipo_Visitante = new javax.swing.JComboBox<>();
+        jLabel80 = new javax.swing.JLabel();
+        jLabel81 = new javax.swing.JLabel();
+        jLabel83 = new javax.swing.JLabel();
+        JS_Goles_Local = new javax.swing.JSpinner();
+        JS_Goles_Visitantes = new javax.swing.JSpinner();
+        Jcb_Equipo_Ganador = new javax.swing.JComboBox<>();
+        jLabel84 = new javax.swing.JLabel();
+        Btn_Guardar = new javax.swing.JButton();
+        Jcb_Partidos = new javax.swing.JComboBox<>();
         Pnl_Tarjetas = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
@@ -189,117 +200,95 @@ public class Match_Registration extends javax.swing.JPanel {
         jLabel75.setText("Nombre del Torneo:");
         Pnl_Ingresar_Datos.add(jLabel75, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 10, -1, -1));
 
-        jComboBox10.setBackground(new java.awt.Color(204, 204, 204));
-        jComboBox10.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jComboBox10.setForeground(new java.awt.Color(51, 51, 51));
-        jComboBox10.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        Pnl_Ingresar_Datos.add(jComboBox10, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 30, 210, -1));
+        Jcb_Nombre_Torneo.setBackground(new java.awt.Color(204, 204, 204));
+        Jcb_Nombre_Torneo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        Jcb_Nombre_Torneo.setForeground(new java.awt.Color(51, 51, 51));
+        Pnl_Ingresar_Datos.add(Jcb_Nombre_Torneo, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 30, 210, -1));
 
         jLabel76.setBackground(new java.awt.Color(255, 255, 255));
         jLabel76.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel76.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel76.setText("Clasificacion");
-        Pnl_Ingresar_Datos.add(jLabel76, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 60, -1, -1));
+        jLabel76.setText("Fase");
+        Pnl_Ingresar_Datos.add(jLabel76, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 60, -1, -1));
 
-        jComboBox11.setBackground(new java.awt.Color(204, 204, 204));
-        jComboBox11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jComboBox11.setForeground(new java.awt.Color(51, 51, 51));
-        jComboBox11.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        Pnl_Ingresar_Datos.add(jComboBox11, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 80, 210, -1));
-
-        jLabel77.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel77.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel77.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel77.setText("Tarjetas amarillas");
-        Pnl_Ingresar_Datos.add(jLabel77, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 360, -1, -1));
-
-        jLabel78.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel78.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel78.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel78.setText("Tarjetas rojas");
-        Pnl_Ingresar_Datos.add(jLabel78, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 360, -1, -1));
-
-        jLabel82.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel82.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel82.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel82.setText("Jugador obtuvo sanción");
-        Pnl_Ingresar_Datos.add(jLabel82, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 310, -1, -1));
-
-        jComboBox12.setBackground(new java.awt.Color(204, 204, 204));
-        jComboBox12.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jComboBox12.setForeground(new java.awt.Color(51, 51, 51));
-        jComboBox12.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        Pnl_Ingresar_Datos.add(jComboBox12, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 330, 210, -1));
-
-        jLabel90.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel90.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel90.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel90.setText("Otras Sanciones");
-        Pnl_Ingresar_Datos.add(jLabel90, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 360, -1, -1));
-        Pnl_Ingresar_Datos.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 380, 190, -1));
+        Jcb_Fase.setBackground(new java.awt.Color(204, 204, 204));
+        Jcb_Fase.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        Jcb_Fase.setForeground(new java.awt.Color(51, 51, 51));
+        Jcb_Fase.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione una fase", "Cuartos-Final", "Semi-Final", "Final" }));
+        Pnl_Ingresar_Datos.add(Jcb_Fase, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 80, 210, -1));
 
         jLabel95.setBackground(new java.awt.Color(255, 255, 255));
         jLabel95.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel95.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel95.setText("Nombre del equipo");
-        Pnl_Ingresar_Datos.add(jLabel95, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 110, -1, -1));
-        Pnl_Ingresar_Datos.add(jSpinner1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 380, -1, -1));
+        jLabel95.setText("Partido");
+        Pnl_Ingresar_Datos.add(jLabel95, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 110, -1, -1));
 
-        jLabel96.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel96.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel96.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel96.setText("0");
-        Pnl_Ingresar_Datos.add(jLabel96, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 290, -1, -1));
-        Pnl_Ingresar_Datos.add(jSpinner3, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 210, 70, -1));
+        Jcb_Equipo_Local.setBackground(new java.awt.Color(204, 204, 204));
+        Jcb_Equipo_Local.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        Jcb_Equipo_Local.setForeground(new java.awt.Color(51, 51, 51));
+        Jcb_Equipo_Local.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        Pnl_Ingresar_Datos.add(Jcb_Equipo_Local, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 180, 210, -1));
 
-        jComboBox13.setBackground(new java.awt.Color(204, 204, 204));
-        jComboBox13.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jComboBox13.setForeground(new java.awt.Color(51, 51, 51));
-        jComboBox13.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        Pnl_Ingresar_Datos.add(jComboBox13, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 180, 210, -1));
+        jLabel79.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel79.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel79.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel79.setText("Equipo Local");
+        Pnl_Ingresar_Datos.add(jLabel79, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 160, -1, -1));
 
-        jLabel97.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel97.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel97.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel97.setText("Goles anotados");
-        Pnl_Ingresar_Datos.add(jLabel97, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 270, -1, -1));
+        Jcb_Equipo_Visitante.setBackground(new java.awt.Color(204, 204, 204));
+        Jcb_Equipo_Visitante.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        Jcb_Equipo_Visitante.setForeground(new java.awt.Color(51, 51, 51));
+        Jcb_Equipo_Visitante.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        Pnl_Ingresar_Datos.add(Jcb_Equipo_Visitante, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 190, 210, -1));
 
-        jComboBox14.setBackground(new java.awt.Color(204, 204, 204));
-        jComboBox14.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jComboBox14.setForeground(new java.awt.Color(51, 51, 51));
-        jComboBox14.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        Pnl_Ingresar_Datos.add(jComboBox14, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 130, 210, -1));
+        jLabel80.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel80.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel80.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel80.setText("Goles");
+        Pnl_Ingresar_Datos.add(jLabel80, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 210, -1, -1));
 
-        jLabel98.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel98.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel98.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel98.setText("Los datos se reescribiran cada vez guarde datos ");
-        Pnl_Ingresar_Datos.add(jLabel98, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 470, -1, -1));
+        jLabel81.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel81.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel81.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel81.setText("Equipo visitante");
+        Pnl_Ingresar_Datos.add(jLabel81, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 170, -1, -1));
 
-        jButton6.setBackground(new java.awt.Color(204, 204, 204));
-        jButton6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButton6.setForeground(new java.awt.Color(51, 51, 51));
-        jButton6.setText("GUARDAR");
-        Pnl_Ingresar_Datos.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 410, -1, -1));
-        Pnl_Ingresar_Datos.add(jSpinner4, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 380, -1, -1));
+        jLabel83.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel83.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel83.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel83.setText("Goles");
+        Pnl_Ingresar_Datos.add(jLabel83, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 220, -1, -1));
+        Pnl_Ingresar_Datos.add(JS_Goles_Local, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 230, -1, -1));
+        Pnl_Ingresar_Datos.add(JS_Goles_Visitantes, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 240, -1, -1));
 
-        jLabel99.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel99.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel99.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel99.setText("Jugador que anotó gol");
-        Pnl_Ingresar_Datos.add(jLabel99, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 160, -1, -1));
+        Jcb_Equipo_Ganador.setBackground(new java.awt.Color(204, 204, 204));
+        Jcb_Equipo_Ganador.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        Jcb_Equipo_Ganador.setForeground(new java.awt.Color(51, 51, 51));
+        Jcb_Equipo_Ganador.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        Pnl_Ingresar_Datos.add(Jcb_Equipo_Ganador, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 260, 210, -1));
 
-        jLabel100.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel100.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel100.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel100.setText("IMPORTANTE:");
-        Pnl_Ingresar_Datos.add(jLabel100, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 450, -1, -1));
+        jLabel84.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel84.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel84.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel84.setText("Equipo Ganador");
+        Pnl_Ingresar_Datos.add(jLabel84, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 240, -1, -1));
 
-        jButton7.setBackground(new java.awt.Color(204, 204, 204));
-        jButton7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButton7.setForeground(new java.awt.Color(51, 51, 51));
-        jButton7.setText("GUARDAR");
-        Pnl_Ingresar_Datos.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 240, -1, -1));
+        Btn_Guardar.setBackground(new java.awt.Color(204, 204, 204));
+        Btn_Guardar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        Btn_Guardar.setForeground(new java.awt.Color(51, 51, 51));
+        Btn_Guardar.setText("Guardar");
+        Btn_Guardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_GuardarActionPerformed(evt);
+            }
+        });
+        Pnl_Ingresar_Datos.add(Btn_Guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 390, 90, 40));
+
+        Jcb_Partidos.setBackground(new java.awt.Color(204, 204, 204));
+        Jcb_Partidos.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        Jcb_Partidos.setForeground(new java.awt.Color(51, 51, 51));
+        Jcb_Partidos.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione un partido" }));
+        Pnl_Ingresar_Datos.add(Jcb_Partidos, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 130, 210, -1));
 
         add(Pnl_Ingresar_Datos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 810, 510));
 
@@ -451,25 +440,63 @@ public class Match_Registration extends javax.swing.JPanel {
         add(lbl_img, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 688));
     }// </editor-fold>//GEN-END:initComponents
 
+    private void Btn_GuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_GuardarActionPerformed
+
+        try {
+            int Winner_Points = 3;
+            int Loss_Points = 0;
+
+            String Local_Team = (String) Jcb_Equipo_Local.getSelectedItem();
+            String Visitant_Team = (String) Jcb_Equipo_Visitante.getSelectedItem();
+            int Local_Id = get_Team_Id_By_Team_Name(Local_Team);
+            int Visitant_Id = get_Team_Id_By_Team_Name(Visitant_Team);
+
+            int Local_Goals = (int) JS_Goles_Local.getValue();
+            int Visitant_Goals = (int) JS_Goles_Visitantes.getValue();
+
+            String Winner_Team = (String) Jcb_Equipo_Ganador.getSelectedItem();
+            int Winner_Id = get_Team_Id_By_Team_Name(Winner_Team);
+
+            int Winning_Id, Losing_Id, Winning_Points, Losing_Points;
+
+            if (Local_Goals > Visitant_Goals) {
+                // El equipo local gana
+                Winning_Id = Local_Id;
+                Losing_Id = Visitant_Id;
+                Winning_Points = Winner_Points + Local_Goals;
+                Losing_Points = Loss_Points + Visitant_Goals;
+            } else if (Local_Goals < Visitant_Goals) {
+                // El equipo visitante gana
+                Winning_Id = Visitant_Id;
+                Losing_Id = Local_Id;
+                Winning_Points = Winner_Points + Visitant_Goals;
+                Losing_Points = Loss_Points + Local_Goals;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Match_Registration.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_Btn_GuardarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Btn_Guardar;
+    private javax.swing.JSpinner JS_Goles_Local;
+    private javax.swing.JSpinner JS_Goles_Visitantes;
+    private javax.swing.JComboBox<String> Jcb_Equipo_Ganador;
+    private javax.swing.JComboBox<String> Jcb_Equipo_Local;
+    private javax.swing.JComboBox<String> Jcb_Equipo_Visitante;
+    private javax.swing.JComboBox<String> Jcb_Fase;
+    private javax.swing.JComboBox<String> Jcb_Nombre_Torneo;
+    private javax.swing.JComboBox<String> Jcb_Partidos;
     private javax.swing.JPanel Pnl_Ingresar_Datos;
     private javax.swing.JPanel Pnl_Tarjetas;
     private javax.swing.ButtonGroup Rd;
     private javax.swing.JRadioButton Rd_Informacion_Tarjetas;
     private javax.swing.JRadioButton Rd_Ingresar_Datos;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
     private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox10;
-    private javax.swing.JComboBox<String> jComboBox11;
-    private javax.swing.JComboBox<String> jComboBox12;
-    private javax.swing.JComboBox<String> jComboBox13;
-    private javax.swing.JComboBox<String> jComboBox14;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox5;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel100;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
@@ -493,21 +520,14 @@ public class Match_Registration extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel74;
     private javax.swing.JLabel jLabel75;
     private javax.swing.JLabel jLabel76;
-    private javax.swing.JLabel jLabel77;
-    private javax.swing.JLabel jLabel78;
-    private javax.swing.JLabel jLabel82;
-    private javax.swing.JLabel jLabel90;
+    private javax.swing.JLabel jLabel79;
+    private javax.swing.JLabel jLabel80;
+    private javax.swing.JLabel jLabel81;
+    private javax.swing.JLabel jLabel83;
+    private javax.swing.JLabel jLabel84;
     private javax.swing.JLabel jLabel95;
-    private javax.swing.JLabel jLabel96;
-    private javax.swing.JLabel jLabel97;
-    private javax.swing.JLabel jLabel98;
-    private javax.swing.JLabel jLabel99;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JSpinner jSpinner1;
-    private javax.swing.JSpinner jSpinner3;
-    private javax.swing.JSpinner jSpinner4;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel lbl_img;
     // End of variables declaration//GEN-END:variables
 }

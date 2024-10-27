@@ -208,23 +208,37 @@ public class Connection_SQL {
     }
 
     public static List<Integer> getWinners_In_Tournament(int Tournament_Id, List<Integer> Teams_Ids, String phase) throws SQLException {
-    Statement sql = Connection_SQL.getConnection().createStatement();
-    List<Integer> Winners_Ids = new ArrayList<>();
+        Statement sql = Connection_SQL.getConnection().createStatement();
+        List<Integer> Winners_Ids = new ArrayList<>();
 
-    // Cambiamos la lógica para obtener los IDs de los ganadores directamente
-    String qry = "SELECT Winner FROM Match WHERE Tournament_ID = " + Tournament_Id + " AND Phase = '" + phase + "'";
-    ResultSet rs = sql.executeQuery(qry);
+        // Cambiamos la lógica para obtener los IDs de los ganadores directamente
+        String qry = "SELECT Winner FROM Match WHERE Tournament_ID = " + Tournament_Id + " AND Phase = '" + phase + "'";
+        ResultSet rs = sql.executeQuery(qry);
 
-    while (rs.next()) {
-        int winnerId = rs.getInt("Winner");
-        // Evitar duplicados
-        if (!Winners_Ids.contains(winnerId)) {
-            Winners_Ids.add(winnerId);
+        while (rs.next()) {
+            int winnerId = rs.getInt("Winner");
+            // Evitar duplicados
+            if (!Winners_Ids.contains(winnerId)) {
+                Winners_Ids.add(winnerId);
+            }
         }
+
+        return Winners_Ids;
     }
 
-    return Winners_Ids;
-}
+    public static void Load_Match_Names_Into_JCB(int Tournament_Id, String Phase, JComboBox<String> JCB) throws SQLException {
+        Statement sql = Connection_SQL.getConnection().createStatement();
+        String qry = "SELECT Match_Name FROM Match WHERE Tournament_ID = " + Tournament_Id + " AND Phase = '" + Phase + "'";
+
+        ResultSet rs = sql.executeQuery(qry);
+
+        JCB.removeAllItems();
+        JCB.addItem("Seleccione un partido");
+        
+        while (rs.next()) {
+            JCB.addItem(rs.getString("Match_Name"));
+        }
+    }
 
     // Fin de codigo consultas Tournament_Teams
 }

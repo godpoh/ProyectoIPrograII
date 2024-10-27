@@ -5,6 +5,8 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 
@@ -191,4 +193,38 @@ public class Connection_SQL {
     }
 
     // Fin de codigo registro de estadisticas de partidos
+    // Inicio de codigo consultas Tournament_Teams
+     public static List<Integer> getTeams_In_Tournament(int Tournament_Id) throws SQLException {
+        Statement sql = Connection_SQL.getConnection().createStatement();
+        String qry = "SELECT Team_ID FROM Tournament_Teams WHERE Tournament_ID = " + Tournament_Id;
+        
+        ResultSet rs = sql.executeQuery(qry);
+        
+        List<Integer> Team_Ids = new ArrayList<>();
+        while (rs.next()) {
+            Team_Ids.add(rs.getInt("Team_ID"));
+        }
+
+        return Team_Ids;
+    }
+     
+     public static List<Integer> get_Winners_In_Tournament(int Tournament_Id, List<int[]> Id_Teams) throws SQLException {
+         Statement sql = Connection_SQL.getConnection().createStatement();
+         
+        for (int i = 0; i < Id_Teams.size(); i++ ) {
+            int Pair[] = Id_Teams.get(i);
+            String Home_Team_Name = get_Team_Name_By_Team_Id(Pair[0]);
+            String Away_Team_Name = get_Team_Name_By_Team_Id(Pair[1]);
+        }
+         
+         String qry = "SELECT Team_Id From Tournament_Teams WHERE WINNER = '" + "Home_Team_Name";
+         ResultSet rs = sql.executeQuery(qry);
+         
+         List<Integer> Team_Ids = new ArrayList<>();
+         while (rs.next()) {
+             Team_Ids.add(rs.getInt("Team_Id"));
+         }
+         return Team_Ids;
+     }
+    // Fin de codigo consultas Tournament_Teams
 }

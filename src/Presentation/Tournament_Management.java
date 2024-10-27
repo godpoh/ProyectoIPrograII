@@ -10,6 +10,7 @@ import static Data.Connection_SQL.Qry_Team;
 import static Data.Connection_SQL.Qry_Tournament;
 import Data.Tournament_Obj;
 import Data.Tournament_Teams_Obj;
+import Logic.Matchmaking_Logic;
 import java.sql.SQLException;
 import java.util.Date;
 import java.util.logging.Level;
@@ -139,6 +140,8 @@ public class Tournament_Management extends javax.swing.JPanel {
         jLabel94 = new javax.swing.JLabel();
         Btn_Emparejamiento = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
+        Btn_Emparejamiento_Final = new javax.swing.JButton();
+        Btn_Emparejamiento_Semi_Final = new javax.swing.JButton();
         jLabel61 = new javax.swing.JLabel();
 
         jRadioButton1.setText("jRadioButton1");
@@ -1037,10 +1040,32 @@ public class Tournament_Management extends javax.swing.JPanel {
                 Btn_EmparejamientoActionPerformed(evt);
             }
         });
-        Pnl_Informacion_Torneo.add(Btn_Emparejamiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 600, -1, 40));
+        Pnl_Informacion_Torneo.add(Btn_Emparejamiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 600, -1, 40));
 
         jLabel10.setText("ya deben de estar los 8 equipos");
         Pnl_Informacion_Torneo.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 640, -1, -1));
+
+        Btn_Emparejamiento_Final.setBackground(new java.awt.Color(204, 204, 204));
+        Btn_Emparejamiento_Final.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        Btn_Emparejamiento_Final.setForeground(new java.awt.Color(51, 51, 51));
+        Btn_Emparejamiento_Final.setText("EMPAREJAMIENTO FINAL");
+        Btn_Emparejamiento_Final.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_Emparejamiento_FinalActionPerformed(evt);
+            }
+        });
+        Pnl_Informacion_Torneo.add(Btn_Emparejamiento_Final, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 600, -1, 40));
+
+        Btn_Emparejamiento_Semi_Final.setBackground(new java.awt.Color(204, 204, 204));
+        Btn_Emparejamiento_Semi_Final.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        Btn_Emparejamiento_Semi_Final.setForeground(new java.awt.Color(51, 51, 51));
+        Btn_Emparejamiento_Semi_Final.setText("EMPAREJAMIENTO SEMI-FINAL");
+        Btn_Emparejamiento_Semi_Final.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_Emparejamiento_Semi_FinalActionPerformed(evt);
+            }
+        });
+        Pnl_Informacion_Torneo.add(Btn_Emparejamiento_Semi_Final, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 600, -1, 40));
 
         jPanel1.add(Pnl_Informacion_Torneo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 800, 688));
 
@@ -1180,6 +1205,7 @@ public class Tournament_Management extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(null, "Para iniciar el emparejamiento deben de haber almenos 8 equipos", "Informacion importante", JOptionPane.INFORMATION_MESSAGE);
                 return;
             }
+            Matchmaking_Logic.Create_Matches_For_Tournament(Tournament_Id);
 
             // Logica para el emparejamiento
         } catch (SQLException ex) {
@@ -1191,6 +1217,14 @@ public class Tournament_Management extends javax.swing.JPanel {
     private void Jcb_Nombre_Torneo_Eliminar_ActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jcb_Nombre_Torneo_Eliminar_ActualizarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_Jcb_Nombre_Torneo_Eliminar_ActualizarActionPerformed
+
+    private void Btn_Emparejamiento_FinalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_Emparejamiento_FinalActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Btn_Emparejamiento_FinalActionPerformed
+
+    private void Btn_Emparejamiento_Semi_FinalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_Emparejamiento_Semi_FinalActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Btn_Emparejamiento_Semi_FinalActionPerformed
 
     private void Selected_Rd() {
         if (Rd_Creacion_Torneo.isSelected()) {
@@ -1239,6 +1273,8 @@ public class Tournament_Management extends javax.swing.JPanel {
     private javax.swing.JButton Btn_Eliminar_Equipo_Torneo;
     private javax.swing.JButton Btn_Eliminar_Nombre_Torneo;
     private javax.swing.JButton Btn_Emparejamiento;
+    private javax.swing.JButton Btn_Emparejamiento_Final;
+    private javax.swing.JButton Btn_Emparejamiento_Semi_Final;
     private javax.swing.JButton Btn_Ingresar_Equipo;
     private datechooser.beans.DateChooserCombo DCC_Final;
     private datechooser.beans.DateChooserCombo DCC_Inicio;

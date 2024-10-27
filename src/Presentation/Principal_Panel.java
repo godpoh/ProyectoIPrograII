@@ -46,6 +46,7 @@ public class Principal_Panel extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1020, 716));
         setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(1020, 720));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Pnl_Menu.setBackground(new java.awt.Color(10, 102, 255));

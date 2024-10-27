@@ -6,9 +6,11 @@ package Data;
 
 import static Data.Connection_SQL.Qry_Team;
 import static Data.Connection_SQL.Qry_Tournament;
+import Data.Connection_SQL;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
+import java.util.List;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
@@ -105,6 +107,33 @@ public class CUD_SQL {
 
         return Rows_Affected;
     }
+    
+public static int Insert_Matches(int Tournament_Id, List<int[]> Pairs) throws SQLException {
+    int Rows_Affected = 0;
+    Statement sql = Connection_SQL.getConnection().createStatement();
+
+    for (int i = 0; i < Pairs.size(); i++) {
+        int[] Pair = Pairs.get(i);
+        
+        String Home_Team_Name = Connection_SQL.get_Team_Name_By_Team_Id(Pair[0]);
+        String Away_Team_Name = Connection_SQL.get_Team_Name_By_Team_Id(Pair[1]);
+        
+        String Match_Name = Home_Team_Name + " "+ "VS" + " "+Away_Team_Name;
+
+        String qry = "INSERT INTO Match (Match_Name, Tournament_ID, Home_Team_Id, Away_Team_Id, Home_Points, Away_Points, Winner) "
+                + "VALUES ('" + Match_Name + "', "
+                + Tournament_Id + ", "
+                + Pair[0] + ", "
+                + Pair[1] + ", "
+                + "0, 0, 'No Jugado')";
+
+        Rows_Affected += sql.executeUpdate(qry);
+    }
+
+    return Rows_Affected;
+}
+
+    
     // Final de INSERTS
 
     // Inicio de UPDATES
@@ -210,7 +239,6 @@ public class CUD_SQL {
         try {
             Statement sql = Connection_SQL.getConnection().createStatement();
             String qry = "DELETE FROM Player WHERE ID = " + Id;
-            
 
             int confirm = JOptionPane.showConfirmDialog(null, "¿Seguro que deseas eliminar al jugador?", "Confirmar eliminación", JOptionPane.YES_NO_OPTION);
 

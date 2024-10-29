@@ -1251,7 +1251,16 @@ public class Tournament_Management extends javax.swing.JPanel {
     }//GEN-LAST:event_Btn_Emparejamiento_Semi_FinalActionPerformed
 
     private void Btn_CampeonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_CampeonActionPerformed
-        // TODO add your handling code here:
+               try {
+            String Tournament_Name = (String) Jcb_Infomacion_Torneos.getSelectedItem();
+            int Tournament_Id = Connection_SQL.get_Tournament_Id_By_Tournament_Name(Tournament_Name);
+
+            Matchmaking_Logic.Create_Matches_For_Winners_Champion(Tournament_Id);
+
+        } catch (SQLException ex) {
+            Logger.getLogger(Tournament_Management.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }//GEN-LAST:event_Btn_CampeonActionPerformed
 
     private void Selected_Rd() {

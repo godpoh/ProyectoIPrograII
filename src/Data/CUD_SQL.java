@@ -125,7 +125,7 @@ public class CUD_SQL {
                     + Tournament_Id + ", "
                     + Pair[0] + ", "
                     + Pair[1] + ", "
-                    + "0, 0, 0, '" + Phase + "')"; 
+                    + "0, 0, 0, '" + Phase + "')";
 
             Rows_Affected += sql.executeUpdate(qry);
         }
@@ -135,8 +135,38 @@ public class CUD_SQL {
 
     // Final de INSERTS
     // Inicio de UPDATES
-    
-    
+    public static void Update_Match(int Match_Id, int Winning_Points, int Losing_Points, int Winning_Id, String Converted_Phase) throws SQLException {
+
+        int Local_Team_Id = Connection_SQL.get_Local_Team_By_Match_Id(Match_Id);
+        int visitantTeamId = Connection_SQL.get_Visitant_Team_By_Match_Id(Match_Id);
+
+        int Home_Points = 0;
+        int Away_Points = 0;
+
+        if (Winning_Id == Local_Team_Id) {
+            Home_Points = Winning_Points;
+            Away_Points = Losing_Points;
+        } else {
+            Home_Points = Losing_Points;
+            Away_Points = Winning_Points;
+        }
+
+        Statement sql = Connection_SQL.getConnection().createStatement();
+
+        String qry = "UPDATE Match SET Home_Points = " + Home_Points
+                + ", Away_Points = " + Away_Points
+                + ", Winner = " + Winning_Id
+                + ", Phase = '" + Converted_Phase + "' "
+                + "WHERE Match_ID = " + Match_Id;
+
+        int rowsUpdated = sql.executeUpdate(qry);
+        if (rowsUpdated > 0) {
+            JOptionPane.showMessageDialog(null, "Partido actualizado exitosamente.");
+        } else {
+            JOptionPane.showMessageDialog(null, "No se encontro el partido para actualizar.");
+        }
+    }
+
     public static void Update_Selected_Team(JComboBox<String> JCB, JTextField New_Name_Field) throws SQLException {
         String Selected_Team = (String) JCB.getSelectedItem();
         String New_Team_Name = New_Name_Field.getText();

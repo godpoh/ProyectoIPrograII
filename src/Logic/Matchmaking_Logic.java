@@ -52,6 +52,7 @@ public class Matchmaking_Logic {
 
         // Inserto los ids ya emparejados y revueltos
         CUD_SQL.Insert_Matches(Tournament_Id, Pairs, "Cuartos-Final");
+        JOptionPane.showMessageDialog(null, "Emparejamiento Cuartos de Final realizado", "Mensaje de Informacion", JOptionPane.INFORMATION_MESSAGE);
     }
 
     public static void Create_Matches_For_Winners_Semi_Final(int Tournament_Id) throws SQLException {
@@ -66,6 +67,7 @@ public class Matchmaking_Logic {
         if (Winners.size() == 4) {
             List<int[]> Pairs = Generate_Random_Pairs(Winners);
             CUD_SQL.Insert_Matches(Tournament_Id, Pairs, "Semi-Final");
+            JOptionPane.showMessageDialog(null, "Emparejamiento de Semi-Finales realizado", "Mensaje de Informacion", JOptionPane.INFORMATION_MESSAGE);
         } else {
             JOptionPane.showMessageDialog(null, "No hay suficientes ganadores para emparejar las semifinales", "Mensaje Importante", JOptionPane.ERROR_MESSAGE);
         }
@@ -84,13 +86,14 @@ public class Matchmaking_Logic {
         if (Winners.size() == 2) {
             List<int[]> Pairs = Generate_Random_Pairs(Winners);
             CUD_SQL.Insert_Matches(Tournament_Id, Pairs, "Final");
+            JOptionPane.showMessageDialog(null, "Emparejamiento de Finales realizado", "Mensaje de Informacion", JOptionPane.INFORMATION_MESSAGE);
         } else {
             JOptionPane.showMessageDialog(null, "No hay suficientes ganadores para emparejar las semifinales", "Mensaje Importante", JOptionPane.ERROR_MESSAGE);
         }
 
     }
-    
-        public static void Create_Matches_For_Winners_Champion(int Tournament_Id) throws SQLException {
+
+    public static void Create_Matches_For_Winners_Champion(int Tournament_Id) throws SQLException {
 
         // Obtengo todos los equipos que se encuentran en el torneo
         List<Integer> Teams_Ids = Connection_SQL.getTeams_In_Tournament(Tournament_Id);
@@ -99,13 +102,16 @@ public class Matchmaking_Logic {
         List<Integer> Winners = Connection_SQL.getWinners_In_Tournament(Tournament_Id, Teams_Ids, "Final");
 
         // Saco los pares de los ganadores
-        if (Winners.size() == 1) {
-            List<int[]> Pairs = Generate_Random_Pairs(Winners);
-            CUD_SQL.Insert_Matches(Tournament_Id, Pairs, "Campeon");
-        } else {
-            JOptionPane.showMessageDialog(null, "No hay suficientes ganadores para emparejar las semifinales", "Mensaje Importante", JOptionPane.ERROR_MESSAGE);
+        if (Winners.size() < 2) {
+            if (Winners.size() == 1) {
+                JOptionPane.showMessageDialog(null, "FELICIDADES AL CAMPEON DEL TORNEO: " + Winners.get(0), "Mensaje de Información", JOptionPane.INFORMATION_MESSAGE);
+            } else {
+                JOptionPane.showMessageDialog(null, "Aun no hay un campeon", "Mensaje Importante", JOptionPane.ERROR_MESSAGE);
+            }
+            return; 
         }
 
     }
 
 }
+

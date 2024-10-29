@@ -272,7 +272,12 @@ public class Principal_Panel extends javax.swing.JFrame {
     }//GEN-LAST:event_Btn_Gestion_de_TorneosActionPerformed
 
     private void Btn_Registro_PartidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_Registro_PartidosActionPerformed
-        Match_Registration Match_Window = new Match_Registration();
+        Match_Registration Match_Window = null;
+        try {
+            Match_Window = new Match_Registration();
+        } catch (SQLException ex) {
+            Logger.getLogger(Principal_Panel.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
         Match_Window.setSize(820, 688);
         Match_Window.setLocation(0, 0);

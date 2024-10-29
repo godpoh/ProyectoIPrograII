@@ -227,17 +227,71 @@ public class Connection_SQL {
     }
 
     public static void Load_Match_Names_Into_JCB(int Tournament_Id, String Phase, JComboBox<String> JCB) throws SQLException {
+        // Desactivar temporalmente el ActionListener para evitar ciclos
+        for (java.awt.event.ActionListener al : JCB.getActionListeners()) {
+            JCB.removeActionListener(al);
+        }
+
+        // Limpiar y cargar el JComboBox
+        JCB.removeAllItems();
+        JCB.addItem("Seleccione un partido");
+
         Statement sql = Connection_SQL.getConnection().createStatement();
         String qry = "SELECT Match_Name FROM Match WHERE Tournament_ID = " + Tournament_Id + " AND Phase = '" + Phase + "'";
+        ResultSet rs = sql.executeQuery(qry);
+
+        while (rs.next()) {
+            String Match_Name = rs.getString("Match_Name");
+            System.out.println(Match_Name);
+            JCB.addItem(Match_Name);
+        }
+    }
+    
+
+    public static int get_Match_Id_By_Match_Name(String Match_Name) throws SQLException {
+        int Match_Id = 0;
+
+        Statement sql = Connection_SQL.getConnection().createStatement();
+
+        String qry = "SELECT Match_Id FROM Match WHERE Match_Name ='" + Match_Name + "'";
 
         ResultSet rs = sql.executeQuery(qry);
 
-        JCB.removeAllItems();
-        JCB.addItem("Seleccione un partido");
-        
         while (rs.next()) {
-            JCB.addItem(rs.getString("Match_Name"));
+            Match_Id = rs.getInt("Match_Id");
         }
+
+        return Match_Id;
+    }
+
+    public static int get_Local_Team_By_Match_Id(int Match_Id) throws SQLException {
+        int Local_Team_Id = 0;
+
+        Statement sql = Connection_SQL.getConnection().createStatement();
+
+        String qry = "SELECT Home_Team_Id FROM Match WHERE Match_Id =" + Match_Id;
+
+        ResultSet rs = sql.executeQuery(qry);
+
+        while (rs.next()) {
+            Local_Team_Id = rs.getInt("Home_Team_Id");
+        }
+        return Local_Team_Id;
+    }
+
+    public static int get_Visitant_Team_By_Match_Id(int Match_Id) throws SQLException {
+        int Local_Team_Id = 0;
+
+        Statement sql = Connection_SQL.getConnection().createStatement();
+
+        String qry = "SELECT Away_Team_Id FROM Match WHERE Match_Id =" + Match_Id;
+
+        ResultSet rs = sql.executeQuery(qry);
+
+        while (rs.next()) {
+            Local_Team_Id = rs.getInt("Away_Team_Id");
+        }
+        return Local_Team_Id;
     }
 
     // Fin de codigo consultas Tournament_Teams

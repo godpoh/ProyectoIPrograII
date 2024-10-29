@@ -28,7 +28,6 @@ public class Match_Registration extends javax.swing.JPanel {
         Pnl_Ingresar_Datos.setVisible(false);
         Pnl_Tarjetas.setVisible(false);
         Action_Listeners_Method();
-
     }
 
     private void Selected_Rd() {
@@ -229,12 +228,7 @@ public class Match_Registration extends javax.swing.JPanel {
         Jcb_Equipo_Local.setBackground(new java.awt.Color(204, 204, 204));
         Jcb_Equipo_Local.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         Jcb_Equipo_Local.setForeground(new java.awt.Color(51, 51, 51));
-        Jcb_Equipo_Local.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione un partido1" }));
-        Jcb_Equipo_Local.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Jcb_Equipo_LocalActionPerformed(evt);
-            }
-        });
+        Jcb_Equipo_Local.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione un partido" }));
         Pnl_Ingresar_Datos.add(Jcb_Equipo_Local, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 220, 210, -1));
 
         jLabel79.setBackground(new java.awt.Color(255, 255, 255));
@@ -246,7 +240,7 @@ public class Match_Registration extends javax.swing.JPanel {
         Jcb_Equipo_Visitante.setBackground(new java.awt.Color(204, 204, 204));
         Jcb_Equipo_Visitante.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         Jcb_Equipo_Visitante.setForeground(new java.awt.Color(51, 51, 51));
-        Jcb_Equipo_Visitante.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione un partido2" }));
+        Jcb_Equipo_Visitante.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione un partido" }));
         Pnl_Ingresar_Datos.add(Jcb_Equipo_Visitante, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 230, 210, -1));
 
         jLabel80.setBackground(new java.awt.Color(255, 255, 255));
@@ -273,11 +267,6 @@ public class Match_Registration extends javax.swing.JPanel {
         Jcb_Equipo_Ganador.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         Jcb_Equipo_Ganador.setForeground(new java.awt.Color(51, 51, 51));
         Jcb_Equipo_Ganador.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione un ganador" }));
-        Jcb_Equipo_Ganador.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Jcb_Equipo_GanadorActionPerformed(evt);
-            }
-        });
         Pnl_Ingresar_Datos.add(Jcb_Equipo_Ganador, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 300, 210, -1));
 
         jLabel84.setBackground(new java.awt.Color(255, 255, 255));
@@ -461,7 +450,7 @@ public class Match_Registration extends javax.swing.JPanel {
 
         lbl_img.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/abstract-textured-backgound.jpg"))); // NOI18N
         lbl_img.setText("jLabel1");
-        add(lbl_img, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 688));
+        add(lbl_img, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 830, 688));
     }// </editor-fold>//GEN-END:initComponents
 
     private void Btn_GuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_GuardarActionPerformed
@@ -474,13 +463,7 @@ public class Match_Registration extends javax.swing.JPanel {
             int Match_Id = Connection_SQL.get_Match_Id_By_Match_Name(Match_Name);
             int Local_Team_Id = Connection_SQL.get_Local_Team_By_Match_Id(Match_Id);
             int Visitant_Team_Id = Connection_SQL.get_Visitant_Team_By_Match_Id(Match_Id);
-            String Local_Team_Name = Connection_SQL.get_Team_Name_By_Team_Id(Local_Team_Id);
-            String Visitant_Team_Name = Connection_SQL.get_Team_Name_By_Team_Id(Visitant_Team_Id);
-
-//            String Local_Team = (String) Jcb_Equipo_Local.getSelectedItem();
-//            String Visitant_Team = (String) Jcb_Equipo_Visitante.getSelectedItem();
-//            int Local_Id = get_Team_Id_By_Team_Name(Local_Team);
-//            int Visitant_Id = get_Team_Id_By_Team_Name(Visitant_Team);
+            
             int Local_Goals = (int) JS_Goles_Local.getValue();
             int Visitant_Goals = (int) JS_Goles_Visitantes.getValue();
 
@@ -507,8 +490,6 @@ public class Match_Registration extends javax.swing.JPanel {
             }
 
             String Phase = (String) Jcb_Fase.getSelectedItem();
-            String Converted_Phase = " ";
- 
 
             CUD_SQL.Update_Match(Match_Id, Winning_Points, Losing_Points, Winning_Id, Phase);
 
@@ -516,10 +497,6 @@ public class Match_Registration extends javax.swing.JPanel {
             Logger.getLogger(Match_Registration.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_Btn_GuardarActionPerformed
-
-    private void Jcb_Equipo_GanadorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jcb_Equipo_GanadorActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Jcb_Equipo_GanadorActionPerformed
 
     private void Btn_Cargar_Local_VisitanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_Cargar_Local_VisitanteActionPerformed
 
@@ -552,12 +529,7 @@ public class Match_Registration extends javax.swing.JPanel {
             Logger.getLogger(Match_Registration.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-
     }//GEN-LAST:event_Btn_Cargar_Local_VisitanteActionPerformed
-
-    private void Jcb_Equipo_LocalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jcb_Equipo_LocalActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_Jcb_Equipo_LocalActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

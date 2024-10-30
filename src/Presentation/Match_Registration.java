@@ -7,12 +7,14 @@ package Presentation;
 import Data.CUD_SQL;
 import Data.Connection_SQL;
 import static Data.Connection_SQL.get_Team_Id_By_Team_Name;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import net.proteanit.sql.DbUtils;
 
 /**
  *
@@ -109,7 +111,8 @@ public class Match_Registration extends javax.swing.JPanel {
         jLabel82 = new javax.swing.JLabel();
         DCC_Fecha = new datechooser.beans.DateChooserCombo();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        Tbl_Consulta = new javax.swing.JTable();
+        Btn_Consultar = new javax.swing.JButton();
         lbl_img = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -327,20 +330,20 @@ public class Match_Registration extends javax.swing.JPanel {
 
         add(Pnl_Ingresar_Datos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 210));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(Tbl_Consulta);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 350, 800, 330));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 350, 800, 290));
+
+        Btn_Consultar.setBackground(new java.awt.Color(204, 204, 204));
+        Btn_Consultar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        Btn_Consultar.setForeground(new java.awt.Color(51, 51, 51));
+        Btn_Consultar.setText("Consultar");
+        Btn_Consultar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_ConsultarActionPerformed(evt);
+            }
+        });
+        add(Btn_Consultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 650, 130, 30));
 
         lbl_img.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/abstract-textured-backgound.jpg"))); // NOI18N
         lbl_img.setText("jLabel1");
@@ -446,7 +449,12 @@ public class Match_Registration extends javax.swing.JPanel {
             String Sanction_Name = (String) Jcb_Sancion.getSelectedItem();
             int Sanction_Id = Connection_SQL.get_Sanctions_Id(Sanction_Name);
             int Time = (int) Spinner_Tiempo.getValue();
+            
+            int Amount_Yellow_Cards = Connection_SQL.get_Amount_Yellow_Cards(Player_Id);
 
+        if (Amount_Yellow_Cards >= 5) {
+            Sanction_Id = Connection_SQL.get_Sanctions_Id("Acumulacion Amarilla"); // 30000
+        }
             CUD_SQL.Insert_Det_Match(Match_Id, Sanction_Id, Player_Id, Time);
             JOptionPane.showMessageDialog(null, "Datos guardados satisfactoriamente", "Aviso importante", JOptionPane.INFORMATION_MESSAGE);
         } catch (SQLException ex) {
@@ -465,10 +473,10 @@ public class Match_Registration extends javax.swing.JPanel {
     }//GEN-LAST:event_Jcb_Nombre_TorneoActionPerformed
 
     private void Btn_Cargar_Local_Visitante1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_Cargar_Local_Visitante1ActionPerformed
-        String Match_Name = (String) Jcb_Partidos.getSelectedItem();
-        int Match_Id;
+
         try {
-            Match_Id = Connection_SQL.get_Match_Id_By_Match_Name(Match_Name);
+            String Match_Name = (String) Jcb_Partidos.getSelectedItem();
+            int Match_Id = Connection_SQL.get_Match_Id_By_Match_Name(Match_Name);
             int Local_Id = Connection_SQL.get_Local_Team_By_Match_Id(Match_Id);
             int Visitant_Id = Connection_SQL.get_Visitant_Team_By_Match_Id(Match_Id);
 
@@ -487,10 +495,24 @@ public class Match_Registration extends javax.swing.JPanel {
 
     }//GEN-LAST:event_Btn_Cargar_Local_Visitante1ActionPerformed
 
+    private void Btn_ConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_ConsultarActionPerformed
+
+        try {
+            String Tournament_Name = (String) Jcb_Nombre_Torneo.getSelectedItem();
+            int Tournament_Id = Connection_SQL.get_Tournament_Id_By_Tournament_Name(Tournament_Name);
+            ResultSet rs = Connection_SQL.set_Table_Info_Stats_Match(Tournament_Id);
+            Tbl_Consulta.setModel(DbUtils.resultSetToTableModel(rs));
+        } catch (SQLException ex) {
+            Logger.getLogger(Match_Registration.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }//GEN-LAST:event_Btn_ConsultarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Btn_Cargar_Local_Visitante;
     private javax.swing.JButton Btn_Cargar_Local_Visitante1;
+    private javax.swing.JButton Btn_Consultar;
     private javax.swing.JButton Btn_Guardar;
     private javax.swing.JButton Btn_Guardar_Detalles_Jugador;
     private datechooser.beans.DateChooserCombo DCC_Fecha;
@@ -509,6 +531,7 @@ public class Match_Registration extends javax.swing.JPanel {
     private javax.swing.JPanel Pnl_Tarjetas;
     private javax.swing.ButtonGroup Rd;
     private javax.swing.JSpinner Spinner_Tiempo;
+    private javax.swing.JTable Tbl_Consulta;
     private javax.swing.JLabel jLabel75;
     private javax.swing.JLabel jLabel76;
     private javax.swing.JLabel jLabel79;
@@ -525,7 +548,6 @@ public class Match_Registration extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel91;
     private javax.swing.JLabel jLabel95;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JLabel lbl_img;
     // End of variables declaration//GEN-END:variables
 }

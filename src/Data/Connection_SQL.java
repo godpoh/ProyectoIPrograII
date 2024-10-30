@@ -378,6 +378,34 @@ public class Connection_SQL {
 
     }
 
+    public static ResultSet set_Table_Info_Stats_Match(int Tournament_Id) throws SQLException {
+        Statement sql = Connection_SQL.getConnection().createStatement();
+
+        String qry = "SELECT "
+                + "M.Match_Name AS Nombre_Partido, "
+                + "M.Match_ID AS Id_Partido, "
+                + "M.Phase AS Fase, "
+                + "M.Winner AS Id_Ganador, "
+                + "T.Team_Name AS Nombre_Ganador, "
+                + "S.Name AS Nombre_Sancion, "
+                + "S.Amount AS Monto_Sancion, "
+                + "P.First_Name AS Primer_Nombre, "
+                + "P.Last_Name1 AS Primer_Apellido, "
+                + "P.ID AS Id_Jugador, "
+                + "DM.Time AS Minuto_Sancion "
+                + "FROM DetMatch DM "
+                + "JOIN Match M ON DM.Match_Id = M.Match_ID "
+                + "JOIN Sanctions S ON DM.Sanction_Id = S.Id "
+                + "JOIN Player P ON DM.Player_Id = P.ID "
+                + "JOIN Team T ON M.Winner = T.Team_ID "
+                + "WHERE M.Tournament_ID =" + Tournament_Id;
+
+        ResultSet rs = sql.executeQuery(qry);
+
+        return rs;
+
+    }
+
     public static List<String> get_Players_Names_By_Team_Id(int Team_Id) throws SQLException {
         List<String> List_Players = new ArrayList<>();
         Statement sql = Connection_SQL.getConnection().createStatement();
@@ -407,5 +435,21 @@ public class Connection_SQL {
         return Id;
     }
 
-    // Fin de codigo consultas Tournament_Teams
+    public static int get_Amount_Yellow_Cards(int Player_Id) throws SQLException {
+        int Amount_Yellow_Cards = 0;
+        String qry = "SELECT COUNT(*) AS Cantidad_Amarillas FROM DetMatch DM "
+                + "JOIN Sanctions S ON DM.Sanction_Id = S.Id "
+                + "WHERE DM.Player_Id = " + Player_Id + " AND S.Name = 'Tarjeta Amarilla'";
+
+        Statement sql = Connection_SQL.getConnection().createStatement();
+
+        ResultSet rs = sql.executeQuery(qry);
+        if (rs.next()) {
+            Amount_Yellow_Cards = rs.getInt("Cantidad_Amarillas");
+        }
+        return Amount_Yellow_Cards;
+
+    }
+
+// Fin de codigo consultas Tournament_Teams
 }

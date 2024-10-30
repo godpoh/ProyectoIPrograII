@@ -8,6 +8,7 @@ import Data.CUD_SQL;
 import Data.Connection_SQL;
 import static Data.Connection_SQL.get_Team_Id_By_Team_Name;
 import java.sql.SQLException;
+import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -27,8 +28,6 @@ public class Match_Registration extends javax.swing.JPanel {
         Connection_SQL.Qry_Tournament(Jcb_Nombre_Torneo);
         Action_Listeners_Method();
     }
-
-
 
     private void Action_Listeners_Method() {
 
@@ -85,6 +84,8 @@ public class Match_Registration extends javax.swing.JPanel {
         Btn_Cargar_Local_Visitante = new javax.swing.JButton();
         jLabel85 = new javax.swing.JLabel();
         jLabel91 = new javax.swing.JLabel();
+        jLabel82 = new javax.swing.JLabel();
+        DCC_Fecha = new datechooser.beans.DateChooserCombo();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         lbl_img = new javax.swing.JLabel();
@@ -151,7 +152,7 @@ public class Match_Registration extends javax.swing.JPanel {
                 Btn_Guardar1ActionPerformed(evt);
             }
         });
-        Pnl_Tarjetas.add(Btn_Guardar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 40, 40, -1));
+        Pnl_Tarjetas.add(Btn_Guardar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 30, 50, 30));
         Pnl_Tarjetas.add(Spinner_Tiempo, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 70, 70, -1));
 
         jLabel90.setBackground(new java.awt.Color(255, 255, 255));
@@ -175,7 +176,12 @@ public class Match_Registration extends javax.swing.JPanel {
         Jcb_Nombre_Torneo.setBackground(new java.awt.Color(204, 204, 204));
         Jcb_Nombre_Torneo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         Jcb_Nombre_Torneo.setForeground(new java.awt.Color(51, 51, 51));
-        Pnl_Ingresar_Datos.add(Jcb_Nombre_Torneo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 210, -1));
+        Jcb_Nombre_Torneo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Jcb_Nombre_TorneoActionPerformed(evt);
+            }
+        });
+        Pnl_Ingresar_Datos.add(Jcb_Nombre_Torneo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 210, 20));
 
         jLabel76.setBackground(new java.awt.Color(255, 255, 255));
         jLabel76.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -223,7 +229,7 @@ public class Match_Registration extends javax.swing.JPanel {
         jLabel81.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel81.setForeground(new java.awt.Color(0, 0, 0));
         jLabel81.setText("Equipo visitante");
-        Pnl_Ingresar_Datos.add(jLabel81, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 10, -1, -1));
+        Pnl_Ingresar_Datos.add(jLabel81, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 10, -1, -1));
 
         jLabel83.setBackground(new java.awt.Color(255, 255, 255));
         jLabel83.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -279,6 +285,13 @@ public class Match_Registration extends javax.swing.JPanel {
         jLabel91.setText("Equipo Ganador");
         Pnl_Ingresar_Datos.add(jLabel91, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 100, -1, -1));
 
+        jLabel82.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel82.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel82.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel82.setText("Equipo visitante");
+        Pnl_Ingresar_Datos.add(jLabel82, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 10, -1, -1));
+        Pnl_Ingresar_Datos.add(DCC_Fecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 30, 120, -1));
+
         add(Pnl_Ingresar_Datos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 210));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -304,42 +317,52 @@ public class Match_Registration extends javax.swing.JPanel {
     private void Btn_GuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_GuardarActionPerformed
 
         try {
-            int Winner_Points = 3;
-            int Loss_Points = 0;
 
             String Match_Name = (String) Jcb_Partidos.getSelectedItem();
             int Match_Id = Connection_SQL.get_Match_Id_By_Match_Name(Match_Name);
+
             int Local_Team_Id = Connection_SQL.get_Local_Team_By_Match_Id(Match_Id);
             int Visitant_Team_Id = Connection_SQL.get_Visitant_Team_By_Match_Id(Match_Id);
-            
+
             int Local_Goals = (int) JS_Goles_Local.getValue();
             int Visitant_Goals = (int) JS_Goles_Visitantes.getValue();
-
-            String Winner_Team = (String) Jcb_Equipo_Ganador.getSelectedItem();
-            int Winner_Id = get_Team_Id_By_Team_Name(Winner_Team);
 
             int Winning_Id = 0;
             int Losing_Id = 0;
             int Winning_Points = 0;
             int Losing_Points = 0;
 
-            if (Local_Goals > Visitant_Goals) {
-                // El equipo local gana
+            int Winner_Points = 3;
+            int Draw_Points = 1;
+            int Loss_Points = 0;
+
+            String Winner_Name = (String) Jcb_Equipo_Ganador.getSelectedItem();
+            Date DCCDate = DCC_Fecha.getSelectedDate().getTime();
+            
+            int Winner_Id = Connection_SQL.get_Team_Id_By_Team_Name(Winner_Name);
+
+            if (Local_Team_Id == Winner_Id) {
                 Winning_Id = Local_Team_Id;
                 Losing_Id = Visitant_Team_Id;
+
                 Winning_Points = Winner_Points;
                 Losing_Points = Loss_Points;
-            } else if (Local_Goals < Visitant_Goals) {
-                // El equipo visitante gana
+            } else if (Visitant_Team_Id == Winner_Id) {
                 Winning_Id = Visitant_Team_Id;
                 Losing_Id = Local_Team_Id;
+
                 Winning_Points = Winner_Points;
                 Losing_Points = Loss_Points;
+            } else {
+                Winning_Id = 0;
+                Losing_Id = 0;
+                Winning_Points = Draw_Points;
+                Losing_Points = Draw_Points;
             }
 
             String Phase = (String) Jcb_Fase.getSelectedItem();
 
-            CUD_SQL.Update_Match(Match_Id, Winning_Points, Losing_Points, Winning_Id, Phase);
+            CUD_SQL.Update_Match(Match_Id, Winning_Points, Losing_Points, Winning_Id, Phase, DCCDate);
 
         } catch (SQLException ex) {
             Logger.getLogger(Match_Registration.class.getName()).log(Level.SEVERE, null, ex);
@@ -388,11 +411,16 @@ public class Match_Registration extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_Jcb_Nombre_EquipoActionPerformed
 
+    private void Jcb_Nombre_TorneoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Jcb_Nombre_TorneoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Jcb_Nombre_TorneoActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Btn_Cargar_Local_Visitante;
     private javax.swing.JButton Btn_Guardar;
     private javax.swing.JButton Btn_Guardar1;
+    private datechooser.beans.DateChooserCombo DCC_Fecha;
     private javax.swing.JSpinner JS_Goles_Local;
     private javax.swing.JSpinner JS_Goles_Visitantes;
     private javax.swing.JComboBox<String> Jcb_Equipo_Ganador;
@@ -413,6 +441,7 @@ public class Match_Registration extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel79;
     private javax.swing.JLabel jLabel80;
     private javax.swing.JLabel jLabel81;
+    private javax.swing.JLabel jLabel82;
     private javax.swing.JLabel jLabel83;
     private javax.swing.JLabel jLabel85;
     private javax.swing.JLabel jLabel86;

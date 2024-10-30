@@ -207,17 +207,90 @@ public class Connection_SQL {
         return Team_Ids;
     }
 
-    public static List<Integer> getWinners_In_Tournament(int Tournament_Id, List<Integer> Teams_Ids, String phase) throws SQLException {
+    public static List<Integer> getTop4_In_Tournament(int Tournament_Id, String Phase) throws SQLException {
         Statement sql = Connection_SQL.getConnection().createStatement();
         List<Integer> Winners_Ids = new ArrayList<>();
 
-        // Cambiamos la lógica para obtener los IDs de los ganadores directamente
-        String qry = "SELECT Winner FROM Match WHERE Tournament_ID = " + Tournament_Id + " AND Phase = '" + phase + "'";
+        String qry = "SELECT Team_Id, SUM(Total_Points) AS Overall_Points "
+                + "FROM ("
+                + "   SELECT Home_Team_Id AS Team_Id, SUM(Home_Points) AS Total_Points "
+                + "   FROM Match "
+                + "   WHERE Phase = '" + Phase + "'AND Tournament_ID = " + Tournament_Id + " "
+                + "   GROUP BY Home_Team_Id "
+                + "   UNION ALL "
+                + "   SELECT Away_Team_Id AS Team_Id, SUM(Away_Points) AS Total_Points "
+                + "   FROM Match "
+                + "   WHERE Phase = '" + Phase + "' AND Tournament_ID = " + Tournament_Id + " "
+                + "   GROUP BY Away_Team_Id "
+                + ") AS Combined "
+                + "GROUP BY Team_Id "
+                + "ORDER BY Overall_Points DESC "
+                + "OFFSET 0 ROWS FETCH NEXT 4 ROWS ONLY;";
         ResultSet rs = sql.executeQuery(qry);
 
         while (rs.next()) {
-            int winnerId = rs.getInt("Winner");
-            // Evitar duplicados
+            int winnerId = rs.getInt("Team_Id");
+            if (!Winners_Ids.contains(winnerId)) {
+                Winners_Ids.add(winnerId);
+            }
+        }
+
+        return Winners_Ids;
+    }
+
+    public static List<Integer> getTop2_In_Tournament(int Tournament_Id, String Phase) throws SQLException {
+        Statement sql = Connection_SQL.getConnection().createStatement();
+        List<Integer> Winners_Ids = new ArrayList<>();
+
+        String qry = "SELECT Team_Id, SUM(Total_Points) AS Overall_Points "
+                + "FROM ("
+                + "   SELECT Home_Team_Id AS Team_Id, SUM(Home_Points) AS Total_Points "
+                + "   FROM Match "
+                + "   WHERE Phase = '" + Phase + "'AND Tournament_ID = " + Tournament_Id + " "
+                + "   GROUP BY Home_Team_Id "
+                + "   UNION ALL "
+                + "   SELECT Away_Team_Id AS Team_Id, SUM(Away_Points) AS Total_Points "
+                + "   FROM Match "
+                + "   WHERE Phase = '" + Phase + "' AND Tournament_ID = " + Tournament_Id + " "
+                + "   GROUP BY Away_Team_Id "
+                + ") AS Combined "
+                + "GROUP BY Team_Id "
+                + "ORDER BY Overall_Points DESC "
+                + "OFFSET 0 ROWS FETCH NEXT 2 ROWS ONLY;";
+        ResultSet rs = sql.executeQuery(qry);
+
+        while (rs.next()) {
+            int winnerId = rs.getInt("Team_Id");
+            if (!Winners_Ids.contains(winnerId)) {
+                Winners_Ids.add(winnerId);
+            }
+        }
+
+        return Winners_Ids;
+    }
+        public static List<Integer> getTop1_In_Tournament(int Tournament_Id, String Phase) throws SQLException {
+        Statement sql = Connection_SQL.getConnection().createStatement();
+        List<Integer> Winners_Ids = new ArrayList<>();
+
+        String qry = "SELECT Team_Id, SUM(Total_Points) AS Overall_Points "
+                + "FROM ("
+                + "   SELECT Home_Team_Id AS Team_Id, SUM(Home_Points) AS Total_Points "
+                + "   FROM Match "
+                + "   WHERE Phase = '" + Phase + "'AND Tournament_ID = " + Tournament_Id + " "
+                + "   GROUP BY Home_Team_Id "
+                + "   UNION ALL "
+                + "   SELECT Away_Team_Id AS Team_Id, SUM(Away_Points) AS Total_Points "
+                + "   FROM Match "
+                + "   WHERE Phase = '" + Phase + "' AND Tournament_ID = " + Tournament_Id + " "
+                + "   GROUP BY Away_Team_Id "
+                + ") AS Combined "
+                + "GROUP BY Team_Id "
+                + "ORDER BY Overall_Points DESC "
+                + "OFFSET 0 ROWS FETCH NEXT 1 ROWS ONLY;";
+        ResultSet rs = sql.executeQuery(qry);
+
+        while (rs.next()) {
+            int winnerId = rs.getInt("Team_Id");
             if (!Winners_Ids.contains(winnerId)) {
                 Winners_Ids.add(winnerId);
             }
@@ -246,7 +319,6 @@ public class Connection_SQL {
             JCB.addItem(Match_Name);
         }
     }
-    
 
     public static int get_Match_Id_By_Match_Name(String Match_Name) throws SQLException {
         int Match_Id = 0;
@@ -293,6 +365,18 @@ public class Connection_SQL {
         }
         return Local_Team_Id;
     }
+
+    public static ResultSet get_Match_Name_By_Phase(String Phase, int Tournament_Id) throws SQLException {
+        Statement sql = Connection_SQL.getConnection().createStatement();
+
+        String qry = "Select Match_Name From Match Where Phase ='" + Phase + "' AND Tournament_Id = " + Tournament_Id;
+
+        ResultSet rs = sql.executeQuery(qry);
+
+        return rs;
+        
+    }
+    
 
     // Fin de codigo consultas Tournament_Teams
 }

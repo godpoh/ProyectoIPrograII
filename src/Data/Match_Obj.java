@@ -20,20 +20,20 @@ public class Match_Obj {
     Date Date;
     private int Local_Team;
     private int Visitant_Team;
-    private int Local_Goals;
-    private int Visitor_Goals;
+    private int Home_Points;
+    private int Away_Points;
     private int Winner;
     private String Phase;
 
-    public Match_Obj(int Match_Id, String Match_Name, String Tournament_Id, Date Date, int Local_Team, int Visitant_Team, int Local_Goals, int Visitor_Goals, int Winner, String Phase) {
+    public Match_Obj(int Match_Id, String Match_Name, String Tournament_Id, Date Date, int Local_Team, int Visitant_Team, int Home_Points, int Away_Points, int Winner, String Phase) {
         this.Match_Id = Match_Id;
         this.Match_Name = Match_Name;
         this.Tournament_Id = Tournament_Id;
         this.Date = Date;
         this.Local_Team = Local_Team;
         this.Visitant_Team = Visitant_Team;
-        this.Local_Goals = Local_Goals;
-        this.Visitor_Goals = Visitor_Goals;
+        this.Home_Points = Home_Points;
+        this.Away_Points = Away_Points;
         this.Winner = Winner;
         this.Phase = Phase;
     }
@@ -86,20 +86,20 @@ public class Match_Obj {
         this.Visitant_Team = Visitant_Team;
     }
 
-    public int getLocal_Goals() {
-        return Local_Goals;
+    public int getHome_Points() {
+        return Home_Points;
     }
 
-    public void setLocal_Goals(int Local_Goals) {
-        this.Local_Goals = Local_Goals;
+    public void setHome_Points(int Home_Points) {
+        this.Home_Points = Home_Points;
     }
 
-    public int getVisitor_Goals() {
-        return Visitor_Goals;
+    public int getAway_Points() {
+        return Away_Points;
     }
 
-    public void setVisitor_Goals(int Visitor_Goals) {
-        this.Visitor_Goals = Visitor_Goals;
+    public void setAway_Points(int Away_Points) {
+        this.Away_Points = Away_Points;
     }
 
     public int getWinner() {
@@ -118,4 +118,6 @@ public class Match_Obj {
         this.Phase = Phase;
     }
 
+    
+    
 }

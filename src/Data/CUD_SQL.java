@@ -140,7 +140,7 @@ public class CUD_SQL {
 
     // Final de INSERTS
     // Inicio de UPDATES
-    public static void Update_Match(int Match_Id, int Winning_Points, int Losing_Points, int Winning_Id, String Converted_Phase) throws SQLException {
+    public static void Update_Match(int Match_Id, int Winning_Points, int Losing_Points, int Winning_Id, String Converted_Phase, Date DCC) throws SQLException {
 
         int Local_Team_Id = Connection_SQL.get_Local_Team_By_Match_Id(Match_Id);
         int visitantTeamId = Connection_SQL.get_Visitant_Team_By_Match_Id(Match_Id);
@@ -157,11 +157,14 @@ public class CUD_SQL {
         }
 
         Statement sql = Connection_SQL.getConnection().createStatement();
+        SimpleDateFormat SDF = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        String Formatted_Start_Date = SDF.format(DCC);
 
         String qry = "UPDATE Match SET Home_Points = " + Home_Points
                 + ", Away_Points = " + Away_Points
                 + ", Winner = " + Winning_Id
-                + ", Phase = '" + Converted_Phase + "' "
+                + ", Phase = '" + Converted_Phase + "'"
+                + ", Match_Date = '" + Formatted_Start_Date + "' "
                 + "WHERE Match_ID = " + Match_Id;
 
         int rowsUpdated = sql.executeUpdate(qry);

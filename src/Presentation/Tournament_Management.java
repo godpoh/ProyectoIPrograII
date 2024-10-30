@@ -11,11 +11,13 @@ import static Data.Connection_SQL.Qry_Tournament;
 import Data.Tournament_Obj;
 import Data.Tournament_Teams_Obj;
 import Logic.Matchmaking_Logic;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import net.proteanit.sql.DbUtils;
 
 /**
  *
@@ -93,13 +95,16 @@ public class Tournament_Management extends javax.swing.JPanel {
         jLabel63 = new javax.swing.JLabel();
         Btn_Emparejamiento = new javax.swing.JButton();
         Btn_Emparejamiento_Semi_Final = new javax.swing.JButton();
-        Btn_Campeon = new javax.swing.JButton();
+        Btn_Final = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         Tbl_Final = new javax.swing.JTable();
         jScrollPane5 = new javax.swing.JScrollPane();
         Tbl_Regular = new javax.swing.JTable();
         jScrollPane7 = new javax.swing.JScrollPane();
         Tbl_Semi_Final = new javax.swing.JTable();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        Tbl_Campeon = new javax.swing.JTable();
+        Btn_Campeon = new javax.swing.JButton();
         jLabel61 = new javax.swing.JLabel();
 
         jRadioButton1.setText("jRadioButton1");
@@ -427,13 +432,13 @@ public class Tournament_Management extends javax.swing.JPanel {
         Btn_Emparejamiento.setBackground(new java.awt.Color(204, 204, 204));
         Btn_Emparejamiento.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         Btn_Emparejamiento.setForeground(new java.awt.Color(51, 51, 51));
-        Btn_Emparejamiento.setText("INICIAR EMPAREJAMIENTO");
+        Btn_Emparejamiento.setText("REGULAR");
         Btn_Emparejamiento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Btn_EmparejamientoActionPerformed(evt);
             }
         });
-        Pnl_Informacion_Torneo.add(Btn_Emparejamiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 590, 260, 40));
+        Pnl_Informacion_Torneo.add(Btn_Emparejamiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 590, 190, 40));
 
         Btn_Emparejamiento_Semi_Final.setBackground(new java.awt.Color(204, 204, 204));
         Btn_Emparejamiento_Semi_Final.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -444,30 +449,45 @@ public class Tournament_Management extends javax.swing.JPanel {
                 Btn_Emparejamiento_Semi_FinalActionPerformed(evt);
             }
         });
-        Pnl_Informacion_Torneo.add(Btn_Emparejamiento_Semi_Final, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 590, 250, 40));
+        Pnl_Informacion_Torneo.add(Btn_Emparejamiento_Semi_Final, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 590, 190, 40));
+
+        Btn_Final.setBackground(new java.awt.Color(204, 204, 204));
+        Btn_Final.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        Btn_Final.setForeground(new java.awt.Color(51, 51, 51));
+        Btn_Final.setText("FINAL");
+        Btn_Final.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_FinalActionPerformed(evt);
+            }
+        });
+        Pnl_Informacion_Torneo.add(Btn_Final, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 590, 190, 40));
+
+        jScrollPane2.setViewportView(Tbl_Final);
+
+        Pnl_Informacion_Torneo.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 80, 190, 490));
+
+        jScrollPane5.setViewportView(Tbl_Regular);
+
+        Pnl_Informacion_Torneo.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 190, 490));
+
+        jScrollPane7.setViewportView(Tbl_Semi_Final);
+
+        Pnl_Informacion_Torneo.add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 80, 190, 490));
+
+        jScrollPane3.setViewportView(Tbl_Campeon);
+
+        Pnl_Informacion_Torneo.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 80, 190, 490));
 
         Btn_Campeon.setBackground(new java.awt.Color(204, 204, 204));
         Btn_Campeon.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         Btn_Campeon.setForeground(new java.awt.Color(51, 51, 51));
-        Btn_Campeon.setText("FINAL");
+        Btn_Campeon.setText("Campeon");
         Btn_Campeon.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Btn_CampeonActionPerformed(evt);
             }
         });
-        Pnl_Informacion_Torneo.add(Btn_Campeon, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 590, 230, 40));
-
-        jScrollPane2.setViewportView(Tbl_Final);
-
-        Pnl_Informacion_Torneo.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 80, 230, 490));
-
-        jScrollPane5.setViewportView(Tbl_Regular);
-
-        Pnl_Informacion_Torneo.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 270, 490));
-
-        jScrollPane7.setViewportView(Tbl_Semi_Final);
-
-        Pnl_Informacion_Torneo.add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 80, 260, 490));
+        Pnl_Informacion_Torneo.add(Btn_Campeon, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 590, 190, 40));
 
         jPanel1.add(Pnl_Informacion_Torneo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 800, 688));
 
@@ -565,7 +585,7 @@ public class Tournament_Management extends javax.swing.JPanel {
         try {
             Tournament_Id = Connection_SQL.get_Tournament_Id_By_Tournament_Name(Tournament_Name);
             int Team_Id = Connection_SQL.get_Team_Id_By_Team_Name(Team_Name);
-            
+
             int Success = 0;
 
             int confirm = JOptionPane.showConfirmDialog(null,
@@ -597,17 +617,26 @@ public class Tournament_Management extends javax.swing.JPanel {
 
     private void Btn_EmparejamientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_EmparejamientoActionPerformed
 
+        if (Tbl_Regular.getModel().getRowCount() > 0) {
+            JOptionPane.showMessageDialog(null, "Ya existe un emparejamiento en esta fase. No es posible realizar otro.", "Advertencia", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
         try {
             String Tournament_Name = (String) Jcb_Infomacion_Torneos.getSelectedItem();
             int Tournament_Id = Connection_SQL.get_Tournament_Id_By_Tournament_Name(Tournament_Name);
 
             int Team_Count = Connection_SQL.Counter_Teams_In_Tournament(Tournament_Id);
 
-            if (Team_Count != 8) {
-                JOptionPane.showMessageDialog(null, "Para iniciar el emparejamiento deben de haber almenos 8 equipos", "Mensaje importante", JOptionPane.ERROR_MESSAGE);
+            if (Team_Count < 6 || Team_Count % 2 != 0) {
+                JOptionPane.showMessageDialog(null, "Para iniciar el emparejamiento deben de haber al menos 6 equipos y ser una cantidad par.", "Mensaje importante", JOptionPane.ERROR_MESSAGE);
                 return;
             }
+
             Matchmaking_Logic.Create_Matches_For_Tournament(Tournament_Id);
+
+            ResultSet rs = Connection_SQL.get_Match_Name_By_Phase("Regular", Tournament_Id);
+            Tbl_Regular.setModel(DbUtils.resultSetToTableModel(rs));
 
         } catch (SQLException ex) {
             Logger.getLogger(Tournament_Management.class.getName()).log(Level.SEVERE, null, ex);
@@ -620,23 +649,57 @@ public class Tournament_Management extends javax.swing.JPanel {
     }//GEN-LAST:event_Jcb_Nombre_Torneo_Eliminar_ActualizarActionPerformed
 
     private void Btn_Emparejamiento_Semi_FinalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_Emparejamiento_Semi_FinalActionPerformed
+        if (Tbl_Semi_Final.getModel().getRowCount() > 0) {
+            JOptionPane.showMessageDialog(null, "Ya existe un emparejamiento en esta fase. No es posible realizar otro.", "Advertencia", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
         try {
             String Tournament_Name = (String) Jcb_Infomacion_Torneos.getSelectedItem();
             int Tournament_Id = Connection_SQL.get_Tournament_Id_By_Tournament_Name(Tournament_Name);
 
             Matchmaking_Logic.Create_Matches_For_Winners_Semi_Final(Tournament_Id);
+            ResultSet rs = Connection_SQL.get_Match_Name_By_Phase("Semi-Final", Tournament_Id);
+            Tbl_Semi_Final.setModel(DbUtils.resultSetToTableModel(rs));
 
         } catch (SQLException ex) {
             Logger.getLogger(Tournament_Management.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_Btn_Emparejamiento_Semi_FinalActionPerformed
 
-    private void Btn_CampeonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_CampeonActionPerformed
-               try {
+    private void Btn_FinalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_FinalActionPerformed
+        if (Tbl_Final.getModel().getRowCount() > 0) {
+            JOptionPane.showMessageDialog(null, "Ya existe un emparejamiento en esta fase. No es posible realizar otro.", "Advertencia", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        try {
             String Tournament_Name = (String) Jcb_Infomacion_Torneos.getSelectedItem();
             int Tournament_Id = Connection_SQL.get_Tournament_Id_By_Tournament_Name(Tournament_Name);
 
             Matchmaking_Logic.Create_Matches_For_Winners_Final(Tournament_Id);
+            
+            ResultSet rs = Connection_SQL.get_Match_Name_By_Phase("Final", Tournament_Id);
+            Tbl_Final.setModel(DbUtils.resultSetToTableModel(rs));
+
+        } catch (SQLException ex) {
+            Logger.getLogger(Tournament_Management.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+
+    }//GEN-LAST:event_Btn_FinalActionPerformed
+
+    private void Btn_CampeonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_CampeonActionPerformed
+        if (Tbl_Campeon.getModel().getRowCount() > 0) {
+            JOptionPane.showMessageDialog(null, "Ya existe un emparejamiento en esta fase. No es posible realizar otro.", "Advertencia", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        try {
+            String Tournament_Name = (String) Jcb_Infomacion_Torneos.getSelectedItem();
+            int Tournament_Id = Connection_SQL.get_Tournament_Id_By_Tournament_Name(Tournament_Name);
+
+            Matchmaking_Logic.Create_Matches_For_Winners_Champion(Tournament_Id);
+            // Hace falta en campeon logica
+            ResultSet rs = Connection_SQL.get_Match_Name_By_Phase("Campeon", Tournament_Id);
+            Tbl_Final.setModel(DbUtils.resultSetToTableModel(rs));
 
         } catch (SQLException ex) {
             Logger.getLogger(Tournament_Management.class.getName()).log(Level.SEVERE, null, ex);
@@ -682,6 +745,28 @@ public class Tournament_Management extends javax.swing.JPanel {
             }
         });
 
+        Jcb_Infomacion_Torneos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                String Selected_Tournament = (String) Jcb_Infomacion_Torneos.getSelectedItem();
+                try {
+                    int Tournament_Id = Connection_SQL.get_Tournament_Id_By_Tournament_Name(Selected_Tournament);
+                    dfgd(Tournament_Id);
+                } catch (SQLException ex) {
+                    Logger.getLogger(Tournament_Management.class.getName()).log(Level.SEVERE, null, ex);
+
+                }
+            }
+        });
+
+    }
+
+    private void dfgd(int Tournament_Id) throws SQLException {
+        ResultSet rs1 = Connection_SQL.get_Match_Name_By_Phase("Final", Tournament_Id);
+        Tbl_Final.setModel(DbUtils.resultSetToTableModel(rs1));
+        ResultSet rs2 = Connection_SQL.get_Match_Name_By_Phase("Semi-Final", Tournament_Id);
+        Tbl_Semi_Final.setModel(DbUtils.resultSetToTableModel(rs2));
+        ResultSet rs3 = Connection_SQL.get_Match_Name_By_Phase("Regular", Tournament_Id);
+        Tbl_Regular.setModel(DbUtils.resultSetToTableModel(rs3));
     }
 
 
@@ -693,6 +778,7 @@ public class Tournament_Management extends javax.swing.JPanel {
     private javax.swing.JButton Btn_Eliminar_Nombre_Torneo;
     private javax.swing.JButton Btn_Emparejamiento;
     private javax.swing.JButton Btn_Emparejamiento_Semi_Final;
+    private javax.swing.JButton Btn_Final;
     private javax.swing.JButton Btn_Ingresar_Equipo;
     private datechooser.beans.DateChooserCombo DCC_Final;
     private datechooser.beans.DateChooserCombo DCC_Inicio;
@@ -708,6 +794,7 @@ public class Tournament_Management extends javax.swing.JPanel {
     private javax.swing.JRadioButton Rd_Creacion_Torneo;
     private javax.swing.JRadioButton Rd_Equipos;
     private javax.swing.JRadioButton Rd_Informacion_Torneo;
+    private javax.swing.JTable Tbl_Campeon;
     private javax.swing.JTable Tbl_Final;
     private javax.swing.JTable Tbl_Regular;
     private javax.swing.JTable Tbl_Semi_Final;
@@ -738,6 +825,7 @@ public class Tournament_Management extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane7;
     // End of variables declaration//GEN-END:variables

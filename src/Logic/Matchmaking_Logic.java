@@ -59,12 +59,8 @@ public class Matchmaking_Logic {
     }
 
     public static void Create_Matches_For_Winners_Semi_Final(int Tournament_Id) throws SQLException {
-
-        // Obtengo todos los equipos que se encuentran en el torneo
-        List<Integer> Teams_Ids = Connection_SQL.getTeams_In_Tournament(Tournament_Id);
-
         // Saco todos los ganadores del torneo(Semi-Final)
-        List<Integer> Winners = Connection_SQL.getWinners_In_Tournament(Tournament_Id, Teams_Ids, "Regular");
+        List<Integer> Winners = Connection_SQL.getTop4_In_Tournament(Tournament_Id, "Regular");
 
         // Saco los pares de los ganadores
         if (Winners.size() == 4) {
@@ -78,12 +74,8 @@ public class Matchmaking_Logic {
     }
 
     public static void Create_Matches_For_Winners_Final(int Tournament_Id) throws SQLException {
-
-        // Obtengo todos los equipos que se encuentran en el torneo
-        List<Integer> Teams_Ids = Connection_SQL.getTeams_In_Tournament(Tournament_Id);
-
         // Saco todos los ganadores del torneo(Final)
-        List<Integer> Winners = Connection_SQL.getWinners_In_Tournament(Tournament_Id, Teams_Ids, "Semi-Final");
+        List<Integer> Winners = Connection_SQL.getTop2_In_Tournament(Tournament_Id, "Semi-Final");
 
         // Saco los pares de los ganadores
         if (Winners.size() == 2) {
@@ -97,14 +89,9 @@ public class Matchmaking_Logic {
     }
 
     public static void Create_Matches_For_Winners_Champion(int Tournament_Id) throws SQLException {
-
-        // Obtengo todos los equipos que se encuentran en el torneo
-        List<Integer> Teams_Ids = Connection_SQL.getTeams_In_Tournament(Tournament_Id);
-
         // Saco todos los ganadores del torneo(Final)
-        List<Integer> Winners = Connection_SQL.getWinners_In_Tournament(Tournament_Id, Teams_Ids, "Final");
+        List<Integer> Winners = Connection_SQL.getTop1_In_Tournament(Tournament_Id, "Final");
 
-        // Saco los pares de los ganadores
         if (Winners.size() < 2) {
             if (Winners.size() == 1) {
                 JOptionPane.showMessageDialog(null, "FELICIDADES AL CAMPEON DEL TORNEO: " + Winners.get(0), "Mensaje de Información", JOptionPane.INFORMATION_MESSAGE);

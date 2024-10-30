@@ -138,6 +138,22 @@ public class CUD_SQL {
         return Rows_Affected;
     }
 
+    public static int Insert_Det_Match(int Match_Id, int Sanction_Id, int Player_Id, int Time) throws SQLException {
+        int Rows_Affected = 0;
+
+        Statement sql = Connection_SQL.getConnection().createStatement();
+
+        String qry = "INSERT INTO DetMatch (Match_Id, Sanction_Id, Player_Id, Time) "
+                + "VALUES (" + Match_Id + ", "
+                + Sanction_Id + ", "
+                + Player_Id + ", "
+                + Time + ")";
+
+        Rows_Affected += sql.executeUpdate(qry);
+        
+        return Rows_Affected;
+    }
+
     // Final de INSERTS
     // Inicio de UPDATES
     public static void Update_Match(int Match_Id, int Winning_Points, int Losing_Points, int Winning_Id, String Converted_Phase, Date DCC) throws SQLException {

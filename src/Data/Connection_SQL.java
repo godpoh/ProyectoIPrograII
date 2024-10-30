@@ -268,7 +268,8 @@ public class Connection_SQL {
 
         return Winners_Ids;
     }
-        public static List<Integer> getTop1_In_Tournament(int Tournament_Id, String Phase) throws SQLException {
+
+    public static List<Integer> getTop1_In_Tournament(int Tournament_Id, String Phase) throws SQLException {
         Statement sql = Connection_SQL.getConnection().createStatement();
         List<Integer> Winners_Ids = new ArrayList<>();
 
@@ -374,9 +375,37 @@ public class Connection_SQL {
         ResultSet rs = sql.executeQuery(qry);
 
         return rs;
-        
+
     }
-    
+
+    public static List<String> get_Players_Names_By_Team_Id(int Team_Id) throws SQLException {
+        List<String> List_Players = new ArrayList<>();
+        Statement sql = Connection_SQL.getConnection().createStatement();
+
+        String qry = "Select First_Name From Player Where Team_Id = " + Team_Id;
+
+        ResultSet rs = sql.executeQuery(qry);
+
+        while (rs.next()) {
+            List_Players.add(rs.getString("First_Name"));
+        }
+        return List_Players;
+    }
+
+    public static int get_Sanctions_Id(String Name) throws SQLException {
+
+        int Id = 0;
+        Statement sql = Connection_SQL.getConnection().createStatement();
+
+        String qry = "Select Id From Sanctions Where Name = '" + Name + "'";
+
+        ResultSet rs = sql.executeQuery(qry);
+
+        while (rs.next()) {
+            Id = rs.getInt("Id");
+        }
+        return Id;
+    }
 
     // Fin de codigo consultas Tournament_Teams
 }

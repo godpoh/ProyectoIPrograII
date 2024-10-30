@@ -10,6 +10,7 @@ import Data.Connection_SQL;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
@@ -112,6 +113,9 @@ public class CUD_SQL {
         int Rows_Affected = 0;
         Statement sql = Connection_SQL.getConnection().createStatement();
 
+        SimpleDateFormat SDF = new SimpleDateFormat("yyyy-MM-dd");
+        String Default_Date = SDF.format(new Date(0));
+
         for (int i = 0; i < Pairs.size(); i++) {
             int[] Pair = Pairs.get(i);
 
@@ -120,9 +124,10 @@ public class CUD_SQL {
 
             String Match_Name = Home_Team_Name + " VS " + Away_Team_Name;
 
-            String qry = "INSERT INTO Match (Match_Name, Tournament_ID, Home_Team_Id, Away_Team_Id, Home_Points, Away_Points, Winner, Phase) "
+            String qry = "INSERT INTO Match (Match_Name, Tournament_ID, Match_Date, Home_Team_Id, Away_Team_Id, Home_Points, Away_Points, Winner, Phase) "
                     + "VALUES ('" + Match_Name + "', "
-                    + Tournament_Id + ", "
+                    + Tournament_Id + ", '"
+                    + Default_Date + "', "
                     + Pair[0] + ", "
                     + Pair[1] + ", "
                     + "0, 0, 0, '" + Phase + "')";

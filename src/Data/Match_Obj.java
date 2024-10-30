@@ -4,6 +4,7 @@
  */
 package Data;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -13,10 +14,10 @@ import java.util.Map;
  */
 public class Match_Obj {
 
-
-    private int Match_Id;  
+    private int Match_Id;
     private String Match_Name;
     private String Tournament_Id;
+    Date Date;
     private int Local_Team;
     private int Visitant_Team;
     private int Local_Goals;
@@ -24,10 +25,11 @@ public class Match_Obj {
     private int Winner;
     private String Phase;
 
-    public Match_Obj(int Match_Id, String Match_Name, String Tournament_Id, int Local_Team, int Visitant_Team, int Local_Goals, int Visitor_Goals, int Winner, String Phase) {
+    public Match_Obj(int Match_Id, String Match_Name, String Tournament_Id, Date Date, int Local_Team, int Visitant_Team, int Local_Goals, int Visitor_Goals, int Winner, String Phase) {
         this.Match_Id = Match_Id;
         this.Match_Name = Match_Name;
         this.Tournament_Id = Tournament_Id;
+        this.Date = Date;
         this.Local_Team = Local_Team;
         this.Visitant_Team = Visitant_Team;
         this.Local_Goals = Local_Goals;
@@ -58,6 +60,14 @@ public class Match_Obj {
 
     public void setTournament_Id(String Tournament_Id) {
         this.Tournament_Id = Tournament_Id;
+    }
+
+    public Date getDate() {
+        return Date;
+    }
+
+    public void setDate(Date Date) {
+        this.Date = Date;
     }
 
     public int getLocal_Team() {

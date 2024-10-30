@@ -31,11 +31,14 @@ public class Matchmaking_Logic {
 
         // Utilizo un arreglo de Int y genera los emparejamientos
         List<int[]> Pairs = new ArrayList<>();
+
         for (int i = 0; i < Teams_Ids.size(); i += 2) {
             // List  [1,2,3,4,5,6,7,8]
             // Indice[0,1,2,3,4,5,6,7]
             int[] Match = {Teams_Ids.get(i), Teams_Ids.get(i + 1)};
+            int[] Match1 = {Teams_Ids.get(i + 1), Teams_Ids.get(i),};
             Pairs.add(Match);
+            Pairs.add(Match1);
             // [1,2], [3,4], [5,6], [7,8]
             //   0,     1,      2,    3
         }
@@ -51,8 +54,8 @@ public class Matchmaking_Logic {
         List<int[]> Pairs = Generate_Random_Pairs(Teams_Ids);
 
         // Inserto los ids ya emparejados y revueltos
-        CUD_SQL.Insert_Matches(Tournament_Id, Pairs, "Cuartos-Final");
-        JOptionPane.showMessageDialog(null, "Emparejamiento Cuartos de Final realizado", "Mensaje de Informacion", JOptionPane.INFORMATION_MESSAGE);
+        CUD_SQL.Insert_Matches(Tournament_Id, Pairs, "Regular");
+        JOptionPane.showMessageDialog(null, "Emparejamiento de partidos Regular realizado", "Mensaje de Informacion", JOptionPane.INFORMATION_MESSAGE);
     }
 
     public static void Create_Matches_For_Winners_Semi_Final(int Tournament_Id) throws SQLException {
@@ -61,13 +64,13 @@ public class Matchmaking_Logic {
         List<Integer> Teams_Ids = Connection_SQL.getTeams_In_Tournament(Tournament_Id);
 
         // Saco todos los ganadores del torneo(Semi-Final)
-        List<Integer> Winners = Connection_SQL.getWinners_In_Tournament(Tournament_Id, Teams_Ids, "Cuartos-Final");
+        List<Integer> Winners = Connection_SQL.getWinners_In_Tournament(Tournament_Id, Teams_Ids, "Regular");
 
         // Saco los pares de los ganadores
         if (Winners.size() == 4) {
             List<int[]> Pairs = Generate_Random_Pairs(Winners);
             CUD_SQL.Insert_Matches(Tournament_Id, Pairs, "Semi-Final");
-            JOptionPane.showMessageDialog(null, "Emparejamiento de Semi-Finales realizado", "Mensaje de Informacion", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Emparejamiento de Final realizado", "Mensaje de Informacion", JOptionPane.INFORMATION_MESSAGE);
         } else {
             JOptionPane.showMessageDialog(null, "No hay suficientes ganadores para emparejar las semifinales", "Mensaje Importante", JOptionPane.ERROR_MESSAGE);
         }
@@ -108,10 +111,9 @@ public class Matchmaking_Logic {
             } else {
                 JOptionPane.showMessageDialog(null, "Aun no hay un campeon", "Mensaje Importante", JOptionPane.ERROR_MESSAGE);
             }
-            return; 
+            return;
         }
 
     }
 
 }
-

@@ -91,60 +91,15 @@ public class Tournament_Management extends javax.swing.JPanel {
         jLabel59 = new javax.swing.JLabel();
         Jcb_Infomacion_Torneos = new javax.swing.JComboBox<>();
         jLabel63 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jPanel7 = new javax.swing.JPanel();
-        jPanel8 = new javax.swing.JPanel();
-        jLabel28 = new javax.swing.JLabel();
-        jPanel10 = new javax.swing.JPanel();
-        jLabel30 = new javax.swing.JLabel();
-        jPanel11 = new javax.swing.JPanel();
-        jLabel31 = new javax.swing.JLabel();
-        jPanel13 = new javax.swing.JPanel();
-        jLabel33 = new javax.swing.JLabel();
-        jPanel18 = new javax.swing.JPanel();
-        jLabel38 = new javax.swing.JLabel();
-        jPanel19 = new javax.swing.JPanel();
-        jLabel39 = new javax.swing.JLabel();
-        jPanel9 = new javax.swing.JPanel();
-        jLabel29 = new javax.swing.JLabel();
-        jPanel24 = new javax.swing.JPanel();
-        jLabel44 = new javax.swing.JLabel();
-        jPanel25 = new javax.swing.JPanel();
-        jLabel45 = new javax.swing.JLabel();
-        jPanel23 = new javax.swing.JPanel();
-        jLabel43 = new javax.swing.JLabel();
-        jPanel26 = new javax.swing.JPanel();
-        jLabel46 = new javax.swing.JLabel();
-        jPanel22 = new javax.swing.JPanel();
-        jLabel42 = new javax.swing.JLabel();
-        jPanel27 = new javax.swing.JPanel();
-        jLabel47 = new javax.swing.JLabel();
-        jPanel28 = new javax.swing.JPanel();
-        jLabel48 = new javax.swing.JLabel();
-        jLabel49 = new javax.swing.JLabel();
-        jLabel50 = new javax.swing.JLabel();
-        jLabel51 = new javax.swing.JLabel();
-        jLabel62 = new javax.swing.JLabel();
-        jLabel64 = new javax.swing.JLabel();
-        jLabel65 = new javax.swing.JLabel();
-        jLabel66 = new javax.swing.JLabel();
-        jLabel67 = new javax.swing.JLabel();
-        jLabel80 = new javax.swing.JLabel();
-        jLabel88 = new javax.swing.JLabel();
-        jLabel89 = new javax.swing.JLabel();
-        jLabel91 = new javax.swing.JLabel();
-        jLabel92 = new javax.swing.JLabel();
-        jLabel86 = new javax.swing.JLabel();
-        jLabel87 = new javax.swing.JLabel();
-        jLabel93 = new javax.swing.JLabel();
-        jLabel94 = new javax.swing.JLabel();
-        jPanel29 = new javax.swing.JPanel();
-        jLabel52 = new javax.swing.JLabel();
-        jLabel53 = new javax.swing.JLabel();
         Btn_Emparejamiento = new javax.swing.JButton();
-        Btn_Emparejamiento_Final = new javax.swing.JButton();
         Btn_Emparejamiento_Semi_Final = new javax.swing.JButton();
         Btn_Campeon = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        Tbl_Final = new javax.swing.JTable();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        Tbl_Regular = new javax.swing.JTable();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        Tbl_Semi_Final = new javax.swing.JTable();
         jLabel61 = new javax.swing.JLabel();
 
         jRadioButton1.setText("jRadioButton1");
@@ -469,461 +424,6 @@ public class Tournament_Management extends javax.swing.JPanel {
         jLabel63.setText("Seleccione el torneo");
         Pnl_Informacion_Torneo.add(jLabel63, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 0, -1, -1));
 
-        jPanel7.setOpaque(false);
-        jPanel7.setPreferredSize(new java.awt.Dimension(810, 1125));
-        jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jPanel8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel8.setPreferredSize(new java.awt.Dimension(142, 59));
-
-        jLabel28.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel28.setText("Equipo1");
-
-        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
-        jPanel8.setLayout(jPanel8Layout);
-        jPanel8Layout.setHorizontalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel8Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel28)
-                .addContainerGap(62, Short.MAX_VALUE))
-        );
-        jPanel8Layout.setVerticalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel8Layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addComponent(jLabel28)
-                .addContainerGap(18, Short.MAX_VALUE))
-        );
-
-        jPanel7.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 59, -1, -1));
-
-        jPanel10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel10.setPreferredSize(new java.awt.Dimension(142, 59));
-
-        jLabel30.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel30.setText("Equipo1");
-
-        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
-        jPanel10.setLayout(jPanel10Layout);
-        jPanel10Layout.setHorizontalGroup(
-            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel10Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel30)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel10Layout.setVerticalGroup(
-            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel10Layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(jLabel30)
-                .addContainerGap(20, Short.MAX_VALUE))
-        );
-
-        jPanel7.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 329, -1, -1));
-
-        jPanel11.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel11.setPreferredSize(new java.awt.Dimension(142, 59));
-
-        jLabel31.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel31.setText("Equipo1");
-
-        javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
-        jPanel11.setLayout(jPanel11Layout);
-        jPanel11Layout.setHorizontalGroup(
-            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel11Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel31)
-                .addContainerGap(62, Short.MAX_VALUE))
-        );
-        jPanel11Layout.setVerticalGroup(
-            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel11Layout.createSequentialGroup()
-                .addContainerGap(19, Short.MAX_VALUE)
-                .addComponent(jLabel31)
-                .addGap(16, 16, 16))
-        );
-
-        jPanel7.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 394, -1, -1));
-
-        jPanel13.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel13.setPreferredSize(new java.awt.Dimension(142, 59));
-
-        jLabel33.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel33.setText("Equipo1");
-
-        javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
-        jPanel13.setLayout(jPanel13Layout);
-        jPanel13Layout.setHorizontalGroup(
-            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel13Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel33)
-                .addContainerGap(62, Short.MAX_VALUE))
-        );
-        jPanel13Layout.setVerticalGroup(
-            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel13Layout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(jLabel33)
-                .addContainerGap(19, Short.MAX_VALUE))
-        );
-
-        jPanel7.add(jPanel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 593, -1, -1));
-
-        jPanel18.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel18.setPreferredSize(new java.awt.Dimension(142, 59));
-
-        jLabel38.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel38.setText("Equipo1");
-
-        javax.swing.GroupLayout jPanel18Layout = new javax.swing.GroupLayout(jPanel18);
-        jPanel18.setLayout(jPanel18Layout);
-        jPanel18Layout.setHorizontalGroup(
-            jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel18Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel38)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel18Layout.setVerticalGroup(
-            jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel18Layout.createSequentialGroup()
-                .addContainerGap(18, Short.MAX_VALUE)
-                .addComponent(jLabel38)
-                .addGap(17, 17, 17))
-        );
-
-        jPanel7.add(jPanel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 256, -1, -1));
-
-        jPanel19.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel19.setPreferredSize(new java.awt.Dimension(142, 59));
-
-        jLabel39.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel39.setText("Equipo1");
-
-        javax.swing.GroupLayout jPanel19Layout = new javax.swing.GroupLayout(jPanel19);
-        jPanel19.setLayout(jPanel19Layout);
-        jPanel19Layout.setHorizontalGroup(
-            jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel19Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel39)
-                .addContainerGap(62, Short.MAX_VALUE))
-        );
-        jPanel19Layout.setVerticalGroup(
-            jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel19Layout.createSequentialGroup()
-                .addContainerGap(18, Short.MAX_VALUE)
-                .addComponent(jLabel39)
-                .addGap(17, 17, 17))
-        );
-
-        jPanel7.add(jPanel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 191, -1, -1));
-
-        jPanel9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel9.setPreferredSize(new java.awt.Dimension(142, 59));
-
-        jLabel29.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel29.setText("Equipo1");
-
-        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
-        jPanel9.setLayout(jPanel9Layout);
-        jPanel9Layout.setHorizontalGroup(
-            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel9Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel29)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel9Layout.setVerticalGroup(
-            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
-                .addContainerGap(20, Short.MAX_VALUE)
-                .addComponent(jLabel29)
-                .addGap(15, 15, 15))
-        );
-
-        jPanel7.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 124, -1, -1));
-
-        jPanel24.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel24.setPreferredSize(new java.awt.Dimension(142, 59));
-
-        jLabel44.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel44.setText("Equipo1");
-
-        javax.swing.GroupLayout jPanel24Layout = new javax.swing.GroupLayout(jPanel24);
-        jPanel24.setLayout(jPanel24Layout);
-        jPanel24Layout.setHorizontalGroup(
-            jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel24Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel44)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel24Layout.setVerticalGroup(
-            jPanel24Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel24Layout.createSequentialGroup()
-                .addContainerGap(19, Short.MAX_VALUE)
-                .addComponent(jLabel44)
-                .addGap(16, 16, 16))
-        );
-
-        jPanel7.add(jPanel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 862, -1, -1));
-
-        jPanel25.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel25.setPreferredSize(new java.awt.Dimension(142, 59));
-
-        jLabel45.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel45.setText("Equipo1");
-
-        javax.swing.GroupLayout jPanel25Layout = new javax.swing.GroupLayout(jPanel25);
-        jPanel25.setLayout(jPanel25Layout);
-        jPanel25Layout.setHorizontalGroup(
-            jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel25Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel45)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel25Layout.setVerticalGroup(
-            jPanel25Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel25Layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addComponent(jLabel45)
-                .addContainerGap(18, Short.MAX_VALUE))
-        );
-
-        jPanel7.add(jPanel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 658, -1, -1));
-
-        jPanel23.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel23.setPreferredSize(new java.awt.Dimension(142, 59));
-
-        jLabel43.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel43.setText("Equipo1");
-
-        javax.swing.GroupLayout jPanel23Layout = new javax.swing.GroupLayout(jPanel23);
-        jPanel23.setLayout(jPanel23Layout);
-        jPanel23Layout.setHorizontalGroup(
-            jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel23Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel43)
-                .addContainerGap(62, Short.MAX_VALUE))
-        );
-        jPanel23Layout.setVerticalGroup(
-            jPanel23Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel23Layout.createSequentialGroup()
-                .addContainerGap(18, Short.MAX_VALUE)
-                .addComponent(jLabel43)
-                .addGap(17, 17, 17))
-        );
-
-        jPanel7.add(jPanel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 927, -1, -1));
-
-        jPanel26.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel26.setPreferredSize(new java.awt.Dimension(142, 59));
-
-        jLabel46.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel46.setText("Equipo1");
-
-        javax.swing.GroupLayout jPanel26Layout = new javax.swing.GroupLayout(jPanel26);
-        jPanel26.setLayout(jPanel26Layout);
-        jPanel26Layout.setHorizontalGroup(
-            jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel26Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel46)
-                .addContainerGap(62, Short.MAX_VALUE))
-        );
-        jPanel26Layout.setVerticalGroup(
-            jPanel26Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel26Layout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addComponent(jLabel46)
-                .addContainerGap(21, Short.MAX_VALUE))
-        );
-
-        jPanel7.add(jPanel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 720, -1, -1));
-
-        jPanel22.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel22.setPreferredSize(new java.awt.Dimension(142, 59));
-
-        jLabel42.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel42.setText("Equipo1");
-
-        javax.swing.GroupLayout jPanel22Layout = new javax.swing.GroupLayout(jPanel22);
-        jPanel22.setLayout(jPanel22Layout);
-        jPanel22Layout.setHorizontalGroup(
-            jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel22Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel42)
-                .addContainerGap(62, Short.MAX_VALUE))
-        );
-        jPanel22Layout.setVerticalGroup(
-            jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel22Layout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(jLabel42)
-                .addContainerGap(19, Short.MAX_VALUE))
-        );
-
-        jPanel7.add(jPanel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 791, -1, -1));
-
-        jPanel27.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel27.setPreferredSize(new java.awt.Dimension(142, 59));
-
-        jLabel47.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel47.setText("Equipo1");
-
-        javax.swing.GroupLayout jPanel27Layout = new javax.swing.GroupLayout(jPanel27);
-        jPanel27.setLayout(jPanel27Layout);
-        jPanel27Layout.setHorizontalGroup(
-            jPanel27Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel27Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel47)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel27Layout.setVerticalGroup(
-            jPanel27Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel27Layout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(jLabel47)
-                .addContainerGap(19, Short.MAX_VALUE))
-        );
-
-        jPanel7.add(jPanel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 457, -1, -1));
-
-        jPanel28.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel28.setPreferredSize(new java.awt.Dimension(142, 59));
-
-        jLabel48.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel48.setText("Equipo1");
-
-        javax.swing.GroupLayout jPanel28Layout = new javax.swing.GroupLayout(jPanel28);
-        jPanel28.setLayout(jPanel28Layout);
-        jPanel28Layout.setHorizontalGroup(
-            jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel28Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel48)
-                .addContainerGap(62, Short.MAX_VALUE))
-        );
-        jPanel28Layout.setVerticalGroup(
-            jPanel28Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel28Layout.createSequentialGroup()
-                .addContainerGap(19, Short.MAX_VALUE)
-                .addComponent(jLabel48)
-                .addGap(16, 16, 16))
-        );
-
-        jPanel7.add(jPanel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 528, -1, -1));
-
-        jLabel49.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel49.setText("Cuartos-Final");
-        jPanel7.add(jLabel49, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
-
-        jLabel50.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel50.setText("Campeon");
-        jPanel7.add(jLabel50, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 450, -1, -1));
-
-        jLabel51.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel51.setText("Semi-Final");
-        jPanel7.add(jLabel51, new org.netbeans.lib.awtextra.AbsoluteConstraints(267, 163, -1, -1));
-
-        jLabel62.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel62.setText("Local");
-        jPanel7.add(jLabel62, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 206, -1, -1));
-
-        jLabel64.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel64.setText("Visitante");
-        jPanel7.add(jLabel64, new org.netbeans.lib.awtextra.AbsoluteConstraints(388, 257, -1, -1));
-
-        jLabel65.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel65.setText("Local");
-        jPanel7.add(jLabel65, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 474, -1, -1));
-
-        jLabel66.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel66.setText("Visitante");
-        jPanel7.add(jLabel66, new org.netbeans.lib.awtextra.AbsoluteConstraints(548, 525, -1, -1));
-
-        jLabel67.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel67.setText("Local");
-        jPanel7.add(jLabel67, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 746, -1, -1));
-
-        jLabel80.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel80.setText("Visitante");
-        jPanel7.add(jLabel80, new org.netbeans.lib.awtextra.AbsoluteConstraints(388, 797, -1, -1));
-
-        jLabel88.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel88.setText("Local");
-        jPanel7.add(jLabel88, new org.netbeans.lib.awtextra.AbsoluteConstraints(166, 357, -1, -1));
-
-        jLabel89.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel89.setText("Visitante");
-        jPanel7.add(jLabel89, new org.netbeans.lib.awtextra.AbsoluteConstraints(154, 409, -1, -1));
-
-        jLabel91.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel91.setText("Local");
-        jPanel7.add(jLabel91, new org.netbeans.lib.awtextra.AbsoluteConstraints(166, 617, -1, -1));
-
-        jLabel92.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel92.setText("Visitante");
-        jPanel7.add(jLabel92, new org.netbeans.lib.awtextra.AbsoluteConstraints(154, 668, -1, -1));
-
-        jLabel86.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel86.setText("Local");
-        jPanel7.add(jLabel86, new org.netbeans.lib.awtextra.AbsoluteConstraints(166, 885, -1, -1));
-
-        jLabel87.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel87.setText("Visitante");
-        jPanel7.add(jLabel87, new org.netbeans.lib.awtextra.AbsoluteConstraints(154, 936, -1, -1));
-
-        jLabel93.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel93.setText("Local");
-        jPanel7.add(jLabel93, new org.netbeans.lib.awtextra.AbsoluteConstraints(166, 82, -1, -1));
-
-        jLabel94.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel94.setText("Visitante");
-        jPanel7.add(jLabel94, new org.netbeans.lib.awtextra.AbsoluteConstraints(154, 133, -1, -1));
-
-        jPanel29.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel29.setPreferredSize(new java.awt.Dimension(142, 59));
-
-        jLabel52.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel52.setText("Equipo1");
-
-        javax.swing.GroupLayout jPanel29Layout = new javax.swing.GroupLayout(jPanel29);
-        jPanel29.setLayout(jPanel29Layout);
-        jPanel29Layout.setHorizontalGroup(
-            jPanel29Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel29Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel52)
-                .addContainerGap(62, Short.MAX_VALUE))
-        );
-        jPanel29Layout.setVerticalGroup(
-            jPanel29Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel29Layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addComponent(jLabel52)
-                .addContainerGap(18, Short.MAX_VALUE))
-        );
-
-        jPanel7.add(jPanel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 480, -1, -1));
-
-        jLabel53.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel53.setText("Final");
-        jPanel7.add(jLabel53, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 430, -1, -1));
-
-        jScrollPane1.setViewportView(jPanel7);
-
-        Pnl_Informacion_Torneo.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 780, 510));
-
         Btn_Emparejamiento.setBackground(new java.awt.Color(204, 204, 204));
         Btn_Emparejamiento.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         Btn_Emparejamiento.setForeground(new java.awt.Color(51, 51, 51));
@@ -933,40 +433,41 @@ public class Tournament_Management extends javax.swing.JPanel {
                 Btn_EmparejamientoActionPerformed(evt);
             }
         });
-        Pnl_Informacion_Torneo.add(Btn_Emparejamiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 600, -1, 40));
-
-        Btn_Emparejamiento_Final.setBackground(new java.awt.Color(204, 204, 204));
-        Btn_Emparejamiento_Final.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        Btn_Emparejamiento_Final.setForeground(new java.awt.Color(51, 51, 51));
-        Btn_Emparejamiento_Final.setText("EMPAREJAMIENTO FINAL");
-        Btn_Emparejamiento_Final.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Btn_Emparejamiento_FinalActionPerformed(evt);
-            }
-        });
-        Pnl_Informacion_Torneo.add(Btn_Emparejamiento_Final, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 600, -1, 40));
+        Pnl_Informacion_Torneo.add(Btn_Emparejamiento, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 590, 260, 40));
 
         Btn_Emparejamiento_Semi_Final.setBackground(new java.awt.Color(204, 204, 204));
         Btn_Emparejamiento_Semi_Final.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         Btn_Emparejamiento_Semi_Final.setForeground(new java.awt.Color(51, 51, 51));
-        Btn_Emparejamiento_Semi_Final.setText("EMPAREJAMIENTO SEMI-FINAL");
+        Btn_Emparejamiento_Semi_Final.setText("SEMI-FINAL");
         Btn_Emparejamiento_Semi_Final.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Btn_Emparejamiento_Semi_FinalActionPerformed(evt);
             }
         });
-        Pnl_Informacion_Torneo.add(Btn_Emparejamiento_Semi_Final, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 600, -1, 40));
+        Pnl_Informacion_Torneo.add(Btn_Emparejamiento_Semi_Final, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 590, 250, 40));
 
         Btn_Campeon.setBackground(new java.awt.Color(204, 204, 204));
         Btn_Campeon.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         Btn_Campeon.setForeground(new java.awt.Color(51, 51, 51));
-        Btn_Campeon.setText("CAMPEON");
+        Btn_Campeon.setText("FINAL");
         Btn_Campeon.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Btn_CampeonActionPerformed(evt);
             }
         });
-        Pnl_Informacion_Torneo.add(Btn_Campeon, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 600, -1, 40));
+        Pnl_Informacion_Torneo.add(Btn_Campeon, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 590, 230, 40));
+
+        jScrollPane2.setViewportView(Tbl_Final);
+
+        Pnl_Informacion_Torneo.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 80, 230, 490));
+
+        jScrollPane5.setViewportView(Tbl_Regular);
+
+        Pnl_Informacion_Torneo.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 270, 490));
+
+        jScrollPane7.setViewportView(Tbl_Semi_Final);
+
+        Pnl_Informacion_Torneo.add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 80, 260, 490));
 
         jPanel1.add(Pnl_Informacion_Torneo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 800, 688));
 
@@ -1118,18 +619,6 @@ public class Tournament_Management extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_Jcb_Nombre_Torneo_Eliminar_ActualizarActionPerformed
 
-    private void Btn_Emparejamiento_FinalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_Emparejamiento_FinalActionPerformed
-        try {
-            String Tournament_Name = (String) Jcb_Infomacion_Torneos.getSelectedItem();
-            int Tournament_Id = Connection_SQL.get_Tournament_Id_By_Tournament_Name(Tournament_Name);
-
-            Matchmaking_Logic.Create_Matches_For_Winners_Final(Tournament_Id);
-
-        } catch (SQLException ex) {
-            Logger.getLogger(Tournament_Management.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_Btn_Emparejamiento_FinalActionPerformed
-
     private void Btn_Emparejamiento_Semi_FinalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_Emparejamiento_Semi_FinalActionPerformed
         try {
             String Tournament_Name = (String) Jcb_Infomacion_Torneos.getSelectedItem();
@@ -1140,7 +629,6 @@ public class Tournament_Management extends javax.swing.JPanel {
         } catch (SQLException ex) {
             Logger.getLogger(Tournament_Management.class.getName()).log(Level.SEVERE, null, ex);
         }
-
     }//GEN-LAST:event_Btn_Emparejamiento_Semi_FinalActionPerformed
 
     private void Btn_CampeonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_CampeonActionPerformed
@@ -1148,7 +636,7 @@ public class Tournament_Management extends javax.swing.JPanel {
             String Tournament_Name = (String) Jcb_Infomacion_Torneos.getSelectedItem();
             int Tournament_Id = Connection_SQL.get_Tournament_Id_By_Tournament_Name(Tournament_Name);
 
-            Matchmaking_Logic.Create_Matches_For_Winners_Champion(Tournament_Id);
+            Matchmaking_Logic.Create_Matches_For_Winners_Final(Tournament_Id);
 
         } catch (SQLException ex) {
             Logger.getLogger(Tournament_Management.class.getName()).log(Level.SEVERE, null, ex);
@@ -1204,7 +692,6 @@ public class Tournament_Management extends javax.swing.JPanel {
     private javax.swing.JButton Btn_Eliminar_Equipo_Torneo;
     private javax.swing.JButton Btn_Eliminar_Nombre_Torneo;
     private javax.swing.JButton Btn_Emparejamiento;
-    private javax.swing.JButton Btn_Emparejamiento_Final;
     private javax.swing.JButton Btn_Emparejamiento_Semi_Final;
     private javax.swing.JButton Btn_Ingresar_Equipo;
     private datechooser.beans.DateChooserCombo DCC_Final;
@@ -1221,6 +708,9 @@ public class Tournament_Management extends javax.swing.JPanel {
     private javax.swing.JRadioButton Rd_Creacion_Torneo;
     private javax.swing.JRadioButton Rd_Equipos;
     private javax.swing.JRadioButton Rd_Informacion_Torneo;
+    private javax.swing.JTable Tbl_Final;
+    private javax.swing.JTable Tbl_Regular;
+    private javax.swing.JTable Tbl_Semi_Final;
     private javax.swing.JTextField Txt_Id_Torneo;
     private javax.swing.JTextField Txt_Nombre_Torneo;
     private javax.swing.JTextField Txt_Nuevo_Nombre;
@@ -1228,74 +718,27 @@ public class Tournament_Management extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel28;
-    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel30;
-    private javax.swing.JLabel jLabel31;
-    private javax.swing.JLabel jLabel33;
-    private javax.swing.JLabel jLabel38;
-    private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel42;
-    private javax.swing.JLabel jLabel43;
-    private javax.swing.JLabel jLabel44;
-    private javax.swing.JLabel jLabel45;
-    private javax.swing.JLabel jLabel46;
-    private javax.swing.JLabel jLabel47;
-    private javax.swing.JLabel jLabel48;
-    private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel50;
-    private javax.swing.JLabel jLabel51;
-    private javax.swing.JLabel jLabel52;
-    private javax.swing.JLabel jLabel53;
     private javax.swing.JLabel jLabel59;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel61;
-    private javax.swing.JLabel jLabel62;
     private javax.swing.JLabel jLabel63;
-    private javax.swing.JLabel jLabel64;
-    private javax.swing.JLabel jLabel65;
-    private javax.swing.JLabel jLabel66;
-    private javax.swing.JLabel jLabel67;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel70;
     private javax.swing.JLabel jLabel71;
     private javax.swing.JLabel jLabel72;
     private javax.swing.JLabel jLabel79;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel80;
-    private javax.swing.JLabel jLabel86;
-    private javax.swing.JLabel jLabel87;
-    private javax.swing.JLabel jLabel88;
-    private javax.swing.JLabel jLabel89;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JLabel jLabel91;
-    private javax.swing.JLabel jLabel92;
-    private javax.swing.JLabel jLabel93;
-    private javax.swing.JLabel jLabel94;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel10;
-    private javax.swing.JPanel jPanel11;
-    private javax.swing.JPanel jPanel13;
-    private javax.swing.JPanel jPanel18;
-    private javax.swing.JPanel jPanel19;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel22;
-    private javax.swing.JPanel jPanel23;
-    private javax.swing.JPanel jPanel24;
-    private javax.swing.JPanel jPanel25;
-    private javax.swing.JPanel jPanel26;
-    private javax.swing.JPanel jPanel27;
-    private javax.swing.JPanel jPanel28;
-    private javax.swing.JPanel jPanel29;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel7;
-    private javax.swing.JPanel jPanel8;
-    private javax.swing.JPanel jPanel9;
     private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane7;
     // End of variables declaration//GEN-END:variables
 }

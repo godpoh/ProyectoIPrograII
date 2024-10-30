@@ -676,7 +676,7 @@ public class Tournament_Management extends javax.swing.JPanel {
             int Tournament_Id = Connection_SQL.get_Tournament_Id_By_Tournament_Name(Tournament_Name);
 
             Matchmaking_Logic.Create_Matches_For_Winners_Final(Tournament_Id);
-            
+
             ResultSet rs = Connection_SQL.get_Match_Name_By_Phase("Final", Tournament_Id);
             Tbl_Final.setModel(DbUtils.resultSetToTableModel(rs));
 
@@ -697,7 +697,7 @@ public class Tournament_Management extends javax.swing.JPanel {
             int Tournament_Id = Connection_SQL.get_Tournament_Id_By_Tournament_Name(Tournament_Name);
 
             Matchmaking_Logic.Create_Matches_For_Winners_Champion(Tournament_Id);
-            // Hace falta en campeon logica
+
             ResultSet rs = Connection_SQL.get_Match_Name_By_Phase("Campeon", Tournament_Id);
             Tbl_Final.setModel(DbUtils.resultSetToTableModel(rs));
 
@@ -750,7 +750,7 @@ public class Tournament_Management extends javax.swing.JPanel {
                 String Selected_Tournament = (String) Jcb_Infomacion_Torneos.getSelectedItem();
                 try {
                     int Tournament_Id = Connection_SQL.get_Tournament_Id_By_Tournament_Name(Selected_Tournament);
-                    dfgd(Tournament_Id);
+                    Complement_Listener(Tournament_Id);
                 } catch (SQLException ex) {
                     Logger.getLogger(Tournament_Management.class.getName()).log(Level.SEVERE, null, ex);
 
@@ -760,13 +760,15 @@ public class Tournament_Management extends javax.swing.JPanel {
 
     }
 
-    private void dfgd(int Tournament_Id) throws SQLException {
+    private void Complement_Listener(int Tournament_Id) throws SQLException {
         ResultSet rs1 = Connection_SQL.get_Match_Name_By_Phase("Final", Tournament_Id);
         Tbl_Final.setModel(DbUtils.resultSetToTableModel(rs1));
         ResultSet rs2 = Connection_SQL.get_Match_Name_By_Phase("Semi-Final", Tournament_Id);
         Tbl_Semi_Final.setModel(DbUtils.resultSetToTableModel(rs2));
         ResultSet rs3 = Connection_SQL.get_Match_Name_By_Phase("Regular", Tournament_Id);
         Tbl_Regular.setModel(DbUtils.resultSetToTableModel(rs3));
+        ResultSet rs = Connection_SQL.get_Match_Name_By_Phase("Campeon", Tournament_Id);
+        Tbl_Campeon.setModel(DbUtils.resultSetToTableModel(rs));
     }
 
 

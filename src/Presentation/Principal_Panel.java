@@ -342,16 +342,21 @@ public class Principal_Panel extends javax.swing.JFrame {
     private void Btn_Tabla_SancionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_Tabla_SancionesActionPerformed
         Pnl_SubM.setVisible(false);
 
-        Sanctions_Table Sanctions_Window = new Sanctions_Table();
+        Sanctions_Table Sanctions_Window;
+        try {
+            Sanctions_Window = new Sanctions_Table();
+            Sanctions_Window.setSize(820, 688);
+            Sanctions_Window.setLocation(0, 0);
 
-        Sanctions_Window.setSize(820, 688);
-        Sanctions_Window.setLocation(0, 0);
+            Pnl_Contenedor.removeAll();
+            Pnl_Contenedor.add(Sanctions_Window);
 
-        Pnl_Contenedor.removeAll();
-        Pnl_Contenedor.add(Sanctions_Window);
+            Pnl_Contenedor.revalidate();
+            Pnl_Contenedor.repaint();
+        } catch (SQLException ex) {
+            Logger.getLogger(Principal_Panel.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
-        Pnl_Contenedor.revalidate();
-        Pnl_Contenedor.repaint();
 
     }//GEN-LAST:event_Btn_Tabla_SancionesActionPerformed
 

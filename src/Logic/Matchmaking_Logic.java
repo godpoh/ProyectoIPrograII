@@ -89,7 +89,6 @@ public class Matchmaking_Logic {
     }
 
     public static void Create_Matches_For_Winners_Champion(int Tournament_Id) throws SQLException {
-        // Saco todos los ganadores del torneo(Final)
         List<Integer> Winners = Connection_SQL.getTop1_In_Tournament(Tournament_Id, "Final");
 
         if (Winners.size() < 2) {

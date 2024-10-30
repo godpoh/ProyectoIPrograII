@@ -17,8 +17,9 @@ public class Sanctions_Table extends javax.swing.JPanel {
     /**
      * Creates new form Sanctions_Table
      */
-    public Sanctions_Table() {
+    public Sanctions_Table() throws SQLException {
         initComponents();
+        Connection_SQL.Qry_Tournament(Jcb_Torneo);
     }
 
     /**

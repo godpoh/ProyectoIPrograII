@@ -300,32 +300,42 @@ public class Principal_Panel extends javax.swing.JFrame {
     private void Btn_Registro_GoleadoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_Registro_GoleadoresActionPerformed
         Pnl_SubM.setVisible(false);
 
-        Scorer_Record Scorer_Window = new Scorer_Record();
+        Scorer_Record Scorer_Window;
+        try {
+            Scorer_Window = new Scorer_Record();
+            Scorer_Window.setSize(820, 688);
+            Scorer_Window.setLocation(0, 0);
 
-        Scorer_Window.setSize(820, 688);
-        Scorer_Window.setLocation(0, 0);
+            Pnl_Contenedor.removeAll();
+            Pnl_Contenedor.add(Scorer_Window);
 
-        Pnl_Contenedor.removeAll();
-        Pnl_Contenedor.add(Scorer_Window);
+            Pnl_Contenedor.revalidate();
+            Pnl_Contenedor.repaint();
+        } catch (SQLException ex) {
+            Logger.getLogger(Principal_Panel.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
-        Pnl_Contenedor.revalidate();
-        Pnl_Contenedor.repaint();
 
     }//GEN-LAST:event_Btn_Registro_GoleadoresActionPerformed
 
     private void Btn_Tabla_Posicion_EquiposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_Tabla_Posicion_EquiposActionPerformed
         Pnl_SubM.setVisible(false);
 
-        Team_Position_Table Team_Position_Window = new Team_Position_Table();
+        Team_Position_Table Team_Position_Window;
+        try {
+            Team_Position_Window = new Team_Position_Table();
+            Team_Position_Window.setSize(820, 688);
+            Team_Position_Window.setLocation(0, 0);
 
-        Team_Position_Window.setSize(820, 688);
-        Team_Position_Window.setLocation(0, 0);
+            Pnl_Contenedor.removeAll();
+            Pnl_Contenedor.add(Team_Position_Window);
 
-        Pnl_Contenedor.removeAll();
-        Pnl_Contenedor.add(Team_Position_Window);
+            Pnl_Contenedor.revalidate();
+            Pnl_Contenedor.repaint();
+        } catch (SQLException ex) {
+            Logger.getLogger(Principal_Panel.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
-        Pnl_Contenedor.revalidate();
-        Pnl_Contenedor.repaint();
 
     }//GEN-LAST:event_Btn_Tabla_Posicion_EquiposActionPerformed
 
@@ -349,14 +359,14 @@ public class Principal_Panel extends javax.swing.JFrame {
         Team_Managment Team = null;
         try {
             Team = new Team_Managment();
-       
+
         } catch (SQLException ex) {
             Logger.getLogger(Principal_Panel.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         Team.setSize(820, 688);
         Team.setLocation(0, 0);
-        
+
         Pnl_Contenedor.removeAll();
         Pnl_Contenedor.add(Team);
 

@@ -4,6 +4,15 @@
  */
 package Presentation;
 
+import Data.Connection_SQL;
+import Data.Connection_SQL;
+import java.lang.System.Logger;
+import java.lang.System.Logger.Level;
+import java.sql.SQLException;
+import net.proteanit.sql.DbUtils;
+import java.sql.ResultSet;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Admin
@@ -13,8 +22,9 @@ public class Scorer_Record extends javax.swing.JPanel {
     /**
      * Creates new form Scorer_Record
      */
-    public Scorer_Record() {
+    public Scorer_Record() throws SQLException {
         initComponents();
+        Connection_SQL.Qry_Tournament(Jcb_Nombre_Torneo);
     }
 
     /**
@@ -27,10 +37,11 @@ public class Scorer_Record extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        Jcb_Nombre_Torneo = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        Tbl_Info = new javax.swing.JTable();
+        Btn_Consultar = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -40,21 +51,21 @@ public class Scorer_Record extends javax.swing.JPanel {
         jLabel1.setText("Nombre del torneo");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 30, -1, -1));
 
-        jComboBox1.setBackground(new java.awt.Color(204, 204, 204));
-        jComboBox1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jComboBox1.setForeground(new java.awt.Color(51, 51, 51));
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 50, 188, -1));
+        Jcb_Nombre_Torneo.setBackground(new java.awt.Color(204, 204, 204));
+        Jcb_Nombre_Torneo.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        Jcb_Nombre_Torneo.setForeground(new java.awt.Color(51, 51, 51));
+        Jcb_Nombre_Torneo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        add(Jcb_Nombre_Torneo, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 50, 188, -1));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Goleadores");
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 90, -1, -1));
 
-        jTable1.setBackground(new java.awt.Color(204, 204, 204));
-        jTable1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jTable1.setForeground(new java.awt.Color(51, 51, 51));
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        Tbl_Info.setBackground(new java.awt.Color(204, 204, 204));
+        Tbl_Info.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        Tbl_Info.setForeground(new java.awt.Color(51, 51, 51));
+        Tbl_Info.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -65,21 +76,44 @@ public class Scorer_Record extends javax.swing.JPanel {
                 "Nombre jugador", "Goles", "Equipo"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(Tbl_Info);
 
-        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 140, 598, -1));
+        add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 140, 598, -1));
+
+        Btn_Consultar.setBackground(new java.awt.Color(204, 204, 204));
+        Btn_Consultar.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        Btn_Consultar.setForeground(new java.awt.Color(51, 51, 51));
+        Btn_Consultar.setText("Consultar");
+        Btn_Consultar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Btn_ConsultarActionPerformed(evt);
+            }
+        });
+        add(Btn_Consultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 630, 130, 30));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/abstract-textured-backgound.jpg"))); // NOI18N
         add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 820, 688));
     }// </editor-fold>//GEN-END:initComponents
 
+    private void Btn_ConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Btn_ConsultarActionPerformed
+        try {
+            String Tournament_Name = (String) Jcb_Nombre_Torneo.getSelectedItem();
+            int Tournament_Id = Connection_SQL.get_Tournament_Id_By_Tournament_Name(Tournament_Name);
+            ResultSet rs = Connection_SQL.getScorer_Record(Tournament_Id);
+            Tbl_Info.setModel(DbUtils.resultSetToTableModel(rs));
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+    }//GEN-LAST:event_Btn_ConsultarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JButton Btn_Consultar;
+    private javax.swing.JComboBox<String> Jcb_Nombre_Torneo;
+    private javax.swing.JTable Tbl_Info;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }

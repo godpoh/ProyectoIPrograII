@@ -406,6 +406,70 @@ public class Connection_SQL {
 
     }
 
+    public static ResultSet get_Team_Position_Table(int Tournament_Id) throws SQLException {
+        Statement sql = Connection_SQL.getConnection().createStatement();
+
+        String qry = "SELECT "
+                + "T.Team_Name AS Equipo, "
+                + "T.Team_ID AS Id_Equipo, "
+                + "SUM(CASE "
+                + "WHEN M.Home_Team_Id = T.Team_ID THEN M.Home_Points "
+                + "WHEN M.Away_Team_Id = T.Team_ID THEN M.Away_Points "
+                + "ELSE 0 END) AS Total_Puntos "
+                + "FROM Team T "
+                + "LEFT JOIN Match M ON (T.Team_ID = M.Home_Team_Id OR T.Team_ID = M.Away_Team_Id) "
+                + "WHERE M.Tournament_ID = " + Tournament_Id + " "
+                + "GROUP BY T.Team_Name, T.Team_ID "
+                + "ORDER BY Total_Puntos DESC";
+
+        ResultSet rs = sql.executeQuery(qry);
+        return rs;
+    }
+
+    public static ResultSet getScorer_Record(int Tournament_Id) throws SQLException {
+        Statement sql = Connection_SQL.getConnection().createStatement();
+
+        String query = "SELECT "
+                + "P.ID AS Id_Jugador, "
+                + "P.First_Name AS Nombre, "
+                + "P.Last_Name1 AS Primer_Apellido, "
+                + "T.Team_Name AS Nombre_Equipo, "
+                + "COUNT(S.Id) AS Total_Goles "
+                + "FROM DetMatch DM "
+                + "JOIN Player P ON DM.Player_Id = P.ID "
+                + "JOIN Team T ON P.Team_Id = T.Team_ID "
+                + "JOIN Match M ON DM.Match_Id = M.Match_ID "
+                + "JOIN Sanctions S ON DM.Sanction_Id = S.Id "
+                + "WHERE S.Name = 'GOL' AND M.Tournament_ID = " + Tournament_Id + " "
+                + "GROUP BY P.ID, P.First_Name, P.Last_Name1, T.Team_Name "
+                + "ORDER BY Total_Goles DESC";
+
+        ResultSet rs = sql.executeQuery(query);
+        return rs;
+    }
+
+    public static ResultSet getSanctions_By_Tournament(int Tournament_Id) throws SQLException {
+        Statement sql = Connection_SQL.getConnection().createStatement();
+
+        String query = "SELECT "
+                + "P.ID AS Id_Jugador, "
+                + "P.First_Name AS Nombre, "
+                + "P.Last_Name1 AS Primer_Apellido, "
+                + "S.Name AS Nombre_Sancion, "
+                + "S.Amount AS Monto_Sancion, "
+                + "T.Team_Name AS Nombre_Equipo, "
+                + "DM.Time AS Tiempo_Sancion "
+                + "FROM DetMatch DM "
+                + "JOIN Player P ON DM.Player_Id = P.ID "
+                + "JOIN Sanctions S ON DM.Sanction_Id = S.Id "
+                + "JOIN Team T ON P.Team_Id = T.Team_ID "
+                + "JOIN Match M ON DM.Match_Id = M.Match_ID "
+                + "WHERE M.Tournament_ID = " + Tournament_Id;
+        
+        ResultSet rs = sql.executeQuery(query);
+        return rs;
+    }
+
     public static List<String> get_Players_Names_By_Team_Id(int Team_Id) throws SQLException {
         List<String> List_Players = new ArrayList<>();
         Statement sql = Connection_SQL.getConnection().createStatement();

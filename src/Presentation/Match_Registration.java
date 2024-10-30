@@ -80,7 +80,6 @@ public class Match_Registration extends javax.swing.JPanel {
         Jcb_Nombre_Equipo = new javax.swing.JComboBox<>();
         jLabel86 = new javax.swing.JLabel();
         Jcb_Nombre_Jugador = new javax.swing.JComboBox<>();
-        jLabel87 = new javax.swing.JLabel();
         jLabel88 = new javax.swing.JLabel();
         jLabel89 = new javax.swing.JLabel();
         Jcb_Sancion = new javax.swing.JComboBox<>();
@@ -88,6 +87,7 @@ public class Match_Registration extends javax.swing.JPanel {
         Spinner_Tiempo = new javax.swing.JSpinner();
         jLabel90 = new javax.swing.JLabel();
         Btn_Cargar_Local_Visitante1 = new javax.swing.JButton();
+        jLabel92 = new javax.swing.JLabel();
         Pnl_Ingresar_Datos = new javax.swing.JPanel();
         jLabel75 = new javax.swing.JLabel();
         Jcb_Nombre_Torneo = new javax.swing.JComboBox<>();
@@ -113,6 +113,7 @@ public class Match_Registration extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         Tbl_Consulta = new javax.swing.JTable();
         Btn_Consultar = new javax.swing.JButton();
+        jLabel87 = new javax.swing.JLabel();
         lbl_img = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -143,12 +144,6 @@ public class Match_Registration extends javax.swing.JPanel {
         Jcb_Nombre_Jugador.setForeground(new java.awt.Color(51, 51, 51));
         Jcb_Nombre_Jugador.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione un jugador" }));
         Pnl_Tarjetas.add(Jcb_Nombre_Jugador, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 70, 210, -1));
-
-        jLabel87.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel87.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel87.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel87.setText("Importante: Debe seleccionar un partido en el apartado de arriba");
-        Pnl_Tarjetas.add(jLabel87, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, -1, -1));
 
         jLabel88.setBackground(new java.awt.Color(255, 255, 255));
         jLabel88.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -196,6 +191,12 @@ public class Match_Registration extends javax.swing.JPanel {
             }
         });
         Pnl_Tarjetas.add(Btn_Cargar_Local_Visitante1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 140, 50));
+
+        jLabel92.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel92.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel92.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel92.setText("Importante: Debe seleccionar un partido en el apartado de arriba");
+        Pnl_Tarjetas.add(jLabel92, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, -1, -1));
 
         add(Pnl_Tarjetas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, 810, 120));
 
@@ -343,7 +344,13 @@ public class Match_Registration extends javax.swing.JPanel {
                 Btn_ConsultarActionPerformed(evt);
             }
         });
-        add(Btn_Consultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 650, 130, 30));
+        add(Btn_Consultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 650, 130, 30));
+
+        jLabel87.setBackground(new java.awt.Color(255, 255, 255));
+        jLabel87.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel87.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel87.setText("Importante: Para consultar debe de seleccionar un torneo");
+        add(jLabel87, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 660, -1, -1));
 
         lbl_img.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/abstract-textured-backgound.jpg"))); // NOI18N
         lbl_img.setText("jLabel1");
@@ -546,6 +553,7 @@ public class Match_Registration extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel89;
     private javax.swing.JLabel jLabel90;
     private javax.swing.JLabel jLabel91;
+    private javax.swing.JLabel jLabel92;
     private javax.swing.JLabel jLabel95;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbl_img;
